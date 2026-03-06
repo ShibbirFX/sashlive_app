@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SashLive</string>
+    <string name="facebook_app_id">14676400601</string>
+    <string name="facebook_client_token">da39a3ee5e6b4b0d3255bfef95601890</string>
+    <string name="fb_login_protocol_scheme">fb14676400601</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+</resources>
