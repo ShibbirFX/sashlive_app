@@ -303,7 +303,7 @@ class _CreateTextStoryScreenState extends State<CreateTextStoryScreen> {
                           hintText: "story.type_story".tr(),
                           border: InputBorder.none,
                           hintStyle: GoogleFonts.nunito(
-                            color: textColor.withOpacity(0.4),
+                            color: textColor.withValues(alpha: 0.4),
                             fontSize: 40,
                           ),
                         ),

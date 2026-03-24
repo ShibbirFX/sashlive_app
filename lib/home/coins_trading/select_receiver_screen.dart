@@ -91,9 +91,9 @@ class _SelectReceiverState extends State<SelectReceiver> {
   }
 
   Widget showUserList() {
-    if(showSearchList) {
+    if (showSearchList) {
       return showUserFromSearch();
-    }else {
+    } else {
       return recentReceivers();
     }
   }
@@ -103,9 +103,9 @@ class _SelectReceiverState extends State<SelectReceiver> {
     return ContainerCorner(
       marginLeft: 10,
       borderRadius: 50,
-      color: isDark ? kContentDarkShadow : kGrayColor.withOpacity(0.05),
+      color: isDark ? kContentDarkShadow : kGrayColor.withValues(alpha: 0.05),
       child: ContainerCorner(
-        color: isDark ? kContentDarkShadow : kGrayColor.withOpacity(0.05),
+        color: isDark ? kContentDarkShadow : kGrayColor.withValues(alpha: 0.05),
         borderRadius: 50,
         child: TextFormField(
           textAlign: TextAlign.center,
@@ -140,8 +140,9 @@ class _SelectReceiverState extends State<SelectReceiver> {
     Size size = MediaQuery.of(context).size;
 
     QueryBuilder<UserModel> queryBuilder =
-    QueryBuilder<UserModel>(UserModel.forQuery());
-    queryBuilder.whereContainedIn(UserModel.keyObjectId, widget.currentUser!.getTradingCoinsReceivers!);
+        QueryBuilder<UserModel>(UserModel.forQuery());
+    queryBuilder.whereContainedIn(
+        UserModel.keyObjectId, widget.currentUser!.getTradingCoinsReceivers!);
 
     queryBuilder.whereNotEqualTo(
         UserModel.keyObjectId, widget.currentUser!.objectId);

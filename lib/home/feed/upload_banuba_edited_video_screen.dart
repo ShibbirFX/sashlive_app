@@ -54,7 +54,8 @@ class _UploadBanubaEditedVideoScreenState
   prepareVideo() async {
     DateTime date = DateTime.now();
 
-    parseVideoThumbnailFile = await ParseFile(widget.thumbNailFile, name: "thumbnail.jpg");
+    parseVideoThumbnailFile =
+        await ParseFile(widget.thumbNailFile, name: "thumbnail.jpg");
 
     if (widget.videoFile!.absolute.path.isNotEmpty) {
       parseVideoFile = await ParseFile(File(widget.videoFile!.absolute.path),
@@ -70,7 +71,6 @@ class _UploadBanubaEditedVideoScreenState
     prepareVideo();
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -186,11 +186,12 @@ class _UploadBanubaEditedVideoScreenState
                                     borderWidth: 0,
                                     marginRight: 7,
                                     marginBottom: 7,
-                                    color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withValues(alpha: 0.5),
                                     child: Center(
                                       child: Icon(
                                         Icons.play_circle_outline,
-                                        color: Colors.white.withOpacity(0.4),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.4),
                                         size: size.width / 8,
                                       ),
                                     ),
@@ -331,7 +332,7 @@ class _UploadBanubaEditedVideoScreenState
     );
 
     return ContainerCorner(
-      color: Colors.black.withOpacity(0.01),
+      color: Colors.black.withValues(alpha: 0.01),
       child: DraggableScrollableSheet(
         initialChildSize: 0.9,
         minChildSize: 0.1,

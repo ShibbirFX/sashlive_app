@@ -225,7 +225,7 @@ class _HostRulesScreenState extends State<HostRulesScreen> {
                                 children: [
                                   Image.asset(imagesNotCompliant[index]),
                                   ContainerCorner(
-                                    color: Colors.white.withOpacity(0.2),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                     borderRadius: 4,
                                     marginTop: 5,
                                     height: 18,

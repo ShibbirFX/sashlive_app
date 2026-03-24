@@ -610,7 +610,7 @@ class _MessagesListScreenState extends State<MessagesListScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.3,
           minChildSize: 0.1,
@@ -621,7 +621,7 @@ class _MessagesListScreenState extends State<MessagesListScreen> {
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
                 color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                    isDarkMode ? Colors.black : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -676,7 +676,7 @@ class _MessagesListScreenState extends State<MessagesListScreen> {
             visible: index < (settingsTitles.length - 2),
             child: ContainerCorner(
               height: 0.5,
-              color: kGrayColor.withOpacity(0.5),
+              color: kGrayColor.withValues(alpha: 0.5),
               width: size.width,
             ))
       ],

@@ -85,8 +85,8 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
                           fontWeight: FontWeight.w500,
                           marginTop: 15,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                         TextWithTap(
                           "invitation_report.add_time".tr(),
@@ -95,8 +95,8 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
                           fontWeight: FontWeight.w500,
                           marginTop: 15,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                         TextWithTap(
                           "invitation_report.status_".tr(),
@@ -105,8 +105,8 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
                           fontWeight: FontWeight.w500,
                           marginTop: 15,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                       ]),
                 ],
@@ -120,7 +120,7 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
         Visibility(
           visible: showTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -254,8 +254,8 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
                     fontWeight: FontWeight.w500,
                     marginTop: 15,
                     color: isDark
-                        ? Colors.white.withOpacity(0.7)
-                        : Colors.black.withOpacity(0.7),
+                        ? Colors.white.withValues(alpha: 0.7)
+                        : Colors.black.withValues(alpha: 0.7),
                   ),
                   TextWithTap(
                     invitationSent.getInvitationStatus!,
@@ -264,8 +264,8 @@ class _InvitationReportScreenState extends State<InvitationReportScreen> {
                     fontWeight: FontWeight.w500,
                     marginTop: 15,
                     color: isDark
-                        ? Colors.white.withOpacity(0.7)
-                        : Colors.black.withOpacity(0.7),
+                        ? Colors.white.withValues(alpha: 0.7)
+                        : Colors.black.withValues(alpha: 0.7),
                   ),
                 ],
               ),

@@ -553,8 +553,8 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                     borderWidth: 0,
                     borderRadius: 10,
                     color: isDarkMode
-                        ? Colors.white.withOpacity(0.9)
-                        : Colors.black.withOpacity(0.7),
+                        ? Colors.white.withValues(alpha: 0.9)
+                        : Colors.black.withValues(alpha: 0.7),
                     width: 180,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -938,7 +938,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
           children: [
             TextWithTap(chatMessage.getAuthor!.getUsername!,
               color: kPrimaryColor
-                  .withOpacity(0.9),
+                  .withValues(alpha: 0.9),
               fontWeight: FontWeight.bold,
             ),
             const SizedBox(
@@ -1309,7 +1309,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
           children: [
             TextWithTap(
               "message_screen.you_".tr(),
-              color: kPrimaryColor.withOpacity(0.9),
+              color: kPrimaryColor.withValues(alpha: 0.9),
               fontWeight: FontWeight.bold,
             ),
             TextWithTap(
@@ -1456,8 +1456,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                                     : "sending_"
                                     .tr(),
                                 color: Colors.white
-                                    .withOpacity(
-                                    0.7),
+                                    .withValues(alpha: 0.5),
                                 fontSize: 10,
                                 marginRight: 10,
                                 marginLeft: 10,
@@ -1587,7 +1586,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                               ? QuickHelp.getMessageTime(chatMessage.createdAt!,
                               time: true)
                               : "sending_".tr(),
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                           fontSize: 12,
                           marginRight: 10,
                           marginLeft: 10,
@@ -1667,7 +1666,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                 icon: SvgPicture.asset(
                   toggleVoiceKeyboardButton,
                   color:
-                  isDarkMode ? Colors.white : Colors.black.withOpacity(0.7),
+                  isDarkMode ? Colors.white : Colors.black.withValues(alpha: 0.7),
                   height: 25,
                   width: 25,
                 ),
@@ -1700,7 +1699,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                       borderWidth: 0,
                       borderRadius: 50,
                       height: 35,
-                      color: kGrayColor.withOpacity(0.2),
+                      color: kGrayColor.withValues(alpha: 0.2),
                       child: Center(
                         child: TextWithTap(
                           micButtonCaption,
@@ -1720,7 +1719,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
                     borderWidth: 0,
                     borderRadius: 50,
                     height: 35,
-                    color: kGrayColor.withOpacity(0.1),
+                    color: kGrayColor.withValues(alpha: 0.1),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: TextField(
@@ -2154,7 +2153,7 @@ class _OfficialServicesScreenState extends State<OfficialServicesScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),

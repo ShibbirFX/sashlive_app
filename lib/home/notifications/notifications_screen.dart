@@ -41,9 +41,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     super.initState();
   }
 
-  getAllMessages() async{
+  getAllMessages() async {
     QueryBuilder<NotificationsModel> queryBuilder =
-    QueryBuilder<NotificationsModel>(NotificationsModel());
+        QueryBuilder<NotificationsModel>(NotificationsModel());
     queryBuilder.whereEqualTo(
         NotificationsModel.keyReceiver, widget.currentUser!);
     queryBuilder.orderByDescending(NotificationsModel.keyCreatedAt);
@@ -72,10 +72,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         }
       }
     }
-
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +143,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     snapshot.loadedData! as NotificationsModel;
 
                 return ButtonWidget(
-                  color: notifications.isRead! ? kTransparentColor : kPrimaryColor.withOpacity(0.07),
+                  color: notifications.isRead!
+                      ? kTransparentColor
+                      : kPrimaryColor.withValues(alpha: 0.07),
                   marginBottom: 3,
                   borderRadius: BorderRadius.circular(10),
                   onTap: () {
@@ -167,8 +166,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
                     if (type == NotificationsModel.notificationTypeFollowers) {
                       QuickActions.showUserProfile(
-                          context, widget.currentUser!,
-                          user,
+                        context,
+                        widget.currentUser!,
+                        user,
                       );
                     } else if (type ==
                         NotificationsModel.notificationTypeCommentPost) {
@@ -178,18 +178,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
                       if (post.isVideo!) {
                         QuickHelp.goToNavigatorScreen(
-                            context,
-                            ReelsSingleScreen(
-                              currentUser: widget.currentUser,
-                              post: post,
-                            ),
+                          context,
+                          ReelsSingleScreen(
+                            currentUser: widget.currentUser,
+                            post: post,
+                          ),
                         );
                       } else {
                         QuickHelp.goToNavigatorScreen(
-                          context, CommentPostScreen(
-                          currentUser: widget.currentUser,
-                          post: post,
-                        ),
+                          context,
+                          CommentPostScreen(
+                            currentUser: widget.currentUser,
+                            post: post,
+                          ),
                         );
                       }
                     } else if (type ==
@@ -222,10 +223,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                             ));
                       } else {
                         QuickHelp.goToNavigatorScreen(
-                            context, CommentPostScreen(
-                          currentUser: widget.currentUser,
-                          post: post,
-                        ),
+                          context,
+                          CommentPostScreen(
+                            currentUser: widget.currentUser,
+                            post: post,
+                          ),
                         );
                       }
                     } else if (type ==
@@ -242,7 +244,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 10, right: 10),
+                              padding:
+                                  const EdgeInsets.only(bottom: 10, right: 10),
                               child: Stack(
                                 alignment: AlignmentDirectional.center,
                                 children: [
@@ -258,21 +261,29 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                       notifications.getAuthor!,
                                     ),
                                   ),
-                                  if(notifications.getAuthor!.getAvatarFrame != null && notifications.getAuthor!.getCanUseAvatarFrame!)
-                                  ContainerCorner(
-                                    borderWidth: 0,
-                                    width: 65,
-                                    height: 65,
-                                    child: CachedNetworkImage(
-                                      imageUrl: notifications.getAuthor!.getAvatarFrame!.url!,
-                                      imageBuilder: (context, imageProvider) => Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(image: imageProvider, fit: BoxFit.fill),
+                                  if (notifications.getAuthor!.getAvatarFrame !=
+                                          null &&
+                                      notifications
+                                          .getAuthor!.getCanUseAvatarFrame!)
+                                    ContainerCorner(
+                                      borderWidth: 0,
+                                      width: 65,
+                                      height: 65,
+                                      child: CachedNetworkImage(
+                                        imageUrl: notifications
+                                            .getAuthor!.getAvatarFrame!.url!,
+                                        imageBuilder:
+                                            (context, imageProvider) =>
+                                                Container(
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.fill),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                 ],
                               ),
                             ),
@@ -319,7 +330,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         ));
   }
 
-  deleteInteractiveMessages() async{
+  deleteInteractiveMessages() async {
     for (NotificationsModel message in messages) {
       await message.delete();
     }
@@ -346,7 +357,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   marginBottom: 30,
                   fontSize: 16,
                 ),
-                ContainerCorner(width: size.width, height: 0.4, color: kGrayColor,),
+                ContainerCorner(
+                  width: size.width,
+                  height: 0.4,
+                  color: kGrayColor,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -355,7 +370,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                       onTap: () => QuickHelp.goBackToPreviousPage(context),
                       child: TextWithTap("no".tr()),
                     ),
-                    ContainerCorner(width: 0.5, height: 20, color: kGrayColor,),
+                    ContainerCorner(
+                      width: 0.5,
+                      height: 20,
+                      color: kGrayColor,
+                    ),
                     ButtonWidget(
                       marginRight: 25,
                       onTap: () {
@@ -507,7 +526,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             height: 60,
             width: 60,
             borderRadius: 8,
-            color: Colors.black.withOpacity(0.4),
+            color: Colors.black.withValues(alpha: 0.4),
             child: Lottie.asset("assets/lotties/ic_live_animation.json"),
           ),
         ],
@@ -534,7 +553,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               height: 60,
               width: 60,
               borderRadius: 8,
-              color: Colors.black.withOpacity(0.4),
+              color: Colors.black.withValues(alpha: 0.4),
               child: Icon(
                 Icons.play_circle,
                 color: Colors.white,

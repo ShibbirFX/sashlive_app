@@ -275,11 +275,11 @@ class DefaultVideoInfoWidget extends StatelessWidget {
 
                 //openComments(context, currentUser!, postModel!);
                 QuickHelp.goToNavigatorScreen(
-                    context,
-                    VideoReelsCommentScreen(
-                      currentUser: currentUser,
-                      post: postModel,
-                    ),
+                  context,
+                  VideoReelsCommentScreen(
+                    currentUser: currentUser,
+                    post: postModel,
+                  ),
                 );
 
                 return Future.value(false);
@@ -385,7 +385,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
 
   /// Show user name and the time video uploaded
 
-  goToProfile(BuildContext context, {UserModel? author}){
+  goToProfile(BuildContext context, {UserModel? author}) {
     if (author!.objectId == currentUser!.objectId!) {
       QuickHelp.goToNavigatorScreen(
         context,
@@ -410,7 +410,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-          onTap: ()=> goToProfile(context, author: postModel!.getAuthor!),
+          onTap: () => goToProfile(context, author: postModel!.getAuthor!),
           child: QuickActions.avatarWidget(
             postModel!.getAuthor!,
             width: 45,
@@ -425,7 +425,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
             TextWithTap(
               postModel!.getAuthor!.getFullName!,
               fontWeight: FontWeight.bold,
-              color: Colors.white.withOpacity(1.0),
+              color: Colors.white.withValues(alpha: 1.0),
               fontSize: 15,
               marginLeft: 3,
             ),
@@ -495,8 +495,12 @@ class DefaultVideoInfoWidget extends StatelessWidget {
                   //marginLeft: 10,
                   //marginRight: 6,
                   colors: [
-                    isLiked ? Colors.black.withOpacity(0.4) : kPrimaryColor,
-                    isLiked ? Colors.black.withOpacity(0.4) : kPrimaryColor
+                    isLiked
+                        ? Colors.black.withValues(alpha: 0.4)
+                        : kPrimaryColor,
+                    isLiked
+                        ? Colors.black.withValues(alpha: 0.4)
+                        : kPrimaryColor
                   ],
                   child: ContainerCorner(
                       color: kTransparentColor,
@@ -571,7 +575,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
       {PostsModel? post}) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -805,7 +809,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -1053,8 +1057,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
     await currentUser!.save();
 
     ParseResponse parseResponse = await QuickCloudCode.followUser(
-        author: currentUser!,
-        receiver: postModel!.getAuthor!);
+        author: currentUser!, receiver: postModel!.getAuthor!);
 
     if (parseResponse.success) {
       QuickActions.createOrDeleteNotification(currentUser!,
@@ -1204,8 +1207,7 @@ class DefaultVideoInfoWidget extends StatelessWidget {
           CommentsModel comment = snapshot.loadedData!;
 
           return GestureDetector(
-            onTap: (){
-
+            onTap: () {
               if (FocusScope.of(context).hasFocus) {
                 FocusScope.of(context).unfocus();
               }

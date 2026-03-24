@@ -20,7 +20,7 @@ extension ColorExtension on Color {
   ///
   /// Out of range values will have unexpected effects.
   Color withRelativeOpacity(double opacity) {
-    return withOpacity(this.opacity * opacity);
+    return withValues(alpha: this.a * opacity);
   }
 
   Color toComplementary() {
@@ -48,8 +48,8 @@ extension ColorExtension on Color {
   ///  - false: #RRGGBB
   String toHex({bool hashSing = true, bool alphaValue = false}) =>
       '${hashSing ? '#' : ''}'
-      '${alphaValue ? alpha.toRadixString(16).padLeft(2, '0') : ''}'
-      '${red.toRadixString(16).padLeft(2, '0')}'
-      '${green.toRadixString(16).padLeft(2, '0')}'
-      '${blue.toRadixString(16).padLeft(2, '0')}';
+      '${alphaValue ? ((a * 255.0).round().clamp(0, 255)).toRadixString(16).padLeft(2, '0') : ''}'
+      '${((r * 255.0).round().clamp(0, 255)).toRadixString(16).padLeft(2, '0')}'
+      '${((g * 255.0).round().clamp(0, 255)).toRadixString(16).padLeft(2, '0')}'
+      '${((b * 255.0).round().clamp(0, 255)).toRadixString(16).padLeft(2, '0')}';
 }

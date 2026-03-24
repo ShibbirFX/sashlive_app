@@ -16,7 +16,7 @@ class ZegoSwitchCameraButton extends StatelessWidget {
           child: Container(
             width: 96,
             height: 96,
-            decoration: BoxDecoration(color: const Color(0xff2C2F3E).withOpacity(0.6), shape: BoxShape.circle),
+            decoration: BoxDecoration(color: const Color(0xff2C2F3E).withValues(alpha: 0.6), shape: BoxShape.circle),
             child: const SizedBox(
               width: 56,
               height: 56,

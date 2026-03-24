@@ -300,7 +300,7 @@ class _EditTextPostScreenState extends State<EditTextPostScreen> {
                           hintText: "post_chooser_screen.type_moment".tr(),
                           border: InputBorder.none,
                           hintStyle: GoogleFonts.nunito(
-                            color: textColor.withOpacity(0.4),
+                            color: textColor.withValues(alpha: 0.4),
                             fontSize: 40,
                           ),
                         ),

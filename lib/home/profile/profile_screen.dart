@@ -370,8 +370,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                                           ContainerCorner(
                                             height: 30,
                                             borderRadius: 50,
-                                            color:
-                                                Colors.black.withOpacity(0.2),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.2),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
@@ -640,7 +640,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         Visibility(
           visible: showTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -686,8 +686,8 @@ class _ProfileScreenState extends State<ProfileScreen>
           color: isLiked
               ? kPrimaryColor
               : isDark
-              ? Colors.white
-              : kContentColorLightTheme,
+                  ? Colors.white
+                  : kContentColorLightTheme,
           size: 20,
         );
       },
@@ -746,7 +746,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           ),
           ContainerCorner(
             borderWidth: 0,
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             width: double.infinity,
             height: double.infinity,
           ),
@@ -761,7 +761,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             child: CarouselView(
               controller: _controller,
               itemExtent: double.infinity,
-              children: List.generate(userPictures.length, (index){
+              children: List.generate(userPictures.length, (index) {
                 return Stack(
                   alignment: AlignmentDirectional.bottomEnd,
                   children: [
@@ -776,7 +776,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                     ),
                     ContainerCorner(
                       borderWidth: 0,
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       width: double.infinity,
                       height: double.infinity,
                     ),
@@ -796,10 +796,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                   marginRight: 2,
                   borderRadius: 8,
                   borderWidth: 0,
-                  onTap: () => _controller.jumpTo(entry.key+0.0),
+                  onTap: () => _controller.jumpTo(entry.key + 0.0),
                   color: _current == entry.key
                       ? kWarninngColor
-                      : kWarninngColor.withOpacity(0.3),
+                      : kWarninngColor.withValues(alpha: 0.3),
                 );
               }).toList(),
             ),
@@ -836,7 +836,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           return ContainerCorner(
             height: double.infinity,
             width: double.infinity,
-            color: kPrimaryColor.withOpacity(0.1),
+            color: kPrimaryColor.withValues(alpha: 0.1),
             borderWidth: 0,
             borderRadius: 8,
             child: Column(
@@ -859,7 +859,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                   ),
                 ),
                 QuickActions.photosWidget(
-                    gift.getGift!.getFile!.url!,
+                  gift.getGift!.getFile!.url!,
                   width: 60,
                   height: 60,
                 ),
@@ -959,7 +959,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 borderRadius: 10,
                 color: Colors.white,
                 shadowColor: kRoseVip,
-                borderColor: kRoseVip.withOpacity(0.3),
+                borderColor: kRoseVip.withValues(alpha: 0.3),
                 borderWidth: 2,
                 shadowColorOpacity: 0.3,
                 setShadowToBottom: true,
@@ -1067,7 +1067,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 marginLeft: 5,
                 color: Colors.white,
                 shadowColor: kPrimaryColor,
-                borderColor: kPrimaryColor.withOpacity(0.3),
+                borderColor: kPrimaryColor.withValues(alpha: 0.3),
                 borderWidth: 2,
                 shadowColorOpacity: 0.3,
                 setShadowToBottom: true,
@@ -1123,7 +1123,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         ),
         ContainerCorner(
           borderRadius: 10,
-          color: kGrayPro.withOpacity(0.1),
+          color: kGrayPro.withValues(alpha: 0.1),
           marginLeft: 10,
           marginRight: 15,
           marginTop: 15,
@@ -1627,8 +1627,8 @@ class _ProfileScreenState extends State<ProfileScreen>
       ParseResponse saved = await widget.currentUser!.save();
       if (saved.success) {
         QuickCloudCode.sendGift(
-            author: post.getAuthor!,
-            credits: post.getPaidAmount!,
+          author: post.getAuthor!,
+          credits: post.getPaidAmount!,
         );
 
         widget.currentUser = saved.results!.first! as UserModel;
@@ -1668,7 +1668,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget _showPostOptionsAndReportAuthor(UserModel author, PostsModel post) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1939,7 +1939,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 32,
-            color: Color(0xFF087949).withOpacity(0.08),
+            color: Color(0xFF087949).withValues(alpha: 0.08),
           ),
         ],
       ),
@@ -1951,7 +1951,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 horizontal: 20 * 0.75,
               ),
               decoration: BoxDecoration(
-                color: kPrimaryColor.withOpacity(0.05),
+                color: kPrimaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -2069,7 +2069,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,
@@ -2299,7 +2299,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -2376,7 +2376,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                               },
                             ),
                             marginLeft: 10,
-                            color: kGrayColor.withOpacity(0.7),
+                            color: kGrayColor.withValues(alpha: 0.7),
                             fontSize: 7,
                             alignment: Alignment.center,
                           ),
@@ -2424,8 +2424,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                                             currentUser: widget.currentUser,
                                           ));
                                     } else {
-                                      QuickActions.showUserProfile(context,
-                                          widget.currentUser!, post.getAuthor!,
+                                      QuickActions.showUserProfile(
+                                        context,
+                                        widget.currentUser!,
+                                        post.getAuthor!,
                                       );
                                     }
                                   }),
@@ -2547,8 +2549,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                                             width: 40,
                                             borderRadius: 50,
                                             borderWidth: 0,
-                                            color:
-                                                Colors.black.withOpacity(0.7),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.7),
                                             child: Center(
                                                 child: Icon(
                                               Icons.play_circle_outline,
@@ -2572,7 +2574,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                                           "assets/images/blurred_image.jpg"),
                                     ),
                                     ContainerCorner(
-                                      color: Colors.white.withOpacity(0.5),
+                                      color:
+                                          Colors.white.withValues(alpha: 0.5),
                                       borderRadius: 20,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -2657,16 +2660,21 @@ class _ProfileScreenState extends State<ProfileScreen>
                                       marginTop: 10,
                                       onTap: () async {
                                         String linkToShare =
-                                        await DeepLinksService.createLink(
-                                          branchObject: DeepLinksService.branchObject(
-                                            shareAction: DeepLinksService.keyPostShare,
+                                            await DeepLinksService.createLink(
+                                          branchObject:
+                                              DeepLinksService.branchObject(
+                                            shareAction:
+                                                DeepLinksService.keyPostShare,
                                             objectID: post.objectId!,
-                                            imageURL: QuickHelp.getImageToShare(post) ,
-                                            title: QuickHelp.getTitleToShare(post),
-                                            description: post.getAuthor!.getFullName,
+                                            imageURL:
+                                                QuickHelp.getImageToShare(post),
+                                            title:
+                                                QuickHelp.getTitleToShare(post),
+                                            description:
+                                                post.getAuthor!.getFullName,
                                           ),
                                           branchProperties:
-                                          DeepLinksService.linkProperties(
+                                              DeepLinksService.linkProperties(
                                             channel: "link",
                                           ),
                                           context: context,
@@ -2863,9 +2871,10 @@ class _ProfileScreenState extends State<ProfileScreen>
       );
     } else {
       QuickHelp.goToNavigatorScreen(
-          context, LivePreviewScreen(
-          currentUser: widget.currentUser!,
-      ));
+          context,
+          LivePreviewScreen(
+            currentUser: widget.currentUser!,
+          ));
     }
   }
 
@@ -2896,7 +2905,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -3083,7 +3092,8 @@ class _ProfileScreenState extends State<ProfileScreen>
 
     ParseResponse parseResponse;
     parseResponse = await QuickCloudCode.followUser(
-        author: widget.currentUser!, receiver: mUser,
+      author: widget.currentUser!,
+      receiver: mUser,
     );
 
     if (parseResponse.success) {
@@ -3127,7 +3137,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -3187,7 +3197,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                                         Padding(
                                                           padding:
                                                               const EdgeInsets
-                                                                      .only(
+                                                                  .only(
                                                                   left: 5),
                                                           child: Image.asset(
                                                             "assets/images/tab_fst_no_level.png",
@@ -3215,7 +3225,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                                   ),
                                                   ContainerCorner(
                                                     color: kPrimaryColor
-                                                        .withOpacity(0.2),
+                                                        .withValues(alpha: 0.2),
                                                     borderRadius: 4,
                                                     marginLeft: 4,
                                                     onTap: () =>
@@ -3264,7 +3274,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                 ),
                               ),
                               ContainerCorner(
-                                color: kGrayColor.withOpacity(0.1),
+                                color: kGrayColor.withValues(alpha: 0.1),
                                 borderRadius: 10,
                                 borderWidth: 0,
                                 marginLeft: 15,
@@ -3395,7 +3405,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                               maxValue: maxTaskValue[index] + 0.0,
                               changeColorValue: 0,
                               changeProgressColor: kPrimaryColor,
-                              backgroundColor: kGrayColor.withOpacity(0.1),
+                              backgroundColor:
+                                  kGrayColor.withValues(alpha: 0.1),
                               progressColor: Colors.lightBlue,
                               animatedDuration: const Duration(seconds: 2),
                               direction: Axis.horizontal,
@@ -3465,7 +3476,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             marginTop: 15,
           ),
           ContainerCorner(
-            color: kGrayColor.withOpacity(0.1),
+            color: kGrayColor.withValues(alpha: 0.1),
             borderRadius: 10,
             borderWidth: 0,
             marginLeft: 15,
@@ -3695,7 +3706,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                       height: 15,
                     ),
                     ContainerCorner(
-                      color: kGrayColor.withOpacity(0.2),
+                      color: kGrayColor.withValues(alpha: 0.2),
                       borderWidth: 0.3,
                       borderColor: kGrayColor,
                       borderRadius: 4,

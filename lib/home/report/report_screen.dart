@@ -27,8 +27,7 @@ class ReportScreen extends StatefulWidget {
 
   UserModel? currentUser, userToReport;
 
-  ReportScreen(
-      {this.currentUser, this.userToReport, Key? key})
+  ReportScreen({this.currentUser, this.userToReport, Key? key})
       : super(key: key);
 
   @override
@@ -124,7 +123,7 @@ class _ReportScreenState extends State<ReportScreen> {
           children: [
             ContainerCorner(
               width: size.width,
-              color: Colors.orange.withOpacity(0.2),
+              color: Colors.orange.withValues(alpha: 0.2),
               marginBottom: 20,
               child: Row(
                 children: [
@@ -257,7 +256,7 @@ class _ReportScreenState extends State<ReportScreen> {
                         color: catSelected
                             ? kPrimaryColor
                             : isDarkMode
-                                ? Colors.white.withOpacity(0.2)
+                                ? Colors.white.withValues(alpha: 0.2)
                                 : kGrayLight,
                         borderRadius: 50,
                         marginTop: 10,
@@ -302,7 +301,8 @@ class _ReportScreenState extends State<ReportScreen> {
               marginRight: 15,
               borderRadius: 8,
               borderColor: showBorderError ? Colors.red : kTransparentColor,
-              color: isDarkMode ? Colors.white.withOpacity(0.2) : kGrayLight,
+              color:
+                  isDarkMode ? Colors.white.withValues(alpha: 0.2) : kGrayLight,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Form(
@@ -375,7 +375,7 @@ class _ReportScreenState extends State<ReportScreen> {
                               width: 23,
                               marginTop: 4,
                               marginRight: 10,
-                              color: Colors.black.withOpacity(0.5),
+                              color: Colors.black.withValues(alpha: 0.5),
                               onTap: () {
                                 setState(() {
                                   selectedPictures.removeAt(index);
@@ -433,11 +433,12 @@ class _ReportScreenState extends State<ReportScreen> {
                                   borderWidth: 0,
                                   marginRight: 7,
                                   marginBottom: 7,
-                                  color: Colors.black.withOpacity(0.5),
+                                  color: Colors.black.withValues(alpha: 0.5),
                                   child: Center(
                                     child: Icon(
                                       Icons.play_circle_outline,
-                                      color: Colors.white.withOpacity(0.4),
+                                      color:
+                                          Colors.white.withValues(alpha: 0.4),
                                       size: size.width / 8,
                                     ),
                                   ),
@@ -546,7 +547,7 @@ class _ReportScreenState extends State<ReportScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.27,
           minChildSize: 0.1,
@@ -556,8 +557,9 @@ class _ReportScreenState extends State<ReportScreen> {
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -620,7 +622,7 @@ class _ReportScreenState extends State<ReportScreen> {
           visible: index < (settingsTitles.length - 2),
           child: ContainerCorner(
             height: 0.5,
-            color: kGrayColor.withOpacity(0.5),
+            color: kGrayColor.withValues(alpha: 0.5),
             width: size.width,
           ),
         ),
@@ -679,13 +681,12 @@ class _ReportScreenState extends State<ReportScreen> {
     });
 
     if (selectedVideos[0].absolute.path.isNotEmpty) {
-      parseVideoFile =  await ParseFile(File(videoFile!.absolute.path),
+      parseVideoFile = await ParseFile(File(videoFile!.absolute.path),
           name: "video_${date.second}_${date.millisecond}.mp4");
     } else {
       parseVideoFile = await ParseWebFile(videoFile!.readAsBytesSync(),
           name: "video_${date.second}_${date.millisecond}.pm4");
     }
-
   }
 
   Future<void> checkPermission(bool selectVideo) async {
@@ -876,19 +877,19 @@ class _ReportScreenState extends State<ReportScreen> {
           captionTextEditing.text = "";
         });
         QuickHelp.goToNavigatorScreen(
-            context,
-            ContactCustomerServiceScreen(
-              reportModel: crestedReport,
-              currentUser: widget.currentUser,
-            ),
+          context,
+          ContactCustomerServiceScreen(
+            reportModel: crestedReport,
+            currentUser: widget.currentUser,
+          ),
         );
       } else {
         QuickHelp.hideLoadingDialog(context);
         QuickHelp.showAppNotificationAdvanced(
-            title: "report_screen.report_failed_title".tr(),
-            context: context,
-            isError: false,
-            message: "report_screen.report_failed_explain".tr(),
+          title: "report_screen.report_failed_title".tr(),
+          context: context,
+          isError: false,
+          message: "report_screen.report_failed_explain".tr(),
         );
       }
     }

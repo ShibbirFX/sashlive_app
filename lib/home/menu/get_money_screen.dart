@@ -908,7 +908,7 @@ class _GetMoneyScreenState extends State<GetMoneyScreen> {
                     return StatefulBuilder(builder: (context, setState) {
                       return Container(
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.5),
+                          color: Colors.black.withValues(alpha: 0.5),
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(25.0),
                             topRight: Radius.circular(25.0),

@@ -83,7 +83,7 @@ class _ContactCustomerServiceScreenState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ContainerCorner(
-                  color: kPrimaryColor.withOpacity(0.1),
+                  color: kPrimaryColor.withValues(alpha: 0.1),
                   radiusBottomLeft: 10,
                   radiusTopLeft: 10,
                   radiusTopRight: 10,
@@ -165,7 +165,7 @@ class _ContactCustomerServiceScreenState
                                 width: 40,
                                 borderRadius: 50,
                                 borderWidth: 0,
-                                color: Colors.black.withOpacity(0.7),
+                                color: Colors.black.withValues(alpha: 0.7),
                                 child: Center(
                                     child: Icon(
                                   Icons.play_circle_outline,
@@ -237,7 +237,7 @@ class _ContactCustomerServiceScreenState
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ContainerCorner(
-                color: kPrimaryColor.withOpacity(0.3),
+                color: kPrimaryColor.withValues(alpha: 0.3),
                 height: 45,
                 borderRadius: 10,
                 width: size.width / 2.3,

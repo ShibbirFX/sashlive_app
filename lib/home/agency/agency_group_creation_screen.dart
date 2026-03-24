@@ -17,14 +17,14 @@ import 'package:sashlive/utils/colors.dart';
 
 import '../../models/AgencyMembersModel.dart';
 
-
 class AgencyGroupCreationScreen extends StatefulWidget {
   UserModel? currentUser;
   static const String route = "/chat/createGroup";
   AgencyGroupCreationScreen({this.currentUser, Key? key}) : super(key: key);
 
   @override
-  State<AgencyGroupCreationScreen> createState() => _AgencyGroupCreationScreenState();
+  State<AgencyGroupCreationScreen> createState() =>
+      _AgencyGroupCreationScreenState();
 }
 
 class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
@@ -106,7 +106,7 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
                     child: ContainerCorner(
-                      //color: Colors.white.withOpacity(0.5),
+                      //color: Colors.white.withValues(alpha: 0.5),
                       height: 120,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +115,7 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                             width: MediaQuery.of(context).size.width,
                             marginTop: 2,
                             marginBottom: 5,
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withValues(alpha: 0.1),
                             child: TextWithTap(
                               "group_creation.selected".tr(),
                               color: QuickHelp.isDarkMode(context)
@@ -130,60 +130,60 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                             child: ListView(
                               controller: _scrollController,
                               scrollDirection: Axis.horizontal,
-                              children: List.generate(selectedUserID.length,
-                                      (index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Stack(
-                                        clipBehavior: Clip.none,
-                                        children: [
-                                          SizedBox(
-                                            child: Column(
-                                              children: [
-                                                QuickActions.avatarWidget(
-                                                  selectedUsers[index],
-                                                  width: 50,
-                                                  height: 50,
-                                                ),
-                                                TextWithTap(
-                                                  selectedUsers[index]
-                                                      .getFirstName!,
-                                                  fontSize: 10,
-                                                  marginTop: 3,
-                                                  color: QuickHelp.isDarkMode(
-                                                      context)
+                              children:
+                                  List.generate(selectedUserID.length, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Stack(
+                                    clipBehavior: Clip.none,
+                                    children: [
+                                      SizedBox(
+                                        child: Column(
+                                          children: [
+                                            QuickActions.avatarWidget(
+                                              selectedUsers[index],
+                                              width: 50,
+                                              height: 50,
+                                            ),
+                                            TextWithTap(
+                                              selectedUsers[index]
+                                                  .getFirstName!,
+                                              fontSize: 10,
+                                              marginTop: 3,
+                                              color:
+                                                  QuickHelp.isDarkMode(context)
                                                       ? Colors.white
                                                       : kContentColorLightTheme,
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Positioned(
-                                            child: IconButton(
-                                              onPressed: () {
-                                                for (int i = 0;
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Positioned(
+                                        child: IconButton(
+                                          onPressed: () {
+                                            for (int i = 0;
                                                 i < selectedUserID.length;
                                                 i++) {
-                                                  if (selectedUsers[index]
+                                              if (selectedUsers[index]
                                                       .objectId! ==
-                                                      selectedUserID[i]) {
-                                                    selectedUserID.removeAt(i);
-                                                    selectedUsers.removeAt(i);
-                                                  }
-                                                }
-                                                setState(() {});
-                                              },
-                                              icon: const Icon(
-                                                Icons.remove,
-                                                color: Colors.red,
-                                                size: 35,
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    );
-                                  }),
+                                                  selectedUserID[i]) {
+                                                selectedUserID.removeAt(i);
+                                                selectedUsers.removeAt(i);
+                                              }
+                                            }
+                                            setState(() {});
+                                          },
+                                          icon: const Icon(
+                                            Icons.remove,
+                                            color: Colors.red,
+                                            size: 35,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              }),
                             ),
                           ),
                         ],
@@ -206,7 +206,7 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
       marginLeft: 10,
       marginRight: 10,
       marginBottom: 10,
-      color: Colors.white.withOpacity(0.1),
+      color: Colors.white.withValues(alpha: 0.1),
       height: 45,
       child: Row(
         children: [
@@ -238,11 +238,11 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                     hintText: "group_creation.search".tr(),
                     prefixIcon: Icon(
                       Icons.search,
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                     ),
                     border: InputBorder.none,
                     hintStyle: GoogleFonts.nunito(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                     ),
                   ),
                 ),
@@ -258,7 +258,7 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
     Size size = MediaQuery.of(context).size;
 
     QueryBuilder<AgencyMembersModel> queryBuilder =
-    QueryBuilder<AgencyMembersModel>(AgencyMembersModel());
+        QueryBuilder<AgencyMembersModel>(AgencyMembersModel());
 
     queryBuilder.whereNotEqualTo(
         AgencyMembersModel.keyAgentId, widget.currentUser!.objectId);
@@ -272,7 +272,8 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
       childBuilder: (BuildContext context,
           ParseLiveListElementSnapshot<AgencyMembersModel> snapshot) {
         if (snapshot.hasData) {
-          AgencyMembersModel agencyMembers = snapshot.loadedData as AgencyMembersModel;
+          AgencyMembersModel agencyMembers =
+              snapshot.loadedData as AgencyMembersModel;
           UserModel user = agencyMembers.getHost!;
           userNames.add(user.getFullName!);
 
@@ -285,7 +286,6 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                   selectedUsers.add(user);
                 }
                 if (selectedUserID.length > 3) {
-
                   WidgetsBinding.instance.addPostFrameCallback((_) async {
                     return await _scrollController.animateTo(
                         _scrollController.position.maxScrollExtent,
@@ -319,12 +319,16 @@ class _AgencyGroupCreationScreenState extends State<AgencyGroupCreationScreen> {
                                 children: [
                                   QuickActions.getGender(
                                       currentUser: user, context: context),
-                                  const SizedBox(width: 5,),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
                                   QuickActions.giftReceivedLevel(
                                     receivedGifts: user.getDiamondsTotal!,
                                     width: 35,
                                   ),
-                                  const SizedBox(width: 5,),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
                                   QuickActions.wealthLevel(
                                     credit: user.getCreditsSent!,
                                     width: 35,

@@ -24,8 +24,7 @@ class GuardianAndVipStoreScreen extends StatefulWidget {
   UserModel? currentUser;
   int? initialIndex;
 
-  GuardianAndVipStoreScreen(
-      {this.initialIndex, this.currentUser, Key? key})
+  GuardianAndVipStoreScreen({this.initialIndex, this.currentUser, Key? key})
       : super(key: key);
 
   @override
@@ -35,7 +34,6 @@ class GuardianAndVipStoreScreen extends StatefulWidget {
 
 class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
     with TickerProviderStateMixin {
-
   final ScrollController memberSystemController = ScrollController();
 
   /* int selectedVipTypeAmount() {
@@ -257,7 +255,7 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
     "guardian_and_vip_screen.bullet_messages".tr(),
     "guardian_and_vip_screen.recommend_".tr(),
   ];
-  
+
   var vipText = [
     "guardian_and_vip_screen.vip_"
         .tr(namedArgs: {"vip_number": "0"}).toUpperCase(),
@@ -341,17 +339,17 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
         getMaxCredit = 100000;
       } else if (changeMaxCredit == 4) {
         getMaxCredit = 200000;
-      }else if (changeMaxCredit == 5) {
+      } else if (changeMaxCredit == 5) {
         getMaxCredit = 500000;
       } else if (changeMaxCredit == 6) {
         getMaxCredit = 1000000;
       } else if (changeMaxCredit == 7) {
         getMaxCredit = 2000000;
-      }else if (changeMaxCredit == 8) {
+      } else if (changeMaxCredit == 8) {
         getMaxCredit = 5000000;
       } else if (changeMaxCredit == 9) {
         getMaxCredit = 10000000;
-      }else if (changeMaxCredit == 10) {
+      } else if (changeMaxCredit == 10) {
         getMaxCredit = 20000000;
       } else {
         getMaxCredit = 10000;
@@ -359,11 +357,12 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
     });
   }
 
-  void rankUpCalc(){
+  void rankUpCalc() {
     setState(() {
-      if( widget.currentUser!.getCredits! <= 20000000){
-        rankUp = getMaxCredit -  widget.currentUser!.getCredits! + 0.0;;
-      }else{
+      if (widget.currentUser!.getCredits! <= 20000000) {
+        rankUp = getMaxCredit - widget.currentUser!.getCredits! + 0.0;
+        ;
+      } else {
         rankUp = 0;
       }
     });
@@ -372,7 +371,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
   void _scrollListener() {
     if (_scrollController.offset >= 85) {
       setState(() {
-        _appBarColor = QuickHelp.isDarkMode(context) ? kContentDarkShadow : Colors.white;
+        _appBarColor =
+            QuickHelp.isDarkMode(context) ? kContentDarkShadow : Colors.white;
       });
     } else {
       setState(() {
@@ -411,7 +411,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
         ),
         Flexible(
           child: Scaffold(
-            backgroundColor: isDark ? kContentColorLightTheme : kDisabledColor100,
+            backgroundColor:
+                isDark ? kContentColorLightTheme : kDisabledColor100,
             extendBodyBehindAppBar: true,
             appBar: PreferredSize(
               preferredSize: Size.fromHeight(35),
@@ -433,9 +434,12 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                 ),
                 actions: [
                   ContainerCorner(
-                    onTap: ()=> QuickHelp.goToNavigatorScreen(context, VipRules(
-                      currentUser: widget.currentUser,
-                    ),),
+                    onTap: () => QuickHelp.goToNavigatorScreen(
+                      context,
+                      VipRules(
+                        currentUser: widget.currentUser,
+                      ),
+                    ),
                     alignment: Alignment.center,
                     borderWidth: 2,
                     borderColor: isDark ? Colors.white : Colors.black,
@@ -470,7 +474,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                     Positioned(
                       top: 85,
                       child: ContainerCorner(
-                        onTap: ()=> QuickHelp.goToNavigatorScreen(context,
+                        onTap: () => QuickHelp.goToNavigatorScreen(
+                          context,
                           VipExpRankinScreen(
                             currentUser: widget.currentUser,
                           ),
@@ -496,7 +501,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                   ),
                                   SizedBox(width: 12),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       TextWithTap(
                                         widget.currentUser!.getFullName!,
@@ -504,10 +510,12 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                         marginBottom: 4,
                                       ),
                                       Visibility(
-                                        visible: !widget.currentUser!.getIsUserVip!,
+                                        visible:
+                                            !widget.currentUser!.getIsUserVip!,
                                         child: TextWithTap(
-                                          "guardian_and_vip_screen.you_arent_vip".tr(),
-                                          color: isDark ? Colors.white: kGray,
+                                          "guardian_and_vip_screen.you_arent_vip"
+                                              .tr(),
+                                          color: isDark ? Colors.white : kGray,
                                           fontSize: 11,
                                         ),
                                       ),
@@ -518,18 +526,22 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                               SizedBox(height: 8),
                               Divider(),
                               Padding(
-                                padding: const EdgeInsets.only(left: 15, top: 8, right: 15),
+                                padding: const EdgeInsets.only(
+                                    left: 15, top: 8, right: 15),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         TextWithTap(
-                                          "guardian_and_vip_screen.current_ranking".tr(),
-                                          color: isDark ? Colors.white: kGray,
+                                          "guardian_and_vip_screen.current_ranking"
+                                              .tr(),
+                                          color: isDark ? Colors.white : kGray,
                                           fontSize: 11,
                                           marginBottom: 4,
                                         ),
@@ -557,15 +569,18 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                           SizedBox(
                                             width: size.width / 3.5,
                                             child: TextWithTap(
-                                              "guardian_and_vip_screen.exp_required".tr(),
-                                              color: isDark ? Colors.white: kGray,
+                                              "guardian_and_vip_screen.exp_required"
+                                                  .tr(),
+                                              color:
+                                                  isDark ? Colors.white : kGray,
                                               fontSize: 11,
                                               marginBottom: 4,
                                               textAlign: TextAlign.center,
                                             ),
                                           ),
                                           TextWithTap(
-                                            "guardian_and_vip_screen.num_ranking".tr(namedArgs: {
+                                            "guardian_and_vip_screen.num_ranking"
+                                                .tr(namedArgs: {
                                               "num_ranking": "${rankUp.toInt()}"
                                             }),
                                             fontSize: 15,
@@ -595,7 +610,7 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: vipText.length,
-                    onPageChanged: (onChange){
+                    onPageChanged: (onChange) {
                       _onPageChanged(onChange);
                       _maxCredit(onChange);
                     },
@@ -628,7 +643,10 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                       radiusTopLeft: 25,
                                       marginTop: 6,
                                       child: TextWithTap(
-                                        QuickHelp.levelUser(index, currentCredit:  widget.currentUser!.getCredits! + 0.0),
+                                        QuickHelp.levelUser(index,
+                                            currentCredit: widget
+                                                    .currentUser!.getCredits! +
+                                                0.0),
                                         fontSize: 12,
                                         color: Colors.white,
                                         marginLeft: 17,
@@ -673,14 +691,16 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                   child: Padding(
                                     padding: const EdgeInsets.all(1.0),
                                     child: FAProgressBar(
-                                      currentValue:  widget.currentUser!.getCredits! + 0.0,
+                                      currentValue:
+                                          widget.currentUser!.getCredits! + 0.0,
                                       size: 5,
                                       maxValue: getMaxCredit,
                                       changeColorValue: 0,
                                       changeProgressColor: Colors.white,
                                       backgroundColor: kGreyColor4,
                                       progressColor: Colors.transparent,
-                                      animatedDuration: const Duration(seconds: 2),
+                                      animatedDuration:
+                                          const Duration(seconds: 2),
                                       direction: Axis.horizontal,
                                       border: Border.all(
                                         color: kTransparentColor,
@@ -709,7 +729,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                             ),
                             TextWithTap(
                               "guardian_and_vip_screen.points_".tr(namedArgs: {
-                                "points": "${ widget.currentUser!.getCredits! + 0.0.toInt()}",
+                                "points":
+                                    "${widget.currentUser!.getCredits! + 0.0.toInt()}",
                                 "points_amount": showPointsAmount(index)
                               }),
                               fontSize: 13,
@@ -760,7 +781,8 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                                 child: ContainerCorner(
                                   alignment: Alignment.center,
                                   borderRadius: 50,
-                                  color: kOrangeColorDisable.withOpacity(0.1),
+                                  color: kOrangeColorDisable.withValues(
+                                      alpha: 0.1),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Image.asset(
@@ -804,7 +826,7 @@ class _GuardianAndVipStoreScreenState extends State<GuardianAndVipStoreScreen>
                           child: ContainerCorner(
                             alignment: Alignment.center,
                             borderRadius: 50,
-                            color: kOrangeColorDisable.withOpacity(0.2),
+                            color: kOrangeColorDisable.withValues(alpha: 0.2),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(

@@ -95,7 +95,7 @@ class CountrySelector extends StatelessWidget {
                     titlePadding:
                     EdgeInsets.only(top: 10, left: 10, right: 10),
                     title: ContainerCorner(
-                      color: kGrayColor.withOpacity(0.2),
+                      color: kGrayColor.withValues(alpha: 0.2),
                       height: 50,
                       borderRadius: 10,
                       borderWidth: 0,

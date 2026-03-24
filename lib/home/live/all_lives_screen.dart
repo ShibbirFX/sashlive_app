@@ -149,92 +149,90 @@ class _AllLivesScreenState extends State<AllLivesScreen>
     }
 
     subscription!.on(LiveQueryEvent.create,
-            (LiveStreamingModel updatedLive) async {
-              debugPrint("liveQuery_stramings *** created ***");
-          await updatedLive.getAuthor!.fetch();
-          await updatedLive.getPrivateGift!.fetch();
-          await updatedLive.getAuthorInvited!.fetch();
+        (LiveStreamingModel updatedLive) async {
+      debugPrint("liveQuery_stramings *** created ***");
+      await updatedLive.getAuthor!.fetch();
+      await updatedLive.getPrivateGift!.fetch();
+      await updatedLive.getAuthorInvited!.fetch();
 
-          if (!mounted) return;
-          setState(() {
-            if(!liveID.contains(updatedLive.objectId)) {
-              liveID.add(updatedLive.objectId);
-              liveResults.add(updatedLive);
-            }else{
-              int index = 0;
-              for(int i=0; i < liveID.length; i++){
-                if(liveID.contains(updatedLive.objectId)) {
-                  index = i;
-                }
-              }
-              liveID.removeAt(index);
-              liveResults.removeAt(index);
-              liveID.add(updatedLive.objectId);
-              liveResults.add(updatedLive);
+      if (!mounted) return;
+      setState(() {
+        if (!liveID.contains(updatedLive.objectId)) {
+          liveID.add(updatedLive.objectId);
+          liveResults.add(updatedLive);
+        } else {
+          int index = 0;
+          for (int i = 0; i < liveID.length; i++) {
+            if (liveID.contains(updatedLive.objectId)) {
+              index = i;
             }
-          });
-        });
+          }
+          liveID.removeAt(index);
+          liveResults.removeAt(index);
+          liveID.add(updatedLive.objectId);
+          liveResults.add(updatedLive);
+        }
+      });
+    });
 
     subscription!.on(LiveQueryEvent.enter,
-            (LiveStreamingModel updatedLive) async {
-              debugPrint("liveQuery_stramings *** enter ***");
-              await updatedLive.getAuthor!.fetch();
-              await updatedLive.getPrivateGift!.fetch();
-              await updatedLive.getAuthorInvited!.fetch();
+        (LiveStreamingModel updatedLive) async {
+      debugPrint("liveQuery_stramings *** enter ***");
+      await updatedLive.getAuthor!.fetch();
+      await updatedLive.getPrivateGift!.fetch();
+      await updatedLive.getAuthorInvited!.fetch();
 
-          if (!mounted) return;
-              setState(() {
-                if(!liveID.contains(updatedLive.objectId)) {
-                  liveID.add(updatedLive.objectId);
-                  liveResults.add(updatedLive);
-                }else{
-                  int index = 0;
-                  for(int i=0; i < liveID.length; i++){
-                    if(liveID.contains(updatedLive.objectId)) {
-                      index = i;
-                    }
-                  }
-                  liveID.removeAt(index);
-                  liveResults.removeAt(index);
-                  liveID.add(updatedLive.objectId);
-                  liveResults.add(updatedLive);
-                }
-              });
-        });
+      if (!mounted) return;
+      setState(() {
+        if (!liveID.contains(updatedLive.objectId)) {
+          liveID.add(updatedLive.objectId);
+          liveResults.add(updatedLive);
+        } else {
+          int index = 0;
+          for (int i = 0; i < liveID.length; i++) {
+            if (liveID.contains(updatedLive.objectId)) {
+              index = i;
+            }
+          }
+          liveID.removeAt(index);
+          liveResults.removeAt(index);
+          liveID.add(updatedLive.objectId);
+          liveResults.add(updatedLive);
+        }
+      });
+    });
 
     subscription!.on(LiveQueryEvent.update,
-            (LiveStreamingModel updatedLive) async {
-              debugPrint("liveQuery_stramings *** update ***");
-          if (!mounted) return;
-          await updatedLive.getAuthor!.fetch();
-          await updatedLive.getPrivateGift!.fetch();
-          await updatedLive.getAuthorInvited!.fetch();
+        (LiveStreamingModel updatedLive) async {
+      debugPrint("liveQuery_stramings *** update ***");
+      if (!mounted) return;
+      await updatedLive.getAuthor!.fetch();
+      await updatedLive.getPrivateGift!.fetch();
+      await updatedLive.getAuthorInvited!.fetch();
 
-          setState(() {
-            if(!liveID.contains(updatedLive.objectId)) {
-              liveID.add(updatedLive.objectId);
-              liveResults.add(updatedLive);
-            }else{
-              int index = 0;
-              for(int i=0; i < liveID.length; i++){
-                if(liveID.contains(updatedLive.objectId)) {
-                  index = i;
-                }
-              }
-              liveID.removeAt(index);
-              liveResults.removeAt(index);
-              if(!updatedLive.getStreaming!) {
-                liveID.add(updatedLive.objectId);
-                liveResults.add(updatedLive);
-              }
+      setState(() {
+        if (!liveID.contains(updatedLive.objectId)) {
+          liveID.add(updatedLive.objectId);
+          liveResults.add(updatedLive);
+        } else {
+          int index = 0;
+          for (int i = 0; i < liveID.length; i++) {
+            if (liveID.contains(updatedLive.objectId)) {
+              index = i;
             }
-
-          });
-        });
+          }
+          liveID.removeAt(index);
+          liveResults.removeAt(index);
+          if (!updatedLive.getStreaming!) {
+            liveID.add(updatedLive.objectId);
+            liveResults.add(updatedLive);
+          }
+        }
+      });
+    });
 
     subscription!.on(LiveQueryEvent.delete, (LiveStreamingModel updatedLive) {
       if (!mounted) return;
-
     });
   }
 
@@ -279,7 +277,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
             isError: false,
             context: context,
           );
-          QuickHelp.saveCoinTransaction(author: widget.currentUser!, amountTransacted: creditAdded);
+          QuickHelp.saveCoinTransaction(
+              author: widget.currentUser!, amountTransacted: creditAdded);
           creditAdded = 0;
         }
         loadRewardedAd();
@@ -343,7 +342,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
     } else if (generalTabsIndex == 3) {
       queryBuilder.whereEqualTo(
           LiveStreamingModel.keyBattleStatus, LiveStreamingModel.battleAlive);
-    }else if(generalTabsIndex == 4) {
+    } else if (generalTabsIndex == 4) {
       queryBuilder.whereEqualTo(
           LiveStreamingModel.keyPartyType, LiveStreamingModel.liveAudio);
       queryBuilder.whereEqualTo(
@@ -362,9 +361,9 @@ class _AllLivesScreenState extends State<AllLivesScreen>
         setupLiveQuery();
         liveResults.clear();
         setState(() {
-          for(int i = 0; i < apiResponse.results!.length; i++){
+          for (int i = 0; i < apiResponse.results!.length; i++) {
             LiveStreamingModel live = apiResponse.results![i];
-            if(!liveID.contains(live.objectId)) {
+            if (!liveID.contains(live.objectId)) {
               liveID.add(live.objectId);
               liveResults.add(live);
             }
@@ -437,10 +436,10 @@ class _AllLivesScreenState extends State<AllLivesScreen>
               onTap: () async {
                 UserModel? user = await QuickHelp.goToNavigatorScreenForResult(
                   context,
-                    CoinsAndPointsScreen(
-                      currentUser: widget.currentUser,
-                      initialIndex: 0,
-                    ),
+                  CoinsAndPointsScreen(
+                    currentUser: widget.currentUser,
+                    initialIndex: 0,
+                  ),
                 );
                 if (user != null) {
                   setState(() {
@@ -471,14 +470,13 @@ class _AllLivesScreenState extends State<AllLivesScreen>
         ),
         actions: [
           IconButton(
-            onPressed: () async{
+            onPressed: () async {
               showGlobalSearch(
-                currentUser: widget.currentUser!,
-                context: context,
-                onlyEvent: false,
-                onlyLives: true,
-                onlyUsers: false
-              );
+                  currentUser: widget.currentUser!,
+                  context: context,
+                  onlyEvent: false,
+                  onlyLives: true,
+                  onlyUsers: false);
             },
             /*onPressed: () => QuickHelp.goToNavigatorScreen(
               context,
@@ -607,7 +605,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                 tabs: List.generate(tagsTabsLength, (index) {
                   bool selectedTab = tagsTabIndex == index;
                   return ContainerCorner(
-                    color: selectedTab ? null : kGrayColor.withOpacity(0.1),
+                    color:
+                        selectedTab ? null : kGrayColor.withValues(alpha: 0.1),
                     colors: selectedTab ? [kPrimaryColor, kPurpreColor] : [],
                     borderRadius: 4,
                     child: TextWithTap(
@@ -798,13 +797,15 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                       .isMinimizing) {
                                     return;
                                   }
-                                  if(liveStreaming.getPrivate!) {
-                                    if(liveStreaming.getPrivateViewersId!.contains(widget.currentUser!.objectId!)) {
+                                  if (liveStreaming.getPrivate!) {
+                                    if (liveStreaming.getPrivateViewersId!
+                                        .contains(
+                                            widget.currentUser!.objectId!)) {
                                       getInLiveStreamingRoom(liveStreaming);
-                                    }else{
+                                    } else {
                                       openPayPrivateLiveSheet(liveStreaming);
                                     }
-                                  }else{
+                                  } else {
                                     getInLiveStreamingRoom(liveStreaming);
                                   }
                                 },
@@ -826,7 +827,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                       ContainerCorner(
                                         width: double.infinity,
                                         height: double.infinity,
-                                        color: Colors.black.withOpacity(0.4),
+                                        color:
+                                            Colors.black.withValues(alpha: 0.4),
                                         borderRadius: 3,
                                         child: Column(
                                           mainAxisAlignment:
@@ -867,7 +869,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                                 ],
                                               ),
                                             ),
-                                            if(liveStreaming.getPrivate!)
+                                            if (liveStreaming.getPrivate!)
                                               SvgPicture.asset(
                                                 "assets/svg/private_live_notifier.svg",
                                               ),
@@ -885,7 +887,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                                     vipFrameWidth: 40,
                                                     vipFrameHeight: 37,
                                                     margin: EdgeInsets.only(
-                                                      left: 5, bottom: 5,
+                                                      left: 5,
+                                                      bottom: 5,
                                                     ),
                                                   ),
                                                   Column(
@@ -925,8 +928,9 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                                                   .toString(),
                                                               color: Colors
                                                                   .white
-                                                                  .withOpacity(
-                                                                      0.5),
+                                                                  .withValues(
+                                                                      alpha:
+                                                                          0.5),
                                                               fontSize: 12,
                                                               marginLeft: 3,
                                                             ),
@@ -941,12 +945,13 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                                           ],
                                         ),
                                       ),
-                                      if(liveStreaming.getBattleStatus == LiveStreamingModel.battleAlive)
-                                      Image.asset(
-                                        "assets/images/live_pk_icon_vs.png",
-                                        width: 45,
-                                        height: 45,
-                                      ),
+                                      if (liveStreaming.getBattleStatus ==
+                                          LiveStreamingModel.battleAlive)
+                                        Image.asset(
+                                          "assets/images/live_pk_icon_vs.png",
+                                          width: 45,
+                                          height: 45,
+                                        ),
                                     ]),
                               );
                             },
@@ -1045,7 +1050,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                       alignment: Alignment.center,
                       colors: [
                         Colors.black,
-                        Colors.black.withOpacity(0.05)
+                        Colors.black.withValues(alpha: 0.05)
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -1100,7 +1105,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
                       alignment: Alignment.center,
                       colors: [
                         Colors.black,
-                        Colors.black.withOpacity(0.05)
+                        Colors.black.withValues(alpha: 0.05)
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -1192,22 +1197,18 @@ class _AllLivesScreenState extends State<AllLivesScreen>
   }
 
   getInLiveStreamingRoom(LiveStreamingModel liveStreaming) {
-    if (liveStreaming.getLiveType ==
-        LiveStreamingModel.liveVideo) {
+    if (liveStreaming.getLiveType == LiveStreamingModel.liveVideo) {
       QuickHelp.goToNavigatorScreen(
         context,
         PreBuildLiveScreen(
           isHost: false,
           currentUser: widget.currentUser,
           liveStreaming: liveStreaming,
-          liveID:
-          liveStreaming.getStreamingChannel!,
-          localUserID:
-          widget.currentUser!.objectId!,
+          liveID: liveStreaming.getStreamingChannel!,
+          localUserID: widget.currentUser!.objectId!,
         ),
       );
-    } else if (liveStreaming.getLiveType ==
-        LiveStreamingModel.liveAudio) {
+    } else if (liveStreaming.getLiveType == LiveStreamingModel.liveAudio) {
       QuickHelp.goToNavigatorScreen(
           context,
           PrebuildAudioRoomScreen(
@@ -1215,18 +1216,15 @@ class _AllLivesScreenState extends State<AllLivesScreen>
             isHost: false,
             liveStreaming: liveStreaming,
           ));
-    } else if (liveStreaming.getLiveType ==
-        LiveStreamingModel.liveTypeParty) {
+    } else if (liveStreaming.getLiveType == LiveStreamingModel.liveTypeParty) {
       QuickHelp.goToNavigatorScreen(
         context,
         MultiUsersLiveScreen(
           isHost: false,
           currentUser: widget.currentUser,
           liveStreaming: liveStreaming,
-          liveID:
-          liveStreaming.getStreamingChannel!,
-          localUserID:
-          widget.currentUser!.objectId!,
+          liveID: liveStreaming.getStreamingChannel!,
+          localUserID: widget.currentUser!.objectId!,
         ),
       );
     }
@@ -1248,7 +1246,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
       UserModel author, LiveStreamingModel live) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1406,7 +1404,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
       UserModel author, LiveStreamingModel streamingModel, bool isStreamer) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1616,8 +1614,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
     QuickHelp.goToNavigatorScreen(
         context,
         MessageScreen(
-            currentUser: currentUser,
-            mUser: mUser,
+          currentUser: currentUser,
+          mUser: mUser,
         ));
   }
 
@@ -1729,7 +1727,7 @@ class _AllLivesScreenState extends State<AllLivesScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -1879,7 +1877,8 @@ class _AllLivesScreenState extends State<AllLivesScreen>
 
   updateLivePaidUser(LiveStreamingModel live) {
     live.setPrivateViewersId = widget.currentUser!.objectId!;
-    live.save();;
+    live.save();
+    ;
   }
 
   updateCurrentUserCredit(

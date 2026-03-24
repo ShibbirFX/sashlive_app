@@ -14,8 +14,7 @@ import '../../utils/colors.dart';
 class ExchangeCoinsScreen extends StatefulWidget {
   UserModel? currentUser;
 
-  ExchangeCoinsScreen({this.currentUser, Key? key})
-      : super(key: key);
+  ExchangeCoinsScreen({this.currentUser, Key? key}) : super(key: key);
 
   @override
   State<ExchangeCoinsScreen> createState() => _ExchangeCoinsScreenState();
@@ -59,7 +58,7 @@ class _ExchangeCoinsScreenState extends State<ExchangeCoinsScreen> {
           centerTitle: true,
           leading: BackButton(
             color: isDark ? Colors.white : kContentColorLightTheme,
-            onPressed: ()=> selectUser(),
+            onPressed: () => selectUser(),
           ),
           title: TextWithTap(
             "exchange_coins_screen.exchange_coins".tr(),
@@ -111,7 +110,7 @@ class _ExchangeCoinsScreenState extends State<ExchangeCoinsScreen> {
                 return ContainerCorner(
                   color: isDark
                       ? kContentDarkShadow
-                      : kGrayColor.withOpacity(0.05),
+                      : kGrayColor.withValues(alpha: 0.05),
                   borderRadius: 10,
                   width: size.width / 2.3,
                   height: 80,
@@ -181,7 +180,7 @@ class _ExchangeCoinsScreenState extends State<ExchangeCoinsScreen> {
                   ContainerCorner(
                     color: isDark
                         ? kContentDarkShadow
-                        : kGrayColor.withOpacity(0.05),
+                        : kGrayColor.withValues(alpha: 0.05),
                     borderRadius: 10,
                     width: size.width / 1.7,
                     marginLeft: 15,
@@ -213,7 +212,7 @@ class _ExchangeCoinsScreenState extends State<ExchangeCoinsScreen> {
                     ),
                   ),
                   ContainerCorner(
-                    color: kPrimaryColor.withOpacity(0.4),
+                    color: kPrimaryColor.withValues(alpha: 0.4),
                     borderRadius: 10,
                     marginLeft: 5,
                     onTap: () => newVerificationCode(),
@@ -382,6 +381,7 @@ class _ExchangeCoinsScreenState extends State<ExchangeCoinsScreen> {
       }
     }
   }
+
   selectUser() {
     QuickHelp.goBackToPreviousPage(context, result: widget.currentUser);
   }

@@ -206,7 +206,7 @@ class _RewardScreenState extends State<RewardScreen>
                                 ],
                               ),
                               ContainerCorner(
-                                color: earnPointColor.withOpacity(0.2),
+                                color: earnPointColor.withValues(alpha: 0.2),
                                 borderRadius: 50,
                                 marginTop: 5,
                                 child: Padding(
@@ -283,7 +283,7 @@ class _RewardScreenState extends State<RewardScreen>
                             width: 45,
                             borderWidth: 0,
                             borderRadius: 50,
-                            color: kSecondaryColor.withOpacity(0.1),
+                            color: kSecondaryColor.withValues(alpha: 0.1),
                             marginRight: 10,
                             child: Icon(Icons.mic, color: kSecondaryColor, size: 20,),
                           ),
@@ -306,7 +306,7 @@ class _RewardScreenState extends State<RewardScreen>
                                 ),
                               ),
                               ContainerCorner(
-                                color: earnPointColor.withOpacity(0.2),
+                                color: earnPointColor.withValues(alpha: 0.2),
                                 borderRadius: 50,
                                 marginTop: 5,
                                 child: Padding(
@@ -336,7 +336,7 @@ class _RewardScreenState extends State<RewardScreen>
                         ],
                       ),
                       ContainerCorner(
-                        color: kPrimaryColor.withOpacity(0.2),
+                        color: kPrimaryColor.withValues(alpha: 0.2),
                         borderRadius: 50,
                         onTap: () {
                           QuickHelp.goToNavigatorScreen(

@@ -98,7 +98,7 @@ class _HostCenterScreenState extends State<HostCenterScreen> {
                           children: [
                             TextWithTap(
                                 QuickHelp.convertNumberToK(0),
-                              color: kContentColorLightTheme.withOpacity(0.7),
+                              color: kContentColorLightTheme.withValues(alpha: 0.7),
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
@@ -117,7 +117,7 @@ class _HostCenterScreenState extends State<HostCenterScreen> {
                               QuickHelp.getTimeByDate(
                                 date: widget.currentUser!.updatedAt!,
                               ),
-                              color: kContentColorLightTheme.withOpacity(0.7),
+                              color: kContentColorLightTheme.withValues(alpha: 0.7),
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),

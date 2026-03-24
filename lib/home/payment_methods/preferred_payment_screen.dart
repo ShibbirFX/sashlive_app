@@ -54,7 +54,7 @@ class _PreferredPaymentScreenState extends State<PreferredPaymentScreen> {
                   marginRight: 15,
                   marginTop: 10,
                   borderColor: inputBorderColor,
-                  color: kGrayColor.withOpacity(0.1),
+                  color: kGrayColor.withValues(alpha: 0.1),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(

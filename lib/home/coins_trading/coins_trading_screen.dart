@@ -173,7 +173,7 @@ class _CoinsTradingScreenState extends State<CoinsTradingScreen> {
                     ContainerCorner(
                       color: isDark
                           ? kContentDarkShadow
-                          : kGrayColor.withOpacity(0.05),
+                          : kGrayColor.withValues(alpha: 0.05),
                       borderRadius: 10,
                       marginTop: 5,
                       width: size.width / 1.7,
@@ -238,7 +238,7 @@ class _CoinsTradingScreenState extends State<CoinsTradingScreen> {
                     ContainerCorner(
                       color: isDark
                           ? kContentDarkShadow
-                          : kGrayColor.withOpacity(0.05),
+                          : kGrayColor.withValues(alpha: 0.05),
                       borderRadius: 10,
                       marginTop: 5,
                       width: size.width / 1.7,

@@ -117,7 +117,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   _deleteLike(PostsModel postsModel) async {
     QueryBuilder<NotificationsModel> queryBuilder =
-    QueryBuilder<NotificationsModel>(NotificationsModel());
+        QueryBuilder<NotificationsModel>(NotificationsModel());
     queryBuilder.whereEqualTo(NotificationsModel.keyAuthor, widget.currentUser);
     queryBuilder.whereEqualTo(NotificationsModel.keyPost, postsModel);
 
@@ -170,7 +170,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   Widget interactiveMessagesCount() {
     QueryBuilder<NotificationsModel> query =
-    QueryBuilder<NotificationsModel>(NotificationsModel());
+        QueryBuilder<NotificationsModel>(NotificationsModel());
 
     query.whereEqualTo(NotificationsModel.keyReceiver, widget.currentUser!);
     query.whereEqualTo(NotificationsModel.keyRead, false);
@@ -238,9 +238,9 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
         }
       },
       listLoadingElement:
-      showViewersCount(amountText: "${notifications.length}"),
+          showViewersCount(amountText: "${notifications.length}"),
       queryEmptyElement:
-      showViewersCount(amountText: "${notifications.length}"),
+          showViewersCount(amountText: "${notifications.length}"),
     );
   }
 
@@ -260,7 +260,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   _getAllAuthors() async {
     QueryBuilder<StoriesAuthorsModel> query =
-    QueryBuilder<StoriesAuthorsModel>(StoriesAuthorsModel());
+        QueryBuilder<StoriesAuthorsModel>(StoriesAuthorsModel());
 
     query.includeObject([
       StoriesAuthorsModel.keyAuthor,
@@ -289,7 +289,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   getAllStories() {
     QueryBuilder<StoriesAuthorsModel> query =
-    QueryBuilder<StoriesAuthorsModel>(StoriesAuthorsModel());
+        QueryBuilder<StoriesAuthorsModel>(StoriesAuthorsModel());
 
     query.whereGreaterThan(
       StoriesAuthorsModel.keyLastStoryExpiration,
@@ -434,7 +434,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   setupLiveQuery() async {
     QueryBuilder<PostsModel> queryBuilderLive =
-    QueryBuilder<PostsModel>(PostsModel());
+        QueryBuilder<PostsModel>(PostsModel());
 
     queryBuilderLive.whereEqualTo(PostsModel.keyExclusive, false);
 
@@ -581,7 +581,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                             },
                           ),
                           marginLeft: 10,
-                          color: kGrayColor.withOpacity(0.7),
+                          color: kGrayColor.withValues(alpha: 0.7),
                           fontSize: 7,
                           alignment: Alignment.center,
                         ),
@@ -604,7 +604,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                           height: 60,
                                         ),
                                         if (post.getAuthor!.getAvatarFrame !=
-                                            null &&
+                                                null &&
                                             post.getAuthor!
                                                 .getCanUseAvatarFrame!)
                                           ContainerCorner(
@@ -616,14 +616,14 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                                   .getAvatarFrame!.url!,
                                               imageBuilder:
                                                   (context, imageProvider) =>
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      image: DecorationImage(
-                                                          image: imageProvider,
-                                                          fit: BoxFit.fill),
-                                                    ),
-                                                  ),
+                                                      Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  image: DecorationImage(
+                                                      image: imageProvider,
+                                                      fit: BoxFit.fill),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                       ],
@@ -646,8 +646,10 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                           currentUser: widget.currentUser,
                                         ));
                                   } else {
-                                    QuickActions.showUserProfile(context,
-                                        widget.currentUser!, post.getAuthor!,
+                                    QuickActions.showUserProfile(
+                                      context,
+                                      widget.currentUser!,
+                                      post.getAuthor!,
                                     );
                                   }
                                 }),
@@ -705,13 +707,13 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                             Wrap(
                               children: List.generate(
                                 post.getNumberOfPictures,
-                                    (index) => ContainerCorner(
+                                (index) => ContainerCorner(
                                   width: imageWidth(
                                       numberOfPictures:
-                                      post.getNumberOfPictures),
+                                          post.getNumberOfPictures),
                                   height: imageHeight(
                                       numberOfPictures:
-                                      post.getNumberOfPictures),
+                                          post.getNumberOfPictures),
                                   borderWidth: 0,
                                   marginRight: 5,
                                   marginBottom: 5,
@@ -723,7 +725,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                     goToFeedOnReels(post: post);
                                   },
                                   child: QuickActions.photosWidget(
-                                      post.getImagesList![index].url,
+                                    post.getImagesList![index].url,
                                   ),
                                 ),
                               ),
@@ -747,12 +749,12 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                     width: 40,
                                     borderRadius: 50,
                                     borderWidth: 0,
-                                    color: Colors.black.withOpacity(0.7),
+                                    color: Colors.black.withValues(alpha: 0.7),
                                     child: Center(
                                         child: Icon(
-                                          Icons.play_circle_outline,
-                                          color: Colors.white,
-                                        )),
+                                      Icons.play_circle_outline,
+                                      color: Colors.white,
+                                    )),
                                   ),
                                 ],
                               ),
@@ -780,14 +782,14 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                           child: Wrap(
                             children: List.generate(
                               post.getTargetPeopleID!.length,
-                                  (targetIndex) => TextWithTap(
+                              (targetIndex) => TextWithTap(
                                 "@${post.getTargetPeople![targetIndex][UserModel.keyFullName]}",
                                 color: Colors.blueAccent,
                                 marginRight: 5,
                                 marginBottom: 8,
                                 onTap: () {
                                   if (post.getTargetPeople![targetIndex]
-                                  [UserModel.keyObjectId] ==
+                                          [UserModel.keyObjectId] ==
                                       widget.currentUser!.objectId) {
                                     QuickHelp.goToNavigatorScreen(
                                       context,
@@ -801,11 +803,11 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                       UserProfileScreen(
                                         currentUser: widget.currentUser,
                                         mUser:
-                                        post.getTargetPeople![targetIndex],
+                                            post.getTargetPeople![targetIndex],
                                         isFollowing: widget
                                             .currentUser!.getFollowing!
                                             .contains(post.getTargetPeopleID![
-                                        targetIndex]),
+                                                targetIndex]),
                                       ),
                                     );
                                   }
@@ -896,9 +898,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                                   },
                                   child: Image.asset(
                                     "assets/images/feed_icon_details_share_new.png",
-                                    color: isDark
-                                        ? Colors.white
-                                        : Colors.black,
+                                    color: isDark ? Colors.white : Colors.black,
                                     height: 20,
                                     width: 20,
                                   ),
@@ -1016,8 +1016,8 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
           color: isLiked
               ? kPrimaryColor
               : isDark
-              ? Colors.white
-              : kContentColorLightTheme,
+                  ? Colors.white
+                  : kContentColorLightTheme,
           size: 20,
         );
       },
@@ -1185,7 +1185,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                           ContainerCorner(
                             child: commentInputField(post),
                             marginBottom:
-                            MediaQuery.of(context).viewInsets.bottom,
+                                MediaQuery.of(context).viewInsets.bottom,
                           ),
                         ],
                       ),
@@ -1212,7 +1212,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 32,
-            color: Color(0xFF087949).withOpacity(0.08),
+            color: Color(0xFF087949).withValues(alpha: 0.08),
           ),
         ],
       ),
@@ -1224,7 +1224,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                 horizontal: 20 * 0.75,
               ),
               decoration: BoxDecoration(
-                color: kPrimaryColor.withOpacity(0.05),
+                color: kPrimaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -1280,7 +1280,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
   Widget showAllComments(PostsModel post, StateSetter newState) {
     QueryBuilder<CommentsModel> queryBuilder =
-    QueryBuilder<CommentsModel>(CommentsModel());
+        QueryBuilder<CommentsModel>(CommentsModel());
     queryBuilder.whereEqualTo(CommentsModel.keyPost, post);
 
     queryBuilder.includeObject([
@@ -1342,7 +1342,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,
@@ -1442,7 +1442,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
           child: StatefulBuilder(builder: (context, setState) {
             return Container(
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(25.0),
                   topRight: Radius.circular(25.0),
@@ -1471,7 +1471,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
   Widget _showPostOptionsAndReportAuthor(UserModel author, PostsModel post) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1621,7 +1621,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -1651,45 +1651,45 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
                         Column(
                           children: List.generate(
                               QuickHelp.getReportCodeMessageList().length,
-                                  (index) {
-                                String code =
+                              (index) {
+                            String code =
                                 QuickHelp.getReportCodeMessageList()[index];
 
-                                return TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                    print("Message: " +
-                                        QuickHelp.getReportMessage(code));
-                                    Navigator.of(context).pop();
-                                    _saveReport(
-                                        QuickHelp.getReportMessage(code), post);
-                                  },
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
+                            return TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                print("Message: " +
+                                    QuickHelp.getReportMessage(code));
+                                Navigator.of(context).pop();
+                                _saveReport(
+                                    QuickHelp.getReportMessage(code), post);
+                              },
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          TextWithTap(
-                                            QuickHelp.getReportMessage(code),
-                                            color: kGrayColor,
-                                            fontSize: 15,
-                                            marginBottom: 5,
-                                          ),
-                                          Icon(
-                                            Icons.arrow_forward_ios,
-                                            size: 18,
-                                            color: kGrayColor,
-                                          ),
-                                        ],
+                                    children: [
+                                      TextWithTap(
+                                        QuickHelp.getReportMessage(code),
+                                        color: kGrayColor,
+                                        fontSize: 15,
+                                        marginBottom: 5,
                                       ),
-                                      Divider(
-                                        height: 1.0,
-                                      )
+                                      Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 18,
+                                        color: kGrayColor,
+                                      ),
                                     ],
                                   ),
-                                );
-                              }),
+                                  Divider(
+                                    height: 1.0,
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
                         ),
                         ContainerCorner(
                           marginTop: 30,
@@ -1786,7 +1786,7 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
 
     userModel.setActivationStatus = true;
     ParseResponse parseResponse =
-    await QuickCloudCode.suspendUSer(objectId: userModel.objectId!);
+        await QuickCloudCode.suspendUSer(objectId: userModel.objectId!);
     if (parseResponse.success) {
       QuickHelp.goBackToPreviousPage(context);
 
@@ -1852,8 +1852,8 @@ class _ResponsiveFeedScreenState extends State<ResponsiveFeedScreen>
       ParseResponse saved = await widget.currentUser!.save();
       if (saved.success) {
         QuickCloudCode.sendGift(
-            author: post.getAuthor!,
-            credits: post.getPaidAmount!,
+          author: post.getAuthor!,
+          credits: post.getPaidAmount!,
         );
 
         widget.currentUser = saved.results!.first! as UserModel;

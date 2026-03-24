@@ -233,7 +233,7 @@ class _StoriesPageState extends State<StoriesPage>
                         marginLeft: 5,
                         borderWidth: 3,
                         borderColor: storyAuthor.getLastStorySeen!
-                            ? Colors.white.withOpacity(0.5)
+                            ? Colors.white.withValues(alpha: 0.5)
                             : kFacebookColor,
                         child: Center(
                           child: QuickActions.avatarWidget(

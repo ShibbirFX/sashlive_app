@@ -9,7 +9,6 @@ import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 import '../../app/setup.dart';
 import 'common.dart';
 
-
 class PkBattleScreen extends StatefulWidget {
   final String liveID;
   final String localUserID;
@@ -40,7 +39,7 @@ class _PkBattleScreenState extends State<PkBattleScreen> {
   void initState() {
     super.initState();
 
-   /* pkEvents = PKEvents(
+    /* pkEvents = PKEvents(
       requestIDNotifier: requestIDNotifier,
       requestingHostsMapRequestIDNotifier: requestingHostsMapRequestIDNotifier,
     );*/
@@ -128,7 +127,7 @@ class _PkBattleScreenState extends State<PkBattleScreen> {
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.camera.value ? Icons.videocam : Icons.videocam_off,
                 color: Colors.white,
@@ -146,7 +145,7 @@ class _PkBattleScreenState extends State<PkBattleScreen> {
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.microphone.value ? Icons.mic : Icons.mic_off,
                 color: Colors.white,

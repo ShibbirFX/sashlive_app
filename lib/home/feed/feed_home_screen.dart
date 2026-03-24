@@ -178,14 +178,13 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
         backgroundColor: isDark ? kContentColorLightTheme : Colors.white,
         surfaceTintColor: isDark ? kContentColorLightTheme : Colors.white,
         leading: IconButton(
-          onPressed: () async{
+          onPressed: () async {
             showGlobalSearch(
-              currentUser: widget.currentUser!,
-              context: context,
-              onlyEvent: false,
-              onlyLives: false,
-              onlyUsers: true
-            );
+                currentUser: widget.currentUser!,
+                context: context,
+                onlyEvent: false,
+                onlyLives: false,
+                onlyUsers: true);
           },
           icon: SvgPicture.asset(
             isDark
@@ -363,8 +362,9 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                   ),
                   borderWidth: 0,
                   marginLeft: 10,
-                  color:
-                      isDark ? kContentDarkShadow : kGrayColor.withOpacity(0.2),
+                  color: isDark
+                      ? kContentDarkShadow
+                      : kGrayColor.withValues(alpha: 0.2),
                   borderRadius: 50,
                   height: 60,
                   width: 60,
@@ -689,7 +689,6 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
             shufflePosts = false;
           }
           if (postsResults.isNotEmpty) {
-
             return ListView.separated(
               itemCount: postsResults.length,
               itemBuilder: (context, index) {
@@ -717,7 +716,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                             },
                           ),
                           marginLeft: 10,
-                          color: kGrayColor.withOpacity(0.7),
+                          color: kGrayColor.withValues(alpha: 0.7),
                           fontSize: 7,
                           alignment: Alignment.center,
                         ),
@@ -740,7 +739,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                           height: 35,
                                         ),
                                         if (post.getAuthor!.getAvatarFrame !=
-                                            null &&
+                                                null &&
                                             post.getAuthor!
                                                 .getCanUseAvatarFrame!)
                                           ContainerCorner(
@@ -752,20 +751,21 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                                   .getAvatarFrame!.url!,
                                               imageBuilder:
                                                   (context, imageProvider) =>
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      image: DecorationImage(
-                                                          image: imageProvider,
-                                                          fit: BoxFit.fill),
-                                                    ),
-                                                  ),
+                                                      Container(
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  image: DecorationImage(
+                                                      image: imageProvider,
+                                                      fit: BoxFit.fill),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                       ],
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Row(
@@ -777,15 +777,19 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                               marginLeft: 10,
                                               marginRight: 5,
                                             ),
-                                            if(post.getAuthor!.getCountryCode!.isNotEmpty)
+                                            if (post.getAuthor!.getCountryCode!
+                                                .isNotEmpty)
                                               Image.asset(
-                                                QuickHelp.getCountryFlag(code: post.getAuthor!.getCountryCode!),
+                                                QuickHelp.getCountryFlag(
+                                                    code: post.getAuthor!
+                                                        .getCountryCode!),
                                                 height: 12,
                                               )
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(left: 6.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 6.0),
                                           child: QuickHelp.usersMoreInfo(
                                             context,
                                             post.getAuthor!,
@@ -805,8 +809,11 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                           currentUser: widget.currentUser,
                                         ));
                                   } else {
-                                    QuickActions.showUserProfile(context,
-                                      widget.currentUser!, post.getAuthor!,);
+                                    QuickActions.showUserProfile(
+                                      context,
+                                      widget.currentUser!,
+                                      post.getAuthor!,
+                                    );
                                   }
                                 }),
                           ),
@@ -863,13 +870,13 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                             Wrap(
                               children: List.generate(
                                 post.getNumberOfPictures,
-                                    (index) => ContainerCorner(
+                                (index) => ContainerCorner(
                                   width: imageWidth(
                                       numberOfPictures:
-                                      post.getNumberOfPictures),
+                                          post.getNumberOfPictures),
                                   height: imageHeight(
                                       numberOfPictures:
-                                      post.getNumberOfPictures),
+                                          post.getNumberOfPictures),
                                   borderWidth: 0,
                                   marginRight: 5,
                                   marginBottom: 5,
@@ -904,12 +911,12 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                     width: 40,
                                     borderRadius: 50,
                                     borderWidth: 0,
-                                    color: Colors.black.withOpacity(0.7),
+                                    color: Colors.black.withValues(alpha: 0.7),
                                     child: Center(
                                         child: Icon(
-                                          Icons.play_circle_outline,
-                                          color: Colors.white,
-                                        )),
+                                      Icons.play_circle_outline,
+                                      color: Colors.white,
+                                    )),
                                   ),
                                 ],
                               ),
@@ -937,14 +944,14 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                           child: Wrap(
                             children: List.generate(
                               post.getTargetPeopleID!.length,
-                                  (targetIndex) => TextWithTap(
+                              (targetIndex) => TextWithTap(
                                 "@${post.getTargetPeople![targetIndex][UserModel.keyFullName]}",
                                 color: Colors.blueAccent,
                                 marginRight: 5,
                                 marginBottom: 8,
                                 onTap: () {
                                   if (post.getTargetPeople![targetIndex]
-                                  [UserModel.keyObjectId] ==
+                                          [UserModel.keyObjectId] ==
                                       widget.currentUser!.objectId) {
                                     QuickHelp.goToNavigatorScreen(
                                       context,
@@ -958,11 +965,11 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                       UserProfileScreen(
                                         currentUser: widget.currentUser,
                                         mUser:
-                                        post.getTargetPeople![targetIndex],
+                                            post.getTargetPeople![targetIndex],
                                         isFollowing: widget
                                             .currentUser!.getFollowing!
                                             .contains(post.getTargetPeopleID![
-                                        targetIndex]),
+                                                targetIndex]),
                                       ),
                                     );
                                   }
@@ -1050,16 +1057,20 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                   marginTop: 10,
                                   onTap: () async {
                                     String linkToShare =
-                                    await DeepLinksService.createLink(
-                                      branchObject: DeepLinksService.branchObject(
-                                        shareAction: DeepLinksService.keyPostShare,
+                                        await DeepLinksService.createLink(
+                                      branchObject:
+                                          DeepLinksService.branchObject(
+                                        shareAction:
+                                            DeepLinksService.keyPostShare,
                                         objectID: post.objectId!,
-                                        imageURL: QuickHelp.getImageToShare(post) ,
+                                        imageURL:
+                                            QuickHelp.getImageToShare(post),
                                         title: QuickHelp.getTitleToShare(post),
-                                        description: post.getAuthor!.getFullName,
+                                        description:
+                                            post.getAuthor!.getFullName,
                                       ),
                                       branchProperties:
-                                      DeepLinksService.linkProperties(
+                                          DeepLinksService.linkProperties(
                                         channel: "link",
                                       ),
                                       context: context,
@@ -1075,9 +1086,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                                   },
                                   child: Image.asset(
                                     "assets/images/feed_icon_details_share_new.png",
-                                    color: isDark
-                                        ? Colors.white
-                                        : Colors.black,
+                                    color: isDark ? Colors.white : Colors.black,
                                     height: 20,
                                     width: 20,
                                   ),
@@ -1128,27 +1137,27 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
   editPostScreen(PostsModel post) {
     if (post.getVideo != null) {
       QuickHelp.goToNavigatorScreen(
-          context,
-          EditVideoPostScreen(
-            currentUser: widget.currentUser,
-            postsModel: post,
-          ),
+        context,
+        EditVideoPostScreen(
+          currentUser: widget.currentUser,
+          postsModel: post,
+        ),
       );
     } else if (post.getBackgroundColor != null) {
       QuickHelp.goToNavigatorScreen(
-          context,
-          EditTextPostScreen(
-            currentUser: widget.currentUser,
-            postsModel: post,
-          ),
+        context,
+        EditTextPostScreen(
+          currentUser: widget.currentUser,
+          postsModel: post,
+        ),
       );
     } else {
       QuickHelp.goToNavigatorScreen(
-          context,
-          EditPicturesPost(
-            currentUser: widget.currentUser,
-            postsModel: post,
-          ),
+        context,
+        EditPicturesPost(
+          currentUser: widget.currentUser,
+          postsModel: post,
+        ),
       );
     }
   }
@@ -1393,7 +1402,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 32,
-            color: Color(0xFF087949).withOpacity(0.08),
+            color: Color(0xFF087949).withValues(alpha: 0.08),
           ),
         ],
       ),
@@ -1405,7 +1414,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                 horizontal: 20 * 0.75,
               ),
               decoration: BoxDecoration(
-                color: kPrimaryColor.withOpacity(0.05),
+                color: kPrimaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -1523,7 +1532,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,
@@ -1628,7 +1637,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -1659,7 +1668,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
   Widget _showPostOptionsAndReportAuthor(UserModel author, PostsModel post) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1805,7 +1814,7 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -2036,8 +2045,8 @@ class _FeedHomeScreenState extends State<FeedHomeScreen>
       ParseResponse saved = await widget.currentUser!.save();
       if (saved.success) {
         QuickCloudCode.sendGift(
-            author: post.getAuthor!,
-            credits: post.getPaidAmount!,
+          author: post.getAuthor!,
+          credits: post.getPaidAmount!,
         );
 
         widget.currentUser = saved.results!.first! as UserModel;

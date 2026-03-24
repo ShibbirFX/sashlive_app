@@ -452,11 +452,11 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
               IconButton(
                 onPressed: () async {
                   UserModel? user =
-                  await QuickHelp.goToNavigatorScreenForResult(
-                      context,
-                      SettingsScreen(
-                        currentUser: widget.currentUser,
-                      ));
+                      await QuickHelp.goToNavigatorScreenForResult(
+                          context,
+                          SettingsScreen(
+                            currentUser: widget.currentUser,
+                          ));
                   if (user != null) {
                     debugPrint("user: ${user}");
                     setState(() {
@@ -473,7 +473,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
             ],
           ),
           body: ListView(
-            padding: EdgeInsets.only(left: 15, top: 30 ,right: 15),
+            padding: EdgeInsets.only(left: 15, top: 30, right: 15),
             children: [
               Stack(
                 children: [
@@ -565,7 +565,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: List.generate(
                           numbersCaptions.length,
-                              (index) => captionAndNumber(
+                          (index) => captionAndNumber(
                             caption: numbersCaptions[index],
                             screenToGo: numbersCaptionsScreens[index],
                             number: numbers[index],
@@ -592,7 +592,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                     TextButton(
                       onPressed: () async {
                         UserModel? user =
-                        await QuickHelp.goToNavigatorScreenForResult(
+                            await QuickHelp.goToNavigatorScreenForResult(
                           context,
                           WalletScreen(
                             currentUser: widget.currentUser,
@@ -624,7 +624,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                               TextWithTap(
                                 QuickHelp.checkFundsWithString(
                                     amount:
-                                    "${widget.currentUser!.getCredits}"),
+                                        "${widget.currentUser!.getCredits}"),
                                 marginLeft: 8,
                                 fontSize: 13,
                               ),
@@ -665,8 +665,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                               ),
                               TextWithTap(
                                 QuickHelp.checkFundsWithString(
-                                  amount:
-                                  "${widget.currentUser!.getDiamonds}",
+                                  amount: "${widget.currentUser!.getDiamonds}",
                                 ),
                                 marginLeft: 8,
                                 fontSize: 13,
@@ -695,7 +694,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   children: List.generate(
                     personalTitle.length,
-                        (index) {
+                    (index) {
                       return options(
                         caption: personalTitle[index],
                         screenTogo: firstOptionsScreens[index],
@@ -725,7 +724,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   children: List.generate(
                     privilegesTitle.length,
-                        (index) {
+                    (index) {
                       return options(
                         caption: privilegesTitle[index],
                         screenTogo: agentOptionsScreens[index],
@@ -749,7 +748,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                 color: isDark ? kContentColorLightTheme : Colors.white,
                 borderRadius: 10,
                 width: size.width,
-                height: 65 ,
+                height: 65,
                 marginTop: 10,
                 padding: EdgeInsets.all(4),
                 child: GridView.count(
@@ -757,7 +756,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   children: List.generate(
                     secondOptionsCaption.length,
-                        (index) {
+                    (index) {
                       return secondOptions(
                         caption: secondOptionsCaption[index],
                         screenTogo: secondOptionsScreens[index],
@@ -768,7 +767,8 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                 ),
               ),
               Visibility(
-                visible: widget.currentUser!.getAgencyRole == UserModel.agencyAgentRole,
+                visible: widget.currentUser!.getAgencyRole ==
+                    UserModel.agencyAgentRole,
                 child: ContainerCorner(
                   color: isDark ? kContentColorLightTheme : Colors.white,
                   borderRadius: 10,
@@ -781,7 +781,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                     physics: NeverScrollableScrollPhysics(),
                     children: List.generate(
                       agentOptionsCaption.length,
-                          (index) {
+                      (index) {
                         return options(
                           caption: agentOptionsCaption[index],
                           screenTogo: agencyOptionsScreens[index],
@@ -798,49 +798,49 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: List.generate(
                     listMenuTitle.length,
-                        (index) => Padding(
-                      padding: const EdgeInsets.only(bottom: 2),
-                      child: ButtonWidget(
-                        onTap: () => QuickHelp.goToNavigatorScreen(
-                          context, listMenuScreens[index],
-                        ),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextWithTap(
-                              listMenuTitle[index],
-                              marginBottom: 16,
-                              fontSize: size.width / 23,
-                              color: isDark
-                                  ? Colors.white
-                                  : kContentColorLightTheme,
+                    (index) => Padding(
+                          padding: const EdgeInsets.only(bottom: 2),
+                          child: ButtonWidget(
+                            onTap: () => QuickHelp.goToNavigatorScreen(
+                              context,
+                              listMenuScreens[index],
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Visibility(
-                                  visible: index == 4,
-                                  child: Image.asset(
-                                    "assets/images/im_service_icon.png",
-                                    height: 16,
-                                    width: 16,
-                                  ),
+                                TextWithTap(
+                                  listMenuTitle[index],
+                                  marginBottom: 16,
+                                  fontSize: size.width / 23,
+                                  color: isDark
+                                      ? Colors.white
+                                      : kContentColorLightTheme,
                                 ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 14,
-                                  color: kGrayColor,
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Visibility(
+                                      visible: index == 4,
+                                      child: Image.asset(
+                                        "assets/images/im_service_icon.png",
+                                        height: 16,
+                                        width: 16,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 14,
+                                      color: kGrayColor,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                      ),
-                    )),
+                          ),
+                        )),
               ),
               SizedBox(
                 height: 20,
@@ -854,10 +854,9 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
           child: IgnorePointer(
             child: ContainerCorner(
               fit: BoxFit.fill,
-              imageDecoration:
-             QuickHelp.levelVipCover(
+              imageDecoration: QuickHelp.levelVipCover(
                 currentCredit: widget.currentUser!.getCredits!.toDouble(),
-               user: widget.currentUser!,
+                user: widget.currentUser!,
               ),
               width: size.width,
               height: size.height - kToolbarHeight,
@@ -871,7 +870,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: ContainerCorner(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withValues(alpha: 0.5),
                 height: 50,
                 marginRight: 50,
                 marginLeft: 50,
@@ -1218,7 +1217,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
           Visibility(
             visible: showTempAlert,
             child: ContainerCorner(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5),
               height: 50,
               marginRight: 50,
               marginLeft: 50,
@@ -1406,7 +1405,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
       child: CarouselView(
         itemExtent: double.infinity,
         controller: _controller,
-        children: List.generate(slideBanner.length, (index){
+        children: List.generate(slideBanner.length, (index) {
           return ContainerCorner(
             width: size.width,
             borderRadius: 8,
@@ -1462,7 +1461,7 @@ class _TabProfileScreenState extends State<TabProfileScreen> {
             borderWidth: 0,
             borderRadius: 50,
             marginTop: 10,
-            color: bgColor.withOpacity(0.2),
+            color: bgColor.withValues(alpha: 0.2),
             onTap: () async {
               UserModel? user = await QuickHelp.goToNavigatorScreenForResult(
                 context,

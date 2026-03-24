@@ -64,9 +64,9 @@ class _VideoPlayerNetworkScreenState extends State<VideoPlayerNetworkScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     VideoProgressColors colors = VideoProgressColors(
-      bufferedColor: Colors.white.withOpacity(0.5),
+      bufferedColor: Colors.white.withValues(alpha: 0.5),
       playedColor: kPrimaryColor,
-      backgroundColor: Colors.white.withOpacity(0.3),
+      backgroundColor: Colors.white.withValues(alpha: 0.3),
     );
 
     return Scaffold(
@@ -100,7 +100,7 @@ class _VideoPlayerNetworkScreenState extends State<VideoPlayerNetworkScreen> {
                     visible: showPlayBtn,
                     child: Icon(
                       Icons.play_arrow,
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                       size: size.width / 4,
                     ),
                   ),
@@ -108,7 +108,7 @@ class _VideoPlayerNetworkScreenState extends State<VideoPlayerNetworkScreen> {
                     visible: showPauseBtn,
                     child: Icon(
                       Icons.pause,
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                       size: size.width / 4,
                     ),
                   ),

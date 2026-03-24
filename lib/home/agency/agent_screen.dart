@@ -107,7 +107,7 @@ class _AgentScreenState extends State<AgentScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Divider(
-                color: kGrayColor.withOpacity(0.2),
+                color: kGrayColor.withValues(alpha: 0.2),
                 height: 3,
               ),
             ),
@@ -155,7 +155,7 @@ class _AgentScreenState extends State<AgentScreen> {
               maxValue: expectedPoints + 0.0,
               changeColorValue: 0,
               changeProgressColor: kPrimaryColor,
-              backgroundColor: kPrimaryColor.withOpacity(0.2),
+              backgroundColor: kPrimaryColor.withValues(alpha: 0.2),
               progressColor: Colors.lightBlue,
               animatedDuration: const Duration(seconds: 2),
               direction: Axis.horizontal,
@@ -201,7 +201,7 @@ class _AgentScreenState extends State<AgentScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Divider(
-                color: kGrayColor.withOpacity(0.2),
+                color: kGrayColor.withValues(alpha: 0.2),
                 height: 3,
               ),
             ),
@@ -215,7 +215,7 @@ class _AgentScreenState extends State<AgentScreen> {
                 amount: myCommission,
             ),
             ContainerCorner(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
               marginLeft: 10,
               marginRight: 10,
               marginTop: 15,
@@ -246,7 +246,7 @@ class _AgentScreenState extends State<AgentScreen> {
               ),
             ),
             ContainerCorner(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
               marginLeft: 10,
               marginRight: 10,
               marginTop: 15,
@@ -379,7 +379,7 @@ class _AgentScreenState extends State<AgentScreen> {
                   height: 30,
                   borderRadius: 50,
                   marginTop: 8,
-                  color: earnCashColor.withOpacity(0.2),
+                  color: earnCashColor.withValues(alpha: 0.2),
                   onTap: () {
                     QuickHelp.goToNavigatorScreen(
                       context,
@@ -419,7 +419,7 @@ class _AgentScreenState extends State<AgentScreen> {
                   height: 30,
                   borderRadius: 50,
                   marginTop: 8,
-                  color: kPrimaryColor.withOpacity(0.2),
+                  color: kPrimaryColor.withValues(alpha: 0.2),
                   onTap: () {
                     QuickHelp.goToNavigatorScreen(
                       context,

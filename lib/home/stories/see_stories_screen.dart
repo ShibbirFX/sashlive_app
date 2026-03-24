@@ -517,7 +517,7 @@ class _SeeStoriesScreenState extends State<SeeStoriesScreen> {
                           border: InputBorder.none,
                           contentPadding: const EdgeInsets.only(left: 10),
                           hintStyle: TextStyle(
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: 0.5),
                             fontSize: 15,
                           ),
                         ),

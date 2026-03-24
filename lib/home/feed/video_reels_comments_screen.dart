@@ -85,7 +85,7 @@ class _VideoReelsCommentScreenState extends State<VideoReelsCommentScreen> {
         children: [
           Expanded(
             child: ContainerCorner(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
               marginLeft: 10,
               borderRadius: 50,
               height: 40,
@@ -388,7 +388,7 @@ class _VideoReelsCommentScreenState extends State<VideoReelsCommentScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),

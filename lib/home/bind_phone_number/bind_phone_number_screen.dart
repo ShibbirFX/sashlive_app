@@ -137,8 +137,8 @@ class _BindPoneNumberScreenState extends State<BindPoneNumberScreen> {
                       marginLeft: 15,
                       height: 55,
                       color: isDark
-                          ? Colors.blueAccent.withOpacity(0.3)
-                          : Colors.blueAccent.withOpacity(0.05),
+                          ? Colors.blueAccent.withValues(alpha: 0.3)
+                          : Colors.blueAccent.withValues(alpha: 0.05),
                       child: Padding(
                         padding: const EdgeInsets.only(
                           left: 10,
@@ -284,7 +284,7 @@ class _BindPoneNumberScreenState extends State<BindPoneNumberScreen> {
               textColor: Colors.white,
               backgroundColor: validPhoneNumber
                   ? kPrimaryColor
-                  : kPrimaryColor.withOpacity(0.4),
+                  : kPrimaryColor.withValues(alpha: 0.4),
               text: "ok_".tr(),
               fontWeight: FontWeight.normal,
               onTap: !isPinSet
@@ -509,8 +509,8 @@ class _BindPoneNumberScreenState extends State<BindPoneNumberScreen> {
               }
             },
             backgroundColor: isDarkMode
-                ? Colors.blueAccent.withOpacity(0.3)
-                : Colors.blueAccent.withOpacity(0.05),
+                ? Colors.blueAccent.withValues(alpha: 0.3)
+                : Colors.blueAccent.withValues(alpha: 0.05),
             onCountryChanged: (country) {
               countryIsoCode = country.isoCode;
               countryDialCode = country.dialCode;

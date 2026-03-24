@@ -436,7 +436,7 @@ class _WalletScreenState extends State<WalletScreen>
             children: List.generate(
                 silverAmount.length, (index) {
                   return ContainerCorner(
-                    borderColor: kGrayColor.withOpacity(0.3),
+                    borderColor: kGrayColor.withValues(alpha: 0.3),
                     borderRadius: 8,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -452,7 +452,7 @@ class _WalletScreenState extends State<WalletScreen>
                       ),
                         ContainerCorner(
                           borderRadius: 50,
-                          color: Colors.deepPurpleAccent.withOpacity(0.1),
+                          color: Colors.deepPurpleAccent.withValues(alpha: 0.1),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10, top: 3, bottom: 3),
                             child: Row(
@@ -484,7 +484,7 @@ class _WalletScreenState extends State<WalletScreen>
           marginBottom: 25,
         ),
         ContainerCorner(
-          borderColor: kGrayColor.withOpacity(0.3),
+          borderColor: kGrayColor.withValues(alpha: 0.3),
           borderRadius: 50,
           marginLeft: 15,
           marginRight: 15,
@@ -531,7 +531,7 @@ class _WalletScreenState extends State<WalletScreen>
                   ),
                 ),
                 ContainerCorner(
-                  color: kPrimaryColor.withOpacity(0.1),
+                  color: kPrimaryColor.withValues(alpha: 0.1),
                   borderRadius: 50,
                   marginRight: 10,
                   child: Padding(

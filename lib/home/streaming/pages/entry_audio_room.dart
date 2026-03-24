@@ -121,7 +121,7 @@ class _AudioRoomEntryState extends State<AudioRoomEntry> {
     return ContainerCorner(
       height: 110,
       width: size.width - 30,
-      color: Colors.black.withOpacity(0.1),
+      color: Colors.black.withValues(alpha: 0.1),
       borderRadius: 20,
       borderWidth: 0,
       child: Form(
@@ -153,7 +153,7 @@ class _AudioRoomEntryState extends State<AudioRoomEntry> {
                     border: InputBorder.none,
                     hintText: "live_streaming.enter_title".tr(),
                     hintStyle: GoogleFonts.roboto(
-                      color: Colors.white.withOpacity(0.5),
+                        color: Colors.white.withValues(alpha: 0.5),
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),

@@ -67,7 +67,7 @@ class _LiveEndScreenState extends State<LiveEndScreen> {
                   "end_live_report_scree.live_ended".tr(),
                   fontSize: size.width / 12,
                   fontWeight: FontWeight.w800,
-                  color: Colors.white.withOpacity(0.6),
+                  color: Colors.white.withValues(alpha: 0.6),
                   alignment: Alignment.bottomCenter,
                   textAlign: TextAlign.center,
                   marginTop: 120,

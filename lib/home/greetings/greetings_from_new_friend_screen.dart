@@ -20,8 +20,7 @@ class GreetingsFromNewFriendScreen extends StatefulWidget {
   static String route = "/greetings/from/new/friend";
   UserModel? currentUser;
 
-  GreetingsFromNewFriendScreen({this.currentUser, Key? key})
-      : super(key: key);
+  GreetingsFromNewFriendScreen({this.currentUser, Key? key}) : super(key: key);
 
   @override
   State<GreetingsFromNewFriendScreen> createState() =>
@@ -141,8 +140,9 @@ class _GreetingsFromNewFriendScreenState
     bool isDarkMode = QuickHelp.isDarkMode(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor:
-          isDarkMode ? kContentDarkShadow : Colors.white.withOpacity(0.96),
+      backgroundColor: isDarkMode
+          ? kContentDarkShadow
+          : Colors.white.withValues(alpha: 0.96),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: isDarkMode ? kContentColorLightTheme : Colors.white,
@@ -299,9 +299,11 @@ class _GreetingsFromNewFriendScreenState
 
                   return ButtonWidget(
                     height: 50,
-                    onTap: () => QuickHelp.gotoChat(context,
-                        currentUser: widget.currentUser,
-                        mUser: chatUser,),
+                    onTap: () => QuickHelp.gotoChat(
+                      context,
+                      currentUser: widget.currentUser,
+                      mUser: chatUser,
+                    ),
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Row(
@@ -581,7 +583,7 @@ class _GreetingsFromNewFriendScreenState
             visible: index < (settingsTitles.length - 2),
             child: ContainerCorner(
               height: 0.5,
-              color: kGrayColor.withOpacity(0.5),
+              color: kGrayColor.withValues(alpha: 0.5),
               width: size.width,
             ))
       ],
@@ -605,7 +607,7 @@ class _GreetingsFromNewFriendScreenState
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.27,
           minChildSize: 0.1,
@@ -615,8 +617,9 @@ class _GreetingsFromNewFriendScreenState
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,

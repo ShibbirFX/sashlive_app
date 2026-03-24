@@ -224,7 +224,7 @@ class _PostTypeChooserScreenState extends State<PostTypeChooserScreen> {
     }
   }
 
-  void _handleExportResult(dynamic result) async{
+  void _handleExportResult(dynamic result) async {
     debugPrint('Export result = $result');
 
     // You can use any kind of export result passed from platform.
@@ -245,9 +245,9 @@ class _PostTypeChooserScreenState extends State<PostTypeChooserScreen> {
       videoFile = File(exportedVideoFilePath);
 
       QuickHelp.showLoadingDialogWithText(
-          context,
-          description: "prepare_video".tr(),
-        backgroundColor: Colors.black.withOpacity(0.3),
+        context,
+        description: "prepare_video".tr(),
+        backgroundColor: Colors.black.withValues(alpha: 0.3),
       );
       var videoCompressed = await VideoCompress.compressVideo(
         videoFile!.path,
@@ -256,7 +256,8 @@ class _PostTypeChooserScreenState extends State<PostTypeChooserScreen> {
       );
       QuickHelp.hideLoadingDialog(context);
 
-      _showConfirmation(context, "banuba_video_editor_sdk.publish_video".tr(), () {
+      _showConfirmation(context, "banuba_video_editor_sdk.publish_video".tr(),
+          () {
         //platform.invokeMethod(Setup.methodDemoPlayExportedVideo, exportedVideoFilePath);
         QuickHelp.goToNavigatorScreen(
           context,
@@ -397,7 +398,7 @@ class _PostTypeChooserScreenState extends State<PostTypeChooserScreen> {
   Widget showVideoEditorOptions() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),

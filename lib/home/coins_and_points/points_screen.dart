@@ -231,7 +231,7 @@ class _PointsScreenState extends State<PointsScreen> {
     Size size = MediaQuery.of(context).size;
     bool isDark = QuickHelp.isDarkMode(context);
     return ContainerCorner(
-      color: isDark ? kContentDarkShadow : kGrayColor.withOpacity(0.1),
+      color: isDark ? kContentDarkShadow : kGrayColor.withValues(alpha: 0.1),
       height: 50,
       marginLeft: 15,
       marginRight: 15,

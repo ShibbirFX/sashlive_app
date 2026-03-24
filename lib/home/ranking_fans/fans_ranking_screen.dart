@@ -109,8 +109,8 @@ class _FansRankingScreenState extends State<FansRankingScreen> {
                   children: [
                     ContainerCorner(
                       color: tabIndex == 0
-                          ? Colors.white.withOpacity(0.7)
-                          : Colors.white.withOpacity(0.3),
+                          ? Colors.white.withValues(alpha: 0.7)
+                          : Colors.white.withValues(alpha: 0.3),
                       borderRadius: 50,
                       borderWidth: 0,
                       height: 30,
@@ -133,8 +133,8 @@ class _FansRankingScreenState extends State<FansRankingScreen> {
                     ),
                     ContainerCorner(
                       color: tabIndex == 1
-                          ? Colors.white.withOpacity(0.7)
-                          : Colors.white.withOpacity(0.3),
+                          ? Colors.white.withValues(alpha: 0.7)
+                          : Colors.white.withValues(alpha: 0.3),
                       borderRadius: 50,
                       borderWidth: 0,
                       height: 30,
@@ -665,7 +665,7 @@ class _FansRankingScreenState extends State<FansRankingScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return ContainerCorner(
                   borderWidth: 0,
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,

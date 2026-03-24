@@ -431,7 +431,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
                             child: SvgPicture.asset(
                                 'assets/svg/ic_add_sofa.svg',
                               colorFilter: ColorFilter.mode(
-                                  Colors.white.withOpacity(0.3),
+                                  Colors.white.withValues(alpha: 0.3),
                                   BlendMode.srcIn,
                               ),
                               height: 25,
@@ -483,7 +483,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
                                 children: [
                                   ContainerCorner(
                                     marginRight: 5,
-                                    color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withValues(alpha: 0.5),
                                     child: QuickActions.avatarWidget(
                                       widget.liveStreaming!.getAuthor!,
                                       width: double.infinity,
@@ -557,7 +557,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
                               ContainerCorner(
                                 marginLeft: 10,
                                 marginRight: 6,
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: 50,
                                 height: 23,
                                 width: 23,
@@ -893,7 +893,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
           ),
           TextWithTap(
             legend,
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha: 0.8),
           ),
         ],
       ),
@@ -1353,7 +1353,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
     coHostQuery.whereContainedIn(UserModel.keyObjectId, coHostsList);
 
     return ContainerCorner(
-      color: kIamonDarkBarColor.withOpacity(.9),
+      color: kIamonDarkBarColor.withValues(alpha: .9),
       width: size.width,
       borderColor: Colors.white,
       radiusTopLeft: 10,
@@ -1722,11 +1722,13 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
           },
         ),
         Obx((){
-          return Visibility(
-            visible: showGiftSendersController.shareMediaFiles.value,
-            child: advanceMediaPlayer(
-              canControl: widget.isHost,
-            ),);
+          return Positioned(
+            child: Visibility(
+              visible: showGiftSendersController.shareMediaFiles.value,
+              child: advanceMediaPlayer(
+                canControl: widget.isHost,
+              ),),
+          );
         }),
       ],
     );
@@ -1868,7 +1870,7 @@ class MultiUsersLiveScreenState extends State<MultiUsersLiveScreen> with TickerP
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: Colors.blue[900]!.withOpacity(0.9),
+          backgroundColor: Colors.blue[900]!.withValues(alpha: 0.9),
           title: Text(
               "You have a request to turn on your ${isCameraOrMicrophone ? "camera" : "microphone"}",
               style: textStyle),

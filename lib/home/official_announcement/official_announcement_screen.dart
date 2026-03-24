@@ -33,7 +33,7 @@ class _OfficialAnnouncementScreenState
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor:
-          isDarkMode ? kContentDarkShadow : Colors.white.withOpacity(0.96),
+          isDarkMode ? kContentDarkShadow : Colors.white.withValues(alpha: 0.96),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: isDarkMode ? kContentColorLightTheme : Colors.white,
@@ -129,7 +129,7 @@ class _OfficialAnnouncementScreenState
                   ContainerCorner(
                     height: 0.5,
                     width: size.width,
-                    color: kGrayDark.withOpacity(0.4),
+                    color: kGrayDark.withValues(alpha: 0.4),
                     marginTop: 10,
                     marginBottom: 10,
                   ),
@@ -150,7 +150,7 @@ class _OfficialAnnouncementScreenState
                               borderRadius: 50,
                               marginRight: 3,
                               color: hasRead
-                                  ? kGrayColor.withOpacity(0.3)
+                                  ? kGrayColor.withValues(alpha: 0.3)
                                   : Colors.red,
                               child: TextWithTap(
                                 hasRead

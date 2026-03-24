@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../app/config.dart';
+import '../../app/config.dart' as app_config;
 import '../../helpers/quick_help.dart';
 import '../../models/UserModel.dart';
 import '../../ui/container_with_corner.dart';
@@ -114,7 +114,7 @@ class _InviteAgentScreenState extends State<InviteAgentScreen> {
                           fontSize: 18,
                         ),
                         ContainerCorner(
-                          color: kPrimaryColor.withOpacity(0.2),
+                          color: kPrimaryColor.withValues(alpha: 0.2),
                           borderRadius: 10,
                           borderColor: kPrimaryColor,
                           width: size.width,
@@ -220,7 +220,7 @@ class _InviteAgentScreenState extends State<InviteAgentScreen> {
         Visibility(
           visible: showTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -248,7 +248,7 @@ class _InviteAgentScreenState extends State<InviteAgentScreen> {
 
   shareLink() async {
     Share.share("settings_screen.share_app_url"
-        .tr(namedArgs: {"app_name": Config.appName, "url": linkToShare}));
+        .tr(namedArgs: {"app_name": app_config.Config.appName, "url": linkToShare}));
   }
 
   createLink() async {

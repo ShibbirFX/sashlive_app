@@ -166,7 +166,7 @@ class _PrivilegeInfoScreenState extends State<PrivilegeInfoScreen> {
                         ),
                         color: pageViewIndex == entry.key
                             ? Colors.white
-                            : Colors.white.withOpacity(0.3),
+                            : Colors.white.withValues(alpha: 0.3),
                       );
                     }).toList(),
                   ),

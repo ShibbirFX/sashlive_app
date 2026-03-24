@@ -84,8 +84,8 @@ class _WithdrawHistoryScreenState extends State<WithdrawHistoryScreen> {
                                     borderRadius: 50,
                                     borderWidth: 2,
                                     borderColor: QuickHelp.isDarkMode(context)
-                                        ? kContentColorDarkTheme.withOpacity(0.5)
-                                        : kContentColorLightTheme.withOpacity(0.5),
+                                        ? kContentColorDarkTheme.withValues(alpha: 0.5)
+                                        : kContentColorLightTheme.withValues(alpha: 0.5),
                                     height: 50,
                                     width: 50,
                                     child: ClipRRect(

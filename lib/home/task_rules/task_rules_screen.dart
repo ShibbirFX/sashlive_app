@@ -131,7 +131,7 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                   TextSpan(
                     style: TextStyle(
                       fontSize: 15,
-                      color: Colors.deepPurple.withOpacity(0.4),
+                      color: Colors.deepPurple.withValues(alpha: 0.4),
                       fontWeight: FontWeight.w700,
                     ),
                     text: "new_task_system_screen.not_new_host".tr(),
@@ -163,8 +163,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
               TableRow(
                 decoration: BoxDecoration(
                   color: isDark
-                      ? kSecondaryColor.withOpacity(0.2)
-                      : kSecondaryColor.withOpacity(0.1),
+                      ? kSecondaryColor.withValues(alpha: 0.2)
+                      : kSecondaryColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(10),
                     topLeft: Radius.circular(10),
@@ -180,8 +180,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                     marginTop: 10,
                     marginBottom: 10,
                     color: isDark
-                        ? Colors.white.withOpacity(0.7)
-                        : Colors.black.withOpacity(0.7),
+                        ? Colors.white.withValues(alpha: 0.7)
+                        : Colors.black.withValues(alpha: 0.7),
                   ),
                 ],
               ),
@@ -229,8 +229,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                           marginBottom: 3,
                           fontWeight: FontWeight.w700,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                         Image.asset(
                           "assets/images/ic_jifen_wode.webp",
@@ -277,7 +277,7 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                   TextSpan(
                     style: TextStyle(
                       fontSize: 15,
-                      color: Colors.deepPurple.withOpacity(0.4),
+                      color: Colors.deepPurple.withValues(alpha: 0.4),
                       fontWeight: FontWeight.w700,
                     ),
                     text: "new_task_system_screen.hosts_within".tr(),
@@ -299,7 +299,7 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                   TextSpan(
                     style: TextStyle(
                       fontSize: 15,
-                      color: Colors.deepPurple.withOpacity(0.4),
+                      color: Colors.deepPurple.withValues(alpha: 0.4),
                       fontWeight: FontWeight.w700,
                     ),
                     text: "new_task_system_screen.registration_policy".tr(),
@@ -320,8 +320,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
               TableRow(
                   decoration: BoxDecoration(
                     color: isDark
-                        ? kSecondaryColor.withOpacity(0.2)
-                        : kSecondaryColor.withOpacity(0.1),
+                        ? kSecondaryColor.withValues(alpha: 0.2)
+                        : kSecondaryColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       topLeft: Radius.circular(10),
@@ -337,8 +337,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                       marginTop: 10,
                       marginBottom: 10,
                       color: isDark
-                          ? Colors.white.withOpacity(0.7)
-                          : Colors.black.withOpacity(0.7),
+                          ? Colors.white.withValues(alpha: 0.7)
+                          : Colors.black.withValues(alpha: 0.7),
                     ),
                   ]),
             ],
@@ -383,8 +383,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                           marginBottom: 3,
                           fontWeight: FontWeight.w700,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                         Image.asset(
                           "assets/images/ic_jifen_wode.webp",
@@ -465,8 +465,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
               TableRow(
                   decoration: BoxDecoration(
                     color: isDark
-                        ? kSecondaryColor.withOpacity(0.2)
-                        : kSecondaryColor.withOpacity(0.1),
+                        ? kSecondaryColor.withValues(alpha: 0.2)
+                        : kSecondaryColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       topLeft: Radius.circular(10),
@@ -488,8 +488,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                                   marginBottom: 3,
                                   fontWeight: FontWeight.w600,
                                   color: isDark
-                                      ? Colors.white.withOpacity(0.7)
-                                      : Colors.black.withOpacity(0.7),
+                                      ? Colors.white.withValues(alpha: 0.7)
+                                      : Colors.black.withValues(alpha: 0.7),
                                   fontSize: 11,
                                 ),
                               ],
@@ -510,8 +510,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                       fontWeight: FontWeight.w500,
                       marginTop: 15,
                       color: isDark
-                          ? Colors.white.withOpacity(0.7)
-                          : Colors.black.withOpacity(0.7),
+                          ? Colors.white.withValues(alpha: 0.7)
+                          : Colors.black.withValues(alpha: 0.7),
                     ),
                   ]),
             ],
@@ -551,8 +551,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                     fontWeight: FontWeight.w700,
                     marginTop: 15,
                     color: isDark
-                        ? Colors.white.withOpacity(0.7)
-                        : Colors.black.withOpacity(0.7),
+                        ? Colors.white.withValues(alpha: 0.7)
+                        : Colors.black.withValues(alpha: 0.7),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -568,8 +568,8 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
                           marginBottom: 3,
                           fontWeight: FontWeight.w700,
                           color: isDark
-                              ? Colors.white.withOpacity(0.7)
-                              : Colors.black.withOpacity(0.7),
+                              ? Colors.white.withValues(alpha: 0.7)
+                              : Colors.black.withValues(alpha: 0.7),
                         ),
                         Image.asset(
                           "assets/images/ic_jifen_wode.webp",
@@ -603,7 +603,7 @@ class _TaskRulesScreenState extends State<TaskRulesScreen> {
       alignment: Alignment.center,
       children: [
         ContainerCorner(
-          color: kSecondaryColor.withOpacity(0.1),
+          color: kSecondaryColor.withValues(alpha: 0.1),
           borderRadius: 50,
           width: width,
           height: 14,

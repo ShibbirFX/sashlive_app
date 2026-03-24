@@ -214,7 +214,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         Visibility(
           visible: showTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -389,7 +389,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.2,
           minChildSize: 0.1,
@@ -400,7 +400,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
                 color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                    isDarkMode ? Colors.black : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -454,7 +454,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           visible: index < (settingsTitles.length - 2),
           child: ContainerCorner(
             height: 0.5,
-            color: kGrayColor.withOpacity(0.5),
+            color: kGrayColor.withValues(alpha: 0.5),
             width: size.width,
           ),
         ),

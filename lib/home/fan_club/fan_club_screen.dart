@@ -185,7 +185,7 @@ class _FanClubScreenState extends State<FanClubScreen>
                                   marginTop: 1,
                                   marginBottom: 1,
                                 ),
-                                color: Colors.white.withOpacity(0.5),
+                                color: Colors.white.withValues(alpha: 0.5),
                                 borderRadius: 50,
                               ),
                             ],
@@ -519,7 +519,7 @@ class _FanClubScreenState extends State<FanClubScreen>
                       height: 15,
                     ),
                     ContainerCorner(
-                      color: kGrayColor.withOpacity(0.2),
+                      color: kGrayColor.withValues(alpha: 0.2),
                       borderWidth: 0.3,
                       borderColor: kGrayColor,
                       borderRadius: 4,

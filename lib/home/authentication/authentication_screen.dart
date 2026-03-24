@@ -122,7 +122,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
             children: List.generate(
               titles.length,
               (index) => ContainerCorner(
-                borderColor: kGrayColor.withOpacity(0.2),
+                borderColor: kGrayColor.withValues(alpha: 0.2),
                 borderRadius: 10,
                 marginTop: 10,
                 height: 100,

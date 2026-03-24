@@ -19,8 +19,7 @@ import '../profile/user_profile_screen.dart';
 class InvitationScreen extends StatefulWidget {
   UserModel? currentUser;
 
-  InvitationScreen({this.currentUser, Key? key})
-      : super(key: key);
+  InvitationScreen({this.currentUser, Key? key}) : super(key: key);
 
   @override
   State<InvitationScreen> createState() => _InvitationScreenState();
@@ -139,7 +138,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                           height: 35,
                           width: 80,
                           marginBottom: 30,
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withValues(alpha: 0.3),
                           radiusTopLeft: 50,
                           radiusBottomLeft: 50,
                           onTap: () => openRules(),
@@ -149,7 +148,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                               children: [
                                 Icon(
                                   Icons.info_outline,
-                                  color: Colors.white.withOpacity(0.4),
+                                  color: Colors.white.withValues(alpha: 0.4),
                                   size: 19,
                                 ),
                                 TextWithTap(
@@ -402,7 +401,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                 ],
               ),
               ContainerCorner(
-                color: kGrayColor.withOpacity(0.8),
+          color: kGrayColor.withValues(alpha: 0.8),
                 width: 1,
                 height: 10,
               ),
@@ -466,7 +465,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                   height: 30,
                   color: widget.currentUser!.getPCoins! > 1
                       ? kPrimaryColor
-                      : kGrayColor.withOpacity(0.7),
+                      : kGrayColor.withValues(alpha: 0.7),
                   child: TextWithTap(
                     "invitation_gift_screen.receive_".tr(),
                     color: Colors.white,
@@ -816,7 +815,7 @@ class _InvitationScreenState extends State<InvitationScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return ContainerCorner(
                   borderWidth: 0,
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -865,7 +864,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                                 children: [
                                   TableRow(
                                       decoration: BoxDecoration(
-                                        color: kRoseVip.withOpacity(0.4),
+                                        color: kRoseVip.withValues(alpha: 0.4),
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(10),
                                           topLeft: Radius.circular(10),
@@ -880,8 +879,10 @@ class _InvitationScreenState extends State<InvitationScreen>
                                           marginBottom: 3,
                                           fontWeight: FontWeight.w500,
                                           color: isDark
-                                              ? Colors.white.withOpacity(0.7)
-                                              : Colors.black.withOpacity(0.7),
+                                              ? Colors.white
+                                                  .withValues(alpha: 0.7)
+                                              : Colors.black
+                                                  .withValues(alpha: 0.7),
                                           fontSize: 12,
                                         ),
                                         TextWithTap(
@@ -893,8 +894,10 @@ class _InvitationScreenState extends State<InvitationScreen>
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           color: isDark
-                                              ? Colors.white.withOpacity(0.7)
-                                              : Colors.black.withOpacity(0.7),
+                                              ? Colors.white
+                                                  .withValues(alpha: 0.7)
+                                              : Colors.black
+                                                  .withValues(alpha: 0.7),
                                         ),
                                       ]),
                                 ],
@@ -914,7 +917,8 @@ class _InvitationScreenState extends State<InvitationScreen>
                                         color: (index % 2) != 0
                                             ? isDark
                                                 ? kContentDarkShadow
-                                                : kGrayColor.withOpacity(0.1)
+                                                : kGrayColor.withValues(
+                                                    alpha: 0.1)
                                             : kTransparentColor,
                                       ),
                                       children: [
@@ -927,8 +931,10 @@ class _InvitationScreenState extends State<InvitationScreen>
                                           marginTop: 3,
                                           marginBottom: 3,
                                           color: isDark
-                                              ? Colors.white.withOpacity(0.7)
-                                              : Colors.black.withOpacity(0.7),
+                                              ? Colors.white
+                                                  .withValues(alpha: 0.7)
+                                              : Colors.black
+                                                  .withValues(alpha: 0.7),
                                           fontSize: 11,
                                           marginLeft: 5,
                                         ),
@@ -971,7 +977,8 @@ class _InvitationScreenState extends State<InvitationScreen>
                                         color: (index % 2) != 0
                                             ? isDark
                                                 ? kContentDarkShadow
-                                                : kGrayColor.withOpacity(0.1)
+                                                : kGrayColor.withValues(
+                                                    alpha: 0.1)
                                             : kTransparentColor,
                                         borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(
@@ -994,8 +1001,10 @@ class _InvitationScreenState extends State<InvitationScreen>
                                           marginTop: 3,
                                           marginBottom: 3,
                                           color: isDark
-                                              ? Colors.white.withOpacity(0.7)
-                                              : Colors.black.withOpacity(0.7),
+                                              ? Colors.white
+                                                  .withValues(alpha: 0.7)
+                                              : Colors.black
+                                                  .withValues(alpha: 0.7),
                                           fontSize: 11,
                                           marginLeft: 5,
                                         ),
@@ -1038,7 +1047,7 @@ class _InvitationScreenState extends State<InvitationScreen>
                         width: 40,
                         borderRadius: 50,
                         marginTop: 15,
-                        borderColor: Colors.white.withOpacity(0.5),
+                        borderColor: Colors.white.withValues(alpha: 0.5),
                         onTap: () => QuickHelp.hideLoadingDialog(context),
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),

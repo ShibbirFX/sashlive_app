@@ -33,8 +33,7 @@ class CreateVideoPostScreen extends StatefulWidget {
   static String route = "/create/video/post";
   UserModel? currentUser;
 
-  CreateVideoPostScreen({this.currentUser, Key? key})
-      : super(key: key);
+  CreateVideoPostScreen({this.currentUser, Key? key}) : super(key: key);
 
   @override
   State<CreateVideoPostScreen> createState() => _CreateVideoPostScreenState();
@@ -167,11 +166,12 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
                                     borderWidth: 0,
                                     marginRight: 7,
                                     marginBottom: 7,
-                                    color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withValues(alpha: 0.5),
                                     child: Center(
                                       child: Icon(
                                         Icons.play_circle_outline,
-                                        color: Colors.white.withOpacity(0.4),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.4),
                                         size: size.width / 8,
                                       ),
                                     ),
@@ -311,7 +311,7 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
     );
 
     return ContainerCorner(
-      color: Colors.black.withOpacity(0.01),
+      color: Colors.black.withValues(alpha: 0.01),
       child: DraggableScrollableSheet(
         initialChildSize: 0.9,
         minChildSize: 0.1,
@@ -524,13 +524,14 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
   }
 
   Future<void> checkPermission(bool isAvatar) async {
-
     if (QuickHelp.isAndroidPlatform()) {
       DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       bool api32 = androidInfo.version.sdkInt <= 32;
 
-      PermissionStatus status = api32 ? await Permission.storage.status : await Permission.photos.status;
+      PermissionStatus status = api32
+          ? await Permission.storage.status
+          : await Permission.photos.status;
       PermissionStatus status2 = await Permission.camera.status;
       PermissionStatus status3 = await Permission.videos.status;
       print('Permission android');
@@ -551,31 +552,30 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
   }
 
   void checkStatus(PermissionStatus status, PermissionStatus status2,
-      PermissionStatus status3, bool isAvatar) async{
+      PermissionStatus status3, bool isAvatar) async {
     if (status.isDenied || status2.isDenied || status3.isDenied) {
       // We didn't ask for permission yet or the permission has been denied before but not permanently.
 
-      if(QuickHelp.isAndroidPlatform()) {
+      if (QuickHelp.isAndroidPlatform()) {
         DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
         AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
         bool api32 = androidInfo.version.sdkInt <= 32;
-        if(api32) {
+        if (api32) {
           askPermissions();
-        }else {
+        } else {
           PermissionStatus statusCamera = await Permission.camera.request();
           PermissionStatus statusVideo = await Permission.videos.request();
           PermissionStatus statusPhoto = await Permission.photos.request();
-          debugPrint("permissions_ya_trace: camera:${statusCamera.isGranted} video:${statusVideo.isGranted} photo:${statusPhoto.isGranted}");
-          if(statusCamera.isGranted && statusVideo.isGranted /*&& statusStorage.isGranted*/) {
+          debugPrint(
+              "permissions_ya_trace: camera:${statusCamera.isGranted} video:${statusVideo.isGranted} photo:${statusPhoto.isGranted}");
+          if (statusCamera.isGranted &&
+              statusVideo.isGranted /*&& statusStorage.isGranted*/) {
             _pickVideoFile();
           }
         }
-      }else{
+      } else {
         askPermissions();
       }
-
-
-
     } else if (status.isPermanentlyDenied ||
         status2.isPermanentlyDenied ||
         status3.isPermanentlyDenied) {
@@ -599,7 +599,6 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
     print('Permission $status2');
   }
 
-
   askPermissions() {
     QuickHelp.showDialogPermission(
         context: context,
@@ -610,8 +609,6 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
         onPressed: () async {
           QuickHelp.hideLoadingDialog(context);
 
-
-
           // You can request multiple permissions at once.
           Map<Permission, PermissionStatus> statuses = await [
             Permission.camera,
@@ -621,7 +618,7 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
           ].request();
 
           if (statuses[Permission.camera]!.isGranted &&
-              statuses[Permission.photos]!.isGranted ||
+                  statuses[Permission.photos]!.isGranted ||
               statuses[Permission.storage]!.isGranted ||
               statuses[Permission.videos]!.isGranted) {
             _pickVideoFile();
@@ -706,7 +703,9 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
               user,
               SendNotifications.typePost,
               objectId: post.objectId!,
-              pictureURL: post.getVideoThumbnail != null ? post.getVideoThumbnail!.url : "",
+              pictureURL: post.getVideoThumbnail != null
+                  ? post.getVideoThumbnail!.url
+                  : "",
             );
           }
         }
@@ -715,7 +714,6 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
   }
 
   _pickVideoFile() async {
-
     final List<AssetEntity>? result = await AssetPicker.pickAssets(
       context,
       pickerConfig: AssetPickerConfig(
@@ -725,7 +723,6 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
     );
 
     if (result != null && result.length > 0) {
-
       final File? file = await result.first.file;
       final preview = await result.first.thumbnailData;
 
@@ -735,15 +732,16 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
       print('Selected file type $fileType');
 
       prepareVideo(file, preview!);
-
     }
-
   }
 
-  prepareVideo(File file, Uint8List previewPath,) async {
+  prepareVideo(
+    File file,
+    Uint8List previewPath,
+  ) async {
     VideoEditorModel? videoEditorModel =
-    await QuickHelp.goToNavigatorScreenForResult(
-        context, VideoEditorScreen(file: file));
+        await QuickHelp.goToNavigatorScreenForResult(
+            context, VideoEditorScreen(file: file));
 
     if (videoEditorModel != null) {
       print("Exported cover received ${videoEditorModel.coverPath}");
@@ -754,13 +752,16 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
       final tempDir = await getTemporaryDirectory();
       DateTime date = DateTime.now();
 
-      String videoThumbnailName = 'thumbnail_${date.second}_${date.millisecond}.jpg';
+      String videoThumbnailName =
+          'thumbnail_${date.second}_${date.millisecond}.jpg';
 
       File videoThumbnailFile = File('${tempDir.path}/$videoThumbnailName');
 
-      await videoThumbnailFile.writeAsBytes(await File(videoEditorModel.coverPath!).readAsBytes());
+      await videoThumbnailFile
+          .writeAsBytes(await File(videoEditorModel.coverPath!).readAsBytes());
 
-      parseVideoThumbnailFile = ParseFile(File(videoEditorModel.coverPath!), name: "thumbnail.jpg");
+      parseVideoThumbnailFile =
+          ParseFile(File(videoEditorModel.coverPath!), name: "thumbnail.jpg");
 
       setState(() {
         selectedVideos.add(videoThumbnailFile);
@@ -776,7 +777,7 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
     }
   }
 
- /* _pickVideoFile() async {
+  /* _pickVideoFile() async {
     final List<AssetEntity>? result = await AssetPicker.pickAssets(
       context,
       pickerConfig: AssetPickerConfig(
@@ -849,9 +850,7 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
     String fileName =
         "video_file_${widget.currentUser!.objectId!}_${DateTime.now().toLocal().millisecond}_${QuickHelp.generateUId()}.mp4";
     String url = "$fileName";
-    String? etag = await spaces
-        .bucket("")
-        .uploadFile(
+    String? etag = await spaces.bucket("").uploadFile(
           fileName,
           videoFile,
           'video/mp4',

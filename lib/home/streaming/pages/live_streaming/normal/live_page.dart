@@ -217,7 +217,7 @@ class ZegoNormalLivePageState extends State<ZegoNormalLivePage> {
         ContainerCorner(
           height: 30,
           borderRadius: 50,
-          color: Colors.black.withOpacity(0.5),
+          color: Colors.black.withValues(alpha: 0.5),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -226,7 +226,7 @@ class ZegoNormalLivePageState extends State<ZegoNormalLivePage> {
                 children: [
                   ContainerCorner(
                     marginRight: 5,
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     child: QuickActions.avatarWidget(
                         widget.mLiveStreaming!.getAuthor!,
                         width: 35,
@@ -699,7 +699,7 @@ class ZegoNormalLivePageState extends State<ZegoNormalLivePage> {
       return ContainerCorner(
         height: 110,
         width: size.width - 30,
-        color: Colors.black.withOpacity(0.1),
+        color: Colors.black.withValues(alpha: 0.1),
         borderRadius: 20,
         borderWidth: 0,
         child: Form(
@@ -731,7 +731,7 @@ class ZegoNormalLivePageState extends State<ZegoNormalLivePage> {
                       border: InputBorder.none,
                       hintText: "live_streaming.enter_title".tr(),
                       hintStyle: GoogleFonts.roboto(
-                        color: Colors.white.withOpacity(0.5),
+                        color: Colors.white.withValues(alpha: 0.5),
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),

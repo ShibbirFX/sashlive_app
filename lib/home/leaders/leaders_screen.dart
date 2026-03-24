@@ -201,7 +201,7 @@ class _LeadersPageState extends State<LeadersPage> {
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,

@@ -58,10 +58,11 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
   String keyToRefreshCommentsList = "";
   String keyToRefreshRepliesList = "";
 
-  getAllUserPost() async{
+  getAllUserPost() async {
     QueryBuilder queryBuilder = QueryBuilder<PostsModel>(PostsModel());
 
-    queryBuilder.whereEqualTo(PostsModel.keyAuthorId, widget.post!.getAuthorId!);
+    queryBuilder.whereEqualTo(
+        PostsModel.keyAuthorId, widget.post!.getAuthorId!);
     queryBuilder.orderByDescending(PostsModel.keyCreatedAt);
 
     queryBuilder.includeObject([
@@ -148,7 +149,6 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     Size size = MediaQuery.of(context).size;
     bool isDark = QuickHelp.isDarkMode(context);
 
@@ -221,7 +221,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                 },
                               ),
                               marginLeft: 10,
-                              color: kGrayColor.withOpacity(0.7),
+                              color: kGrayColor.withValues(alpha: 0.7),
                               fontSize: 7,
                               alignment: Alignment.center,
                             ),
@@ -259,9 +259,17 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                                     marginBottom: 5,
                                                     marginRight: 5,
                                                   ),
-                                                  if(widget.post!.getAuthor!.getCountryCode!.isNotEmpty)
+                                                  if (widget
+                                                      .post!
+                                                      .getAuthor!
+                                                      .getCountryCode!
+                                                      .isNotEmpty)
                                                     Image.asset(
-                                                      QuickHelp.getCountryFlag(code: widget.post!.getAuthor!.getCountryCode!),
+                                                      QuickHelp.getCountryFlag(
+                                                          code: widget
+                                                              .post!
+                                                              .getAuthor!
+                                                              .getCountryCode!),
                                                       height: 12,
                                                     )
                                                 ],
@@ -286,9 +294,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                             ));
                                       } else {
                                         QuickActions.showUserProfile(
-                                            context,
-                                            widget.currentUser!,
-                                            widget.post!.getAuthor!,
+                                          context,
+                                          widget.currentUser!,
+                                          widget.post!.getAuthor!,
                                         );
                                       }
                                     }),
@@ -350,7 +358,10 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                             widget.post!.getBackgroundColor!),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
-                                              left: 10, right: 10, top: 20, bottom: 20),
+                                              left: 10,
+                                              right: 10,
+                                              top: 20,
+                                              bottom: 20),
                                           child: AutoSizeText(
                                             widget.post!.getText!,
                                             style: GoogleFonts.nunito(
@@ -411,8 +422,8 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                               width: 40,
                                               borderRadius: 50,
                                               borderWidth: 0,
-                                              color:
-                                                  Colors.black.withOpacity(0.7),
+                                              color: Colors.black
+                                                  .withValues(alpha: 0.7),
                                               child: Center(
                                                   child: Icon(
                                                 Icons.play_circle_outline,
@@ -434,7 +445,8 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                           "assets/images/blurred_image.jpg"),
                                     ),
                                     ContainerCorner(
-                                      color: Colors.white.withOpacity(0.5),
+                                      color:
+                                          Colors.white.withValues(alpha: 0.5),
                                       borderRadius: 20,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -512,16 +524,22 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                         marginTop: 10,
                                         onTap: () async {
                                           String linkToShare =
-                                          await DeepLinksService.createLink(
-                                            branchObject: DeepLinksService.branchObject(
-                                              shareAction: DeepLinksService.keyPostShare,
+                                              await DeepLinksService.createLink(
+                                            branchObject:
+                                                DeepLinksService.branchObject(
+                                              shareAction:
+                                                  DeepLinksService.keyPostShare,
                                               objectID: widget.post!.objectId!,
-                                              imageURL: QuickHelp.getImageToShare(widget.post!) ,
-                                              title: QuickHelp.getTitleToShare(widget.post!),
-                                              description: widget.post!.getAuthor!.getFullName,
+                                              imageURL:
+                                                  QuickHelp.getImageToShare(
+                                                      widget.post!),
+                                              title: QuickHelp.getTitleToShare(
+                                                  widget.post!),
+                                              description: widget
+                                                  .post!.getAuthor!.getFullName,
                                             ),
                                             branchProperties:
-                                            DeepLinksService.linkProperties(
+                                                DeepLinksService.linkProperties(
                                               channel: "link",
                                             ),
                                             context: context,
@@ -566,12 +584,13 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                               namedArgs: {
                                 "amount":
                                     widget.post!.getComments!.length.toString()
-                              },),
+                              },
+                            ),
                             marginLeft: 10,
                             marginTop: 10,
                             marginBottom: 25,
                             fontWeight: FontWeight.bold,
-                            ),
+                          ),
                           showAllComments(),
                         ],
                       ),
@@ -607,8 +626,8 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
           color: isLiked
               ? kPrimaryColor
               : isDark
-              ? Colors.white
-              : kContentColorLightTheme,
+                  ? Colors.white
+                  : kContentColorLightTheme,
           size: 20,
         );
       },
@@ -686,7 +705,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
     var size = MediaQuery.of(context).size;
 
     QueryBuilder<CommentsModel> queryBuilder =
-    QueryBuilder<CommentsModel>(CommentsModel());
+        QueryBuilder<CommentsModel>(CommentsModel());
     queryBuilder.whereEqualTo(CommentsModel.keyPost, widget.post);
     queryBuilder.whereNotContainedIn(
         CommentsModel.keyObjectId, widget.currentUser!.getReportedCommentID!);
@@ -720,14 +739,15 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        if(commentsModel.getAuthorId == widget.currentUser!.objectId) {
-                          QuickHelp.goToNavigatorScreen(context,
+                        if (commentsModel.getAuthorId ==
+                            widget.currentUser!.objectId) {
+                          QuickHelp.goToNavigatorScreen(
+                              context,
                               HomeScreen(
                                 currentUser: widget.currentUser,
                                 initialTabIndex: 4,
-                              )
-                          );
-                        }else{
+                              ));
+                        } else {
                           goToUserProfile(commentsModel.getAuthor!);
                         }
                       },
@@ -741,28 +761,25 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                             vipFrameWidth: 50,
                             vipFrameHeight: 47,
                           ),
-                          if (commentsModel.getAuthor!.getAvatarFrame !=
-                              null &&
-                              commentsModel.getAuthor!
-                                  .getCanUseAvatarFrame!)
+                          if (commentsModel.getAuthor!.getAvatarFrame != null &&
+                              commentsModel.getAuthor!.getCanUseAvatarFrame!)
                             ContainerCorner(
                               borderWidth: 0,
                               width: 55,
                               height: 55,
                               child: CachedNetworkImage(
-                                imageUrl: commentsModel.getAuthor!
-                                    .getAvatarFrame!.url!,
-                                imageBuilder:
-                                    (context, imageProvider) =>
+                                imageUrl: commentsModel
+                                    .getAuthor!.getAvatarFrame!.url!,
+                                imageBuilder: (context, imageProvider) =>
                                     Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.fill,
-                                        ),
-                                      ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.fill,
                                     ),
+                                  ),
+                                ),
                               ),
                             ),
                         ],
@@ -788,33 +805,41 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                   Flexible(
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
                                             TextWithTap(
-                                              commentsModel.getAuthor!.getFullName!,
+                                              commentsModel
+                                                  .getAuthor!.getFullName!,
                                               marginLeft: 10,
                                               marginBottom: 5,
                                               fontWeight: FontWeight.bold,
-                                              color: QuickHelp.isDarkMode(context)
-                                                  ? Colors.white
-                                                  : kContentColorLightTheme,
+                                              color:
+                                                  QuickHelp.isDarkMode(context)
+                                                      ? Colors.white
+                                                      : kContentColorLightTheme,
                                               fontSize: 16,
                                               marginRight: 5,
                                             ),
-                                            if(commentsModel.getAuthor!.getCountryCode!.isNotEmpty)
+                                            if (commentsModel.getAuthor!
+                                                .getCountryCode!.isNotEmpty)
                                               Padding(
-                                                padding: const EdgeInsets.only(bottom: 4),
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 4),
                                                 child: Image.asset(
-                                                  QuickHelp.getCountryFlag(code: commentsModel.getAuthor!.getCountryCode!),
+                                                  QuickHelp.getCountryFlag(
+                                                      code: commentsModel
+                                                          .getAuthor!
+                                                          .getCountryCode!),
                                                   height: 10,
                                                 ),
                                               )
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(left: 6.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 6.0),
                                           child: QuickHelp.usersMoreInfo(
                                             context,
                                             commentsModel.getAuthor!,
@@ -868,9 +893,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                         marginLeft: 20,
                         onTap: () {
                           openReportComments(
-                              author: commentsModel.getAuthor!,
-                              commentOrReply: 1,
-                              comment: commentsModel,
+                            author: commentsModel.getAuthor!,
+                            commentOrReply: 1,
+                            comment: commentsModel,
                           );
                         },
                         child: SvgPicture.asset(
@@ -903,9 +928,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
 
   openReportComments(
       {required UserModel author,
-        required int commentOrReply,
-        CommentsModel? comment,
-        ReplyModel? replyComment}) async {
+      required int commentOrReply,
+      CommentsModel? comment,
+      ReplyModel? replyComment}) async {
     showModalBottomSheet(
         context: (context),
         isScrollControlled: true,
@@ -924,9 +949,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
 
   Widget _showReportCommentsBottomSheet(
       {required UserModel author,
-        required int commentOrReply,
-        CommentsModel? comment,
-        ReplyModel? replyComment}) {
+      required int commentOrReply,
+      CommentsModel? comment,
+      ReplyModel? replyComment}) {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: Container(
@@ -941,7 +966,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -971,46 +996,46 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                         Column(
                           children: List.generate(
                               QuickHelp.getReportCodeMessageList().length,
-                                  (index) {
-                                String code =
+                              (index) {
+                            String code =
                                 QuickHelp.getReportCodeMessageList()[index];
 
-                                return TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
+                            return TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
 
-                                    if (commentOrReply == 1) {
-                                      _saveReportComment(comment!.objectId!);
-                                    } else if (commentOrReply == 2) {
-                                      _saveReportReply(replyComment!.objectId!);
-                                    }
-                                  },
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
+                                if (commentOrReply == 1) {
+                                  _saveReportComment(comment!.objectId!);
+                                } else if (commentOrReply == 2) {
+                                  _saveReportReply(replyComment!.objectId!);
+                                }
+                              },
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          TextWithTap(
-                                            QuickHelp.getReportMessage(code),
-                                            color: kGrayColor,
-                                            fontSize: 15,
-                                            marginBottom: 5,
-                                          ),
-                                          const Icon(
-                                            Icons.arrow_forward_ios,
-                                            size: 18,
-                                            color: kGrayColor,
-                                          ),
-                                        ],
+                                    children: [
+                                      TextWithTap(
+                                        QuickHelp.getReportMessage(code),
+                                        color: kGrayColor,
+                                        fontSize: 15,
+                                        marginBottom: 5,
                                       ),
-                                      const Divider(
-                                        height: 1.0,
-                                      )
+                                      const Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 18,
+                                        color: kGrayColor,
+                                      ),
                                     ],
                                   ),
-                                );
-                              }),
+                                  const Divider(
+                                    height: 1.0,
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
                         ),
                         ContainerCorner(
                           marginTop: 30,
@@ -1091,12 +1116,11 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
     }
   }
 
-
   Widget showAllReplies(CommentsModel commentsModel) {
     var size = MediaQuery.of(context).size;
 
     QueryBuilder<ReplyModel> queryBuilder =
-    QueryBuilder<ReplyModel>(ReplyModel());
+        QueryBuilder<ReplyModel>(ReplyModel());
 
     queryBuilder.whereEqualTo(ReplyModel.keyCommentId, commentsModel.objectId);
     queryBuilder.orderByAscending(ReplyModel.keyCreatedAt);
@@ -1132,15 +1156,16 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GestureDetector(
-                      onTap: (){
-                        if(replyModel.getAuthorId == widget.currentUser!.objectId) {
-                          QuickHelp.goToNavigatorScreen(context,
+                      onTap: () {
+                        if (replyModel.getAuthorId ==
+                            widget.currentUser!.objectId) {
+                          QuickHelp.goToNavigatorScreen(
+                              context,
                               HomeScreen(
                                 currentUser: widget.currentUser,
                                 initialTabIndex: 4,
-                              )
-                          );
-                        }else{
+                              ));
+                        } else {
                           goToUserProfile(replyModel.getAuthor!);
                         }
                       },
@@ -1154,27 +1179,23 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                             vipFrameWidth: 45,
                             vipFrameHeight: 32,
                           ),
-                          if (replyModel.getAuthor!.getAvatarFrame !=
-                              null &&
-                              replyModel.getAuthor!
-                                  .getCanUseAvatarFrame!)
+                          if (replyModel.getAuthor!.getAvatarFrame != null &&
+                              replyModel.getAuthor!.getCanUseAvatarFrame!)
                             ContainerCorner(
                               borderWidth: 0,
                               width: 45,
                               height: 45,
                               child: CachedNetworkImage(
-                                imageUrl: replyModel.getAuthor!
-                                    .getAvatarFrame!.url!,
-                                imageBuilder:
-                                    (context, imageProvider) =>
+                                imageUrl:
+                                    replyModel.getAuthor!.getAvatarFrame!.url!,
+                                imageBuilder: (context, imageProvider) =>
                                     Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.fill),
-                                      ),
-                                    ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: imageProvider, fit: BoxFit.fill),
+                                  ),
+                                ),
                               ),
                             ),
                         ],
@@ -1200,33 +1221,41 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                   Flexible(
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
                                             TextWithTap(
-                                              replyModel.getAuthor!.getFullName!,
+                                              replyModel
+                                                  .getAuthor!.getFullName!,
                                               marginLeft: 10,
                                               marginBottom: 5,
                                               marginRight: 5,
                                               fontWeight: FontWeight.bold,
-                                              color: QuickHelp.isDarkMode(context)
-                                                  ? Colors.white
-                                                  : kContentColorLightTheme,
+                                              color:
+                                                  QuickHelp.isDarkMode(context)
+                                                      ? Colors.white
+                                                      : kContentColorLightTheme,
                                               fontSize: 16,
                                             ),
-                                            if(replyModel.getAuthor!.getCountryCode!.isNotEmpty)
+                                            if (replyModel.getAuthor!
+                                                .getCountryCode!.isNotEmpty)
                                               Padding(
-                                                padding: const EdgeInsets.only(bottom: 4),
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 4),
                                                 child: Image.asset(
-                                                  QuickHelp.getCountryFlag(code: replyModel.getAuthor!.getCountryCode!),
+                                                  QuickHelp.getCountryFlag(
+                                                      code: replyModel
+                                                          .getAuthor!
+                                                          .getCountryCode!),
                                                   height: 10,
                                                 ),
                                               )
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(left: 6.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 6.0),
                                           child: QuickHelp.usersMoreInfo(
                                             context,
                                             replyModel.getAuthor!,
@@ -1237,8 +1266,10 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                                               left: 10, right: 10),
                                           child: ExpandableText(
                                             replyModel.getText!,
-                                            expandText: 'show_more'.tr().toLowerCase(),
-                                            collapseText: 'show_less'.tr().toLowerCase(),
+                                            expandText:
+                                                'show_more'.tr().toLowerCase(),
+                                            collapseText:
+                                                'show_less'.tr().toLowerCase(),
                                             maxLines: 4,
                                             linkColor: Colors.blue,
                                             style: GoogleFonts.nunito(
@@ -1273,9 +1304,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                         marginLeft: 10,
                         onTap: () {
                           openReportComments(
-                              author: replyModel.getAuthor!,
-                              commentOrReply: 2,
-                              replyComment: replyModel,
+                            author: replyModel.getAuthor!,
+                            commentOrReply: 2,
+                            replyComment: replyModel,
                           );
                         },
                         child: SvgPicture.asset(
@@ -1516,7 +1547,9 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
                             marginLeft: 10,
                             marginBottom: 2,
                             fontWeight: FontWeight.bold,
-                            color: isDark ? Colors.white.withOpacity(0.6) : Colors.black.withOpacity(0.6),
+                            color: isDark
+                                ? Colors.white.withValues(alpha: 0.6)
+                                : Colors.black.withValues(alpha: 0.6),
                           ),
                           TextWithTap(
                             commentsModel.getText!,
@@ -1552,7 +1585,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
         children: [
           Expanded(
             child: ContainerCorner(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
               marginLeft: 10,
               borderRadius: 50,
               height: 40,
@@ -1614,7 +1647,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
   Widget _showPostOptionsAndReportAuthor(UserModel author, PostsModel post) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1759,7 +1792,7 @@ class _CommentPostScreenState extends State<CommentPostScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),

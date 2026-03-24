@@ -12,13 +12,13 @@ import '../../utils/colors.dart';
 class PrivateLivePriceWidget {
   PrivateLivePriceWidget(
       {required BuildContext context,
-        Function(GiftsModel giftsModel)? onGiftSelected,
-        Function()? onCancel,
-        bool isDismissible = false,
-        bool enableDrag = false,
-        bool isScrollControlled = false,
-        bool showOnlyCoinsPurchase = false,
-        Color backgroundColor = Colors.transparent}) {
+      Function(GiftsModel giftsModel)? onGiftSelected,
+      Function()? onCancel,
+      bool isDismissible = false,
+      bool enableDrag = false,
+      bool isScrollControlled = false,
+      bool showOnlyCoinsPurchase = false,
+      Color backgroundColor = Colors.transparent}) {
     showModalBottomSheet(
         context: (context),
         isScrollControlled: isScrollControlled,
@@ -53,7 +53,6 @@ class _PricesListWidgetState extends State<_PricesListWidget>
   AnimationController? _animationController;
   int bottomSheetCurrentIndex = 0;
 
-
   final selectedGiftItemNotifier = ValueNotifier<GiftsModel?>(null);
   final countNotifier = ValueNotifier<String>('1');
 
@@ -61,9 +60,7 @@ class _PricesListWidgetState extends State<_PricesListWidget>
   void initState() {
     super.initState();
     _animationController = AnimationController.unbounded(vsync: this);
-
   }
-
 
   @override
   void dispose() {
@@ -72,14 +69,14 @@ class _PricesListWidgetState extends State<_PricesListWidget>
 
   @override
   Widget build(BuildContext context) {
-    return  _showGiftList();
+    return _showGiftList();
   }
 
   Widget _showGiftList() {
     Size size = MediaQuery.sizeOf(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -140,12 +137,13 @@ class _PricesListWidgetState extends State<_PricesListWidget>
   }
 
   Widget getGifts() {
-
     QueryBuilder<GiftsModel> giftQuery = QueryBuilder<GiftsModel>(GiftsModel());
     giftQuery.whereValueExists(GiftsModel.keyGiftCategories, true);
     giftQuery.whereEqualTo(
         GiftsModel.keyGiftCategories, GiftsModel.categorySvgaGifts);
-    giftQuery.orderByAscending(GiftsModel.keyCoins,);
+    giftQuery.orderByAscending(
+      GiftsModel.keyCoins,
+    );
 
     return ContainerCorner(
       color: kTransparentColor,
@@ -224,6 +222,4 @@ class _PricesListWidgetState extends State<_PricesListWidget>
       ),
     );
   }
-
-
 }

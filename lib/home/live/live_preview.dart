@@ -256,7 +256,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
                             ContainerCorner(
                               borderWidth: 0,
                               marginTop: 2,
-                              color: Colors.black.withOpacity(0.2),
+                              color: Colors.black.withValues(alpha: 0.2),
                               child: Padding(
                                 padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
                                 child: Row(
@@ -350,7 +350,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
                       Visibility(
                         visible: showTempAlert,
                         child: ContainerCorner(
-                          color: Colors.black.withOpacity(0.5),
+                          color: Colors.black.withValues(alpha: 0.5),
                           height: 50,
                           marginRight: 50,
                           marginLeft: 50,
@@ -430,7 +430,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
     Size size = MediaQuery.sizeOf(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -1001,7 +1001,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
           width: 90,
           height: 90,
           marginLeft: 10,
-          color: Colors.black.withOpacity(0.1),
+          color: Colors.black.withValues(alpha: 0.1),
           borderRadius: 10,
           onTap: () async {
             UserModel? user = await QuickHelp.goToNavigatorScreenForResult(
@@ -1035,7 +1035,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
                 radiusBottomLeft: 7,
                 radiusBottomRight: 7,
                 height: 20,
-                color: Colors.black.withOpacity(0.54),
+                color: Colors.black.withValues(alpha: 0.54),
                 borderWidth: 0,
                 child: TextWithTap(
                   "edit_photo".tr(),
@@ -1051,7 +1051,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
         Flexible(
           child: ContainerCorner(
             height: 90,
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             borderRadius: 10,
             marginRight: 20,
             marginLeft: 10,
@@ -1085,7 +1085,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
                           border: InputBorder.none,
                           hintText: "live_streaming.enter_title".tr(),
                           hintStyle: GoogleFonts.roboto(
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: 0.5),
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
                           ),
@@ -1134,7 +1134,7 @@ class _LivePreviewScreenState extends State<LivePreviewScreen>
                             List.generate(liveTagsSelected.length, (index) {
                           return TextWithTap(
                             "#${QuickHelp.getLiveTagsByCode(liveTagsSelected[index])}",
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: 0.5),
                             fontWeight: FontWeight.bold,
                             marginRight: 7,
                             fontSize: 13,

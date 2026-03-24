@@ -32,9 +32,9 @@ class _AnsiColor {
   }
 
   int _fromRgbColorTo8bitColor(Color color) {
-    return ((color.red / 255) * 5).floor() * 36 +
-        ((color.green / 255) * 5).floor() * 6 +
-        ((color.blue / 255) * 5).floor() +
+    return ((color.r * 5).floor()) * 36 +
+        ((color.g * 5).floor()) * 6 +
+        ((color.b * 5).floor()) +
         16;
   }
 

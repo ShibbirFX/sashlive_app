@@ -93,7 +93,8 @@ class SlidingBottomSheet extends StatefulWidget {
     this.resizeToAvoidBottomInset,
     this.scrollController,
     this.onSizeChanged,
-  })  : backgroundColor = backgroundColor ?? Colors.black.withOpacity(0.2),
+  })  : backgroundColor =
+            backgroundColor ?? Colors.black.withValues(alpha: 0.2),
         super(key: key);
 
   ///Provides a [ScrollController] to attach to a scrollable
@@ -116,7 +117,7 @@ class SlidingBottomSheet extends StatefulWidget {
   ///
   ///Default:
   ///```dart
-  ///Colors.black.withOpacity(0.2)
+  ///Colors.black.withValues(alpha: 0.2)
   ///```
   final Color backgroundColor;
 
@@ -369,7 +370,7 @@ class _SlidingBottomSheetState extends State<SlidingBottomSheet>
                       return BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
                         child: Container(
-                          color: color.withOpacity(color.opacity * value),
+                          color: color.withValues(alpha: color.opacity * value),
                         ),
                       );
                     },

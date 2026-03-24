@@ -19,7 +19,7 @@ dependencies:
   #Images
   flutter_svg: ^2.0.9
   cached_network_image: ^3.3.0
-  image_cropper: ^5.0.0
+  image_cropper: ^8.0.2
   blur: ^3.1.0
   video_editor: ^2.4.0
   #video_editor: ^3.0.0
@@ -88,7 +88,7 @@ dependencies:
   wakelock_plus: ^1.2.7
   whatsapp_unilink: ^2.1.0
   keyboard_attachable: ^2.1.0
-  just_audio: ^0.9.34
+  just_audio: ^0.9.42
 
   #Story
   advstory: ^0.2.1
@@ -113,6 +113,7 @@ dependencies:
   geolocator: ^9.0.2
   geocoding: ^3.0.0
   location: ^7.0.0
+  location_web: ^5.0.3
 
   #Animations and icons
   #flutter_icons: ^1.1.0
@@ -192,7 +193,7 @@ dependency_overrides:
   package_info_plus: ^4.1.0
   uuid: ^3.0.7
   parse_server_sdk: ^6.2.0
-  web: ^0.5.1
+  # web: ^0.5.1
   #parse_server_sdk: ^7.0.0
   js: ^0.6.3
   dio: ^5.3.2

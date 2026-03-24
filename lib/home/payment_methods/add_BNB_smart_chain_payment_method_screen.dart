@@ -69,7 +69,7 @@ class _AddBNBSmartChainMethodScreenState
           children: [
             ContainerCorner(
               width: size.width,
-              color: Colors.orange.withOpacity(0.1),
+              color: Colors.orange.withValues(alpha: 0.1),
               borderWidth: 0,
               marginBottom: 10,
               height: 35,

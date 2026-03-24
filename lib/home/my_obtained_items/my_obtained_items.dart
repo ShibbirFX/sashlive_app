@@ -283,7 +283,7 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 ContainerCorner(
-                                  color: kPrimaryColor.withOpacity(0.2),
+                                  color: kPrimaryColor.withValues(alpha: 0.2),
                                   borderRadius: 50,
                                   marginTop: 15,
                                   child: TextWithTap(
@@ -441,8 +441,8 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
                           borderWidth: 0,
                           height: 120,
                           colors: [
-                            silverColor.withOpacity(0.8),
-                            kPrimaryColor.withOpacity(0.2)
+                            silverColor.withValues(alpha: 0.8),
+                            kPrimaryColor.withValues(alpha: 0.2)
                           ],
                         ),
                       ),
@@ -479,7 +479,7 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           ContainerCorner(
-                            color: kPrimaryColor.withOpacity(0.2),
+                            color: kPrimaryColor.withValues(alpha: 0.2),
                             borderRadius: 50,
                             marginTop: 15,
                             onTap: () {
@@ -797,7 +797,7 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -865,7 +865,7 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
                                 marginRight: size.width / 1.6,
                                 borderRadius: 10,
                                 borderColor: kOrangeColor,
-                                color: kOrangeColor.withOpacity(0.1),
+                                color: kOrangeColor.withValues(alpha: 0.1),
                                 marginBottom: 20,
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
@@ -918,7 +918,7 @@ class _MyObtainedItemsState extends State<MyObtainedItems>
                                       height: 35,
                                       color: isDark
                                           ? kContentDarkShadow
-                                          : kGrayColor.withOpacity(0.1),
+                                          : kGrayColor.withValues(alpha: 0.1),
                                       onTap: () async {
                                         UserModel? user = await QuickHelp
                                             .goToNavigatorScreenForResult(

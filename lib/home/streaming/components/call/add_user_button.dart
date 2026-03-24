@@ -19,7 +19,7 @@ class _ZegoCallAddUserButtonState extends State<ZegoCallAddUserButton> {
         width: 96,
         height: 96,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 51, 52, 56).withOpacity(0.6),
+          color: const Color.fromARGB(255, 51, 52, 56).withValues(alpha: 0.6),
           shape: BoxShape.circle,
         ),
         child: SizedBox.fromSize(

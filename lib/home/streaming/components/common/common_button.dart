@@ -22,7 +22,7 @@ class CommonButton extends StatelessWidget {
             width: width,
             height: height,
             decoration: BoxDecoration(
-              color: const Color(0xff1e2740).withOpacity(0.4),
+              color: const Color(0xff1e2740).withValues(alpha: 0.4),
               borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(14)),
             ),
             padding: padding ?? const EdgeInsets.fromLTRB(10, 8, 10, 8),

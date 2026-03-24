@@ -161,7 +161,7 @@ class _LevelScreenState extends State<LevelScreen> {
                 maxValue: maxPoint,
                 changeColorValue: 0,
                 changeProgressColor: kOrangeColor,
-                backgroundColor: kGrayColor.withOpacity(0.1),
+                backgroundColor: kGrayColor.withValues(alpha: 0.1),
                 progressColor: Colors.lightBlue,
                 animatedDuration: const Duration(seconds: 2),
                 direction: Axis.horizontal,
@@ -192,7 +192,7 @@ class _LevelScreenState extends State<LevelScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 25, bottom: 15),
             child: Divider(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
             ),
           ),
           Row(
@@ -229,7 +229,7 @@ class _LevelScreenState extends State<LevelScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 15),
             child: Divider(
-              color: kGrayColor.withOpacity(0.1),
+              color: kGrayColor.withValues(alpha: 0.1),
             ),
           ),
           Row(

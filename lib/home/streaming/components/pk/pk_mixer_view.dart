@@ -5,7 +5,8 @@ import '../../zego_sdk_manager.dart';
 class PKMixerView extends StatefulWidget {
   final List<PKUser> pkAcceptUsers;
   final String mixStreamID;
-  const PKMixerView({super.key, required this.pkAcceptUsers, required this.mixStreamID});
+  const PKMixerView(
+      {super.key, required this.pkAcceptUsers, required this.mixStreamID});
 
   @override
   State<PKMixerView> createState() => _PKMixerViewState();
@@ -23,10 +24,15 @@ class _PKMixerViewState extends State<PKMixerView> {
   }
 
   Widget mixerViewContainer() {
-    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
       return SizedBox(
         child: Stack(
-          children: [videoView(), backGroundContainer(constraints), hostReconnectingContainer(constraints)],
+          children: [
+            videoView(),
+            backGroundContainer(constraints),
+            hostReconnectingContainer(constraints)
+          ],
         ),
       );
     });
@@ -43,7 +49,7 @@ class _PKMixerViewState extends State<PKMixerView> {
           );
         } else {
           return Container(
-            color: Colors.black.withOpacity(0),
+            color: Colors.black.withValues(alpha: 0),
           );
         }
       },
@@ -53,8 +59,8 @@ class _PKMixerViewState extends State<PKMixerView> {
   Rect conversionRect(Rect originalRect, BoxConstraints constraints) {
     final wRatio = constraints.maxWidth / 810.0;
     final hRatio = constraints.maxHeight / 720.0;
-    return Rect.fromLTRB(originalRect.left * wRatio, originalRect.top * hRatio, originalRect.right * wRatio,
-        originalRect.bottom * hRatio);
+    return Rect.fromLTRB(originalRect.left * wRatio, originalRect.top * hRatio,
+        originalRect.right * wRatio, originalRect.bottom * hRatio);
   }
 
   Widget backGroundContainer(BoxConstraints constraints) {
@@ -73,7 +79,9 @@ class _PKMixerViewState extends State<PKMixerView> {
         width: newRect.right - newRect.left,
         height: newRect.bottom - newRect.top,
         child: SizedBox(
-            width: newRect.right - newRect.left, height: newRect.bottom - newRect.top, child: backGroundView(pkuser)),
+            width: newRect.right - newRect.left,
+            height: newRect.bottom - newRect.top,
+            child: backGroundView(pkuser)),
       );
       views.add(positioned);
     }
@@ -87,7 +95,7 @@ class _PKMixerViewState extends State<PKMixerView> {
           if (isCameraOn) {
             return IgnorePointer(
               ignoring: true,
-              child: Container(color: Colors.black.withOpacity(0)),
+              child: Container(color: Colors.black.withValues(alpha: 0)),
             );
           } else {
             return Stack(
@@ -104,7 +112,8 @@ class _PKMixerViewState extends State<PKMixerView> {
                     height: 60,
                     decoration: BoxDecoration(
                       color: Colors.grey,
-                      borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(30.0)),
                       border: Border.all(width: 0),
                     ),
                     child: Center(
@@ -113,7 +122,8 @@ class _PKMixerViewState extends State<PKMixerView> {
                           child: Text(
                             user.userName[0],
                             textAlign: TextAlign.center,
-                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           )),
                     ),
                   ),
@@ -166,7 +176,7 @@ class _PKMixerViewState extends State<PKMixerView> {
           } else {
             return IgnorePointer(
               ignoring: true,
-              child: Container(color: Colors.black.withOpacity(0)),
+              child: Container(color: Colors.black.withValues(alpha: 0)),
             );
           }
         });

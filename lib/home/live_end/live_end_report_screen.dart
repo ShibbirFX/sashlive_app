@@ -67,7 +67,7 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                       width: size.width,
                       marginLeft: 15,
                       marginRight: 15,
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -103,7 +103,7 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   ContainerCorner(
-                                    color: Colors.white.withOpacity(0.2),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                     height: 40,
                                     width: 40,
                                     marginRight: 10,
@@ -112,22 +112,26 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Icon(
                                         Icons.monetization_on,
-                                        color: Colors.white.withOpacity(0.5),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.5),
                                       ),
                                     ),
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextWithTap(
-                                        "end_live_report_scree.earned_point".tr(),
-                                        color: Colors.white.withOpacity(0.7),
+                                        "end_live_report_scree.earned_point"
+                                            .tr(),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.7),
                                         fontWeight: FontWeight.w700,
                                       ),
                                       TextWithTap(
                                         QuickHelp.convertToK(
-                                            widget.live!.getDiamonds!,
+                                          widget.live!.getDiamonds!,
                                         ),
                                         color: Colors.white,
                                         fontSize: 18,
@@ -141,7 +145,7 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   ContainerCorner(
-                                    color: Colors.white.withOpacity(0.2),
+                                    color: Colors.white.withValues(alpha: 0.2),
                                     height: 40,
                                     width: 40,
                                     marginRight: 10,
@@ -150,17 +154,21 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Icon(
                                         Icons.person,
-                                        color: Colors.white.withOpacity(0.5),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.5),
                                       ),
                                     ),
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextWithTap(
-                                        "end_live_report_scree.new_followers".tr(),
-                                        color: Colors.white.withOpacity(0.7),
+                                        "end_live_report_scree.new_followers"
+                                            .tr(),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.7),
                                         fontWeight: FontWeight.w700,
                                       ),
                                       TextWithTap(
@@ -176,7 +184,9 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20,)
+                          SizedBox(
+                            height: 20,
+                          )
                         ],
                       ),
                     ),
@@ -199,7 +209,10 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                   marginLeft: 15,
                   marginRight: 15,
                   marginTop: 20,
-                  colors: [Colors.white.withOpacity(0.1), kTransparentColor],
+                  colors: [
+                    Colors.white.withValues(alpha: 0.1),
+                    kTransparentColor
+                  ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   child: Column(
@@ -217,12 +230,12 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                 children: [
                                   TextWithTap(
                                     "end_live_report_scree.earned_point".tr(),
-                                    color: Colors.white.withOpacity(0.7),
+                                    color: Colors.white.withValues(alpha: 0.7),
                                     fontWeight: FontWeight.w700,
                                   ),
                                   TextWithTap(
                                     QuickHelp.getTimeByDate(
-                                        date: widget.live!.createdAt!,
+                                      date: widget.live!.createdAt!,
                                     ),
                                     color: Colors.white,
                                     fontSize: 18,
@@ -241,12 +254,12 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                                 children: [
                                   TextWithTap(
                                     "end_live_report_scree.target".tr(),
-                                    color: Colors.white.withOpacity(0.7),
+                                    color: Colors.white.withValues(alpha: 0.7),
                                     fontWeight: FontWeight.w700,
                                   ),
                                   TextWithTap(
                                     QuickHelp.convertToK(
-                                        widget.live!.getReachedPeople!.length,
+                                      widget.live!.getReachedPeople!.length,
                                     ),
                                     color: Colors.white,
                                     fontSize: 18,
@@ -258,7 +271,9 @@ class _LiveEndReportScreenState extends State<LiveEndReportScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20,)
+                      SizedBox(
+                        height: 20,
+                      )
                     ],
                   ),
                 ),

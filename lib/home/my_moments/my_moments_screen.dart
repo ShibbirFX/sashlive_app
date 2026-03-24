@@ -149,7 +149,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
                               },
                             ),
                             marginLeft: 10,
-                            color: kGrayColor.withOpacity(0.7),
+                            color: kGrayColor.withValues(alpha: 0.7),
                             fontSize: 7,
                             alignment: Alignment.center,
                           ),
@@ -334,7 +334,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
                                       borderRadius: 50,
                                       borderWidth: 0,
                                       color:
-                                      Colors.black.withOpacity(0.7),
+                                      Colors.black.withValues(alpha: 0.7),
                                       child: Center(
                                           child: Icon(
                                             Icons.play_circle_outline,
@@ -358,7 +358,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
                                     "assets/images/blurred_image.jpg"),
                               ),
                               ContainerCorner(
-                                color: Colors.white.withOpacity(0.5),
+                                color: Colors.white.withValues(alpha: 0.5),
                                 borderRadius: 20,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -864,7 +864,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 32,
-            color: Color(0xFF087949).withOpacity(0.08),
+            color: Color(0xFF087949).withValues(alpha: 0.08),
           ),
         ],
       ),
@@ -876,7 +876,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
                 horizontal: 20 * 0.75,
               ),
               decoration: BoxDecoration(
-                color: kPrimaryColor.withOpacity(0.05),
+                color: kPrimaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -1012,7 +1012,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,
@@ -1049,7 +1049,7 @@ class _MyMomentsScreenState extends State<MyMomentsScreen> {
   Widget _showPostOptionsAndReportAuthor(UserModel author, PostsModel post) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),

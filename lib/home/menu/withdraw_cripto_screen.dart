@@ -15,7 +15,7 @@ import '../../ui/text_with_tap.dart';
 class WithdrawCryptoScreen extends StatefulWidget {
   static String route = "/withdraw/crypto";
   UserModel? currentUser;
-  WithdrawCryptoScreen({ Key? key, this.currentUser}) : super(key: key);
+  WithdrawCryptoScreen({Key? key, this.currentUser}) : super(key: key);
 
   @override
   State<WithdrawCryptoScreen> createState() => _WithdrawCryptoScreenState();
@@ -32,14 +32,17 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    totalMoney = QuickHelp.convertDiamondsToMoney(widget.currentUser!.getDiamonds!);
+    totalMoney =
+        QuickHelp.convertDiamondsToMoney(widget.currentUser!.getDiamonds!);
     return GestureDetector(
       onTap: () => QuickHelp.removeFocusOnTextField(context),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kTransparentColor,
           automaticallyImplyLeading: false,
-          leading: BackButton(color: kGrayColor,),
+          leading: BackButton(
+            color: kGrayColor,
+          ),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -50,18 +53,18 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextWithTap(
-                      "withdraw_to_crypto.send_usdt".tr(),
+                    "withdraw_to_crypto.send_usdt".tr(),
                     fontSize: size.width / 15,
                     fontWeight: FontWeight.w900,
                   ),
                   TextWithTap(
-                      "withdraw_to_crypto.send_usdt_address".tr(),
+                    "withdraw_to_crypto.send_usdt_address".tr(),
                     marginTop: 3,
                   ),
                   addressTextField(),
                   network(),
                   amountTextField()
-              ],
+                ],
               ),
             ),
           ),
@@ -72,12 +75,18 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
             color: kGreenColor,
             borderRadius: 50,
             height: 50,
-            child: Center(child: TextWithTap("withdraw_to_crypto.send_usdt".tr(), color: Colors.white,),),
+            child: Center(
+              child: TextWithTap(
+                "withdraw_to_crypto.send_usdt".tr(),
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               if (formKey.currentState!.validate()) {
-                if(networkSelected.isEmpty){
+                if (networkSelected.isEmpty) {
                   openNetworkChooser();
-                }else if(double.parse(amountTextController.text) > double.parse(totalMoney.toStringAsFixed(0))){
+                } else if (double.parse(amountTextController.text) >
+                    double.parse(totalMoney.toStringAsFixed(0))) {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -91,7 +100,9 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                                 width: 70,
                               ),
                               TextWithTap(
-                                "get_money.not_enough".tr(namedArgs: {"money": totalMoney.toStringAsFixed(0)}),
+                                "get_money.not_enough".tr(namedArgs: {
+                                  "money": totalMoney.toStringAsFixed(0)
+                                }),
                                 textAlign: TextAlign.center,
                                 color: Colors.red,
                                 marginTop: 20,
@@ -100,16 +111,18 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                                 height: 35,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   ContainerCorner(
                                     child: TextButton(
-                                      child: TextWithTap("cancel".tr().toUpperCase(),
+                                      child: TextWithTap(
+                                        "cancel".tr().toUpperCase(),
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
                                       ),
-                                      onPressed: (){
+                                      onPressed: () {
                                         Navigator.of(context).pop();
                                       },
                                     ),
@@ -120,12 +133,16 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                                   ),
                                   ContainerCorner(
                                     child: TextButton(
-                                      child: TextWithTap("get_money.try_again".tr().toUpperCase(),
+                                      child: TextWithTap(
+                                        "get_money.try_again"
+                                            .tr()
+                                            .toUpperCase(),
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
                                       ),
-                                      onPressed: ()=> Navigator.of(context).pop(),
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(),
                                     ),
                                     color: kGreenColor,
                                     borderRadius: 10,
@@ -139,7 +156,7 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                           ),
                         );
                       });
-                }else{
+                } else {
                   saveWithdraw();
                 }
               }
@@ -188,13 +205,15 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                     backgroundColor: kTransparentColor,
                     body: ContainerCorner(
                       borderRadius: 10,
-                      color: QuickHelp.isDarkMode(context) ? kContentColorDarkTheme : Colors.white,
+                      color: QuickHelp.isDarkMode(context)
+                          ? kContentColorDarkTheme
+                          : Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Column(
                           children: [
                             TextWithTap(
-                                "withdraw_to_crypto.network_advise".tr(),
+                              "withdraw_to_crypto.network_advise".tr(),
                               alignment: Alignment.center,
                               textAlign: TextAlign.center,
                               marginRight: 10,
@@ -204,16 +223,16 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                             ),
                             ContainerCorner(
                               height: 50,
-                              color: kGrayColor.withOpacity(0.1),
+                              color: kGrayColor.withValues(alpha: 0.1),
                               marginBottom: 10,
                               borderRadius: 4,
-                              onTap: ()=> selectNetWork(WithdrawModel.ethereum),
+                              onTap: () =>
+                                  selectNetWork(WithdrawModel.ethereum),
                               child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 10,
-                                    right: 10),
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextWithTap(
                                       "withdraw_to_crypto.ethereum_".tr(),
@@ -226,16 +245,15 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                             ),
                             ContainerCorner(
                               height: 50,
-                              color: kGrayColor.withOpacity(0.1),
+                              color: kGrayColor.withValues(alpha: 0.1),
                               marginBottom: 10,
                               borderRadius: 4,
-                              onTap: ()=> selectNetWork(WithdrawModel.polygon),
+                              onTap: () => selectNetWork(WithdrawModel.polygon),
                               child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 10,
-                                    right: 10),
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextWithTap(
                                       "withdraw_to_crypto.polygon_".tr(),
@@ -249,15 +267,14 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                             ContainerCorner(
                               height: 50,
                               marginBottom: 10,
-                              color: kGrayColor.withOpacity(0.1),
+                              color: kGrayColor.withValues(alpha: 0.1),
                               borderRadius: 4,
-                              onTap: ()=> selectNetWork(WithdrawModel.solana),
+                              onTap: () => selectNetWork(WithdrawModel.solana),
                               child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 10,
-                                    right: 10),
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextWithTap(
                                       "withdraw_to_crypto.solana_".tr(),
@@ -271,15 +288,14 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
                             ContainerCorner(
                               height: 50,
                               marginBottom: 10,
-                              color: kGrayColor.withOpacity(0.1),
+                              color: kGrayColor.withValues(alpha: 0.1),
                               borderRadius: 4,
                               onTap: () => selectNetWork(WithdrawModel.tron),
                               child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 10,
-                                    right: 10),
+                                padding: EdgeInsets.only(left: 10, right: 10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextWithTap(
                                       "withdraw_to_crypto.tron_".tr(),
@@ -311,8 +327,6 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
     QuickHelp.goBackToPreviousPage(context);
   }
 
-
-
   Widget addressTextField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -324,12 +338,10 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
         ),
         ContainerCorner(
           height: 50,
-          color: kGrayColor.withOpacity(0.3),
+          color: kGrayColor.withValues(alpha: 0.3),
           borderRadius: 4,
           child: Padding(
-            padding: EdgeInsets.only(
-                left: 10,
-                right: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
             child: TextFormField(
               controller: addressTextController,
               keyboardType: TextInputType.text,
@@ -363,12 +375,10 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
         ),
         ContainerCorner(
           height: 50,
-          color: kGrayColor.withOpacity(0.3),
+          color: kGrayColor.withValues(alpha: 0.3),
           borderRadius: 4,
           child: Padding(
-            padding: EdgeInsets.only(
-                left: 10,
-                right: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
             child: TextFormField(
               controller: amountTextController,
               keyboardType: TextInputType.number,
@@ -403,22 +413,23 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
         ),
         ContainerCorner(
           height: 50,
-          color: kGrayColor.withOpacity(0.3),
+          color: kGrayColor.withValues(alpha: 0.3),
           borderRadius: 4,
           onTap: () => openNetworkChooser(),
           child: Padding(
-            padding: EdgeInsets.only(
-                left: 10,
-                right: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextWithTap(networkSelected.isEmpty ?
-                  networkText : networkSelected,
+                TextWithTap(
+                  networkSelected.isEmpty ? networkText : networkSelected,
                   color: kGrayColor,
                   fontSize: size.width / 23,
                 ),
-                Icon(Icons.arrow_forward_ios, color: kGrayColor,)
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: kGrayColor,
+                )
               ],
             ),
           ),
@@ -427,14 +438,16 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
     );
   }
 
-  saveWithdraw() async{
+  saveWithdraw() async {
     QuickHelp.showLoadingDialog(context);
 
     WithdrawModel withdraw = WithdrawModel();
     withdraw.setAddress = addressTextController.text;
     withdraw.setNetWork = networkSelected;
     withdraw.setCredit = double.parse(amountTextController.text);
-    int diamonds = QuickHelp.convertMoneyToDiamonds(double.parse(amountTextController.text)).toInt();
+    int diamonds = QuickHelp.convertMoneyToDiamonds(
+            double.parse(amountTextController.text))
+        .toInt();
     withdraw.setAuthor = widget.currentUser!;
     withdraw.setStatus = WithdrawModel.PENDING;
 
@@ -445,7 +458,7 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
 
     ParseResponse response = await withdraw.save();
 
-    if(response.success && response.result != null){
+    if (response.success && response.result != null) {
       //sentToCloudCode();
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
@@ -454,17 +467,14 @@ class _WithdrawCryptoScreenState extends State<WithdrawCryptoScreen> {
         message: "withdraw_to_crypto.withdraw_succeed_explain".tr(),
         isError: false,
       );
-
-    }else{
+    } else {
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
           title: "withdraw_to_crypto.withdraw_failed_title".tr(),
           context: context,
-          message: "withdraw_to_crypto.withdraw_failed_explain".tr()
-      );
+          message: "withdraw_to_crypto.withdraw_failed_explain".tr());
     }
   }
-
 
   /*sentToCloudCode() async{
     ParseResponse response = await QuickCloudCode.sendToUSDT(

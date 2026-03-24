@@ -111,7 +111,7 @@ class _MyFeedbackScreenState extends State<MyFeedbackScreen> {
                         child: TextWithTap(
                           report.getMessage!,
                           marginTop: 8,
-                          color: kGrayColor.withOpacity(0.8),
+                          color: kGrayColor.withValues(alpha: 0.8),
                           fontSize: 12,
                           overflow: TextOverflow.ellipsis,
                         ),

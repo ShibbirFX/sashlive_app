@@ -224,7 +224,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                       Row(
                         children: [
                           ContainerCorner(
-                            color: kPrimaryColor.withOpacity(0.2),
+                            color: kPrimaryColor.withValues(alpha: 0.2),
                             borderRadius: 2,
                             child: TextWithTap(
                               "withdrawal_method_screen.fee_"
@@ -240,7 +240,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                             ),
                           ),
                           ContainerCorner(
-                            color: kPrimaryColor.withOpacity(0.2),
+                            color: kPrimaryColor.withValues(alpha: 0.2),
                             marginLeft: 5,
                             borderRadius: 2,
                             child: TextWithTap(
@@ -312,7 +312,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         marginTop: 10,
         marginLeft: 10,
         marginRight: 10,
-        color: kGrayColor.withOpacity(0.2),
+        color: kGrayColor.withValues(alpha: 0.2),
         borderWidth: 2,
         borderColor: selected ? kPrimaryColor : kTransparentColor,
         onTap: (){
@@ -354,7 +354,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                           Row(
                             children: [
                               ContainerCorner(
-                                color: kPrimaryColor.withOpacity(0.2),
+                                color: kPrimaryColor.withValues(alpha: 0.2),
                                 borderRadius: 2,
                                 child: TextWithTap(
                                   "withdrawal_method_screen.fee_"
@@ -370,7 +370,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                                 ),
                               ),
                               ContainerCorner(
-                                color: kPrimaryColor.withOpacity(0.2),
+                                color: kPrimaryColor.withValues(alpha: 0.2),
                                 marginLeft: 5,
                                 borderRadius: 2,
                                 child: TextWithTap(

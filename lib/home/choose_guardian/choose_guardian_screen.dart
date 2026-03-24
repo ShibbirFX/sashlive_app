@@ -232,7 +232,7 @@ class _ChooseGuardianScreenState extends State<ChooseGuardianScreen>
                     height: 30,
                     borderRadius: 50,
                     marginRight: 10,
-                    color: kPrimaryColor.withOpacity(0.3),
+                    color: kPrimaryColor.withValues(alpha: 0.3),
                     child: ButtonWidget(
                       onTap: () => selectUser(user),
                       child: TextWithTap(widget.isSending! ? "store_screen.sending_".tr():
@@ -363,7 +363,7 @@ class _ChooseGuardianScreenState extends State<ChooseGuardianScreen>
                     height: 30,
                     borderRadius: 50,
                     marginRight: 10,
-                    color: kPrimaryColor.withOpacity(0.3),
+                    color: kPrimaryColor.withValues(alpha: 0.3),
                     child: ButtonWidget(
                       onTap: () => selectUser(user),
                       child: TextWithTap(widget.isSending! ? "store_screen.sending_".tr():

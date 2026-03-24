@@ -177,10 +177,10 @@ class _VideoEditorScreenState extends State<VideoEditorScreen> {
       rightButtonPress: _openCropScreen,
       rightButtonTwoIcon: Icons.check_sharp,
       rightButtonTwoPress: _exportVideo,
-      backgroundColor: QuickHelp.isDarkModeNoContext() ? null : kColorsGrey300.withOpacity(0.5),
+      backgroundColor: QuickHelp.isDarkModeNoContext() ? null : kColorsGrey300.withValues(alpha: 0.5),
       child: _controller.initialized
           ? ContainerCorner(
-         color: QuickHelp.isDarkModeNoContext() ? null : kColorsGrey300.withOpacity(0.5),
+         color: QuickHelp.isDarkModeNoContext() ? null : kColorsGrey300.withValues(alpha: 0.5),
               padding: EdgeInsets.only(top: 10),
             child: Stack(children: [
               Column(children: [
@@ -222,7 +222,7 @@ class _VideoEditorScreenState extends State<VideoEditorScreen> {
                                 ],
                               )),
                           ContainerCorner(
-                              color: kPrimacyGrayColor.withOpacity(0.2),
+                              color: kPrimacyGrayColor.withValues(alpha: 0.2),
                               radiusTopRight: 30,
                               radiusTopLeft: 30,
                               height: 200,
@@ -406,7 +406,7 @@ class _VideoEditorScreenState extends State<VideoEditorScreen> {
         child: Container(
           height: height,
           width: double.infinity,
-          color: Colors.black.withOpacity(0.8),
+          color: Colors.black.withValues(alpha: 0.8),
           child: Center(
             child: Text(_exportText,
                 style: const TextStyle(fontWeight: FontWeight.bold)),

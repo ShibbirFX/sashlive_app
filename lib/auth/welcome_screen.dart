@@ -201,7 +201,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   width: size.width,
                   height: size.height,
                   borderWidth: 0,
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withValues(alpha: 0.7),
                 ),
                 SafeArea(
                   child: Column(
@@ -453,7 +453,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Visibility(
                   visible: showAgreeAlert,
                   child: ContainerCorner(
-                    color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withValues(alpha: 0.5),
                     height: 50,
                     marginRight: 50,
                     marginLeft: 50,

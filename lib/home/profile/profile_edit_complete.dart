@@ -256,7 +256,7 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
                           right: 0,
                           //right: 40,
                           child: ContainerCorner(
-                            color: kGrayColor.withOpacity(0.5),
+                            color: kGrayColor.withValues(alpha: 0.5),
                             height: 20,
                             width: 20,
                             borderRadius: 50,
@@ -287,8 +287,8 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
                   marginTop: 20,
                   width: size.width,
                   backgroundColor: isDarkMode
-                      ? Colors.blueAccent.withOpacity(0.3)
-                      : Colors.blueAccent.withOpacity(0.05),
+                      ? Colors.blueAccent.withValues(alpha: 0.3)
+                      : Colors.blueAccent.withValues(alpha: 0.05),
                   onCountryChanged: (country) {
                     countryIsoCode = country.isoCode;
                     countryDialCode = country.dialCode;
@@ -357,8 +357,8 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
       borderRadius: 50,
       color: male
           ? mySelectedGender == UserModel.keyGenderMale
-          ? Colors.blueAccent.withOpacity(0.3) : Colors.blueAccent.withOpacity(0.05)
-          : mySelectedGender == UserModel.keyGenderFemale ? Colors.redAccent.withOpacity(0.3) : Colors.redAccent.withOpacity(0.05),
+          ? Colors.blueAccent.withValues(alpha: 0.3) : Colors.blueAccent.withValues(alpha: 0.05)
+          : mySelectedGender == UserModel.keyGenderFemale ? Colors.redAccent.withValues(alpha: 0.3) : Colors.redAccent.withValues(alpha: 0.05),
       marginRight: 15,
       onTap: (){
         setState(() {
@@ -398,8 +398,8 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
       height: 45,
       marginTop: 20,
       color: isDarkMode
-          ? Colors.blueAccent.withOpacity(0.3)
-          : Colors.blueAccent.withOpacity(0.05),
+          ? Colors.blueAccent.withValues(alpha: 0.3)
+          : Colors.blueAccent.withValues(alpha: 0.05),
       child: Padding(
         padding: const EdgeInsets.only(
           left: 10,
@@ -417,7 +417,7 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
               border: InputBorder.none,
               hintText: "personal_data.nickname_".tr(),
               hintStyle:
-              TextStyle(color: kGrayColor.withOpacity(0.5), fontSize: 13),
+              TextStyle(color: kGrayColor.withValues(alpha: 0.5), fontSize: 13),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {}
@@ -486,8 +486,8 @@ class _ProfileCompleteEditState extends State<ProfileCompleteEdit> {
       marginTop: 20,
       onTap: () => showCalendar(),
       color: isDarkMode
-          ? Colors.blueAccent.withOpacity(0.3)
-          : Colors.blueAccent.withOpacity(0.05),
+          ? Colors.blueAccent.withValues(alpha: 0.3)
+          : Colors.blueAccent.withValues(alpha: 0.05),
       child: Row(
         children: [
           Padding(

@@ -128,8 +128,9 @@ class _HelpScreenState extends State<HelpScreen> {
                   marginRight: 10,
                   marginBottom: 10,
                   borderRadius: 10,
-                  color:
-                      selected ? kPrimaryColor : kPrimaryColor.withOpacity(0.2),
+                  color: selected
+                      ? kPrimaryColor
+                      : kPrimaryColor.withValues(alpha: 0.2),
                   onTap: () {
                     setState(() {
                       selectedTopic.clear();
@@ -176,7 +177,7 @@ class _HelpScreenState extends State<HelpScreen> {
                       marginLeft: 25,
                       marginRight: 10,
                       marginBottom: 20,
-                      color: kGrayColor.withOpacity(.8),
+                      color: kGrayColor.withValues(alpha: .8),
                       fontSize: 14,
                     ),
                   ],
@@ -193,7 +194,7 @@ class _HelpScreenState extends State<HelpScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ContainerCorner(
-              color: kPrimaryColor.withOpacity(0.3),
+              color: kPrimaryColor.withValues(alpha: 0.3),
               height: 45,
               borderRadius: 10,
               width: size.width / 2.3,

@@ -29,7 +29,7 @@ class _PKMuteButtonState extends State<PKMuteButton> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.purple.withOpacity(0.6),
+              color: Colors.purple.withValues(alpha: 0.6),
             ),
             child: Icon(
               muteUsers.contains(widget.userID)

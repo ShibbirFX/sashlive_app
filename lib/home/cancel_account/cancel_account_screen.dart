@@ -126,7 +126,7 @@ class _CancelAccountScreenState extends State<CancelAccountScreen> {
                         color: kGrayColor,
                       ),
                       ContainerCorner(
-                        color: kGrayColor.withOpacity(0.2),
+                        color: kGrayColor.withValues(alpha: 0.2),
                         borderWidth: 0.3,
                         borderColor: kGrayColor,
                         borderRadius: 4,

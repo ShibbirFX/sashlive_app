@@ -305,7 +305,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.3,
           minChildSize: 0.1,
@@ -315,8 +315,9 @@ class _UserProfileScreenState extends State<UserProfileScreen>
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -422,7 +423,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
             visible: index < (callsTitles.length - 2),
             child: ContainerCorner(
               height: 0.5,
-              color: kGrayColor.withOpacity(0.5),
+              color: kGrayColor.withValues(alpha: 0.5),
               width: size.width,
             ))
       ],
@@ -571,9 +572,10 @@ class _UserProfileScreenState extends State<UserProfileScreen>
   @override
   void initState() {
     SendNotifications.sendPush(
-      widget.currentUser!,  widget.mUser!,
+      widget.currentUser!,
+      widget.mUser!,
       SendNotifications.typeProfileVisit,
-      pictureURL:widget.currentUser!.getAvatar!.url,
+      pictureURL: widget.currentUser!.getAvatar!.url,
     );
 
     _getAllFanClub();
@@ -734,7 +736,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                       ContainerCorner(
                                         height: 30,
                                         borderRadius: 50,
-                                        color: Colors.black.withOpacity(0.2),
+                                        color:
+                                            Colors.black.withValues(alpha: 0.2),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -1094,7 +1097,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
         Visibility(
           visible: showTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -1118,7 +1121,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
         Visibility(
           visible: showCopiedTempAlert,
           child: ContainerCorner(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             height: 50,
             marginRight: 50,
             marginLeft: 50,
@@ -1161,7 +1164,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.4,
           minChildSize: 0.1,
@@ -1245,7 +1248,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
           ),
           ContainerCorner(
             borderWidth: 0,
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             width: double.infinity,
             height: double.infinity,
           ),
@@ -1260,7 +1263,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
             child: CarouselView(
               controller: _controller,
               itemExtent: double.infinity,
-              children: List.generate(userPictures.length, (index){
+              children: List.generate(userPictures.length, (index) {
                 return Stack(
                   alignment: AlignmentDirectional.bottomEnd,
                   children: [
@@ -1272,13 +1275,13 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                     ),
                     ContainerCorner(
                       borderWidth: 0,
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       width: double.infinity,
                       height: double.infinity,
                     ),
                   ],
                 );
-            }),
+              }),
             ),
           ),
           Padding(
@@ -1292,10 +1295,10 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   marginRight: 2,
                   borderRadius: 8,
                   borderWidth: 0,
-                  onTap: () => _controller.jumpTo(entry.key+0.0),
+                  onTap: () => _controller.jumpTo(entry.key + 0.0),
                   color: _current == entry.key
                       ? kWarninngColor
-                      : kWarninngColor.withOpacity(0.3),
+                      : kWarninngColor.withValues(alpha: 0.3),
                 );
               }).toList(),
             ),
@@ -1332,7 +1335,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
           return ContainerCorner(
             height: double.infinity,
             width: double.infinity,
-            color: kPrimaryColor.withOpacity(0.1),
+            color: kPrimaryColor.withValues(alpha: 0.1),
             borderWidth: 0,
             borderRadius: 8,
             child: Column(
@@ -1453,7 +1456,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                 borderRadius: 10,
                 color: Colors.white,
                 shadowColor: kRoseVip,
-                borderColor: kRoseVip.withOpacity(0.3),
+                borderColor: kRoseVip.withValues(alpha: 0.3),
                 borderWidth: 2,
                 shadowColorOpacity: 0.3,
                 setShadowToBottom: true,
@@ -1559,7 +1562,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                 marginLeft: 5,
                 color: Colors.white,
                 shadowColor: kPrimaryColor,
-                borderColor: kPrimaryColor.withOpacity(0.3),
+                borderColor: kPrimaryColor.withValues(alpha: 0.3),
                 borderWidth: 2,
                 shadowColorOpacity: 0.3,
                 setShadowToBottom: true,
@@ -1614,7 +1617,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
         ),
         ContainerCorner(
           borderRadius: 10,
-          color: kGrayPro.withOpacity(0.1),
+          color: kGrayPro.withValues(alpha: 0.1),
           marginLeft: 10,
           marginRight: 15,
           marginTop: 15,
@@ -2030,7 +2033,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
   }
 
   Future<List<dynamic>?> _loadFeeds(bool? isExclusive) async {
-    QueryBuilder<PostsModel> queryBuilder = QueryBuilder<PostsModel>(PostsModel());
+    QueryBuilder<PostsModel> queryBuilder =
+        QueryBuilder<PostsModel>(PostsModel());
     queryBuilder.includeObject([
       PostsModel.keyAuthor,
       PostsModel.keyLastLikeAuthor,
@@ -2149,7 +2153,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                               },
                             ),
                             marginLeft: 10,
-                            color: kGrayColor.withOpacity(0.7),
+                            color: kGrayColor.withValues(alpha: 0.7),
                             fontSize: 7,
                             alignment: Alignment.center,
                           ),
@@ -2307,8 +2311,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                             width: 40,
                                             borderRadius: 50,
                                             borderWidth: 0,
-                                            color:
-                                                Colors.black.withOpacity(0.7),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.7),
                                             child: Center(
                                                 child: Icon(
                                               Icons.play_circle_outline,
@@ -2332,7 +2336,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                           "assets/images/blurred_image.jpg"),
                                     ),
                                     ContainerCorner(
-                                      color: Colors.white.withOpacity(0.5),
+                                      color:
+                                          Colors.white.withValues(alpha: 0.5),
                                       borderRadius: 20,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -2741,7 +2746,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 32,
-            color: Color(0xFF087949).withOpacity(0.08),
+            color: Color(0xFF087949).withValues(alpha: 0.08),
           ),
         ],
       ),
@@ -2753,7 +2758,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                 horizontal: 20 * 0.75,
               ),
               decoration: BoxDecoration(
-                color: kPrimaryColor.withOpacity(0.05),
+                color: kPrimaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Row(
@@ -2871,7 +2876,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   ],
                 ),
                 ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 1,
                   marginLeft: 5,
                   marginRight: 5,
@@ -3185,7 +3190,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.3,
           minChildSize: 0.1,
@@ -3195,8 +3200,9 @@ class _UserProfileScreenState extends State<UserProfileScreen>
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -3264,7 +3270,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
           visible: index < (settingsTitles.length - 2),
           child: ContainerCorner(
             height: 0.5,
-            color: kGrayColor.withOpacity(0.5),
+            color: kGrayColor.withValues(alpha: 0.5),
             width: size.width,
           ),
         ),
@@ -3287,7 +3293,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
       {required PostsModel post}) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -3432,7 +3438,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -3677,7 +3683,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -3826,7 +3832,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -3933,7 +3939,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                 ),
                               ),
                               ContainerCorner(
-                                color: kGrayColor.withOpacity(0.1),
+                                color: kGrayColor.withValues(alpha: 0.1),
                                 borderRadius: 10,
                                 borderWidth: 0,
                                 marginLeft: 15,
@@ -4062,7 +4068,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                               maxValue: maxTaskValue[index] + 0.0,
                               changeColorValue: 0,
                               changeProgressColor: kPrimaryColor,
-                              backgroundColor: kGrayColor.withOpacity(0.1),
+                              backgroundColor:
+                                  kGrayColor.withValues(alpha: 0.1),
                               progressColor: Colors.lightBlue,
                               animatedDuration: const Duration(seconds: 2),
                               direction: Axis.horizontal,
@@ -4132,7 +4139,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
             marginTop: 15,
           ),
           ContainerCorner(
-            color: kGrayColor.withOpacity(0.1),
+            color: kGrayColor.withValues(alpha: 0.1),
             borderRadius: 10,
             borderWidth: 0,
             marginLeft: 15,
@@ -4179,7 +4186,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ContainerCorner(
-              color: kPrimaryColor.withOpacity(0.2),
+              color: kPrimaryColor.withValues(alpha: 0.2),
               height: 50,
               borderRadius: 50,
               width: size.width / 2.3,

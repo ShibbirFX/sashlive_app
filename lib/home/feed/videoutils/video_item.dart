@@ -35,23 +35,21 @@ class VideoItemWidget<V extends VideoInfo> extends StatefulWidget {
   ///
   final Widget? customVideoInfoWidget;
 
-  VideoItemWidget(
-      {
+  VideoItemWidget({
+    /// video information
+    required this.videoInfo,
 
-      /// video information
-      required this.videoInfo,
-
-      /// video config
-      this.config = const VideoItemConfig(
-          loop: true,
-          itemLoadingWidget: CircularProgressIndicator(),
-          autoPlayNextVideo: true),
-      required this.pageIndex,
-      required this.currentPageIndex,
-      required this.isPaused,
-      this.customVideoInfoWidget,
-      this.videoEnded,
-      });
+    /// video config
+    this.config = const VideoItemConfig(
+        loop: true,
+        itemLoadingWidget: CircularProgressIndicator(),
+        autoPlayNextVideo: true),
+    required this.pageIndex,
+    required this.currentPageIndex,
+    required this.isPaused,
+    this.customVideoInfoWidget,
+    this.videoEnded,
+  });
 
   @override
   State<StatefulWidget> createState() => _VideoItemWidgetState<V>();
@@ -110,14 +108,13 @@ class _VideoItemWidgetState<V extends VideoInfo>
             Align(
               alignment: Alignment.bottomCenter,
               child: VideoProgressIndicator(
-                  _videoPlayerController!,
-                  allowScrubbing: true,
+                _videoPlayerController!,
+                allowScrubbing: true,
                 padding: EdgeInsets.only(top: 5),
                 colors: VideoProgressColors(
-                  backgroundColor: Colors.white.withOpacity(0.3),
-                  bufferedColor: Colors.white.withOpacity(0.5),
-                  playedColor: Colors.white
-                ),
+                    backgroundColor: Colors.white.withValues(alpha: 0.3),
+                    bufferedColor: Colors.white.withValues(alpha: 0.5),
+                    playedColor: Colors.white),
               ),
             ),
             Visibility(
@@ -129,7 +126,7 @@ class _VideoItemWidgetState<V extends VideoInfo>
               child: Center(
                 child: Icon(
                   Icons.play_arrow_rounded,
-                  color: Colors.white.withOpacity(0.5),
+                  color: Colors.white.withValues(alpha: 0.5),
                   size: 80,
                 ),
               ),
@@ -141,7 +138,6 @@ class _VideoItemWidgetState<V extends VideoInfo>
   }
 
   void playAndPayBtn() {
-
     setState(() {
       print("Play and pause clicked");
       if (widget.pageIndex == widget.currentPageIndex) {
@@ -190,17 +186,17 @@ class _VideoItemWidgetState<V extends VideoInfo>
   ///
   void _initVideoController() {
     if (widget.videoInfo.url == null) return;
-    _videoPlayerController = VideoPlayerController.networkUrl(
-      Uri.parse(widget.videoInfo.url!))
-      ..initialize().then((_) {
-        if (!mounted) return;
-        //renderersFactory.setEnableDecoderFallback(true);
-        setState(() {
-          _videoPlayerController!.setLooping(widget.config.loop);
-          initialized = true;
-        });
-        setState(() {});
-      });
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.parse(widget.videoInfo.url!))
+          ..initialize().then((_) {
+            if (!mounted) return;
+            //renderersFactory.setEnableDecoderFallback(true);
+            setState(() {
+              _videoPlayerController!.setLooping(widget.config.loop);
+              initialized = true;
+            });
+            setState(() {});
+          });
     _videoPlayerController!.addListener(_videoListener);
   }
 
@@ -328,12 +324,12 @@ class _VideoItemWidgetState<V extends VideoInfo>
   }
 
   void _handleVisibilityDetector(VisibilityInfo info) {
-
     var visiblePercentage = info.visibleFraction * 100;
 
-    if(widget.currentPageIndex == widget.pageIndex && _videoPlayerController != null && !actualDisposed){
-
-      if(visiblePercentage == 0.0){
+    if (widget.currentPageIndex == widget.pageIndex &&
+        _videoPlayerController != null &&
+        !actualDisposed) {
+      if (visiblePercentage == 0.0) {
         print("CHECK VIDEO STATE VISIBLE $visiblePercentage");
         _videoPlayerController?.pause().then((value) {});
       } else {
@@ -342,11 +338,10 @@ class _VideoItemWidgetState<V extends VideoInfo>
           print("CHECK VIDEO STATE INVISIBLE");
         });
       }
-
-    } else if(_videoPlayerController != null && !actualDisposed && !widget.isPaused) {
+    } else if (_videoPlayerController != null &&
+        !actualDisposed &&
+        !widget.isPaused) {
       _videoPlayerController?.pause().then((value) {});
     }
   }
-
-
 }

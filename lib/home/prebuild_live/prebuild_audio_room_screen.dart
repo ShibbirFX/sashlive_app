@@ -361,7 +361,7 @@ class _PrebuildAudioRoomScreenState extends State<PrebuildAudioRoomScreen> with 
                               children: [
                                 ContainerCorner(
                                   marginRight: 5,
-                                  color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withValues(alpha: 0.5),
                                   child: QuickActions.avatarWidget(
                                     widget.liveStreaming!.getAuthor!,
                                     width: double.infinity,
@@ -435,7 +435,7 @@ class _PrebuildAudioRoomScreenState extends State<PrebuildAudioRoomScreen> with 
                             ContainerCorner(
                               marginLeft: 10,
                               marginRight: 6,
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.white.withValues(alpha: 0.2),
                               borderRadius: 50,
                               height: 23,
                               width: 23,
@@ -1215,7 +1215,7 @@ class _PrebuildAudioRoomScreenState extends State<PrebuildAudioRoomScreen> with 
     coHostQuery.whereContainedIn(UserModel.keyObjectId, coHostsList);
 
     return ContainerCorner(
-      color: kIamonDarkBarColor.withOpacity(.9),
+      color: kIamonDarkBarColor.withValues(alpha: .9),
       width: size.width,
       borderColor: Colors.white,
       radiusTopLeft: 10,

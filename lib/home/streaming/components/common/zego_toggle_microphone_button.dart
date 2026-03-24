@@ -17,7 +17,7 @@ class ZegoToggleMicrophoneButton extends StatelessWidget {
               width: 96,
               height: 96,
               decoration: BoxDecoration(
-                color: isMicOn ? const Color.fromARGB(255, 51, 52, 56).withOpacity(0.6) : Colors.grey,
+                color: isMicOn ? const Color.fromARGB(255, 51, 52, 56).withValues(alpha: 0.6) : Colors.grey,
                 shape: BoxShape.circle,
               ),
               child: SizedBox(

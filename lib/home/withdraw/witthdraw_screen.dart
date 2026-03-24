@@ -121,7 +121,7 @@ class _WithDrawScreenState extends State<WithDrawScreen> {
         children: [
           ContainerCorner(
             width: size.width,
-            color: Colors.orange.withOpacity(0.1),
+            color: Colors.orange.withValues(alpha: 0.1),
             borderWidth: 0,
             marginBottom: 10,
             height: 35,
@@ -294,8 +294,8 @@ class _WithDrawScreenState extends State<WithDrawScreen> {
             ),
           Visibility(
             visible: widget.currentUser!.getSelectedPaymentMethod == null,
-            child: ContainerCorner(
-              color: isDark ? kContentDarkShadow : kGrayColor.withOpacity(0.1),
+              child: ContainerCorner(
+                color: isDark ? kContentDarkShadow : kGrayColor.withValues(alpha: 0.1),
               marginTop: 15,
               marginLeft: 15,
               marginRight: 15,
@@ -588,7 +588,7 @@ class _WithDrawScreenState extends State<WithDrawScreen> {
         marginTop: 10,
         marginLeft: 10,
         marginRight: 10,
-        color: kGrayColor.withOpacity(0.1),
+        color: kGrayColor.withValues(alpha: 0.1),
         onTap: () async {
           UserModel? user = await QuickHelp.goToNavigatorScreenForResult(
             context,
@@ -633,7 +633,7 @@ class _WithDrawScreenState extends State<WithDrawScreen> {
                           Row(
                             children: [
                               ContainerCorner(
-                                color: kPrimaryColor.withOpacity(0.2),
+                                color: kPrimaryColor.withValues(alpha: 0.2),
                                 borderRadius: 2,
                                 child: TextWithTap(
                                   "withdrawal_method_screen.fee_"
@@ -649,7 +649,7 @@ class _WithDrawScreenState extends State<WithDrawScreen> {
                                 ),
                               ),
                               ContainerCorner(
-                                color: kPrimaryColor.withOpacity(0.2),
+                                color: kPrimaryColor.withValues(alpha: 0.2),
                                 marginLeft: 5,
                                 borderRadius: 2,
                                 child: TextWithTap(

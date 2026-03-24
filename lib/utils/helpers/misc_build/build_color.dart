@@ -106,7 +106,9 @@ class BuildColor {
     'https://flutter.dev/docs/release/breaking-changes/theme-data-accent-properties#migration-guide. '
     'This feature was deprecated after v2.3.0-0.1.pre.',
   )
-  Color get button => Theme.of(_context).buttonTheme.colorScheme?.secondary ?? Theme.of(_context).colorScheme.secondary;
+  Color get button =>
+      Theme.of(_context).buttonTheme.colorScheme?.secondary ??
+      Theme.of(_context).colorScheme.secondary;
 
   ///```dart
   ///return Theme.of(context).secondaryHeaderColor
@@ -119,14 +121,16 @@ class BuildColor {
   Color get background => Theme.of(_context).primaryColorDark;
 
   ///```dart
-  ///return Theme.of(context).dialogBackgroundColor
+  ///return Theme.of(context).dialogTheme.backgroundColor
   ///```
-  Color get dialogBackground => Theme.of(_context).dialogBackgroundColor;
+  Color get dialogBackground =>
+      Theme.of(_context).dialogTheme.backgroundColor ?? Colors.white;
 
   ///```dart
-  ///return Theme.of(context).indicatorColor
+  ///return Theme.of(context).tabBarTheme.indicatorColor
   ///```
-  Color get indicator => Theme.of(_context).indicatorColor;
+  Color get indicator =>
+      Theme.of(_context).tabBarTheme.indicatorColor ?? Colors.blue;
 
   ///```dart
   ///return Theme.of(context).hintColor

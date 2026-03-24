@@ -76,7 +76,7 @@ class _ReelsSavedVideosScreenState extends State<ReelsSavedVideosScreen> with Si
                 alignment: Alignment.bottomCenter,
                 child: ContainerCorner(
                   height: 35,
-                  colors: [Colors.black, Colors.black.withOpacity(0.1)],
+                  colors: [Colors.black, Colors.black.withValues(alpha: 0.1)],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),

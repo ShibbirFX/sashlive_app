@@ -145,36 +145,35 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     super.initState();
     WakelockPlus.enable();
     initSharedPref();
-    Future.delayed(Duration(minutes: 2)).then((value){
+    Future.delayed(Duration(minutes: 2)).then((value) {
       widget.currentUser!.addUserPoints = widget.isHost ? 350 : 200;
       widget.currentUser!.save();
     });
     pkEvents = PKEvents(
-        requestIDNotifier: requestIDNotifier,
-        requestingHostsMapRequestIDNotifier:
-            requestingHostsMapRequestIDNotifier,
-        liveStreaming: widget.liveStreaming!,
-        onIncomingBattleRequest: (event, defaultAction) async {
-          QueryBuilder queryUser = QueryBuilder(UserModel.forQuery());
-          queryUser.whereEqualTo(UserModel.keyObjectId, event.fromHost.id);
-          queryUser.setLimit(1);
-          ParseResponse response = await queryUser.query();
-          if (response.success && response.results != null) {
-            UserModel battleRequestHost = response.results!.first;
-            openBattleRequestInvitation(user: battleRequestHost, event: event);
-          } else {
-            defaultAction.call();
-          }
-        },
-        onOutgoingRequestAccepted: (event, defaultAction) {
+      requestIDNotifier: requestIDNotifier,
+      requestingHostsMapRequestIDNotifier: requestingHostsMapRequestIDNotifier,
+      liveStreaming: widget.liveStreaming!,
+      onIncomingBattleRequest: (event, defaultAction) async {
+        QueryBuilder queryUser = QueryBuilder(UserModel.forQuery());
+        queryUser.whereEqualTo(UserModel.keyObjectId, event.fromHost.id);
+        queryUser.setLimit(1);
+        ParseResponse response = await queryUser.query();
+        if (response.success && response.results != null) {
+          UserModel battleRequestHost = response.results!.first;
+          openBattleRequestInvitation(user: battleRequestHost, event: event);
+        } else {
           defaultAction.call();
-          updateLiveToBattle(event.fromLiveID);
-          initiateBattleTimer();
-        },
-        onUserJoined: (user) {
-          updateLiveToBattle(user.streamID);
-          initiateBattleTimer();
-        },
+        }
+      },
+      onOutgoingRequestAccepted: (event, defaultAction) {
+        defaultAction.call();
+        updateLiveToBattle(event.fromLiveID);
+        initiateBattleTimer();
+      },
+      onUserJoined: (user) {
+        updateLiveToBattle(user.streamID);
+        initiateBattleTimer();
+      },
     );
 
     following = widget.currentUser!.getFollowing!
@@ -238,7 +237,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     ];
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -381,12 +380,14 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     );
   }
 
-  restartPkBattle() async{
+  restartPkBattle() async {
     widget.liveStreaming!.setMyBattlePoints = 0;
     widget.liveStreaming!.setHisBattlePoints = 0;
     repeatPkTimes++;
     await widget.liveStreaming!.save();
-    QuickCloudCode.restartPKBattle(liveChannel: widget.liveStreaming!.getBattleLiveId!, times: repeatPkTimes);
+    QuickCloudCode.restartPKBattle(
+        liveChannel: widget.liveStreaming!.getBattleLiveId!,
+        times: repeatPkTimes);
     initiateBattleTimer();
   }
 
@@ -400,29 +401,31 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     Future.delayed(Duration(seconds: 3)).then((value) {
       final currentTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
       sendSyncCommand(startTime: currentTime, duration: 120);
-      TimerController.startLocalTimer(onTimerUpdate:(remainingTimer) {
-        showGiftSendersController.battleTimer.value = remainingTimer;
-        if(showGiftSendersController.battleTimer.value == 0) {
-          showGiftSendersController.showBattleWinner.value = true;
-          Future.delayed(Duration(seconds: 10)).then((value){
-            showGiftSendersController.showBattleWinner.value = false;
-          });
-          if(widget.isHost){
-            updateVictories();
-            updateUserBattleData();
-          }
-        }
-      }, duration: 120);
+      TimerController.startLocalTimer(
+          onTimerUpdate: (remainingTimer) {
+            showGiftSendersController.battleTimer.value = remainingTimer;
+            if (showGiftSendersController.battleTimer.value == 0) {
+              showGiftSendersController.showBattleWinner.value = true;
+              Future.delayed(Duration(seconds: 10)).then((value) {
+                showGiftSendersController.showBattleWinner.value = false;
+              });
+              if (widget.isHost) {
+                updateVictories();
+                updateUserBattleData();
+              }
+            }
+          },
+          duration: 120);
     });
   }
 
   updateVictories() {
     int myPoints = showGiftSendersController.myBattlePoints.value;
     int hisPoints = showGiftSendersController.hisBattlePoints.value;
-    if(myPoints != hisPoints) {
-      if(myPoints > hisPoints) {
+    if (myPoints != hisPoints) {
+      if (myPoints > hisPoints) {
         widget.liveStreaming!.addMyBattleVictory = 1;
-      }else if(hisPoints > myPoints){
+      } else if (hisPoints > myPoints) {
         widget.liveStreaming!.addHisBattleVictory = 1;
       }
       widget.liveStreaming!.save();
@@ -433,15 +436,16 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     int myPoints = showGiftSendersController.myBattlePoints.value;
     int hisPoints = showGiftSendersController.hisBattlePoints.value;
     widget.currentUser!.addBattlePoints = myPoints;
-    if(myPoints > hisPoints) {
+    if (myPoints > hisPoints) {
       widget.currentUser!.addBattleVictories = 1;
-    }else if(hisPoints > myPoints){
+    } else if (hisPoints > myPoints) {
       widget.currentUser!.addBattleLost = 1;
     }
     widget.currentUser!.save();
   }
 
-  Future<void> sendSyncCommand({required int startTime, required int duration}) async {
+  Future<void> sendSyncCommand(
+      {required int startTime, required int duration}) async {
     final command = jsonEncode({'startTime': startTime, 'duration': duration});
     try {
       final commandSent =
@@ -523,20 +527,23 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
   Widget pointsWidget() {
     Size size = MediaQuery.sizeOf(context);
     var pkColors = [kOrangedColor, kPurpleColor];
-    return Obx((){
+    return Obx(() {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(2,
-              (index) {
+        children: List.generate(
+          2,
+          (index) {
             return ContainerCorner(
               width: size.width / 2,
               height: 15,
               color: pkColors[index],
               borderWidth: 0,
               child: TextWithTap(
-                "${index == 0 ? showGiftSendersController.myBattlePoints.value : showGiftSendersController.hisBattlePoints.value} "+"coins_and_points_screen.points_".tr(),
+                "${index == 0 ? showGiftSendersController.myBattlePoints.value : showGiftSendersController.hisBattlePoints.value} " +
+                    "coins_and_points_screen.points_".tr(),
                 color: Colors.white,
-                alignment: index == 1 ? Alignment.centerRight : Alignment.centerLeft,
+                alignment:
+                    index == 1 ? Alignment.centerRight : Alignment.centerLeft,
                 fontSize: 12,
                 marginRight: index == 1 ? 10 : 0,
                 marginLeft: index == 0 ? 10 : 0,
@@ -551,13 +558,14 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
 
   Widget victoryWidget() {
     Size size = MediaQuery.sizeOf(context);
-    return Obx((){
+    return Obx(() {
       return SizedBox(
         width: size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(2,
-                (index) {
+          children: List.generate(
+            2,
+            (index) {
               return ContainerCorner(
                 color: Colors.black38,
                 borderWidth: 0,
@@ -579,7 +587,9 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                       TextWithTap(
                         "x ${index == 0 ? showGiftSendersController.myBattleVictories.value : showGiftSendersController.hisBattleVictories.value}",
                         color: Colors.white,
-                        alignment: index == 1 ? Alignment.centerRight : Alignment.centerLeft,
+                        alignment: index == 1
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
                         //marginRight: index == 1 ? 10 : 0,
                         //marginLeft: index == 0 ? 10 : 0,
                         fontWeight: FontWeight.w900,
@@ -600,45 +610,32 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     Size size = MediaQuery.sizeOf(context);
     int myPoints = showGiftSendersController.myBattlePoints.value;
     int hisPoints = showGiftSendersController.hisBattlePoints.value;
-    if(showGiftSendersController.showBattleWinner.value) {
-      if(myPoints > hisPoints) {
+    if (showGiftSendersController.showBattleWinner.value) {
+      if (myPoints > hisPoints) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Lottie.asset(
-                "assets/lotties/battle_winner.json",
-                height: size.width / 2.3,
-                width: size.width / 2.3
-            ),
-            Lottie.asset(
-                "assets/lotties/battle_lost.json",
-                height: size.width / 3,
-                width: size.width / 3
-            ),
-          ],);
-      }else if(hisPoints > myPoints){
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Lottie.asset(
-                "assets/lotties/battle_lost.json",
-                height: size.width / 3,
-                width: size.width / 3
-            ),
-            Lottie.asset(
-                "assets/lotties/battle_winner.json",
-                height: size.width / 2.3,
-                width: size.width / 2.3
-            ),
-          ],);
-      }else{
-        return Lottie.asset(
-            "assets/lotties/no_winner.json",
-            height: size.width / 2.3,
-            width: size.width / 2.3
+            Lottie.asset("assets/lotties/battle_winner.json",
+                height: size.width / 2.3, width: size.width / 2.3),
+            Lottie.asset("assets/lotties/battle_lost.json",
+                height: size.width / 3, width: size.width / 3),
+          ],
         );
+      } else if (hisPoints > myPoints) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Lottie.asset("assets/lotties/battle_lost.json",
+                height: size.width / 3, width: size.width / 3),
+            Lottie.asset("assets/lotties/battle_winner.json",
+                height: size.width / 2.3, width: size.width / 2.3),
+          ],
+        );
+      } else {
+        return Lottie.asset("assets/lotties/no_winner.json",
+            height: size.width / 2.3, width: size.width / 2.3);
       }
-    }else{
+    } else {
       return SizedBox();
     }
   }
@@ -649,7 +646,8 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     WakelockPlus.disable();
     generalTabControl.dispose();
     showGiftSendersController.isPrivateLive.value = false;
-    showGiftSendersController.isPrivateLive.value = widget.liveStreaming!.getPrivate!;
+    showGiftSendersController.isPrivateLive.value =
+        widget.liveStreaming!.getPrivate!;
     if (subscription != null) {
       liveQuery.client.unSubscribe(subscription!);
     }
@@ -704,8 +702,8 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
 
     final audienceEvents = ZegoUIKitPrebuiltLiveStreamingEvents(
       inRoomMessage: ZegoLiveStreamingInRoomMessageEvents(
-        onClicked: (message){
-          if(message.user.id != widget.currentUser!.objectId) {
+        onClicked: (message) {
+          if (message.user.id != widget.currentUser!.objectId) {
             showUserProfileBottomSheet(
               currentUser: widget.currentUser!,
               userId: message.user.id,
@@ -714,27 +712,29 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
           }
         },
       ),
-      memberList: ZegoLiveStreamingMemberListEvents(
-          onClicked: (user) {
-            if(user.id != widget.currentUser!.objectId) {
-              QuickHelp.hideLoadingDialog(context);
-              showUserProfileBottomSheet(
-                currentUser: widget.currentUser!,
-                userId: user.id,
-                context: context,
-              );
-            }
-          }
-      ),
+      memberList: ZegoLiveStreamingMemberListEvents(onClicked: (user) {
+        if (user.id != widget.currentUser!.objectId) {
+          QuickHelp.hideLoadingDialog(context);
+          showUserProfileBottomSheet(
+            currentUser: widget.currentUser!,
+            userId: user.id,
+            context: context,
+          );
+        }
+      }),
       onError: (ZegoUIKitError error) {
         debugPrint('onError:$error');
       },
       user: ZegoLiveStreamingUserEvents(onEnter: (zegoUser) {
-        Future.delayed(Duration(seconds: 1)).then((value){
-          showGiftSendersController.hisBattlePoints.value = widget.liveStreaming!.getHisBattlePoints!;
-          showGiftSendersController.myBattlePoints.value = widget.liveStreaming!.getMyBattlePoints!;
-          showGiftSendersController.hisBattleVictories.value = widget.liveStreaming!.getHisBattleVictory!;
-          showGiftSendersController.myBattleVictories.value = widget.liveStreaming!.getMyBattleVictory!;
+        Future.delayed(Duration(seconds: 1)).then((value) {
+          showGiftSendersController.hisBattlePoints.value =
+              widget.liveStreaming!.getHisBattlePoints!;
+          showGiftSendersController.myBattlePoints.value =
+              widget.liveStreaming!.getMyBattlePoints!;
+          showGiftSendersController.hisBattleVictories.value =
+              widget.liveStreaming!.getHisBattleVictory!;
+          showGiftSendersController.myBattleVictories.value =
+              widget.liveStreaming!.getMyBattleVictory!;
         });
         addOrUpdateLiveViewers();
       }, onLeave: (zegoUser) {
@@ -795,7 +795,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     final hostEvents = ZegoUIKitPrebuiltLiveStreamingEvents(
       inRoomMessage: ZegoLiveStreamingInRoomMessageEvents(
         onClicked: (message) {
-          if(message.user.id != widget.currentUser!.objectId) {
+          if (message.user.id != widget.currentUser!.objectId) {
             showUserProfileBottomSheet(
               currentUser: widget.currentUser!,
               userId: message.user.id,
@@ -804,18 +804,16 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
           }
         },
       ),
-      memberList: ZegoLiveStreamingMemberListEvents(
-          onClicked: (user) {
-            if(user.id != widget.currentUser!.objectId) {
-              QuickHelp.hideLoadingDialog(context);
-              showUserProfileBottomSheet(
-                currentUser: widget.currentUser!,
-                userId: user.id,
-                context: context,
-              );
-            }
-          }
-      ),
+      memberList: ZegoLiveStreamingMemberListEvents(onClicked: (user) {
+        if (user.id != widget.currentUser!.objectId) {
+          QuickHelp.hideLoadingDialog(context);
+          showUserProfileBottomSheet(
+            currentUser: widget.currentUser!,
+            userId: user.id,
+            context: context,
+          );
+        }
+      }),
       pk: pkEvents!.event,
       onError: (ZegoUIKitError error) {
         debugPrint('onError:$error');
@@ -823,9 +821,11 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
       user: ZegoLiveStreamingUserEvents(
         onEnter: (user) {
           if (ZegoLiveStreamingState.inPKBattle == liveStateNotifier.value) {
-            Future.delayed(Duration(seconds: 3)).then((value){
+            Future.delayed(Duration(seconds: 3)).then((value) {
               final currentTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
-              sendSyncCommand(startTime: currentTime, duration: showGiftSendersController.battleTimer.value);
+              sendSyncCommand(
+                  startTime: currentTime,
+                  duration: showGiftSendersController.battleTimer.value);
             });
           }
         },
@@ -867,12 +867,12 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             ..audioVideoView.useVideoViewAspectFill = true
             ..mediaPlayer.supportTransparent = true
             ..pkBattle = pkConfig(
-                liveId: widget.liveID,
+              liveId: widget.liveID,
               pointsWidget: pointsWidget(),
-              showWinnerAndLoser: Obx((){
+              showWinnerAndLoser: Obx(() {
                 return Visibility(
                   visible: showGiftSendersController.showBattleWinner.value,
-                    child: winnerWidget(),
+                  child: winnerWidget(),
                 );
               }),
               victoryWidget: victoryWidget(),
@@ -897,8 +897,8 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                           height: 37,
                           borderRadius: 50,
                           colors: [kVioletColor, earnCashColor],
-                          onTap: (){
-                            if(user.id != widget.currentUser!.objectId) {
+                          onTap: () {
+                            if (user.id != widget.currentUser!.objectId) {
                               showUserProfileBottomSheet(
                                 currentUser: widget.currentUser!,
                                 userId: user.id,
@@ -914,7 +914,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                                 children: [
                                   ContainerCorner(
                                     marginRight: 5,
-                                    color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withValues(alpha: 0.5),
                                     child: QuickActions.avatarWidget(
                                       widget.liveStreaming!.getAuthor!,
                                       width: double.infinity,
@@ -991,7 +991,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                               ContainerCorner(
                                 marginLeft: 10,
                                 marginRight: 6,
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: 50,
                                 height: 23,
                                 width: 23,
@@ -1071,7 +1071,8 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             ]
 
             /// custom avatar
-            ..avatarBuilder = (BuildContext context, Size size, ZegoUIKitUser? user, Map extraInfo) {
+            ..avatarBuilder = (BuildContext context, Size size,
+                ZegoUIKitUser? user, Map extraInfo) {
               if (user == null) return const SizedBox();
 
               return FutureBuilder<String?>(
@@ -1082,7 +1083,9 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                       width: size.width,
                       height: size.width,
                       radius: 200,
-                      fadeTheme: QuickHelp.isDarkModeNoContext() ? FadeTheme.dark : FadeTheme.light,
+                      fadeTheme: QuickHelp.isDarkModeNoContext()
+                          ? FadeTheme.dark
+                          : FadeTheme.light,
                     );
                   } else if (snapshot.hasError || !snapshot.hasData) {
                     return const Icon(Icons.account_circle, size: 40);
@@ -1091,11 +1094,11 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                   final avatarUrl = snapshot.data;
                   return avatarUrl != null
                       ? QuickActions.photosWidget(
-                    avatarUrl,
-                    width: size.width,
-                    height: size.height,
-                    borderRadius: 200,
-                  )
+                          avatarUrl,
+                          width: size.width,
+                          height: size.height,
+                          borderRadius: 200,
+                        )
                       : const Icon(Icons.account_circle, size: 40);
                 },
               );
@@ -1392,10 +1395,12 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                           ),
                         ),
                       );
-                    }else if(ZegoLiveStreamingState.inPKBattle == state && imLiveInviter){
-                      return Obx((){
+                    } else if (ZegoLiveStreamingState.inPKBattle == state &&
+                        imLiveInviter) {
+                      return Obx(() {
                         return Visibility(
-                          visible: widget.isHost && showGiftSendersController.battleTimer.value == 0,
+                          visible: widget.isHost &&
+                              showGiftSendersController.battleTimer.value == 0,
                           child: Positioned(
                             right: 15,
                             bottom: 50,
@@ -1691,34 +1696,34 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             backgroundColor: Colors.black26,
           ),
           onPressed: () {
-            if(showGiftSendersController.isPrivateLive.value) {
+            if (showGiftSendersController.isPrivateLive.value) {
               unPrivatiseLive();
-            }else{
+            } else {
               PrivateLivePriceWidget(
                   context: context,
                   onCancel: () => QuickHelp.hideLoadingDialog(context),
-                  onGiftSelected: (gift){
+                  onGiftSelected: (gift) {
                     QuickHelp.hideLoadingDialog(context);
                     privatiseLive(gift);
-                  }
-              );
+                  });
             }
           },
-          icon: Obx(()=> SvgPicture.asset(
-            showGiftSendersController.isPrivateLive.value ?
-            "assets/svg/ic_unlocked_live.svg":
-            "assets/svg/ic_locked_live.svg",
-          ),
+          icon: Obx(
+            () => SvgPicture.asset(
+              showGiftSendersController.isPrivateLive.value
+                  ? "assets/svg/ic_unlocked_live.svg"
+                  : "assets/svg/ic_locked_live.svg",
+            ),
           ),
         ),
       );
 
-  privatiseLive(GiftsModel gift) async{
+  privatiseLive(GiftsModel gift) async {
     QuickHelp.showLoadingDialog(context);
     widget.liveStreaming!.setPrivate = true;
     widget.liveStreaming!.setPrivateLivePrice = gift;
     ParseResponse response = await widget.liveStreaming!.save();
-    if(response.success && response.results != null) {
+    if (response.success && response.results != null) {
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
         title: "privatise_live_title".tr(),
@@ -1727,7 +1732,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
         isError: false,
       );
       showGiftSendersController.isPrivateLive.value = true;
-    }else {
+    } else {
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
         title: "connection_failed".tr(),
@@ -1736,11 +1741,12 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
       );
     }
   }
-  unPrivatiseLive() async{
+
+  unPrivatiseLive() async {
     QuickHelp.showLoadingDialog(context);
     widget.liveStreaming!.setPrivate = false;
     ParseResponse response = await widget.liveStreaming!.save();
-    if(response.success && response.results != null) {
+    if (response.success && response.results != null) {
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
         title: "public_live_title".tr(),
@@ -1749,7 +1755,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
         context: context,
       );
       showGiftSendersController.isPrivateLive.value = false;
-    }else {
+    } else {
       QuickHelp.hideLoadingDialog(context);
       QuickHelp.showAppNotificationAdvanced(
         title: "connection_failed".tr(),
@@ -1865,8 +1871,11 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
         widget.liveStreaming!.addDiamonds = QuickHelp.getDiamondsForReceiver(
           giftsModel.getCoins!,
         );
-        if(showGiftSendersController.battleTimer.value > 0 && widget.liveStreaming!.getBattleStatus == LiveStreamingModel.battleAlive) {
-          widget.liveStreaming!.addMyBattlePoints = QuickHelp.getDiamondsForReceiver(giftsModel.getCoins!);
+        if (showGiftSendersController.battleTimer.value > 0 &&
+            widget.liveStreaming!.getBattleStatus ==
+                LiveStreamingModel.battleAlive) {
+          widget.liveStreaming!.addMyBattlePoints =
+              QuickHelp.getDiamondsForReceiver(giftsModel.getCoins!);
           QuickCloudCode.saveHisBattlePoints(
             points: QuickHelp.getDiamondsForReceiver(giftsModel.getCoins!),
             liveChannel: widget.liveStreaming!.getBattleLiveId!,
@@ -1874,11 +1883,9 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
         }
         await widget.liveStreaming!.save();
         sendMessage("sent_gift".tr(namedArgs: {"name": "host_".tr()}));
-        
       } else {
         sendMessage("sent_gift".tr(namedArgs: {"name": mUser.getFullName!}));
       }
-
     } else {
       //QuickHelp.goBackToPreviousPage(context);
       debugPrint("gift Navigator pop up");
@@ -1914,18 +1921,23 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
       showGiftSendersController.diamondsCounter.value =
           newUpdatedLive.getDiamonds.toString();
 
-      showGiftSendersController.hisBattlePoints.value = newUpdatedLive.getHisBattlePoints!;
-      showGiftSendersController.myBattlePoints.value = newUpdatedLive.getMyBattlePoints!;
+      showGiftSendersController.hisBattlePoints.value =
+          newUpdatedLive.getHisBattlePoints!;
+      showGiftSendersController.myBattlePoints.value =
+          newUpdatedLive.getMyBattlePoints!;
 
-      showGiftSendersController.myBattleVictories.value = newUpdatedLive.getMyBattleVictory!;
-      showGiftSendersController.hisBattleVictories.value = newUpdatedLive.getHisBattleVictory!;
+      showGiftSendersController.myBattleVictories.value =
+          newUpdatedLive.getMyBattleVictory!;
+      showGiftSendersController.hisBattleVictories.value =
+          newUpdatedLive.getHisBattleVictory!;
 
       /*if(widget.isHost) {
         widget.currentUser!.addBattlePoints = QuickHelp.getDiamondsForReceiver(giftsModel.getCoins!, widget.preferences!);
         widget.currentUser!.save();
       }
       */
-      if(newUpdatedLive.getRepeatBattleTimes! > 0 && newUpdatedLive.getRepeatBattleTimes! > repeatPkTimes) {
+      if (newUpdatedLive.getRepeatBattleTimes! > 0 &&
+          newUpdatedLive.getRepeatBattleTimes! > repeatPkTimes) {
         repeatPkTimes = newUpdatedLive.getRepeatBattleTimes!;
         initiateBattleTimer();
       }
@@ -1951,8 +1963,10 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
       if (!mounted) return;
       showGiftSendersController.diamondsCounter.value =
           widget.liveStreaming!.getDiamonds.toString();
-      showGiftSendersController.hisBattlePoints.value = updatedLive.getHisBattlePoints!;
-      showGiftSendersController.myBattlePoints.value = updatedLive.getMyBattlePoints!;
+      showGiftSendersController.hisBattlePoints.value =
+          updatedLive.getHisBattlePoints!;
+      showGiftSendersController.myBattlePoints.value =
+          updatedLive.getMyBattlePoints!;
     });
   }
 
@@ -2031,7 +2045,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
     coHostQuery.whereContainedIn(UserModel.keyObjectId, coHostsList);
 
     return ContainerCorner(
-      color: kIamonDarkBarColor.withOpacity(.9),
+      color: kIamonDarkBarColor.withValues(alpha: .9),
       width: size.width,
       borderColor: Colors.white,
       radiusTopLeft: 10,
@@ -2207,7 +2221,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.camera.value ? Icons.videocam : Icons.videocam_off,
                 color: Colors.white,
@@ -2225,7 +2239,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.microphone.value ? Icons.mic : Icons.mic_off,
                 color: Colors.white,
@@ -2291,7 +2305,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.camera.value ? Icons.videocam : Icons.videocam_off,
                 color: Colors.white,
@@ -2309,7 +2323,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
             width: 18,
             height: 18,
             child: CircleAvatar(
-              backgroundColor: Colors.purple.withOpacity(0.6),
+              backgroundColor: Colors.purple.withValues(alpha: 0.6),
               child: Icon(
                 user.microphone.value ? Icons.mic : Icons.mic_off,
                 color: Colors.white,
@@ -2406,7 +2420,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: Colors.blue[900]!.withOpacity(0.9),
+          backgroundColor: Colors.blue[900]!.withValues(alpha: 0.9),
           title: Text(
               "You have a request to turn on your ${isCameraOrMicrophone ? "camera" : "microphone"}",
               style: textStyle),
@@ -2529,7 +2543,7 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                                   borderRadius: 10,
                                   height: 45,
                                   marginTop: 10,
-                                  color: kGrayColor.withOpacity(0.15),
+                                  color: kGrayColor.withValues(alpha: 0.15),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                       left: 10,
@@ -2574,8 +2588,8 @@ class PreBuildLiveScreenState extends State<PreBuildLiveScreen>
                                             ),
                                           ),
                                           hintStyle: TextStyle(
-                                            color:
-                                                Colors.black.withOpacity(0.49),
+                                            color: Colors.black
+                                                .withValues(alpha: 0.49),
                                             fontSize: 14,
                                           ),
                                         ),

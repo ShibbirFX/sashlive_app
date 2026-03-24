@@ -604,8 +604,8 @@ class _MessageScreenState extends State<MessageScreen> {
                         borderWidth: 0,
                         borderRadius: 10,
                         color: isDarkMode
-                            ? Colors.white.withOpacity(0.9)
-                            : Colors.black.withOpacity(0.7),
+                            ? Colors.white.withValues(alpha: 0.9)
+                            : Colors.black.withValues(alpha: 0.7),
                         width: 180,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -730,7 +730,7 @@ class _MessageScreenState extends State<MessageScreen> {
           Visibility(
             visible: showTempAlert,
             child: ContainerCorner(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5),
               height: 50,
               marginRight: 50,
               marginLeft: 50,
@@ -845,7 +845,7 @@ class _MessageScreenState extends State<MessageScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.4,
           minChildSize: 0.1,
@@ -935,7 +935,7 @@ class _MessageScreenState extends State<MessageScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.3,
           minChildSize: 0.1,
@@ -945,8 +945,9 @@ class _MessageScreenState extends State<MessageScreen> {
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -1052,7 +1053,7 @@ class _MessageScreenState extends State<MessageScreen> {
             visible: index < (callsTitles.length - 2),
             child: ContainerCorner(
               height: 0.5,
-              color: kGrayColor.withOpacity(0.5),
+              color: kGrayColor.withValues(alpha: 0.5),
               width: size.width,
             ))
       ],
@@ -1076,7 +1077,7 @@ class _MessageScreenState extends State<MessageScreen> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.3,
           minChildSize: 0.1,
@@ -1086,8 +1087,9 @@ class _MessageScreenState extends State<MessageScreen> {
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -1168,7 +1170,7 @@ class _MessageScreenState extends State<MessageScreen> {
             visible: index < (settingsTitles.length - 2),
             child: ContainerCorner(
               height: 0.5,
-              color: kGrayColor.withOpacity(0.5),
+              color: kGrayColor.withValues(alpha: 0.5),
               width: size.width,
             ))
       ],
@@ -1660,8 +1662,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                                                 : "sending_"
                                                                     .tr(),
                                                             color: Colors.white
-                                                                .withOpacity(
-                                                                    0.7),
+                                                                .withValues(
+                                                                    alpha: 0.7),
                                                             fontSize: 10,
                                                             marginRight: 10,
                                                             marginLeft: 10,
@@ -1780,7 +1782,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                                                   time: true)
                                                           : "sending_".tr(),
                                                       color: Colors.white
-                                                          .withOpacity(0.7),
+                                                          .withValues(
+                                                              alpha: 0.7),
                                                       fontSize: 12,
                                                       marginRight: 10,
                                                       marginLeft: 10,
@@ -1945,7 +1948,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                                                 .objectId,
                                                     child: ContainerCorner(
                                                       color: kPrimaryColor
-                                                          .withOpacity(0.2),
+                                                          .withValues(
+                                                              alpha: 0.2),
                                                       borderRadius: 50,
                                                       height: 35,
                                                       width: size.width / 1.8,
@@ -2017,7 +2021,8 @@ class _MessageScreenState extends State<MessageScreen> {
                                                                 .objectId,
                                                     child: ContainerCorner(
                                                       color: kPrimaryColor
-                                                          .withOpacity(0.2),
+                                                          .withValues(
+                                                              alpha: 0.2),
                                                       borderRadius: 50,
                                                       height: 35,
                                                       width: size.width / 1.8,
@@ -2443,8 +2448,9 @@ class _MessageScreenState extends State<MessageScreen> {
               IconButton(
                 icon: SvgPicture.asset(
                   toggleVoiceKeyboardButton,
-                  color:
-                      isDarkMode ? Colors.white : Colors.black.withOpacity(0.7),
+                  color: isDarkMode
+                      ? Colors.white
+                      : Colors.black.withValues(alpha: 0.7),
                   height: 25,
                   width: 25,
                 ),
@@ -2477,7 +2483,7 @@ class _MessageScreenState extends State<MessageScreen> {
                       borderWidth: 0,
                       borderRadius: 50,
                       height: 35,
-                      color: kGrayColor.withOpacity(0.2),
+                      color: kGrayColor.withValues(alpha: 0.2),
                       child: Center(
                         child: TextWithTap(
                           micButtonCaption,
@@ -2497,7 +2503,7 @@ class _MessageScreenState extends State<MessageScreen> {
                     borderWidth: 0,
                     borderRadius: 50,
                     height: 38,
-                    color: kGrayColor.withOpacity(0.1),
+                    color: kGrayColor.withValues(alpha: 0.1),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10),
                       child: TextField(
@@ -3090,7 +3096,7 @@ class _MessageScreenState extends State<MessageScreen> {
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),

@@ -147,7 +147,7 @@ class _MVPScreenState extends State<MVPScreen> {
                   ],
                 ),
                 ContainerCorner(
-                  color: Colors.deepPurpleAccent.withOpacity(0.1),
+                  color: Colors.deepPurpleAccent.withValues(alpha: 0.1),
                   borderWidth: 0,
                   borderRadius: 50,
                   onTap: () async{
@@ -239,7 +239,7 @@ class _MVPScreenState extends State<MVPScreen> {
               children: List.generate(months.length, (index) {
                 bool selected = selectedMonths.contains(index);
                 return ContainerCorner(
-                  color: kGrayColor.withOpacity(0.2),
+                  color: kGrayColor.withValues(alpha: 0.2),
                   height: 130,
                   width: 110,
                   marginLeft: 5,

@@ -309,7 +309,7 @@ class _ReelsVideosScreenState extends State<ReelsVideosScreen>
                 alignment: Alignment.bottomCenter,
                 child: ContainerCorner(
                   height: 35,
-                  colors: [Colors.black, Colors.black.withOpacity(0.1)],
+                  colors: [Colors.black, Colors.black.withValues(alpha: 0.1)],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
@@ -359,7 +359,7 @@ class _ReelsVideosScreenState extends State<ReelsVideosScreen>
   Widget _showPostOptionsAndReportAuthor(UserModel author) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
@@ -528,7 +528,7 @@ class _ReelsVideosScreenState extends State<ReelsVideosScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),

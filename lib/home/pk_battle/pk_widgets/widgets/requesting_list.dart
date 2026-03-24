@@ -28,8 +28,8 @@ class _PKRequestingListState extends State<PKRequestingList> {
         Container(
           width: 120,
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            color: Colors.black.withValues(alpha: 0.5),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
           ),
           child: const Text(
             'Requesting Host, \nClick to Cancel',
@@ -40,8 +40,8 @@ class _PKRequestingListState extends State<PKRequestingList> {
           width: 120,
           height: 100,
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            color: Colors.black.withValues(alpha: 0.5),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
           ),
           child: ValueListenableBuilder<Map<String, List<String>>>(
             valueListenable: widget.requestingHostsMapRequestIDNotifier,

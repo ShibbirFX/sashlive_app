@@ -161,7 +161,7 @@ class _AgencyScreenState extends State<AgencyScreen> {
                                 marginTop: 20,
                               ),
                               ContainerCorner(
-                                color: kGrayColor.withOpacity(0.1),
+                                color: kGrayColor.withValues(alpha: 0.1),
                                 borderWidth: 1,
                                 borderColor: kPrimaryColor,
                                 borderRadius: 10,
@@ -258,7 +258,7 @@ class _AgencyScreenState extends State<AgencyScreen> {
                                 width: size.width,
                                 borderRadius: 10,
                                 borderColor: kOrangeColor,
-                                color: kOrangeColor.withOpacity(0.3),
+                                color: kOrangeColor.withValues(alpha: 0.3),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(
@@ -271,12 +271,12 @@ class _AgencyScreenState extends State<AgencyScreen> {
                                           TextWithTap(
                                             "my_agency_screen.user_id".tr(),
                                             color:
-                                                Colors.black.withOpacity(0.6),
+                                                Colors.black.withValues(alpha: 0.6),
                                           ),
                                           TextWithTap(
                                             "${widget.currentUser!.getUid!}",
                                             color:
-                                                Colors.black.withOpacity(0.6),
+                                                Colors.black.withValues(alpha: 0.6),
                                             marginRight: 5,
                                           ),
                                           GestureDetector(
@@ -304,7 +304,7 @@ class _AgencyScreenState extends State<AgencyScreen> {
                                           TextWithTap(
                                             "my_agency_screen.host_code".tr(),
                                             color:
-                                                Colors.black.withOpacity(0.6),
+                                                Colors.black.withValues(alpha: 0.6),
                                           ),
                                           TextWithTap(
                                             "${widget.currentUser!.objectId!}",
@@ -383,7 +383,7 @@ class _AgencyScreenState extends State<AgencyScreen> {
             Visibility(
               visible: showTempAlert,
               child: ContainerCorner(
-                color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha: 0.5),
                 height: 50,
                 marginRight: 50,
                 marginLeft: 50,

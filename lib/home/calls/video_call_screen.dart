@@ -448,7 +448,7 @@ class _State extends State<VideoCallScreen> {
                   height: 40,
                   marginLeft: 5,
                   borderRadius: 50,
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withValues(alpha: 0.3),
                   child: Icon(Icons.switch_camera_sharp,
                       color: Colors.white),
                   onTap:(){}
@@ -460,7 +460,7 @@ class _State extends State<VideoCallScreen> {
                 borderRadius: 50,
                 marginRight: 10,
                 onTap: (){},
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 child: Icon(
                   switchVideo ? Icons.videocam : Icons.videocam_off_sharp,
                   color: Colors.white,
@@ -474,7 +474,7 @@ class _State extends State<VideoCallScreen> {
             marginTop: 10,
             borderRadius: 20,
             marginLeft: 10,
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             onTap: widget.isCaller! ? _buyCredits : null,
             child: Row(
               children: [
@@ -506,7 +506,7 @@ class _State extends State<VideoCallScreen> {
                 marginLeft: 10,
                 marginRight: 10,
                 borderRadius: 50,
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 child: Icon(
                   switchAudio ? Icons.mic : Icons.mic_off,
                   size: 30,

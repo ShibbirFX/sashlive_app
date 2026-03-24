@@ -124,7 +124,8 @@ class _ProfileEditState extends State<ProfileEdit> {
         ),
         leading: BackButton(
           color: isDark ? Colors.white : kContentColorLightTheme,
-          onPressed: () => QuickHelp.goBackToPreviousPage(context, result: widget.currentUser),
+          onPressed: () => QuickHelp.goBackToPreviousPage(context,
+              result: widget.currentUser),
         ),
       ),
       body: ListView(
@@ -159,7 +160,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                               ContainerCorner(
                                 radiusTopLeft: 10,
                                 radiusBottomRight: 10,
-                                color: Colors.black.withOpacity(0.2),
+                                color: Colors.black.withValues(alpha: 0.2),
                                 child: TextWithTap(
                                   "edit_data_screen.avatar_".tr(),
                                   color: Colors.white,
@@ -423,7 +424,7 @@ class _ProfileEditState extends State<ProfileEdit> {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: ContainerCorner(
-        color: Colors.black.withOpacity(0.01),
+        color: Colors.black.withValues(alpha: 0.01),
         child: DraggableScrollableSheet(
           initialChildSize: 0.2,
           minChildSize: 0.1,
@@ -433,8 +434,9 @@ class _ProfileEditState extends State<ProfileEdit> {
               return ContainerCorner(
                 radiusTopLeft: 25,
                 radiusTopRight: 25,
-                color:
-                    isDarkMode ? Colors.black : Colors.white.withOpacity(0.9),
+                color: isDarkMode
+                    ? Colors.black
+                    : Colors.white.withValues(alpha: 0.9),
                 borderWidth: 0,
                 child: Scaffold(
                   backgroundColor: kTransparentColor,
@@ -494,7 +496,7 @@ class _ProfileEditState extends State<ProfileEdit> {
           visible: index < (settingsTitles.length - 2),
           child: ContainerCorner(
             height: 0.5,
-            color: kGrayColor.withOpacity(0.5),
+            color: kGrayColor.withValues(alpha: 0.5),
             width: size.width,
           ),
         ),
@@ -742,7 +744,8 @@ class _ProfileEditState extends State<ProfileEdit> {
       DateTime date = DateTime.now();
 
       for (int i = 0; i < images!.length; i++) {
-        String imageName = 'user_pic_${i}_${date.second}_${date.millisecond}.jpg';
+        String imageName =
+            'user_pic_${i}_${date.second}_${date.millisecond}.jpg';
 
         File tempFile = File('${tempDir.path}/$imageName');
         await tempFile.writeAsBytes(await images[i].readAsBytes());

@@ -292,7 +292,7 @@ class _CoinsFlowWidgetState extends State<_CoinsFlowWidget>
     return StatefulBuilder(builder: (context, setState) {
       return Container(
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.5),
+          color: Colors.black.withValues(alpha: 0.5),
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(25.0),
             topRight: const Radius.circular(25.0),
@@ -526,7 +526,7 @@ class _CoinsFlowWidgetState extends State<_CoinsFlowWidget>
         children: [
           Image.asset(
             image,
-            color: Colors.white.withOpacity(0.7),
+            color: Colors.white.withValues(alpha: 0.7),
             width: 20,
             height: 20,
           ),

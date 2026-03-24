@@ -245,7 +245,10 @@ class _StoreScreenState extends State<StoreScreen>
                         child: ContainerCorner(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Colors.transparent, Colors.black.withOpacity(.8)],
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withValues(alpha: .8)
+                          ],
                           height: 130,
                         ),
                       ),
@@ -283,10 +286,9 @@ class _StoreScreenState extends State<StoreScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 ContainerCorner(
-                                  color: kPrimaryColor.withOpacity(0.2),
+                                  color: kPrimaryColor.withValues(alpha: 0.2),
                                   borderRadius: 50,
                                   marginTop: 15,
-
                                   child: TextWithTap(
                                     "store_screen.sending_".tr(),
                                     color: kPrimaryColor,
@@ -302,8 +304,8 @@ class _StoreScreenState extends State<StoreScreen>
                                   marginTop: 15,
                                   onTap: () {
                                     openOperations(
-                                        item: storeItem,
-                                        action: actionPurchase,
+                                      item: storeItem,
+                                      action: actionPurchase,
                                     );
                                   },
                                   child: TextWithTap(
@@ -332,7 +334,7 @@ class _StoreScreenState extends State<StoreScreen>
                           marginRight: 2,
                           color: obtained
                               ? earnCashColor
-                              : Colors.black.withOpacity(0.4),
+                              : Colors.black.withValues(alpha: 0.4),
                           child: TextWithTap(
                             obtained
                                 ? "store_screen.obtained_".tr()
@@ -443,8 +445,8 @@ class _StoreScreenState extends State<StoreScreen>
                           borderWidth: 0,
                           height: 120,
                           colors: [
-                            silverColor.withOpacity(0.8),
-                            kPrimaryColor.withOpacity(0.2)
+                            silverColor.withValues(alpha: 0.8),
+                            kPrimaryColor.withValues(alpha: 0.2)
                           ],
                         ),
                       ),
@@ -495,7 +497,7 @@ class _StoreScreenState extends State<StoreScreen>
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           ContainerCorner(
-                            color: kPrimaryColor.withOpacity(0.2),
+                            color: kPrimaryColor.withValues(alpha: 0.2),
                             borderRadius: 50,
                             marginTop: 15,
                             onTap: () => openOperations(
@@ -540,7 +542,7 @@ class _StoreScreenState extends State<StoreScreen>
                       marginRight: 2,
                       color: obtained
                           ? earnCashColor
-                          : Colors.black.withOpacity(0.4),
+                          : Colors.black.withValues(alpha: 0.4),
                       child: TextWithTap(
                         obtained
                             ? "store_screen.obtained_".tr()
@@ -712,7 +714,7 @@ class _StoreScreenState extends State<StoreScreen>
                       marginRight: 2,
                       color: obtained
                           ? earnCashColor
-                          : Colors.black.withOpacity(0.4),
+                          : Colors.black.withValues(alpha: 0.4),
                       child: TextWithTap(
                         obtained
                             ? "store_screen.obtained_".tr()
@@ -786,7 +788,7 @@ class _StoreScreenState extends State<StoreScreen>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -854,7 +856,7 @@ class _StoreScreenState extends State<StoreScreen>
                                 marginRight: size.width / 1.6,
                                 borderRadius: 10,
                                 borderColor: kOrangeColor,
-                                color: kOrangeColor.withOpacity(0.1),
+                                color: kOrangeColor.withValues(alpha: 0.1),
                                 marginBottom: 20,
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
@@ -907,7 +909,7 @@ class _StoreScreenState extends State<StoreScreen>
                                       height: 35,
                                       color: isDark
                                           ? kContentDarkShadow
-                                          : kGrayColor.withOpacity(0.1),
+                                          : kGrayColor.withValues(alpha: 0.1),
                                       onTap: () async {
                                         UserModel? user = await QuickHelp
                                             .goToNavigatorScreenForResult(
@@ -1098,7 +1100,7 @@ class _StoreScreenState extends State<StoreScreen>
         width: size.width / 7,
         height: size.width / 7,
       );
-    }else if(item.getGiftCategories == GiftsModel.categorySvgaGifts) {
+    } else if (item.getGiftCategories == GiftsModel.categorySvgaGifts) {
       return QuickActions.photosWidget(
         item.getPreview!.url!,
         width: size.width / 7,

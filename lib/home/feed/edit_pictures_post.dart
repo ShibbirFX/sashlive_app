@@ -160,7 +160,7 @@ class _EditPicturesPostState extends State<EditPicturesPost> {
                                   width: 23,
                                   marginTop: 4,
                                   marginRight: 10,
-                                  color: Colors.black.withOpacity(0.5),
+                                  color: Colors.black.withValues(alpha: 0.5),
                                   onTap: () {
                                     setState(
                                       () {
@@ -254,7 +254,7 @@ class _EditPicturesPostState extends State<EditPicturesPost> {
                             width: 23,
                             marginTop: 4,
                             marginRight: 10,
-                            color: Colors.black.withOpacity(0.5),
+                            color: Colors.black.withValues(alpha: 0.5),
                             onTap: () {
                               setState(() {
                                 selectedPictures.removeAt(index);
@@ -377,7 +377,7 @@ class _EditPicturesPostState extends State<EditPicturesPost> {
     );
 
     return ContainerCorner(
-      color: Colors.black.withOpacity(0.01),
+      color: Colors.black.withValues(alpha: 0.01),
       child: DraggableScrollableSheet(
         initialChildSize: 0.9,
         minChildSize: 0.1,

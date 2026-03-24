@@ -387,7 +387,7 @@ class _State extends State<VoiceCallScreen> {
             marginTop: 10,
             borderRadius: 20,
             marginLeft: 10,
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             onTap: widget.isCaller! ? _buyCredits : null,
             child: Row(
               children: [
@@ -412,7 +412,7 @@ class _State extends State<VoiceCallScreen> {
             marginLeft: 10,
             marginRight: 10,
             borderRadius: 50,
-            color: Colors.black.withOpacity(0.7),
+            color: Colors.black.withValues(alpha: 0.7),
             child: Icon(
               switchAudio ? Icons.mic : Icons.mic_off,
               size: 30,

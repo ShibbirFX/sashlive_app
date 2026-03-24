@@ -97,7 +97,7 @@ class ButtonWithGradient extends StatelessWidget {
               ),
         boxShadow: activeBoxShadow ?  [
           BoxShadow(
-              color: shadowColor != null ? shadowColor!.withOpacity(shadowColorOpacity!) : Colors.transparent,
+              color: shadowColor != null ? shadowColor!.withValues(alpha: shadowColorOpacity!) : Colors.transparent,
               blurRadius: blurRadius!,
               spreadRadius:spreadRadius!,
               offset: setShadowToBottom! ? Offset(0,5) : Offset(0.0, 0.75) //offset: Offset(0,10),

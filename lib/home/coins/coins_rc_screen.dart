@@ -28,8 +28,7 @@ class CoinsScreen extends StatefulWidget {
 }
 
 class _CoinsScreenState extends State<CoinsScreen> {
-
-  void getUser() async{
+  void getUser() async {
     widget.currentUser = await ParseUser.currentUser();
   }
 
@@ -40,13 +39,11 @@ class _CoinsScreenState extends State<CoinsScreen> {
 
   @override
   void dispose() {
-
     super.dispose();
   }
 
   @override
   void initState() {
-
     QuickHelp.saveCurrentRoute(route: CoinsScreen.route);
     initProducts();
 
@@ -58,7 +55,6 @@ class _CoinsScreenState extends State<CoinsScreen> {
       offerings = await Purchases.getOfferings();
 
       if (offerings.current!.availablePackages.length > 0) {
-
         setState(() {
           _isAvailable = true;
           _loading = false;
@@ -76,25 +72,23 @@ class _CoinsScreenState extends State<CoinsScreen> {
   }
 
   List<InAppPurchaseModel> getInAppList() {
-
     List<Package> myProductList = offerings.current!.availablePackages;
 
     List<InAppPurchaseModel> inAppPurchaseList = [];
 
     for (Package package in myProductList) {
-
       //if (package.identifier == Config.credit200) {
       if (package.storeProduct.identifier == Config.credit200) {
         InAppPurchaseModel credits200 = InAppPurchaseModel(
-            id: Config.credit200,
-            coins: 200,
-            price: package.storeProduct.priceString,
-            image: "assets/images/ic_coins_4.png",
-            type: InAppPurchaseModel.typeNormal,
-            storeProduct: package.storeProduct,
-            package: package,
-            currency: package.storeProduct.currencyCode,
-            currencySymbol: package.storeProduct.currencyCode,
+          id: Config.credit200,
+          coins: 200,
+          price: package.storeProduct.priceString,
+          image: "assets/images/ic_coins_4.png",
+          type: InAppPurchaseModel.typeNormal,
+          storeProduct: package.storeProduct,
+          package: package,
+          currency: package.storeProduct.currencyCode,
+          currencySymbol: package.storeProduct.currencyCode,
         );
 
         if (!inAppPurchaseList.contains(Config.credit200)) {
@@ -109,7 +103,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             coins: 1000,
             price: package.storeProduct.priceString,
             image: "assets/images/ic_coins_1.png",
-            discount: (package.storeProduct.price*1.1).toStringAsFixed(2),
+            discount: (package.storeProduct.price * 1.1).toStringAsFixed(2),
             type: InAppPurchaseModel.typeNormal,
             storeProduct: package.storeProduct,
             package: package,
@@ -148,7 +142,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             image: "assets/images/ic_coins_6.png",
             type: InAppPurchaseModel.typeNormal,
             storeProduct: package.storeProduct,
-            discount: (package.storeProduct.price*1.1).toStringAsFixed(2),
+            discount: (package.storeProduct.price * 1.1).toStringAsFixed(2),
             package: package,
             currency: package.storeProduct.currencyCode,
             currencySymbol: package.storeProduct.currencyCode);
@@ -164,7 +158,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             id: Config.credit2100,
             coins: 2100,
             price: package.storeProduct.priceString,
-            discount: (package.storeProduct.price*1.2).toStringAsFixed(2),
+            discount: (package.storeProduct.price * 1.2).toStringAsFixed(2),
             image: "assets/images/ic_coins_5.png",
             type: InAppPurchaseModel.typeNormal,
             storeProduct: package.storeProduct,
@@ -183,7 +177,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             id: Config.credit5250,
             coins: 5250,
             price: package.storeProduct.priceString,
-            discount: (package.storeProduct.price*1.3).toStringAsFixed(2),
+            discount: (package.storeProduct.price * 1.3).toStringAsFixed(2),
             image: "assets/images/ic_coins_7.png",
             type: InAppPurchaseModel.typeNormal,
             storeProduct: package.storeProduct,
@@ -202,7 +196,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             id: Config.credit10500,
             coins: 10500,
             price: package.storeProduct.priceString,
-            discount: (package.storeProduct.price*1.4).toStringAsFixed(2),
+            discount: (package.storeProduct.price * 1.4).toStringAsFixed(2),
             image: "assets/images/ic_coins_2.png",
             type: InAppPurchaseModel.typeNormal,
             storeProduct: package.storeProduct,
@@ -226,14 +220,11 @@ class _CoinsScreenState extends State<CoinsScreen> {
     );
   }
 
-
   Widget getBody() {
     if (_loading) {
       return QuickHelp.appLoading();
     } else if (_isAvailable) {
-
       return getProductList();
-
     } else {
       return QuickActions.noContentFound(context);
     }
@@ -251,7 +242,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
         children: List.generate(getInAppList().length, (index) {
           InAppPurchaseModel inApp = getInAppList()[index];
           return ContainerCorner(
-            color: Colors.deepPurpleAccent.withOpacity(0.1),
+            color: Colors.deepPurpleAccent.withValues(alpha: 0.1),
             borderRadius: 8,
             onTap: () {
               _inAppPurchaseModel = inApp;
@@ -260,7 +251,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
             child: Column(
               children: [
                 TextWithTap(
-                    QuickHelp.checkFundsWithString(amount: "${inApp.coins}"),
+                  QuickHelp.checkFundsWithString(amount: "${inApp.coins}"),
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                   marginTop: 5,
@@ -281,7 +272,7 @@ class _CoinsScreenState extends State<CoinsScreen> {
                   color: Colors.deepPurpleAccent,
                   marginBottom: 5,
                   child: TextWithTap(
-                      "${inApp.price}",
+                    "${inApp.price}",
                     color: Colors.white,
                     alignment: Alignment.center,
                     fontSize: 10,
@@ -296,25 +287,22 @@ class _CoinsScreenState extends State<CoinsScreen> {
     );
   }
 
-  _purchaseProduct(InAppPurchaseModel inAppPurchaseModel) async{
-
+  _purchaseProduct(InAppPurchaseModel inAppPurchaseModel) async {
     QuickHelp.showLoadingDialog(context);
 
-    Future.delayed(Duration(seconds: 3)).then((value){
+    Future.delayed(Duration(seconds: 3)).then((value) {
       QuickHelp.hideLoadingDialog(context);
     });
   }
 
   void handleInvalidPurchase() {
-
-    QuickHelp.showAppNotification(context:context, title: "in_app_purchases.invalid_purchase".tr());
+    QuickHelp.showAppNotification(
+        context: context, title: "in_app_purchases.invalid_purchase".tr());
     QuickHelp.hideLoadingDialog(context);
   }
 
-
   void handleError(PlatformException error) {
-
     QuickHelp.hideLoadingDialog(context);
-    QuickHelp.showAppNotification(context:context, title: error.message);
+    QuickHelp.showAppNotification(context: context, title: error.message);
   }
 }

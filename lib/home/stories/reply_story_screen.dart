@@ -87,7 +87,7 @@ class _ReplyTextFieldWidgetState extends State<_ReplyTextFieldWidget>
               return StatefulBuilder(builder: (context, setState) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0),
@@ -172,7 +172,7 @@ class _ReplyTextFieldWidgetState extends State<_ReplyTextFieldWidget>
                 border: InputBorder.none,
                 contentPadding: const EdgeInsets.only(left: 10),
                 hintStyle: TextStyle(
-                  color: Colors.white.withOpacity(0.5),
+                  color: Colors.white.withValues(alpha: 0.5),
                   fontSize: 15,
                 ),
               ),

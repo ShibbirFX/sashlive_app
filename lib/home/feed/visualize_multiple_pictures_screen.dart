@@ -51,12 +51,12 @@ class _VisualizeMultiplePicturesScreenState
           children: [
             TextWithTap(
               "${(widget.initialIndex ?? 0) + 1} / $totalOfPictures",
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withValues(alpha: 0.8),
             ),
           ],
         ),
         leading: BackButton(
-          color: Colors.white.withOpacity(0.6),
+          color: Colors.white.withValues(alpha: 0.6),
         ),
       ),
       body: PageView.builder(

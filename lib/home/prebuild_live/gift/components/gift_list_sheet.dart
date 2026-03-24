@@ -134,7 +134,7 @@ class _ZegoGiftSheetState extends State<ZegoGiftSheet>
                                   color:
                                       selectedGiftItem?.getName == gift.getName
                                           ? Colors.red
-                                          : Colors.white.withOpacity(0.2),
+                                          : Colors.white.withValues(alpha: 0.2),
                                 ),
                               ),
                               width: 50,
@@ -230,7 +230,7 @@ class _ZegoGiftSheetState extends State<ZegoGiftSheet>
             },
             alignment: AlignmentDirectional.centerEnd,
             style: textStyle,
-            dropdownColor: Colors.black.withOpacity(0.5),
+            dropdownColor: Colors.black.withValues(alpha: 0.5),
             items: <String>['1', '5', '10', '100'].map((String value) {
               return DropdownMenuItem<String>(
                 value: value,

@@ -144,7 +144,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
                     marginTop: 10,
                     height: 50,
                     borderRadius: 8,
-                    color: kGrayColor.withOpacity(0.1),
+            color: kGrayColor.withValues(alpha: 0.1),
                     marginBottom: 20,
                     borderColor:
                         showErrorOnIdInput ? Colors.red : kTransparentColor,
@@ -161,7 +161,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
                           border: InputBorder.none,
                           hintText: "add_host_screen.user_id".tr(),
                           hintStyle: GoogleFonts.roboto(
-                            color: kGrayColor.withOpacity(0.7),
+                            color: kGrayColor.withValues(alpha: 0.7),
                           ),
                           errorStyle: GoogleFonts.roboto(
                             fontSize: 0.0,
@@ -208,7 +208,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
                     marginTop: 10,
                     height: 50,
                     borderRadius: 8,
-                    color: kGrayColor.withOpacity(0.1),
+            color: kGrayColor.withValues(alpha: 0.1),
                     borderColor:
                         showErrorOnCodeInput ? Colors.red : kTransparentColor,
                     child: Padding(
@@ -223,7 +223,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
                           border: InputBorder.none,
                           hintText: "add_host_screen.host_code_no".tr(),
                           hintStyle: GoogleFonts.roboto(
-                            color: kGrayColor.withOpacity(0.7),
+                            color: kGrayColor.withValues(alpha: 0.7),
                           ),
                           errorStyle: GoogleFonts.roboto(
                             fontSize: 0.0,
@@ -268,7 +268,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
                 marginTop: 10,
                 width: size.width,
                 borderRadius: 8,
-                color: kGrayColor.withOpacity(0.1),
+                color: kGrayColor.withValues(alpha: 0.1),
                 child: Row(
                   children: [
                     QuickActions.avatarWidget(
@@ -286,7 +286,7 @@ class _AddHostScreenState extends State<AddHostScreen> {
             ContainerCorner(
               color: hostToAdd != null
                   ? kPrimaryColor
-                  : kPrimaryColor.withOpacity(0.4),
+                : kPrimaryColor.withValues(alpha: 0.4),
               borderRadius: 50,
               height: 50,
               width: size.width,
