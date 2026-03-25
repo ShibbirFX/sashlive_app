@@ -29,7 +29,7 @@ import 'package:sashlive/models/CallsModel.dart';
 import 'package:sashlive/models/CommentsModel.dart';
 import 'package:sashlive/models/GiftsModel.dart';
 import 'package:sashlive/models/GiftsSentModel.dart';
-import 'package:sashlive/models/HashTagsModel.dart';
+import 'package:sashlive/models/HashtagsModel.dart';
 import 'package:sashlive/models/InvitedUsersModel.dart';
 import 'package:sashlive/models/LeadersModel.dart';
 import 'package:sashlive/models/MessageModel.dart';
