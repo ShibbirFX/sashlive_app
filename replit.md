@@ -47,11 +47,34 @@ Several zego packages require pinned versions in `dependency_overrides` to maint
 - `zego_uikit_prebuilt_live_streaming`: 3.13.8
 - `zego_uikit_prebuilt_live_audio_room`: 3.15.5
 
-Several pub cache files were patched to fix API compatibility issues:
-- `zego_uikit_signaling_plugin-2.8.8/lib/src/internal/zim_extension.dart` - `beCanceled` → `beCancelled`
-- `zego_uikit_signaling_plugin-2.8.8/lib/zego_uikit_signaling_plugin.dart` - removed invalid `await` on void return
-- `zego_uikit-2.27.20/lib/src/services/defines/express_extension.dart` - added missing constructor args
-- `zego_uikit-2.27.20/lib/src/services/defines/error.dart` - added default return in switch
+### Pub Cache Patches (must re-apply after `flutter pub get` wipes the cache)
+These 4 files in `~/.pub-cache/hosted/pub.dev/` need patching:
+1. `zego_uikit_signaling_plugin-2.8.8/lib/src/internal/zim_extension.dart` — `beCanceled` → `beCancelled`
+2. `zego_uikit_signaling_plugin-2.8.8/lib/zego_uikit_signaling_plugin.dart` — remove `await` before `ZIM.setAdvancedConfig(key, value)`
+3. `zego_uikit-2.27.20/lib/src/services/defines/express_extension.dart` — add `0, 0,` (2 extra zeros) to `ZegoPublishStreamQuality()` in `empty()` function
+4. `zego_uikit-2.27.20/lib/src/services/defines/error.dart` — add `default: return -1;` in `fromZegoScreenCaptureExceptionType` switch
+
+## Android Build Configuration
+
+### Key Fixes Applied
+- `android/build.gradle`: Moved `configurations.all {}` out of `repositories {}` block (was invalid Gradle DSL)
+- `android/app/build.gradle`:
+  - Moved `firebase-perf` plugin to top `plugins {}` block
+  - Removed `subprojects {}` block incorrectly nested inside `android {}` block
+  - Replaced old Support Library `com.android.support:multidex:1.0.3` with AndroidX `androidx.multidex:multidex:2.0.1`
+  - Removed duplicate `apply plugin` lines at bottom (plugins already in top `plugins {}` block)
+  - Added `minifyEnabled` / `shrinkResources` for release builds
+- `android/app/src/main/AndroidManifest.xml`: Moved `android:allowBackup="false"` from `<activity>` to `<application>` (where it belongs)
+- `android/app/proguard-rules.pro`: Added comprehensive keep/dontwarn rules for Flutter, Kotlin, Zego, Firebase, Google Ads, Facebook, Branch.io, Parse, WorkManager, uCrop
+- `android/settings.gradle`: Updated google-services plugin to 4.4.2, crashlytics to 3.0.0
+- `android/local.properties`: Fixed Windows-format `sdk.dir` path to Linux format
+
+### Android Build Specs
+- `compileSdk`: 36, `minSdkVersion`: 24, `targetSdkVersion`: 36
+- Kotlin JVM target: 17, Java source/target compatibility: 17
+- ABI filters: `armeabi-v7a`, `arm64-v8a`, `x86_64`
+- Signing: release keystore via `android/key.properties`
+- Firebase: google-services.json in `android/app/`
 
 ## Configuration
 - Firebase config in `web/index.html`

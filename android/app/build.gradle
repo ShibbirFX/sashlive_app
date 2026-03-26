@@ -3,6 +3,7 @@ plugins {
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
     id "com.google.firebase.crashlytics"
+    id "com.google.firebase.firebase-perf"
     id "com.google.gms.google-services"
 }
 
@@ -29,6 +30,7 @@ def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+
 android {
     packagingOptions {
         jniLibs {
@@ -36,21 +38,16 @@ android {
         }
     }
 
-    compileSdkVersion 36
+    compileSdk 36
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    subprojects { afterEvaluate { android { compileSdkVersion 36 } } }
-
-
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.sashtech.sashlive"
         minSdkVersion 24
         targetSdkVersion 36
-        compileSdk 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
@@ -70,8 +67,14 @@ android {
     }
     buildTypes {
         release {
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
         }
     }
     compileOptions {
@@ -91,26 +94,16 @@ android {
         disable 'InvalidPackage'
     }
     namespace 'com.sashtech.sashlive'
-
 }
 
 flutter {
     source '../..'
 }
 
-/*configurations.all {
-    exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
-}*/
-
 dependencies {
-    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.work:work-runtime-ktx:2.9.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
     implementation 'androidx.core:core-splashscreen:1.0.1'
 }
-
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.firebase-perf'
-apply plugin: 'com.google.firebase.crashlytics'
