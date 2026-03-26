@@ -36,7 +36,16 @@ SashLive is a comprehensive mobile and web application built for live-streaming,
 1. Build the Flutter web app: `flutter build web --release`
 2. Start the web server: `node serve.js`
 
-The app runs on port 5000.
+The app runs on port 5000 (served by `serve.js` on `0.0.0.0:5000`).
+
+### Replit Workflow
+- The "Start application" workflow runs `node serve.js` on port 5000 (webview).
+- Rebuild the Flutter web app with `flutter build web --release` after code changes, then restart the workflow.
+
+### Deployment
+- Deployment target: autoscale
+- Run: `node serve.js`
+- Build: `flutter pub get && flutter build web --release`
 
 ## Dependency Notes
 Several zego packages require pinned versions in `dependency_overrides` to maintain compatibility:
