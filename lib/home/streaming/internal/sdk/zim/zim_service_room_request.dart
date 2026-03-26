@@ -108,7 +108,7 @@ extension ZIMServiceRoomMessage on ZIMService {
     return result;
   }
 
-  void onReceiveRoomMessage(_, List<ZIMMessage> messageList, String fromRoomID) {
+  void onRoomMessageReceived(ZIM zim, List<ZIMMessage> messageList, ZIMMessageReceivedInfo info, String fromRoomID) {
     for (final element in messageList) {
       if (element is ZIMCommandMessage) {
         final message = utf8.decode(element.message);

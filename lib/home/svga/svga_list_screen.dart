@@ -274,7 +274,7 @@ class _SVGASampleScreenState extends State<SVGASampleScreen>
       padding: EdgeInsets.all(8.0),
       child: SliderTheme(
         data: SliderTheme.of(context).copyWith(
-          showValueIndicator: ShowValueIndicator.onDrag,
+          showValueIndicator: ShowValueIndicator.always,
           trackHeight: 2,
           overlayShape: const RoundSliderOverlayShape(overlayRadius: 10),
           thumbShape: const RoundSliderThumbShape(

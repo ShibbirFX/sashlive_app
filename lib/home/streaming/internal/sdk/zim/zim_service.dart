@@ -66,10 +66,12 @@ class ZIMService {
     ZIMEventHandler.onConnectionStateChanged = onConnectionStateChanged;
     ZIMEventHandler.onRoomStateChanged = onRoomStateChanged;
     ZIMEventHandler.onRoomMemberLeft = onRoomMemberLeft;
-    ZIMEventHandler.onReceiveRoomMessage = onReceiveRoomMessage;
+    ZIMEventHandler.onRoomMessageReceived = onRoomMessageReceived;
     ZIMEventHandler.onCallInvitationReceived = onUserRequestReceived;
     ZIMEventHandler.onCallInvitationCancelled = onUserRequestCancelled;
+    // ignore: deprecated_member_use
     ZIMEventHandler.onCallInvitationAccepted = onUserRequestAccepted;
+    // ignore: deprecated_member_use
     ZIMEventHandler.onCallInvitationRejected = onUserRequestRejected;
     ZIMEventHandler.onCallInvitationTimeout = onUserRequestTimeout;
     ZIMEventHandler.onCallInvitationEnded = onCallInvitationEnded;
@@ -82,10 +84,12 @@ class ZIMService {
     ZIMEventHandler.onConnectionStateChanged = null;
     ZIMEventHandler.onRoomStateChanged = null;
     ZIMEventHandler.onRoomMemberLeft = null;
-    ZIMEventHandler.onReceiveRoomMessage = null;
+    ZIMEventHandler.onRoomMessageReceived = null;
     ZIMEventHandler.onCallInvitationReceived = null;
     ZIMEventHandler.onCallInvitationCancelled = null;
+    // ignore: deprecated_member_use
     ZIMEventHandler.onCallInvitationAccepted = null;
+    // ignore: deprecated_member_use
     ZIMEventHandler.onCallInvitationRejected = null;
     ZIMEventHandler.onCallInvitationTimeout = null;
     ZIMEventHandler.onCallInvitationEnded = null;

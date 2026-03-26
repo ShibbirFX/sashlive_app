@@ -80,3 +80,26 @@ These 4 files in `~/.pub-cache/hosted/pub.dev/` need patching:
 - Firebase config in `web/index.html`
 - Parse Server config in `lib/app/config.dart`
 - App constants in `lib/utils/utilsConstants.dart`
+
+## Dart Code Fixes (Applied)
+These Dart-level issues were found and resolved (confirmed clean with `dart analyze lib/` → "No issues found!"):
+
+1. **`lib/home/svga/svga_list_screen.dart`**: `ShowValueIndicator.onDrag` → `ShowValueIndicator.always` (invalid constant, doesn't exist in Flutter)
+2. **`lib/home/streaming/internal/sdk/zim/zim_service.dart`**: Replaced deprecated `ZIMEventHandler.onReceiveRoomMessage` with `ZIMEventHandler.onRoomMessageReceived` (new ZIM SDK API). Added `// ignore: deprecated_member_use` for `onCallInvitationAccepted` and `onCallInvitationRejected` (still functional but deprecated).
+3. **`lib/home/streaming/internal/sdk/zim/zim_service_room_request.dart`**: Updated `onReceiveRoomMessage(_, List<ZIMMessage>, String)` method signature to `onRoomMessageReceived(ZIM, List<ZIMMessage>, ZIMMessageReceivedInfo, String)` to match new ZIM SDK API.
+4. **`lib/home/streaming/internal/sdk/zim/zim_service_avatar.dart`**: `userFullInfo.userAvatarUrl` → `userFullInfo.baseInfo.userAvatarUrl` (deprecated API in ZIM SDK 2.13.0+).
+5. **`lib/home/streaming/pages/entry_call.dart`**: `value.info.errorInvitees` → `value.info.errorUserList` (deprecated since ZIM 2.9.0).
+
+## APK Release Build Requirements
+To build a release APK, you need:
+1. A signing keystore file and `android/key.properties` with:
+   ```
+   keyAlias=<your-key-alias>
+   keyPassword=<your-key-password>
+   storeFile=<path-to-keystore.jks>
+   storePassword=<your-store-password>
+   ```
+2. Android SDK installed and `android/local.properties` updated with correct `sdk.dir` path.
+3. Run: `flutter build apk --release` or `flutter build appbundle --release`
+
+For a **debug APK** (no signing needed): `flutter build apk --debug`

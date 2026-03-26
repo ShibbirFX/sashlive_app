@@ -72,7 +72,7 @@ class _CallEntryState extends State<CallEntry> {
         });
       } else {
         ZegoCallManager().sendVideoCallInvitation(inviteeIDController.text).then((value) {
-          final errorInvitees = value.info.errorInvitees.map((e) => e.userID).toList();
+          final errorInvitees = value.info.errorUserList.map((e) => e.userID).toList();
           if (errorInvitees.contains(inviteeIDController.text)) {
             ZegoCallManager.instance.clearCallData();
             ScaffoldMessenger.of(context).showSnackBar(
@@ -93,7 +93,7 @@ class _CallEntryState extends State<CallEntry> {
         ZegoCallManager().sendGroupVoiceCallInvitation(userIDList).then((value) {}).catchError((error) {});
       } else {
         ZegoCallManager().sendVoiceCallInvitation(inviteeIDController.text).then((value) {
-          final errorInvitees = value.info.errorInvitees.map((e) => e.userID).toList();
+          final errorInvitees = value.info.errorUserList.map((e) => e.userID).toList();
           if (errorInvitees.contains(inviteeIDController.text)) {
             ZegoCallManager.instance.clearCallData();
             ScaffoldMessenger.of(context).showSnackBar(
