@@ -32,11 +32,9 @@
         // var serviceWorkerVersion = null;
     </script>
 
-    <!-- This script adds the flutter initialization JS code -->
+    <!-- Firebase legacy compat scripts (still used by some plugins) -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
-    <script src="flutter.js" defer=""></script>
 
     <!-- Croppie -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
@@ -84,26 +82,6 @@
         const app = initializeApp(firebaseConfig);
     </script>
 
-    <script>
-        function onClick(e) {
-            e.preventDefault();
-            grecaptcha.enterprise.ready(async () => {
-                const token = await grecaptcha.enterprise.execute('6Le9q_8oAAAAAOcyfACAdmMoLOUPcXdhQsECPCR4', {action: 'LOGIN'});
-            });
-        }
-
-        window.addEventListener('load', function(ev) {
-            _flutter.loader.load({
-                serviceWorker: {
-                    serviceWorkerVersion: "{{flutter_service_worker_version}}",
-                },
-                onEntrypointLoaded: function(engineInitializer) {
-                    engineInitializer.initializeEngine().then(function(appRunner) {
-                        appRunner.runApp();
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="flutter_bootstrap.js" async=""></script>
 </body>
 </html>
