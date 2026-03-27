@@ -154,7 +154,7 @@ class Constants {
       prefs.setBool(withdrawPaypalConfig, withdrawPaypal != null ? withdrawPaypal : Setup.isWithdrawPaypalEnabled);
       prefs.setBool(withdrawPayoneerConfig, withdrawPayoneer != null ? withdrawPayoneer : Setup.isWithdrawPayoneerEnabled);
       prefs.setBool(withdrawIbanConfig, withdrawIban != null ? withdrawIban : Setup.isWithdrawIbanEnabled);
-      prefs.setBool(withdrawUSDTConfig, withdrawUsdt != null ? withdrawUsdt : Setup.isWithdrawUSDTlEnabled);
+      prefs.setBool(withdrawUSDTConfig, withdrawUsdt != null ? withdrawUsdt : Setup.isWithdrawUSDTEnabled);
 
       prefs.setInt(agencyPercentConfig, agencyPercent != null ? agencyPercent : Setup.agencyPercent);
       prefs.setInt(diamondsEarnPercentConfig, diamondsEarnPercent != null ? diamondsEarnPercent : Setup.diamondsEarnPercent);
@@ -191,7 +191,7 @@ class Constants {
       if (prefs.getBool(withdrawIbanConfig) == null)
         prefs.setBool(withdrawIbanConfig, Setup.isWithdrawIbanEnabled);
       if (prefs.getBool(withdrawUSDTConfig) == null)
-        prefs.setBool(withdrawUSDTConfig, Setup.isWithdrawUSDTlEnabled);
+        prefs.setBool(withdrawUSDTConfig, Setup.isWithdrawUSDTEnabled);
       if (prefs.getInt(agencyPercentConfig) == null)
         prefs.setInt(agencyPercentConfig, Setup.agencyPercent);
       if (prefs.getInt(diamondsEarnPercentConfig) == null)

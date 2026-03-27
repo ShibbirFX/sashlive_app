@@ -12,8 +12,8 @@ class Config {
   static final String appOrCompanyUrl = "https://sashlive.online";
   static final String initialCountry = 'US'; // United States
 
-  static final String serverUrl = " https://parseapi.back4app.com/";
-  static final String liveQueryUrl = "wss://.b4a.io";
+  static final String serverUrl = "https://parseapi.back4app.com/";
+  static final String liveQueryUrl = "wss://0yP06N2BLguKaxs9qQwmsQqoktSCrjU8YoG3cWyy.b4a.io";
   static final String appId = "0yP06N2BLguKaxs9qQwmsQqoktSCrjU8YoG3cWyy";
   static final String clientKey = "mgWTCujsg5xqYJpXRhLFUcIm6yptcuWbduez2ygw";
 
@@ -60,10 +60,10 @@ class Config {
   static final String privacyPolicyUrl = "https://sashlive-34749.web.app/pivacy/";
   static final String termsOfUseUrl = "https://sashlive-34749.web.app/terms/";
   static final String termsOfUseInAppUrl = "https://sashlive-34749.web.app/terms/";
-  static final String dataSafetyUrl = "https://ladylivea.net/help.hmtl";
+  static final String dataSafetyUrl = "https://ladylivea.net/help.html";
   static final String openSourceUrl = "https://www.ladylivea.net/third-party-license.html";
-  static final String instructionsUrl = "https://ladylivea.net/instructions.hmtl";
-  static final String cashOutUrl = "https://ladylivea.net/cashout.hmtl";
+  static final String instructionsUrl = "https://ladylivea.net/instructions.html";
+  static final String cashOutUrl = "https://ladylivea.net/cashout.html";
   static final String supportUrl = "https://www.ladylivea.net/support";
   static final String liveAgreementUrl = "https://sashlive-34749.web.app/live/";
   static final String userAgreementUrl = "https://sashlive-34749.web.app/user/";

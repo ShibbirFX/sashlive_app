@@ -3037,11 +3037,11 @@ class QuickHelp {
   }
 
   static bool isPasswordCompliant(String password, [int minLength = 6]) {
-    bool hasUppercase = password.contains(new RegExp(r'[A-Z]'));
-    bool hasDigits = password.contains(new RegExp(r'[0-9]'));
-    bool hasLowercase = password.contains(new RegExp(r'[a-z]'));
+    bool hasUppercase = password.contains(RegExp(r'[A-Z]'));
+    bool hasDigits = password.contains(RegExp(r'[0-9]'));
+    bool hasLowercase = password.contains(RegExp(r'[a-z]'));
     bool hasSpecialCharacters =
-        password.contains(new RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+        password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
     bool hasMinLength = password.length > minLength;
 
     return hasDigits &

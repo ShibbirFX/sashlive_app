@@ -39,8 +39,12 @@ SashLive is a comprehensive mobile and web application built for live-streaming,
 The app runs on port 5000 (served by `serve.js` on `0.0.0.0:5000`).
 
 ### Replit Workflow
-- The "Start application" workflow runs `node serve.js` on port 5000 (webview).
-- Rebuild the Flutter web app with `flutter build web --release` after code changes, then restart the workflow.
+- The "Start application" workflow runs `bash start.sh` which:
+  1. Immediately starts `node serve.js` on port 5000 (so the port opens right away)
+  2. Runs `flutter build web --release` in the background
+  3. Once the build completes, refreshing the browser shows the updated app
+- After code changes, restart the workflow — it will rebuild and re-serve automatically.
+- First startup takes ~3-5 minutes to complete the Flutter compilation.
 
 ### Deployment
 - Deployment target: autoscale

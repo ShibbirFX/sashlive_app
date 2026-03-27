@@ -54,7 +54,7 @@ class Setup {
   static final bool isWithdrawIbanEnabled = false;
   static final bool isWithdrawPayoneerEnabled = false;
   static final bool isWithdrawPaypalEnabled = true;
-  static final bool isWithdrawUSDTlEnabled = true;
+  static final bool isWithdrawUSDTEnabled = true;
 
   // Additional Payments method, Google Play and Apple Pay are enabled by default
   static final bool isStripePaymentsEnabled = false;
@@ -63,7 +63,7 @@ class Setup {
   // User fields
   static final int welcomeCredit = 0;
   static final int minimumAgeToRegister = 16;
-  static final int maximumAgeToRegister = 16;
+  static final int maximumAgeToRegister = 100;
   static final int? maxDistanceBetweenUsers = 80;
 
   // Live Streaming and Calls

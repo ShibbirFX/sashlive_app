@@ -48,7 +48,7 @@ class Bucket extends Client {
     String? marker;
     do {
       Uri uri = Uri.parse(endpointUrl + '/');
-      Map<String, dynamic> params = new Map<String, dynamic>();
+      Map<String, dynamic> params = {};
       if (delimiter != null) params['delimiter'] = delimiter;
       if (marker != null) {
         params['marker'] = marker;
@@ -182,7 +182,7 @@ class Bucket extends Client {
       Map<String, String>? meta}) {
     String uriStr = endpointUrl + '/' + key;
     Uri uriBase = Uri.parse(uriStr);
-    Map<String, String> queryParameters = new Map<String, String>();
+    Map<String, String> queryParameters = {};
     if (meta != null) {
       for (MapEntry<String, String> me in meta.entries) {
         queryParameters["x-amz-meta-${me.key}"] = me.value;

@@ -530,7 +530,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
     var arrayString =  get<List<dynamic>>(keyHashTagsId);
 
     if(arrayString != null){
-      List<String> users = new List<String>.from(arrayString);
+      List<String> users = List<String>.from(arrayString);
       return users;
     } else {
       return [];
@@ -543,7 +543,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
     var arrayString =  get<List<dynamic>>(keyHashTags);
 
     if(arrayString != null){
-      List<String> users = new List<String>.from(arrayString);
+      List<String> users = List<String>.from(arrayString);
       return users;
     } else {
       return [];

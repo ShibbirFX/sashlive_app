@@ -104,7 +104,7 @@ class Client {
         '$accessKey/$dateYYYYMMDD/$region/$service/aws4_request';
 
     // Build canonical headers string
-    Map<String, String?> headers = new Map<String, String?>();
+    Map<String, String?> headers = {};
     if (!preSignedUrl) {
       request.headers['x-amz-date'] = dateIso8601; // Set date in header
       if (contentSha256 != null) {
@@ -122,7 +122,7 @@ class Client {
     String signedHeaders = headerNames.join(';');
 
     // Build canonical query string
-    Map<String, String> queryParameters = new Map<String, String>()
+    Map<String, String> queryParameters = {}
       ..addAll(request.url.queryParameters);
     if (preSignedUrl) {
       // Add query parameters

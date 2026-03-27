@@ -44,7 +44,7 @@ class SharedManager {
   }
 
   bool isWithdrawUSDTEnabled(SharedPreferences? preferences){
-    return preferences!.getBool(Constants.withdrawUSDTConfig) ?? Setup.isWithdrawUSDTlEnabled;
+    return preferences!.getBool(Constants.withdrawUSDTConfig) ?? Setup.isWithdrawUSDTEnabled;
   }
 
   bool isGoogleLoginEnabled(SharedPreferences? preferences){

@@ -26,7 +26,7 @@ class Spaces extends Client {
 
   Bucket bucket(String? bucket) {
     if (endpointUrl == "https://$region.digitaloceanspaces.com") {
-      return new Bucket(
+      return Bucket(
           region: region,
           accessKey: accessKey,
           secretKey: secretKey,

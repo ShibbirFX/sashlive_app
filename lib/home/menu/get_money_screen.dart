@@ -1059,7 +1059,7 @@ class _GetMoneyScreenState extends State<GetMoneyScreen> {
 
     if ((widget.currentUser!.getPayoneerEmail != null && Setup.isWithdrawPayoneerEnabled) ||
         (widget.currentUser!.getIban != null && Setup.isWithdrawIbanEnabled) ||
-        Setup.isWithdrawUSDTlEnabled ||
+        Setup.isWithdrawUSDTEnabled ||
         (widget.currentUser!.getPayPalEmail != null && Setup.isWithdrawPaypalEnabled)){
 
       return false;
