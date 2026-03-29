@@ -14,7 +14,7 @@ dependencies:
 
   #Default
   cupertino_icons: ^1.0.5
-google_fonts: ^4.0.5
+  google_fonts: ^4.0.5
 
   #Images
   flutter_svg: ^2.0.9
