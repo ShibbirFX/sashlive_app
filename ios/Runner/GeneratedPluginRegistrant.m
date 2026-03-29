@@ -60,6 +60,12 @@
 @import ffmpeg_kit_flutter_min_gpl;
 #endif
 
+#if __has_include(<file_picker/FilePickerPlugin.h>)
+#import <file_picker/FilePickerPlugin.h>
+#else
+@import file_picker;
+#endif
+
 #if __has_include(<firebase_analytics/FirebaseAnalyticsPlugin.h>)
 #import <firebase_analytics/FirebaseAnalyticsPlugin.h>
 #else
@@ -132,16 +138,16 @@
 @import flutter_logs;
 #endif
 
-#if __has_include(<flutter_native_splash/FlutterNativeSplashPlugin.h>)
-#import <flutter_native_splash/FlutterNativeSplashPlugin.h>
-#else
-@import flutter_native_splash;
-#endif
-
 #if __has_include(<flutter_ringtone_player/FlutterRingtonePlayerPlugin.h>)
 #import <flutter_ringtone_player/FlutterRingtonePlayerPlugin.h>
 #else
 @import flutter_ringtone_player;
+#endif
+
+#if __has_include(<flutter_sound/FlutterSound.h>)
+#import <flutter_sound/FlutterSound.h>
+#else
+@import flutter_sound;
 #endif
 
 #if __has_include(<flutter_volume_controller/FlutterVolumeControllerPlugin.h>)
@@ -172,6 +178,12 @@
 #import <google_sign_in_ios/FLTGoogleSignInPlugin.h>
 #else
 @import google_sign_in_ios;
+#endif
+
+#if __has_include(<image_cropper/FLTImageCropperPlugin.h>)
+#import <image_cropper/FLTImageCropperPlugin.h>
+#else
+@import image_cropper;
 #endif
 
 #if __has_include(<image_picker_ios/FLTImagePickerPlugin.h>)
@@ -372,6 +384,7 @@
   [DevicelocalePlugin registerWithRegistrar:[registry registrarForPlugin:@"DevicelocalePlugin"]];
   [EmojiPickerFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"EmojiPickerFlutterPlugin"]];
   [FFmpegKitFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"FFmpegKitFlutterPlugin"]];
+  [FilePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FilePickerPlugin"]];
   [FirebaseAnalyticsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FirebaseAnalyticsPlugin"]];
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];
@@ -384,13 +397,14 @@
   [ImageCompressPlugin registerWithRegistrar:[registry registrarForPlugin:@"ImageCompressPlugin"]];
   [FlutterKeyboardVisibilityPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterKeyboardVisibilityPlugin"]];
   [FlutterLogsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterLogsPlugin"]];
-  [FlutterNativeSplashPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterNativeSplashPlugin"]];
   [FlutterRingtonePlayerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterRingtonePlayerPlugin"]];
+  [FlutterSound registerWithRegistrar:[registry registrarForPlugin:@"FlutterSound"]];
   [FlutterVolumeControllerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterVolumeControllerPlugin"]];
   [GeocodingPlugin registerWithRegistrar:[registry registrarForPlugin:@"GeocodingPlugin"]];
   [GeolocatorPlugin registerWithRegistrar:[registry registrarForPlugin:@"GeolocatorPlugin"]];
   [FLTGoogleMobileAdsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMobileAdsPlugin"]];
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
+  [FLTImageCropperPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImageCropperPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];
   [InAppReviewPlugin registerWithRegistrar:[registry registrarForPlugin:@"InAppReviewPlugin"]];
   [InteractiveMediaAdsPlugin registerWithRegistrar:[registry registrarForPlugin:@"InteractiveMediaAdsPlugin"]];
