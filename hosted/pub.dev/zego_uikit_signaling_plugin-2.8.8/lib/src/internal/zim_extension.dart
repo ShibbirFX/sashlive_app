@@ -46,6 +46,7 @@ ZegoSignalingPluginInvitationUserState userStateConvertFunc(
       return ZegoSignalingPluginInvitationUserState.rejected;
     case ZIMCallUserState.cancelled:
       return ZegoSignalingPluginInvitationUserState.cancelled;
+    // ignore: deprecated_member_use
     case ZIMCallUserState.offline:
       return ZegoSignalingPluginInvitationUserState.offline;
     case ZIMCallUserState.received:
@@ -60,7 +61,5 @@ ZegoSignalingPluginInvitationUserState userStateConvertFunc(
       return ZegoSignalingPluginInvitationUserState.notYetReceived;
     case ZIMCallUserState.beCancelled:
       return ZegoSignalingPluginInvitationUserState.beCanceled;
-    default:
-      return ZegoSignalingPluginInvitationUserState.unknown;
   }
 }

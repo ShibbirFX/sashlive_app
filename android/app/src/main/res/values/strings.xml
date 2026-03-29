@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SashLive</string>
-    <string name="facebook_app_id">14676400601</string>
-    <string name="facebook_client_token">da39a3ee5e6b4b0d3255bfef95601890</string>
-    <string name="fb_login_protocol_scheme">fb14676400601</string>
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="facebook_app_id">539301740976685</string>
+    <string name="facebook_client_token">9ff5c730a2e84dd93e8acfee7f3b4358</string>
+    <string name="fb_login_protocol_scheme">fb539301740976685</string>
+    <!-- TODO: Replace with your real Android AdMob App ID from https://apps.admob.com -->
+    <string name="admob_app_id">ca-app-pub-9318890613494690~9013965649</string>
 </resources>
