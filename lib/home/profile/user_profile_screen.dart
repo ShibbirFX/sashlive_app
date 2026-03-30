@@ -27,6 +27,7 @@ import 'package:sashlive/ui/container_with_corner.dart';
 import 'package:sashlive/ui/text_with_tap.dart';
 import 'package:sashlive/utils/colors.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+import 'package:zego_uikit/zego_uikit.dart' show ZegoUIKitUser;
 
 import '../../app/constants.dart';
 import '../../app/setup.dart';
