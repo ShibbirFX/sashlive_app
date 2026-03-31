@@ -16,7 +16,7 @@ class Setup {
   static final int verificationCodeDigits = 6;
 
   // Social login= Config.appName
-  static final bool isPhoneLoginEnabled = false;
+  static final bool isPhoneLoginEnabled = true;
   static final bool isFacebookLoginEnabled = true;
   static final bool isGoogleLoginEnabled = true;
   static final bool isAppleLoginEnabled = true;
@@ -111,8 +111,8 @@ class Setup {
       "https://www.facebook.com/shibbir21/";
   static const String youtube =
       "https://www.youtube.com/channel/UCtsFF65NSAGiq-5Ese1Jg_w";
-  static const String instagram = "https://www.instagram.com/chancilson/";
-  static const String gmail = "matulaalberto@gmail.com";
+  static const String instagram = "https://www.instagram.com/sashlive/";
+  static const String gmail = "info.sashtech@gmail.com";
 
   //Admob
   static const String admobAndroidWalletReward =
