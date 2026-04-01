@@ -37,12 +37,8 @@ class MessageGroupModel extends ParseObject implements ParseCloneable {
   String? get getGroupType {
     String? groupType = get<String>(keyGroupType);
 
-    if(groupType != null) {
-      return groupType;
-    }else{
-      return MessageGroupModel.keyNormalGroupType;
+    return groupType;
     }
-  }
   set setGroupType(String groupType) => set<String>(keyGroupType, groupType);
 
   UserModel? get getAuthor => get<UserModel>(keyCreator);
@@ -55,7 +51,7 @@ class MessageGroupModel extends ParseObject implements ParseCloneable {
     List<dynamic> members = [];
 
     List<dynamic>? membersIDs = get<List<dynamic>>(keyMembersIDs);
-    if (membersIDs != null && membersIDs.isNotEmpty) {
+    if (membersIDs.isNotEmpty) {
       return membersIDs;
     } else {
       return members;
@@ -72,7 +68,7 @@ class MessageGroupModel extends ParseObject implements ParseCloneable {
 
     List<dynamic>? member = get<List<dynamic>>(keyMember);
 
-    if (member != null && member.isNotEmpty) {
+    if (member.isNotEmpty) {
       return member;
     } else {
       return members;
@@ -87,7 +83,7 @@ class MessageGroupModel extends ParseObject implements ParseCloneable {
     List<dynamic> admins = [];
 
     List<dynamic>? adminIDs = get<List<dynamic>>(keyAdmins);
-    if (adminIDs != null && adminIDs.isNotEmpty) {
+    if (adminIDs.isNotEmpty) {
       return adminIDs;
     } else {
       return admins;

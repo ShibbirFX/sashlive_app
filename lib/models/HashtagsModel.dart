@@ -28,10 +28,6 @@ class HashTagModel extends ParseObject implements ParseCloneable {
 
   bool? get getGameNotification{
     bool? isActive = get<bool>(keyIsActive);
-    if(isActive != null){
-      return isActive;
-    }else{
-      return false;
+    return isActive;
     }
-  }
 }

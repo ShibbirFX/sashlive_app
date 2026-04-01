@@ -38,7 +38,7 @@ class StoriesAuthorsModel extends ParseObject implements ParseCloneable {
     List<dynamic> storyList = [];
 
     List<dynamic>? stories = get<List<dynamic>>(keyStoriesList);
-    if (stories != null && stories.isNotEmpty) {
+    if (stories.isNotEmpty) {
       return stories;
     } else {
       return storyList;

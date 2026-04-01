@@ -70,7 +70,7 @@ import 'models/GiftSendersGlobalModel.dart';
 import 'models/GiftSendersModel.dart';
 import 'models/LiveViewersModel.dart';
 import 'models/MedalsModel.dart';
-import 'models/NewPaymentMethodResquestModel.dart';
+import 'models/NewPaymentMethodRequestModel.dart';
 import 'models/OfficialAnnouncementModel.dart';
 import 'models/PCoinsTransactionsModel.dart';
 import 'models/PaymentsModel.dart';

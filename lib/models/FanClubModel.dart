@@ -35,7 +35,7 @@ class FanClubModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getFansId {
 
     List<dynamic>? fansId = get<List<dynamic>>(keyFansId);
-    if(fansId != null && fansId.length > 0){
+    if(fansId.length > 0){
       return fansId;
     } else {
       return [];
@@ -47,7 +47,7 @@ class FanClubModel extends ParseObject implements ParseCloneable {
   List<UserModel>? get getFans {
 
     List<UserModel>? fansId = get<List<UserModel>>(keyFans);
-    if(fansId != null && fansId.length > 0){
+    if(fansId.length > 0){
       return fansId;
     } else {
       return [];

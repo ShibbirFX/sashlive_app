@@ -65,7 +65,7 @@ class StoriesModel extends ParseObject implements ParseCloneable {
 
     List<dynamic>? viewersId = get<List<dynamic>>(keyViews);
 
-    if (viewersId != null && viewersId.isNotEmpty) {
+    if (viewersId.isNotEmpty) {
       return viewersId;
     } else {
       return viewId;

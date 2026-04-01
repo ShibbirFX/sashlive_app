@@ -31,12 +31,8 @@ class GiftsSentModel extends ParseObject implements ParseCloneable {
 
   String? get getLiveId {
     String? liveId = get<String>(keyLiveId);
-    if(liveId != null) {
-      return liveId;
-    }else{
-      return "";
+    return liveId;
     }
-  }
   set setLiveId(String liveID) => set<String>(keyLiveId, liveID);
 
   int? get getQuantity => get<int>(keyQuantity);

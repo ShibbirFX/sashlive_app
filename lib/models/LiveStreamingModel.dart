@@ -152,109 +152,69 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   int? get getRepeatBattleTimes {
     int? number = get<int>(keyRepeatBattleTimes);
-    if(number != null) {
-      return number;
-    }else{
-      return 0;
+    return number;
     }
-  }
   set addRepeatBattleTimes(int number) => setIncrement(keyRepeatBattleTimes, number);
   set setRepeatBattleTimes(int number) => set(keyRepeatBattleTimes, number);
 
   int? get getHisBattleVictory {
     int? number = get<int>(keyHisBattleVictory);
-    if(number != null) {
-      return number;
-    }else{
-      return 0;
+    return number;
     }
-  }
   set addHisBattleVictory(int number) => setIncrement(keyHisBattleVictory, number);
   set setHisBattleVictory(int number) => set(keyHisBattleVictory, number);
 
   int? get getMyBattleVictory {
     int? number = get<int>(keyMyBattleVictory);
-    if(number != null) {
-      return number;
-    }else{
-      return 0;
+    return number;
     }
-  }
   set addMyBattleVictory(int number) => setIncrement(keyMyBattleVictory, number);
   set setMyBattleVictory(int number) => set(keyMyBattleVictory, number);
 
   int? get getMyBattlePoints {
     int? battlePoints = get<int>(keyMyBattlePoints);
-    if(battlePoints != null) {
-      return battlePoints;
-    }else{
-      return 0;
+    return battlePoints;
     }
-  }
   set addMyBattlePoints(int diamonds) => setIncrement(keyMyBattlePoints, diamonds);
   set setMyBattlePoints(int diamonds) => set(keyMyBattlePoints, diamonds);
 
   int? get getHisBattlePoints {
     int? battlePoints = get<int>(keyHisBattlePoints);
-    if(battlePoints != null) {
-      return battlePoints;
-    }else{
-      return 0;
+    return battlePoints;
     }
-  }
   set addHisBattlePoints(int diamonds) => setIncrement(keyHisBattlePoints, diamonds);
   set setHisBattlePoints(int diamonds) => set(keyHisBattlePoints, diamonds);
 
   String? get getBattleLiveId {
     String? battleLiveId = get<String>(keyBattleLiveId);
-    if(battleLiveId != null){
-      return battleLiveId;
-    } else {
-      return "";
+    return battleLiveId;
     }
-  }
 
   set setBattleLiveId(String battleLiveId) => set<String>(keyBattleLiveId, battleLiveId);
 
   String? get getBattleStatus {
     String? battleStatus = get<String>(keyBattleStatus);
-    if(battleStatus != null){
-      return battleStatus;
-    } else {
-      return "";
+    return battleStatus;
     }
-  }
 
   set setBattleStatus(String battleStatus) => set<String>(keyBattleStatus, battleStatus);
 
   bool? get getBattle {
     bool? isBattle = get<bool>(keyBattle);
-    if(isBattle != null) {
-      return isBattle;
-    }else{
-      return false;
+    return isBattle;
     }
-  }
   set setBattle(bool isBattle) => set<bool>(keyBattle, isBattle);
 
   bool? get getSharingMedia {
     bool? isSharingMedia = get<bool>(keyShareMedia);
-    if(isSharingMedia != null) {
-      return isSharingMedia;
-    }else{
-      return false;
+    return isSharingMedia;
     }
-  }
   set setSharingMedia(bool isSharingMedia) => set<bool>(keyShareMedia, isSharingMedia);
 
   String? get getAuthorUserName {
     String? username = get<String>(keyAuthorUserName);
-    if(username != null) {
-      return username;
-    }else {
-      return "";
+    return username;
     }
-  }
   set setAuthorUserName(String username) => set<String>(keyAuthorUserName, username);
 
   ParseFileBase? get getPartyTheme => get<ParseFileBase>(keyPartyTheme);
@@ -262,12 +222,8 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   int? get getNumberOfChairs {
     int? number = get<int>(keyNumberOfChairs);
-    if(number != null) {
-      return number;
-    }else{
-      return 0;
+    return number;
     }
-  }
   set setNumberOfChairs(int partyType) => set<int>(keyNumberOfChairs, partyType);
 
   String? get getPartyType => get<String>(keyPartyType);
@@ -275,7 +231,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getReachedPeople{
     List<dynamic>? users = get<List<dynamic>>(keyReachedPeople);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -285,7 +241,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getFollower{
     List<dynamic>? users = get<List<dynamic>>(keyFollowers);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -303,7 +259,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getUserSelfMutedAudioIds{
     List<dynamic>? users = get<List<dynamic>>(keyUserSelfMutedAudioIds);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -314,7 +270,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getUnMutedUserIds{
     List<dynamic>? users = get<List<dynamic>>(keyUnMutedUserIds);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -325,7 +281,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getMutedUserIds{
     List<dynamic>? users = get<List<dynamic>>(keyMutedUserIds);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -336,7 +292,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getRemovedUserIds{
     List<dynamic>? users = get<List<dynamic>>(keyRemovedUserIds);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -347,7 +303,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getAudioHostsList{
     List<dynamic>? users = get<List<dynamic>>(keyAudioHostsList);
-    if(users != null && users.length > 0){
+    if(users.length > 0){
       return users;
     } else {
       return [];
@@ -391,12 +347,8 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   int? get getViewersCount{
 
     int? viewersCount = get<int>(keyViewersCountLive);
-    if(viewersCount != null){
-      return viewersCount;
-    } else {
-      return 0;
+    return viewersCount;
     }
-  }
   set addViewersCount(int viewersCount) => setIncrement(keyViewersCountLive, viewersCount);
   set removeViewersCount(int viewersCount) {
 
@@ -415,7 +367,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getGifSenderImage {
 
     List<dynamic>? images = get<List<dynamic>>(keyGiftSendersPicture);
-    if(images != null && images.length > 0){
+    if(images.length > 0){
       return images;
     }else{
       return [];
@@ -425,7 +377,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getCoHostUiD{
 
     List<dynamic>? coHostUiD = get<List<dynamic>>(keyCoHostUID);
-    if(coHostUiD != null && coHostUiD.length > 0){
+    if(coHostUiD.length > 0){
       return coHostUiD;
     } else {
       return [];
@@ -437,7 +389,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getViewers{
 
     List<dynamic>? viewers = get<List<dynamic>>(keyViewersUid);
-    if(viewers != null && viewers.length > 0){
+    if(viewers.length > 0){
       return viewers;
     } else {
       return [];
@@ -448,7 +400,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getViewersId{
 
     List<dynamic>? viewersId = get<List<dynamic>>(keyViewersId);
-    if(viewersId != null && viewersId.length > 0){
+    if(viewersId.length > 0){
       return viewersId;
     } else {
       return [];
@@ -487,12 +439,8 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   String? get getStreamingTags {
     String? text = get<String>(keyLiveTags);
-    if(text != null){
-      return text;
-    } else {
-      return "";
+    return text;
     }
-  }
 
   set setStreamingTags(String text) => set<String>(keyLiveTags, text);
 
@@ -504,22 +452,14 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   bool? get getPrivate{
     bool? private = get<bool>(keyStreamingPrivate);
-    if(private != null){
-      return private;
-    } else {
-      return false;
+    return private;
     }
-  }
   set setPrivate(bool private) => set<bool>(keyStreamingPrivate, private);
 
   bool? get getInvitationAccepted{
     bool? accepted = get<bool>(keyInvitationAccepted);
-    if(accepted != null){
-      return accepted;
-    } else {
-      return false;
+    return accepted;
     }
-  }
   set setInvitationAccepted(bool accepted) => set<bool>(keyInvitationAccepted, accepted);
 
 
@@ -570,7 +510,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getPrivateViewersId{
 
     List<dynamic>? viewersId = get<List<dynamic>>(keyPrivateViewers);
-    if(viewersId != null && viewersId.length > 0){
+    if(viewersId.length > 0){
       return viewersId;
     } else {
       return [];
@@ -591,7 +531,7 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getGiftsSenders{
 
     List<dynamic>? giftSenders = get<List<dynamic>>(keyGiftSenders);
-    if(giftSenders != null && giftSenders.length > 0){
+    if(giftSenders.length > 0){
       return giftSenders;
     } else {
       return [];
@@ -601,19 +541,15 @@ class LiveStreamingModel extends ParseObject implements ParseCloneable {
 
   bool? get isLiveCancelledByAdmin{
     bool? cancelled = get<bool>(keyEndByAdmin);
-    if(cancelled != null){
-      return cancelled;
-    } else {
-      return false;
+    return cancelled;
     }
-  }
 
   set setTerminatedByAdmin(bool yes) => set<bool>(keyEndByAdmin, yes);
 
   List<dynamic>? get getInvitedPartyUid{
 
     List<dynamic>? invitedUid = get<List<dynamic>>(keyInvitedPartyUid);
-    if(invitedUid != null && invitedUid.length > 0){
+    if(invitedUid.length > 0){
       return invitedUid;
     } else {
       return [];

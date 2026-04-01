@@ -746,7 +746,7 @@ class _EditVideoPostScreenState extends State<EditVideoPostScreen> {
       if (file!.lengthSync() <= Setup.maxVideoSize * 1024 * 1024) {
 
         String? mimeStr = lookupMimeType(file.path);
-        var fileType = mimeStr!.split('/');
+        var fileType = mimeStr.split('/');
 
         print('Selected file type $fileType');
 

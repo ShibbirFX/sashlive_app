@@ -163,10 +163,10 @@ class _HomeScreenState extends State<HomeScreen> {
     bool? hasVibrator = await Vibration.hasVibrator();
     bool? hasAmplitude = await Vibration.hasAmplitudeControl();
 
-    if (hasVibrator!) {
+    if (hasVibrator) {
       Vibration.vibrate(
-        amplitude: hasAmplitude != null ? 128 : -1,
-        duration: hasAmplitude != null ? 80 : 500,
+        amplitude: 128,
+        duration: 80,
       );
     }
   }

@@ -70,7 +70,7 @@ class ZegoMp4PlayerWidgetState extends State<ZegoMp4PlayerWidget> with SingleTic
       _mediaPlayerWidget = view;
       var url = await ZegoGiftManager().cache.getFilePathFromCache(widget.playData.giftItem.getFile!.url!);
       url ??= widget.playData.giftItem.getFile!.url;
-      GiftMp4Player().loadResource(url!, layoutType: ZegoAlphaLayoutType.Left).then((value) {
+      GiftMp4Player().loadResource(url, layoutType: ZegoAlphaLayoutType.Left).then((value) {
         GiftMp4Player().startMediaPlayer();
       });
     });

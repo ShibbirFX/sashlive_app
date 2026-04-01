@@ -36,7 +36,7 @@ class OfficialAnnouncementModel extends ParseObject implements ParseCloneable {
     List<dynamic> usersIdList = [];
 
     List<dynamic>? users = get<List<dynamic>>(keyViewedBy);
-    if (users != null && users.length > 0) {
+    if (users.length > 0) {
       return users;
     } else {
       return usersIdList;

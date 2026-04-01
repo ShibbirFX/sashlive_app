@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 import '../../helpers/quick_help.dart';
-import '../../models/NewPaymentMethodResquestModel.dart';
+import '../../models/NewPaymentMethodRequestModel.dart';
 import '../../models/UserModel.dart';
 import '../../ui/container_with_corner.dart';
 import '../../ui/text_with_tap.dart';

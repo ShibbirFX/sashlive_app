@@ -1,4 +1,3 @@
-import 'package:sashlive/app/setup.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -424,18 +423,14 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getPushId {
     String? pushId = get<String>(keyPushId);
-    if(pushId != null) {
-      return pushId;
-    }else{
-      return "";
+    return pushId;
     }
-  }
   set setPushId(String pushId) => set<String>(keyPushId, pushId);
 
   List<dynamic>? get getTradingCoinsReceivers {
 
     List<dynamic>? receiverIDs = get<List<dynamic>>(keyTradingCoinsReceivers);
-    if(receiverIDs != null && receiverIDs.length > 0){
+    if(receiverIDs.length > 0){
       return receiverIDs;
     } else {
       return [];
@@ -446,37 +441,25 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getBattleLost {
     int? battlePoints = get<int>(keyBattleLost);
-    if(battlePoints != null) {
-      return battlePoints;
-    }else{
-      return 0;
+    return battlePoints;
     }
-  }
   set addBattleLost(int userPoints) => setIncrement(keyBattleLost, userPoints);
 
   int? get getBattleVictories {
     int? battlePoints = get<int>(keyBattleVictories);
-    if(battlePoints != null) {
-      return battlePoints;
-    }else{
-      return 0;
+    return battlePoints;
     }
-  }
   set addBattleVictories(int userPoints) => setIncrement(keyBattleVictories, userPoints);
 
   int? get getBattlePoints {
     int? battlePoints = get<int>(keyBattlePoints);
-    if(battlePoints != null) {
-      return battlePoints;
-    }else{
-      return 0;
+    return battlePoints;
     }
-  }
   set addBattlePoints(int userPoints) => setIncrement(keyBattlePoints, userPoints);
 
   List? get getCountryLanguages {
     List? languages = get<List<dynamic>>(keyCountryLanguages);
-    if (languages != null && languages.length > 0) {
+    if (languages.length > 0) {
       return languages;
     } else {
       return [];
@@ -487,7 +470,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getIsUserVip {
     int? getCredit = get<int>(keyCoins);
-    if(getCredit != null && getCredit > 0){
+    if(getCredit > 0){
       return true;
     }else {
       return false;
@@ -496,43 +479,27 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getLevelUserVip {
     int? getCredit = get<int>(keyCoins);
-    if(getCredit != null){
-      return QuickHelp.levelUserPage(getCredit.toDouble());
-    }else {
-      return 0;
+    return QuickHelp.levelUserPage(getCredit.toDouble());
     }
-  }
 
   bool? get isFirstLive {
     bool? isFirstLive = get<bool>(keyFirstLive);
-    if (isFirstLive != null) {
-      return isFirstLive;
-    } else {
-      return true;
+    return isFirstLive;
     }
-  }
   set setIsFirstLive(bool isFirstLive) => set<bool>(keyFirstLive, isFirstLive);
 
 
   int? get getUserPoints {
     int? userPoints = get<int>(keyUserPoints);
-    if(userPoints != null) {
-      return userPoints;
-    }else{
-      return 0;
+    return userPoints;
     }
-  }
 
   set addUserPoints(int userPoints) => setIncrement(keyUserPoints, userPoints);
 
   List<dynamic>? get getReportedReplyID {
     List<dynamic>? users = get<List<dynamic>>(keyReportedReplies);
-    if (users != null) {
-      return users;
-    } else {
-      return [];
+    return users;
     }
-  }
 
   set setReportedReplyID(String replyID) {
     List<String> replies = [];
@@ -549,12 +516,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getReportedCommentID {
     List<dynamic>? comments = get<List<dynamic>>(keyReportedComments);
-    if (comments != null) {
-      return comments;
-    } else {
-      return [];
+    return comments;
     }
-  }
 
   set setReportedCommentID(String commentID) {
     List<String> user = [];
@@ -576,36 +539,24 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getCanUseAvatarFrame {
     bool? canYouAvatarFrame = get<bool>(keyCanUseAvatarFrame);
-    if (canYouAvatarFrame != null) {
-      return canYouAvatarFrame;
-    } else {
-      return false;
+    return canYouAvatarFrame;
     }
-  }
 
   set setCanUseAvatarFrame(bool canYouEntranceEffect) =>
       set<bool>(keyCanUseAvatarFrame, canYouEntranceEffect);
 
   bool? get getCanUsePartyTheme {
     bool? canYouPartyTheme = get<bool>(keyCanUsePartyTheme);
-    if (canYouPartyTheme != null) {
-      return canYouPartyTheme;
-    } else {
-      return false;
+    return canYouPartyTheme;
     }
-  }
 
   set setCanUsePartyTheme(bool canYouEntranceEffect) =>
       set<bool>(keyCanUsePartyTheme, canYouEntranceEffect);
 
   bool? get getCanUseEntranceEffect {
     bool? canYouEntranceEffect = get<bool>(keyCanUseEntranceEffect);
-    if (canYouEntranceEffect != null) {
-      return canYouEntranceEffect;
-    } else {
-      return false;
+    return canYouEntranceEffect;
     }
-  }
 
   set setCanUseEntranceEffect(bool canYouEntranceEffect) =>
       set<bool>(keyCanUseEntranceEffect, canYouEntranceEffect);
@@ -616,12 +567,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getAgencyRole {
     String? role = get(keyAgencyRole);
-    if (role != null) {
-      return role;
-    } else {
-      return agencyNoRole;
+    return role;
     }
-  }
 
   set setAgencyRole(String agencyRole) =>
       set<String>(keyAgencyRole, agencyRole);
@@ -661,7 +608,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getMyObtainedItems {
     List<dynamic>? itemsId = get<List<dynamic>>(keyMyObtainedItems);
-    if (itemsId != null && itemsId.length > 0) {
+    if (itemsId.length > 0) {
       return itemsId;
     } else {
       return [];
@@ -676,7 +623,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getMyFanClubId {
     String? fanClubId = get<String>(keyMyFanClubId);
-    if (fanClubId != null && fanClubId.isNotEmpty) {
+    if (fanClubId.isNotEmpty) {
       return fanClubId;
     } else {
       return "";
@@ -688,7 +635,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getMyFanClubName {
     String? name = get<String>(keyMyFanClubName);
-    if (name != null && name.isNotEmpty) {
+    if (name.isNotEmpty) {
       return name;
     } else {
       return "fan_club_screen.fans_".tr();
@@ -700,7 +647,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getMyFanClubMembers {
     List<dynamic>? userIds = get<List<dynamic>>(keyMyFanClubMembers);
-    if (userIds != null && userIds.length > 0) {
+    if (userIds.length > 0) {
       return userIds;
     } else {
       return [];
@@ -715,7 +662,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getJoinedFanClubIds {
     List<dynamic>? fanClubIds = get<List<dynamic>>(keyJoinedFanClubIds);
-    if (fanClubIds != null && fanClubIds.length > 0) {
+    if (fanClubIds.length > 0) {
       return fanClubIds;
     } else {
       return [];
@@ -730,12 +677,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getIsFaceAuthenticated {
     bool? isAuthenticated = get<bool>(keyIsFaceAuthenticated);
-    if (isAuthenticated != null) {
-      return isAuthenticated;
-    } else {
-      return false;
+    return isAuthenticated;
     }
-  }
 
   set setIsFaceAuthenticated(bool isAuthenticate) =>
       set<bool>(keyIsFaceAuthenticated, isAuthenticate);
@@ -767,12 +710,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getPCoins {
     int? pCoins = get<int>(keyPCoins);
-    if (pCoins != null) {
-      return pCoins;
-    } else {
-      return 0;
+    return pCoins;
     }
-  }
 
   set setPCoins(int pCoins) => setIncrement(keyPCoins, pCoins);
 
@@ -781,16 +720,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isGuardianOfKing {
     DateTime? date = get<DateTime>(keyGuardianOfKing);
     DateTime now = DateTime.now();
-    if (date != null) {
-      if (now.isBefore(date)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(date)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getGuardianOfKing => get<DateTime>(keyGuardianOfKing);
 
@@ -800,16 +735,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isGuardianOfGold {
     DateTime? date = get<DateTime>(keyGuardianOfGold);
     DateTime now = DateTime.now();
-    if (date != null) {
-      if (now.isBefore(date)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(date)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getGuardianOfGold => get<DateTime>(keyGuardianOfGold);
 
@@ -819,16 +750,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isGuardianOfSilver {
     DateTime? date = get<DateTime>(keyGuardianOfSilver);
     DateTime now = DateTime.now();
-    if (date != null) {
-      if (now.isBefore(date)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(date)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getGuardianOfSilver => get<DateTime>(keyGuardianOfSilver);
 
@@ -837,7 +764,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getPeopleGuardingMe {
     List<dynamic>? myGuardians = get<List<dynamic>>(keyPeopleGuardingMe);
-    if (myGuardians != null && myGuardians.length > 0) {
+    if (myGuardians.length > 0) {
       return myGuardians;
     } else {
       return [];
@@ -852,7 +779,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getMyGuardians {
     List<dynamic>? myGuardians = get<List<dynamic>>(keyMyGuardians);
-    if (myGuardians != null && myGuardians.length > 0) {
+    if (myGuardians.length > 0) {
       return myGuardians;
     } else {
       return [];
@@ -865,58 +792,38 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getVibrate {
     bool? isVibrate = get<bool>(keyVibrate);
-    if (isVibrate != null) {
-      return isVibrate;
-    } else {
-      return true;
+    return isVibrate;
     }
-  }
 
   set setVibrated(bool isVibrate) => set<bool>(keyVibrate, isVibrate);
 
   bool? get getSound {
     bool? isSound = get<bool>(keySound);
-    if (isSound != null) {
-      return isSound;
-    } else {
-      return true;
+    return isSound;
     }
-  }
 
   set setSound(bool isSound) => set<bool>(keySound, isSound);
 
   bool? get getAcceptCalls {
     bool? isAcceptCalls = get<bool>(keyAcceptCalls);
-    if (isAcceptCalls != null) {
-      return isAcceptCalls;
-    } else {
-      return true;
+    return isAcceptCalls;
     }
-  }
 
   set setAcceptCalls(bool isAcceptCalls) =>
       set<bool>(keyAcceptCalls, isAcceptCalls);
 
   bool? get getMessageNotificationSwitch {
     bool? isMessageNotificationSwitch = get<bool>(keyMessageNotificationSwitch);
-    if (isMessageNotificationSwitch != null) {
-      return isMessageNotificationSwitch;
-    } else {
-      return true;
+    return isMessageNotificationSwitch;
     }
-  }
 
   set setMessageNotificationSwitch(bool isMessageNotificationSwitch) =>
       set<bool>(keyMessageNotificationSwitch, isMessageNotificationSwitch);
 
   bool? get getLiveOpeningAlert {
     bool? isLiveOpeningAlert = get<bool>(keyLiveOpeningAlert);
-    if (isLiveOpeningAlert != null) {
-      return isLiveOpeningAlert;
-    } else {
-      return true;
+    return isLiveOpeningAlert;
     }
-  }
 
   set setLiveOpeningAlert(bool isLiveOpeningAlert) =>
       set<bool>(keyLiveOpeningAlert, isLiveOpeningAlert);
@@ -924,16 +831,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isDiamondVip {
     DateTime? superVIP = get<DateTime>(keyDiamondVip);
     DateTime now = DateTime.now();
-    if (superVIP != null) {
-      if (now.isBefore(superVIP)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(superVIP)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getDiamondVip => get<DateTime>(keyDiamondVip);
 
@@ -943,16 +846,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isSuperVip {
     DateTime? superVIP = get<DateTime>(keySuperVip);
     DateTime now = DateTime.now();
-    if (superVIP != null) {
-      if (now.isBefore(superVIP)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(superVIP)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getSuperVip => get<DateTime>(keySuperVip);
 
@@ -960,54 +859,38 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getInvisibleVisitor {
     bool? isInvisible = get<bool>(keyInvisibleVisitor);
-    if (isInvisible != null) {
-      return isInvisible;
-    } else {
-      return false;
+    return isInvisible;
     }
-  }
 
   set setInvisibleVisitor(bool isInvisibleVisitor) =>
       set<bool>(keyInvisibleVisitor, isInvisibleVisitor);
 
   bool? get getMysteriousMan {
     bool? isMysterious = get<bool>(keyMysteriousMan);
-    if (isMysterious != null) {
-      return isMysterious;
-    } else {
-      return false;
+    return isMysterious;
     }
-  }
 
   set setMysteriousMan(bool mysterious) =>
       set<bool>(keyMysteriousMan, mysterious);
 
   bool? get getMysteryMan {
     bool? isMystery = get<bool>(keyMysteryMan);
-    if (isMystery != null) {
-      return isMystery;
-    } else {
-      return false;
+    return isMystery;
     }
-  }
 
   set setMysteryMan(bool mysterious) => set<bool>(keyMysteryMan, mysterious);
 
   bool? get getProfileCoverFrame {
     bool? hideCoverFrame = get<bool>(keyProfileCoverFrame);
-    if (hideCoverFrame != null) {
-      return hideCoverFrame;
-    } else {
-      return false;
+    return hideCoverFrame;
     }
-  }
 
   set setProfileCoverFrame(bool hideCoverFrame) => set<bool>(keyProfileCoverFrame, hideCoverFrame);
 
   String? get getAppLanguage {
     List? languages = get<List<dynamic>>(keyAppLanguage);
     String language = "";
-    if (languages != null && languages.isNotEmpty) {
+    if (languages.isNotEmpty) {
       language = languages[0];
     }
     return language;
@@ -1020,7 +903,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getCloseFriends {
     List<dynamic>? visitors = get<List<dynamic>>(keyCloseFriends);
-    if (visitors != null && visitors.length > 0) {
+    if (visitors.length > 0) {
       return visitors;
     } else {
       return [];
@@ -1033,7 +916,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getVisitors {
     List<dynamic>? visitors = get<List<dynamic>>(keyVisitors);
-    if (visitors != null && visitors.length > 0) {
+    if (visitors.length > 0) {
       return visitors;
     } else {
       return [];
@@ -1046,12 +929,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getGiftsAmount {
     int? amount = get<int>(keyGiftsAmount);
-    if (amount != null) {
-      return amount;
-    } else {
-      return 0;
+    return amount;
     }
-  }
 
   set setGiftsAmount(int giftsAmount) => set<int>(keyGiftsAmount, giftsAmount);
 
@@ -1074,12 +953,8 @@ class UserModel extends ParseUser implements ParseCloneable {
   List<dynamic>? get getPostIdList {
     List<dynamic>? postsIds = get<List<dynamic>>(keyPostIdList);
 
-    if (postsIds != null) {
-      return postsIds;
-    } else {
-      return [];
+    return postsIds;
     }
-  }
 
   set setIdsToBlackList(List<dynamic> ids) =>
       set<List<dynamic>>(keyBlackList, ids);
@@ -1100,21 +975,13 @@ class UserModel extends ParseUser implements ParseCloneable {
   List<dynamic>? get getIdFromBlackList {
     List<dynamic>? usersIds = get<List<dynamic>>(keyBlackList);
 
-    if (usersIds != null) {
-      return usersIds;
-    } else {
-      return [];
+    return usersIds;
     }
-  }
 
   String? get getUserStateInApp {
     String? state = get<String>(keyUserStateInApp);
-    if (state != null) {
-      return state;
-    } else {
-      return UserModel.userOffline;
+    return state;
     }
-  }
 
   set setUserStateInApp(String state) => set<String>(keyUserStateInApp, state);
 
@@ -1133,23 +1000,15 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getChatWithUsersIds {
     List<dynamic>? usersIds = get<List<dynamic>>(keyChatWithUsers);
-    if (usersIds != null) {
-      return usersIds;
-    } else {
-      return [];
+    return usersIds;
     }
-  }
 
   String? get getSessionToken => get<String>(keySessionToken);
 
   int? get getUid {
     int? uID = get<int>(keyUid);
-    if(uID != null) {
-      return uID;
-    }else{
-      return 00000000;
+    return uID;
     }
-  }
 
   set setUid(int uid) => set<int>(keyUid, uid);
 
@@ -1172,12 +1031,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getFullName {
     String? name = get<String>(keyFullName);
-    if (name != null) {
-      return name;
-    } else {
-      return getUsername;
+    return name;
     }
-  }
 
   set setFullName(String fullName) => set<String>(keyFullName, fullName);
 
@@ -1191,47 +1046,31 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getGender {
     String? gender = get<String>(keyGender);
-    if (gender != null) {
-      return gender;
-    } else {
-      return keyGenderMale;
+    return gender;
     }
-  }
 
   set setGender(String gender) => set<String>(keyGender, gender);
 
   String? get getGenderPref {
     String? prefGender = get<String>(keyPrefGender);
-    if (prefGender != null) {
-      return prefGender;
-    } else {
-      return keyGenderBoth;
+    return prefGender;
     }
-  }
 
   set setGenderPref(String genderPref) =>
       set<String>(keyPrefGender, genderPref);
 
   int? get getPrefDistance {
     int? prefDistance = get<int>(keyPrefDistance);
-    if (prefDistance != null) {
-      return prefDistance;
-    } else {
-      return Setup.maxDistanceBetweenUsers;
+    return prefDistance;
     }
-  }
 
   set setPrefDistance(int prefDistance) =>
       set<int>(keyPrefDistance, prefDistance);
 
   String? get getBio {
     String? bio = get<String>(keyBio);
-    if(bio != null) {
-      return bio;
-    }else{
-      return "";
+    return bio;
     }
-  }
 
   set setBio(String bio) => set<String>(keyBio, bio);
 
@@ -1244,7 +1083,7 @@ class UserModel extends ParseUser implements ParseCloneable {
     List<dynamic> save = [];
 
     List<dynamic>? images = get<List<dynamic>>(keyImagesList);
-    if (images != null && images.length > 0) {
+    if (images.length > 0) {
       return images;
     } else {
       return save;
@@ -1265,12 +1104,8 @@ class UserModel extends ParseUser implements ParseCloneable {
   DateTime? get getBirthday {
     DateTime dateTime = DateTime(1999);
     DateTime? date = get<DateTime>(keyBirthday);
-    if (date != null) {
-      return date;
-    } else {
-      return dateTime;
+    return date;
     }
-  }
 
   set setBirthday(DateTime birthday) => set<DateTime>(keyBirthday, birthday);
 
@@ -1295,7 +1130,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getFacebookId {
     String? content = get<String>(keyFacebookId);
-    if (content != null && content.isNotEmpty) {
+    if (content.isNotEmpty) {
       return content;
     } else {
       return "";
@@ -1307,7 +1142,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getGoogleId {
     String? content = get<String>(keyGoogleId);
-    if (content != null && content.isNotEmpty) {
+    if (content.isNotEmpty) {
       return content;
     } else {
       return "";
@@ -1316,7 +1151,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get isAdmin {
     String? role = get<String>(keyRole);
-    if (role != null && role.isNotEmpty) {
+    if (role.isNotEmpty) {
       if (role == UserModel.roleAdmin) {
         return true;
       } else {
@@ -1330,7 +1165,7 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isDeleted {
     bool? disabled = get<bool>(keyUserStatus);
 
-    if (disabled != null && disabled) {
+    if (disabled) {
       return true;
     } else {
       return false;
@@ -1339,7 +1174,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get isSuspended {
     bool? deleted = get<bool>(keyUserAccountDeleted);
-    if (deleted != null && deleted) {
+    if (deleted) {
       return true;
     } else {
       return false;
@@ -1378,31 +1213,23 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getHasGeoPoint {
     bool? hasGeoPoint = get<bool>(keyHasGeoPoint);
-    if (hasGeoPoint != null) {
-      return hasGeoPoint;
-    } else {
-      return false;
+    return hasGeoPoint;
     }
-  }
 
   set setHasGeoPoint(bool hasGeoPoint) =>
       set<bool>(keyHasGeoPoint, hasGeoPoint);
 
   bool? get getLocationTypeNearBy {
     bool? locationPref = get<bool>(keyPrefLocationType);
-    if (locationPref != null) {
-      return locationPref;
-    } else {
-      return true;
+    return locationPref;
     }
-  }
 
   set setLocationTypeNearBy(bool prefLocationType) =>
       set<bool>(keyPrefLocationType, prefLocationType);
 
   String? get getLocation {
     String? location = get<String>(keyLocation);
-    if (location != null && location.isNotEmpty) {
+    if (location.isNotEmpty) {
       if (this.getHideMyLocation == true) {
         return "edit_profile.city_hidden".tr();
       } else {
@@ -1415,7 +1242,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getLocationOrEmpty {
     String? location = get<String>(keyLocation);
-    if (location != null && location.isNotEmpty) {
+    if (location.isNotEmpty) {
       return location;
     } else {
       return "";
@@ -1424,7 +1251,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getLocationOnly {
     String? location = get<String>(keyLocation);
-    if (location != null && location.isNotEmpty) {
+    if (location.isNotEmpty) {
       return location;
     } else {
       return "edit_profile.add_city_name".tr();
@@ -1436,7 +1263,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getCity {
     String? city = get<String>(keyCity);
-    if (city != null && city.isNotEmpty) {
+    if (city.isNotEmpty) {
       return city;
     } else {
       return "";
@@ -1451,43 +1278,27 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getPrefMinAge {
     int? prefAge = get<int>(keyPrefMinimumAge);
-    if (prefAge != null) {
-      return prefAge;
-    } else {
-      return Setup.minimumAgeToRegister;
+    return prefAge;
     }
-  }
 
   set setPrefMinAge(int minAge) => set<int>(keyPrefMinimumAge, minAge);
 
   int? get getPrefMaxAge {
     int? prefAge = get<int>(keyPrefMaximumAge);
-    if (prefAge != null) {
-      return prefAge;
-    } else {
-      return Setup.maximumAgeToRegister;
+    return prefAge;
     }
-  }
 
   set setPrefMaxAge(int maxAge) => set<int>(keyPrefMaximumAge, maxAge);
 
   int? get getCredits {
     int? credit = get<int>(keyCoins);
-    if(credit != null) {
-      return credit;
-    }else{
-      return 0;
+    return credit;
     }
-  }
 
   int? get getCreditsSent {
     int? creditSent = get<int>(keyCoinsSent);
-    if (creditSent != null) {
-      return creditSent;
-    } else {
-      return 0;
+    return creditSent;
     }
-  }
 
   set addCredit(int credits) => setIncrement(keyCoins, credits);
 
@@ -1499,7 +1310,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getCountry {
     String? country = get<String>(keyCountry);
-    if (country != null && country.isNotEmpty) {
+    if (country.isNotEmpty) {
       return country;
     } else {
       return "edit_data_screen.country_".tr();
@@ -1510,7 +1321,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getCountryCode {
     String? code = get<String>(keyCountryCode);
-    if (code != null && code.isNotEmpty) {
+    if (code.isNotEmpty) {
       return code;
     } else {
       return "PK";
@@ -1527,7 +1338,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getPhoneNumber {
     String? phone = get<String>(keyPhoneNumber);
-    if (phone != null && phone.isNotEmpty) {
+    if (phone.isNotEmpty) {
       return phone;
     } else {
       return "";
@@ -1542,7 +1353,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getPhoneNumberFull {
     String? phone = get<String>(keyPhoneNumberFull);
-    if (phone != null && phone.isNotEmpty) {
+    if (phone.isNotEmpty) {
       return phone;
     } else {
       return "";
@@ -1551,7 +1362,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getCompanyName {
     String? company = get<String>(keyCompanyName);
-    if (company != null && company.isNotEmpty) {
+    if (company.isNotEmpty) {
       return company;
     } else {
       return "";
@@ -1563,7 +1374,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getJobTitle {
     String? job = get<String>(keyJobTitle);
-    if (job != null && job.isNotEmpty) {
+    if (job.isNotEmpty) {
       return job;
     } else {
       return "";
@@ -1574,7 +1385,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getSchool {
     String? school = get<String>(keySchool);
-    if (school != null && school.isNotEmpty) {
+    if (school.isNotEmpty) {
       return school;
     } else {
       return "";
@@ -1586,7 +1397,7 @@ class UserModel extends ParseUser implements ParseCloneable {
   String? get getAboutYou {
     String? about = get<String>(keyAboutMe);
 
-    if (about != null && about.isNotEmpty) {
+    if (about.isNotEmpty) {
       return about;
     } else {
       return "";
@@ -1597,7 +1408,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   String? get getMoodTitle {
     String? mood = get<String>(keyMoodTitle);
-    if (mood != null && mood.isNotEmpty) {
+    if (mood.isNotEmpty) {
       return mood;
     } else {
       return "";
@@ -1608,12 +1419,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get isPhotoVerified {
     bool? photoVerified = get<bool>(keyPhotoVerified);
-    if (photoVerified != null) {
-      return photoVerified;
-    } else {
-      return false;
+    return photoVerified;
     }
-  }
 
   set setPhotoVerified(bool photoVerified) =>
       set<bool>(keyPhotoVerified, photoVerified);
@@ -1621,16 +1428,12 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get isNormalVip {
     DateTime? normalVIP = get<DateTime>(keyNormalVip);
     DateTime now = DateTime.now();
-    if (normalVIP != null) {
-      if (now.isBefore(normalVIP)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (now.isBefore(normalVIP)) {
+      return true;
     } else {
       return false;
     }
-  }
+    }
 
   DateTime? get getNormalVip => get<DateTime>(keyNormalVip);
 
@@ -1687,24 +1490,16 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getBlockedUsers {
     List<dynamic>? users = get<List<dynamic>>(keyBlockedUsers);
-    if (users != null) {
-      return users;
-    } else {
-      return [];
+    return users;
     }
-  }
 
   set setBlockedUsers(List<UserModel> blockedUsers) =>
       set<List<UserModel>>(keyBlockedUsers, blockedUsers);
 
   List<dynamic>? get getBlockedUsersIDs {
     List<dynamic>? users = get<List<dynamic>>(keyBlockedUserIDs);
-    if (users != null) {
-      return users;
-    } else {
-      return [];
+    return users;
     }
-  }
 
   set setBlockedUsersIDs(List<dynamic> blockedUsersIDs) =>
       set<List<dynamic>>(keyBlockedUserIDs, blockedUsersIDs);
@@ -1724,12 +1519,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getBlockedUsersIds {
     List<String>? users = get<List<String>>(keyBlockedUsers);
-    if (users != null) {
-      return users;
-    } else {
-      return [];
+    return users;
     }
-  }
 
   set setBlockedUser(UserModel blockedUser) {
     List<UserModel> user = [];
@@ -1751,135 +1542,87 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getPrivacyShowDistance {
     bool? privacyShowDistance = get<bool>(keyPrivacyShowDistance);
-    if (privacyShowDistance != null) {
-      return !privacyShowDistance;
-    } else {
-      return true;
+    return !privacyShowDistance;
     }
-  }
 
   set setPrivacyShowDistance(bool privacyShowDistance) =>
       set<bool>(keyPrivacyShowDistance, privacyShowDistance);
 
   bool? get getPrivacyShowStatusOnline {
     bool? privacyShowStatusOnline = get<bool>(keyPrivacyShowStatusOnline);
-    if (privacyShowStatusOnline != null) {
-      return !privacyShowStatusOnline;
-    } else {
-      return true;
+    return !privacyShowStatusOnline;
     }
-  }
 
   set setPrivacyShowStatusOnline(bool privacyShowStatusOnline) =>
       set<bool>(keyPrivacyShowStatusOnline, privacyShowStatusOnline);
 
   String? get getWhatIWant {
     String? what = get<String>(keyWhatIWant);
-    if (what != null) {
-      return what;
-    } else {
-      return "";
+    return what;
     }
-  }
 
   set setWhatIWant(String whatIWant) => set<String>(keyWhatIWant, whatIWant);
 
   String? get getLanguage {
     String? language = get<String>(keyLanguage);
-    if (language != null) {
-      return language;
-    } else {
-      return "";
+    return language;
     }
-  }
 
   set setLanguage(String language) => set<String>(keyLanguage, language);
 
   String? get getDrinking {
     String? drinking = get<String>(keyDrinking);
-    if (drinking != null) {
-      return drinking;
-    } else {
-      return "";
+    return drinking;
     }
-  }
 
   set setDrinking(String drinking) => set<String>(keyDrinking, drinking);
 
   String? get getSmoking {
     String? smoking = get<String>(keySmoking);
-    if (smoking != null) {
-      return smoking;
-    } else {
-      return "";
+    return smoking;
     }
-  }
 
   set setSmoking(String smoking) => set<String>(keySmoking, smoking);
 
   String? get getKids {
     String? kids = get<String>(keyKids);
-    if (kids != null) {
-      return kids;
-    } else {
-      return "";
+    return kids;
     }
-  }
 
   set setKids(String kids) => set<String>(keyKids, kids);
 
   String? get getLiving {
     String? living = get<String>(keyLiving);
-    if (living != null) {
-      return living;
-    } else {
-      return "";
+    return living;
     }
-  }
 
   set setLiving(String living) => set<String>(keyLiving, living);
 
   String? get getBodyType {
     String? bodyType = get<String>(keyBodyType);
-    if (bodyType != null) {
-      return bodyType;
-    } else {
-      return "";
+    return bodyType;
     }
-  }
 
   set setBodyType(String bodyType) => set<String>(keyBodyType, bodyType);
 
   int? get getHeight {
     int? height = get<int>(keyHeight);
-    if (height != null) {
-      return height;
-    } else {
-      return 91;
+    return height;
     }
-  }
 
   set setHeight(int height) => set<int>(keyHeight, height);
 
   String? get getSexuality {
     String? sexuality = get<String>(keySexuality);
-    if (sexuality != null) {
-      return sexuality;
-    } else {
-      return "";
+    return sexuality;
     }
-  }
 
   set setSexuality(String sexuality) => set<String>(keySexuality, sexuality);
 
   String? get getRelationship {
     String? relationship = get<String>(keyRelationship);
-    if (relationship != null) {
-      return relationship;
-    } else {
-      return "";
+    return relationship;
     }
-  }
 
   set setRelationship(String relationship) =>
       set<String>(keyRelationship, relationship);
@@ -1894,7 +1637,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
     List<dynamic>? sexualOrientation =
     get<List<dynamic>>(keySexualOrientations);
-    if (sexualOrientation != null && sexualOrientation.length > 0) {
+    if (sexualOrientation.length > 0) {
       return sexualOrientation;
     } else {
       return sexualZero;
@@ -1908,7 +1651,7 @@ class UserModel extends ParseUser implements ParseCloneable {
     List<dynamic> passionsZero = ["none"];
 
     List<dynamic>? passions = get<List<dynamic>>(keyPassions);
-    if (passions != null && passions.length > 0) {
+    if (passions.length > 0) {
       return passions;
     } else {
       return passionsZero;
@@ -1919,7 +1662,7 @@ class UserModel extends ParseUser implements ParseCloneable {
     List<dynamic> passionsZero = [];
 
     List<dynamic>? passions = get<List<dynamic>>(keyPassions);
-    if (passions != null && passions.length > 0) {
+    if (passions.length > 0) {
       return passions;
     } else {
       return passionsZero;
@@ -1942,24 +1685,16 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getDistanceInMiles {
     bool? distanceInMiles = get<bool>(keyDistanceInMiles);
-    if (distanceInMiles != null) {
-      return distanceInMiles;
-    } else {
-      return false;
+    return distanceInMiles;
     }
-  }
 
   set setDistanceInMiles(bool distanceInMiles) =>
       set<bool>(keyDistanceInMiles, distanceInMiles);
 
   bool? get getHideMyLocation {
     bool? hideMyLocation = get<bool>(keyHideMyLocation);
-    if (hideMyLocation != null) {
-      return hideMyLocation;
-    } else {
-      return false;
+    return hideMyLocation;
     }
-  }
 
   set setHideMyLocation(bool hideMyLocation) =>
       set<bool>(keyHideMyLocation, hideMyLocation);
@@ -1975,12 +1710,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getDiamonds {
     int? token = get<int>(keyDiamonds);
-    if (token != null) {
-      return token;
-    } else {
-      return 0;
+    return token;
     }
-  }
 
   set setDiamonds(int diamonds) => setIncrement(keyDiamonds, diamonds);
 
@@ -1988,24 +1719,16 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getDiamondsTotal {
     int? token = get<int>(keyDiamondsTotal);
-    if (token != null) {
-      return token;
-    } else {
-      return 0;
+    return token;
     }
-  }
 
   set setDiamondsTotal(int diamondsTotal) =>
       setIncrement(keyDiamondsTotal, diamondsTotal);
 
   int? get getPayouts {
     int? payout = get<int>(keyPayouts);
-    if (payout != null) {
-      return payout;
-    } else {
-      return 0;
+    return payout;
     }
-  }
 
   set setPayouts(int incrementPayout) =>
       setIncrement(keyPayouts, incrementPayout);
@@ -2013,7 +1736,7 @@ class UserModel extends ParseUser implements ParseCloneable {
   List? get getFollowing {
     List? following =
     get<List<dynamic>>(keyFollowing); //get<List<dynamic>>(keyFollowing);
-    if (following != null && following.length > 0) {
+    if (following.length > 0) {
       return following;
     } else {
       return [];
@@ -2026,7 +1749,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List<dynamic>? get getFollowers {
     List<dynamic>? followers = get<List<dynamic>>(keyFollowers);
-    if (followers != null && followers.length > 0) {
+    if (followers.length > 0) {
       return followers;
     } else {
       return [];
@@ -2039,84 +1762,56 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getReceiveChatRequest {
     bool? receiveChatRequest = get<bool>(keyReceiveChatRequest);
-    if (receiveChatRequest != null) {
-      return receiveChatRequest;
-    } else {
-      return false;
+    return receiveChatRequest;
     }
-  }
 
   set setReceiveChatRequest(bool receiveChatRequest) =>
       set<bool>(keyReceiveChatRequest, receiveChatRequest);
 
   bool? get getShowUpInSearch {
     bool? showUpInSearch = get<bool>(keyShowUpInSearch);
-    if (showUpInSearch != null) {
-      return showUpInSearch;
-    } else {
-      return false;
+    return showUpInSearch;
     }
-  }
 
   set setShowUpInSearch(bool showUpInSearch) =>
       set<bool>(keyShowUpInSearch, showUpInSearch);
 
   bool? get getShowVipLevel {
     bool? showVipLevel = get<bool>(keyShowVipLevel);
-    if (showVipLevel != null) {
-      return showVipLevel;
-    } else {
-      return false;
+    return showVipLevel;
     }
-  }
 
   set setShowVipLevel(bool showVipLevel) =>
       set<bool>(keyShowVipLevel, showVipLevel);
 
   bool? get getShowLocation {
     bool? showLocation = get<bool>(keyShowLocation);
-    if (showLocation != null) {
-      return showLocation;
-    } else {
-      return false;
+    return showLocation;
     }
-  }
 
   set setShowLocation(bool showLocation) =>
       set<bool>(keyShowLocation, showLocation);
 
   bool? get getShowLastTimeSeen {
     bool? showLastTimeSeen = get<bool>(keyShowLastTimeSeen);
-    if (showLastTimeSeen != null) {
-      return showLastTimeSeen;
-    } else {
-      return false;
+    return showLastTimeSeen;
     }
-  }
 
   set setShowLastTimeSeen(bool showLastTimeSeen) =>
       set<bool>(keyShowLastTimeSeen, showLastTimeSeen);
 
   bool? get getInvisibleMode {
     bool? invisibleMode = get<bool>(keyInvisibleMode);
-    if (invisibleMode != null) {
-      return invisibleMode;
-    } else {
-      return false;
+    return invisibleMode;
     }
-  }
 
   set setInvisibleMode(bool invisibleMode) =>
       set<bool>(keyInvisibleMode, invisibleMode);
 
   String? get getShowMyPostsTo {
     String? showMyPostsTo = get<String>(keyShowMyPostsTo);
-    if (showMyPostsTo != null) {
-      return showMyPostsTo;
-    } else {
-      return ANY_USER;
+    return showMyPostsTo;
     }
-  }
 
   set setShowMyPostsTo(String showMyPostsTo) =>
       set<String>(keyShowMyPostsTo, showMyPostsTo);
@@ -2126,48 +1821,32 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   bool? get getSendReadReceipts {
     bool? sendReadReceipts = get<bool>(keySendReadReceipts);
-    if (sendReadReceipts != null) {
-      return sendReadReceipts;
-    } else {
-      return false;
+    return sendReadReceipts;
     }
-  }
 
   set setEnableOneClickGifting(bool enableOneClickGifting) =>
       set<bool>(keyEnableOneClickGifting, enableOneClickGifting);
 
   bool? get getEnableOneClickGifting {
     bool? enableOneClickGifting = get<bool>(keyEnableOneClickGifting);
-    if (enableOneClickGifting != null) {
-      return enableOneClickGifting;
-    } else {
-      return false;
+    return enableOneClickGifting;
     }
-  }
 
   set setDenyBeInvitedToLiveParty(bool denyBeInvitedToLiveParty) =>
       set<bool>(keyDenyBeInvitedToLiveParty, denyBeInvitedToLiveParty);
 
   bool? get getDenyBeInvitedToLiveParty {
     bool? denyBeInvitedToLiveParty = get<bool>(keyDenyBeInvitedToLiveParty);
-    if (denyBeInvitedToLiveParty != null) {
-      return denyBeInvitedToLiveParty;
-    } else {
-      return false;
+    return denyBeInvitedToLiveParty;
     }
-  }
 
   set setDenyPictureInPictureMode(bool denyPictureInPictureMode) =>
       set<bool>(keyDenyPictureInPictureMode, denyPictureInPictureMode);
 
   bool? get getDenyPictureInPictureMode {
     bool? denyPictureInPictureMode = get<bool>(keyDenyPictureInPictureMode);
-    if (denyPictureInPictureMode != null) {
-      return denyPictureInPictureMode;
-    } else {
-      return false;
+    return denyPictureInPictureMode;
     }
-  }
 
   set setAllowViewersToPremiumStream(bool allowViewersToPremiumStream) =>
       set<bool>(keyAllowViewersToPremiumStream, allowViewersToPremiumStream);
@@ -2175,92 +1854,60 @@ class UserModel extends ParseUser implements ParseCloneable {
   bool? get getAllowViewersToPremiumStream {
     bool? allowViewersToPremiumStream =
     get<bool>(keyAllowViewersToPremiumStream);
-    if (allowViewersToPremiumStream != null) {
-      return allowViewersToPremiumStream;
-    } else {
-      return false;
+    return allowViewersToPremiumStream;
     }
-  }
 
   set setLiveNotification(bool liveNotification) =>
       set<bool>(keyLiveNotification, liveNotification);
 
   bool? get getLiveNotification {
     bool? liveNotification = get<bool>(keyLiveNotification);
-    if (liveNotification != null) {
-      return liveNotification;
-    } else {
-      return true;
+    return liveNotification;
     }
-  }
 
   set setMuteIncomingCalls(bool muteIncomingCalls) =>
       set<bool>(keyMuteIncomingCalls, muteIncomingCalls);
 
   bool? get getMuteIncomingCalls {
     bool? muteIncomingCalls = get<bool>(keyMuteIncomingCalls);
-    if (muteIncomingCalls != null) {
-      return muteIncomingCalls;
-    } else {
-      return true;
+    return muteIncomingCalls;
     }
-  }
 
   set setNotificationSounds(bool notificationSounds) =>
       set<bool>(keyNotificationSounds, notificationSounds);
 
   bool? get getNotificationSounds {
     bool? notificationSounds = get<bool>(keyNotificationSounds);
-    if (notificationSounds != null) {
-      return notificationSounds;
-    } else {
-      return true;
+    return notificationSounds;
     }
-  }
 
   set setInAppSound(bool inAppSound) => set<bool>(keyInAppSound, inAppSound);
 
   bool? get getInAppSound {
     bool? inAppSound = get<bool>(keyInAppSound);
-    if (inAppSound != null) {
-      return inAppSound;
-    } else {
-      return true;
+    return inAppSound;
     }
-  }
 
   set setInAppVibration(bool inAppVibration) =>
       set<bool>(keyInAppVibration, inAppVibration);
 
   bool? get getInAppVibration {
     bool? inAppVibration = get<bool>(keyInAppVibration);
-    if (inAppVibration != null) {
-      return inAppVibration;
-    } else {
-      return true;
+    return inAppVibration;
     }
-  }
 
   set setGameNotification(bool gameNotification) =>
       set<bool>(keyGameNotification, gameNotification);
 
   bool? get getGameNotification {
     bool? gameNotification = get<bool>(keyGameNotification);
-    if (gameNotification != null) {
-      return gameNotification;
-    } else {
-      return true;
+    return gameNotification;
     }
-  }
 
   List<dynamic>? get getReportedPostIDs {
     List<dynamic>? postID = get<List<dynamic>>(keyReportedPostsIDs);
-    if (postID != null) {
-      return postID;
-    } else {
-      return [];
+    return postID;
     }
-  }
 
   set setReportedPostIDs(dynamic postID) {
     List<dynamic> postIdArray = [];
@@ -2302,7 +1949,7 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   List? get getInvitedUsers {
     List? invited = get<List<dynamic>>(keyInvitedUsers);
-    if (invited != null && invited.length > 0) {
+    if (invited.length > 0) {
       return invited;
     } else {
       return [];
@@ -2326,12 +1973,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getDiamondsAgency {
     int? token = get<int>(keyDiamondsAgency);
-    if (token != null) {
-      return token;
-    } else {
-      return 0;
+    return token;
     }
-  }
 
   set setDiamondsAgency(int diamonds) =>
       setIncrement(keyDiamondsAgency, diamonds);
@@ -2341,12 +1984,8 @@ class UserModel extends ParseUser implements ParseCloneable {
 
   int? get getDiamondsAgencyTotal {
     int? token = get<int>(keyDiamondsAgencyTotal);
-    if (token != null) {
-      return token;
-    } else {
-      return 0;
+    return token;
     }
-  }
 
   set setDiamondsAgencyTotal(int diamonds) =>
       setIncrement(keyDiamondsAgencyTotal, diamonds);

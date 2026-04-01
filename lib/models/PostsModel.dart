@@ -1,7 +1,6 @@
 import 'package:sashlive/models/UserModel.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
-import '../app/setup.dart';
 
 class PostsModel extends ParseObject implements ParseCloneable {
   static final String keyTableName = "Posts";
@@ -66,7 +65,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> usersList = [];
 
     List<dynamic>? users = get<List<dynamic>>(keyTargetPeople);
-    if (users != null && users.length > 0) {
+    if (users.length > 0) {
       return users;
     } else {
       return usersList;
@@ -79,7 +78,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> ids = [];
 
     List<dynamic>? usersId = get<List<dynamic>>(keyTargetPeopleID);
-    if (usersId != null && usersId.length > 0) {
+    if (usersId.length > 0) {
       return usersId;
     } else {
       return ids;
@@ -90,12 +89,8 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   int get getNumberOfPictures {
     int? number = get(keyNumberOfPictures);
-    if(number != null) {
-      return number;
-    }else{
-      return 0;
+    return number;
     }
-  }
 
   set setNumberOfPictures(int numberOfPictures) => set(keyNumberOfPictures, numberOfPictures);
 
@@ -103,7 +98,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> save = [];
 
     List<dynamic>? images = get<List<dynamic>>(keyImagesList);
-    if (images != null && images.length > 0) {
+    if (images.length > 0) {
       return images;
     } else {
       return save;
@@ -125,12 +120,8 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   String? get getText {
     String? existingText = get<String>(keyText);
-    if(existingText != null) {
-      return existingText;
-    }else{
-      return "";
+    return existingText;
     }
-  }
 
   set setText(String text) => set<String>(keyText, text);
 
@@ -151,7 +142,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getComments {
     List<dynamic>? comments = get<List<dynamic>>(keyComments);
-    if (comments != null && comments.length > 0) {
+    if (comments.length > 0) {
       return comments;
     } else {
       return [];
@@ -164,7 +155,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> like = [];
 
     List<dynamic>? likes = get<List<dynamic>>(keyLikes);
-    if (likes != null && likes.length > 0) {
+    if (likes.length > 0) {
       return likes;
     } else {
       return like;
@@ -179,7 +170,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> save = [];
 
     List<dynamic>? saves = get<List<dynamic>>(keySaves);
-    if (saves != null && saves.length > 0) {
+    if (saves.length > 0) {
       return saves;
     } else {
       return save;
@@ -194,7 +185,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> save = [];
 
     List<dynamic>? viewers = get<List<dynamic>>(keyViewers);
-    if (viewers != null && viewers.length > 0) {
+    if (viewers.length > 0) {
       return viewers;
     } else {
       return save;
@@ -205,12 +196,8 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   int get getViews {
     int? views = get<int>(keyViews);
-    if (views != null) {
-      return views;
-    } else {
-      return 0;
+    return views;
     }
-  }
 
   set addView(int view) => setIncrement(keyViews, view);
 
@@ -234,12 +221,8 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   bool? get getExclusive {
     bool? exclusive = get<bool>(keyExclusive);
-    if (exclusive != null) {
-      return exclusive;
-    } else {
-      return false;
+    return exclusive;
     }
-  }
 
   set setExclusive(bool exclusive) => set<bool>(keyExclusive, exclusive);
 
@@ -247,7 +230,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   bool? get isVideo {
     String? video = get<String>(keyPostType);
-    if (video != null && video == postTypeVideo) {
+    if (video == postTypeVideo) {
       return true;
     } else {
       return false;
@@ -262,7 +245,7 @@ class PostsModel extends ParseObject implements ParseCloneable {
     List<dynamic> paidIds = [];
 
     List<dynamic>? payers = get<List<dynamic>>(keyPaidUsers);
-    if (payers != null && payers.length > 0) {
+    if (payers.length > 0) {
       return payers;
     } else {
       return paidIds;
@@ -276,10 +259,6 @@ class PostsModel extends ParseObject implements ParseCloneable {
 
   int? get getPaidAmount {
     int? amount = get<int>(keyPaidAmount);
-    if (amount != null) {
-      return amount;
-    } else {
-      return Setup.coinsNeededToForExclusivePost;
+    return amount;
     }
-  }
 }

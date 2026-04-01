@@ -37,24 +37,16 @@ class AudioChatUsersModel extends ParseObject implements ParseCloneable {
 
   bool? get getEnabledAudio {
     bool? enabledAudio = get<bool>(keyEnabledAudio);
-    if (enabledAudio != null) {
-      return enabledAudio;
-    } else {
-      return true;
+    return enabledAudio;
     }
-  }
 
   set setEnabledAudio(bool enabledAudio) =>
       set<bool>(keyEnabledAudio, enabledAudio);
 
   bool? get getEnabledVideo {
     bool? enabledVideo = get<bool>(keyEnabledVideo);
-    if (enabledVideo != null) {
-      return enabledVideo;
-    } else {
-      return false;
+    return enabledVideo;
     }
-  }
 
   set setEnabledVideo(bool enabledVideo) =>
       set<bool>(keyEnabledVideo, enabledVideo);
@@ -65,7 +57,7 @@ class AudioChatUsersModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getUserMutedByHostIds {
     List<dynamic>? users = get<List<dynamic>>(keyUserMutedByHostIds);
-    if (users != null && users.length > 0) {
+    if (users.length > 0) {
       return users;
     } else {
       return [];
@@ -80,7 +72,7 @@ class AudioChatUsersModel extends ParseObject implements ParseCloneable {
 
   List<dynamic>? get getUserSelfMutedAudioIds {
     List<dynamic>? users = get<List<dynamic>>(keyUserSelfMutedAudioIds);
-    if (users != null && users.length > 0) {
+    if (users.length > 0) {
       return users;
     } else {
       return [];
@@ -125,23 +117,15 @@ class AudioChatUsersModel extends ParseObject implements ParseCloneable {
 
   bool? get getCanUserTalk {
     bool? canTalk = get<bool>(keyCanTalk);
-    if (canTalk != null) {
-      return canTalk;
-    } else {
-      return false;
+    return canTalk;
     }
-  }
 
   set setCanUserTalk(bool canTalk) => set<bool>(keyCanTalk, canTalk);
 
   bool? get getLetTheRoom {
     bool? leftRoom = get<bool>(keyLeftRoom);
-    if (leftRoom != null) {
-      return leftRoom;
-    } else {
-      return false;
+    return leftRoom;
     }
-  }
 
   set setLetTheRoom(bool leftRoom) => set<bool>(keyLeftRoom, leftRoom);
 }

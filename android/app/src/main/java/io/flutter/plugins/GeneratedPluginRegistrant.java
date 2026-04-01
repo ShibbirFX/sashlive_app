@@ -26,9 +26,9 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin audioplayers_android, xyz.luan.audioplayers.AudioplayersPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.camera.CameraPlugin());
+      flutterEngine.getPlugins().add(new io.flutter.plugins.camerax.CameraAndroidCameraxPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin camera_android, io.flutter.plugins.camera.CameraPlugin", e);
+      Log.e(TAG, "Error registering plugin camera_android_camerax, io.flutter.plugins.camerax.CameraAndroidCameraxPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new dev.fluttercommunity.plus.connectivity.ConnectivityPlugin());
@@ -49,11 +49,6 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new com.fintasys.emoji_picker_flutter.EmojiPickerFlutterPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin emoji_picker_flutter, com.fintasys.emoji_picker_flutter.EmojiPickerFlutterPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new com.arthenica.ffmpegkit.flutter.FFmpegKitFlutterPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin ffmpeg_kit_flutter_min_gpl, com.arthenica.ffmpegkit.flutter.FFmpegKitFlutterPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.mr.flutter.plugin.filepicker.FilePickerPlugin());
@@ -96,11 +91,6 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin floating, eu.wroblewscy.marcin.floating.floating.FloatingPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new com.example.app_version_checker.AppVersionCheckerPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_app_version_checker, com.example.app_version_checker.AppVersionCheckerPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new br.com.rsmarques.flutter_branch_sdk.FlutterBranchSdkPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_branch_sdk, br.com.rsmarques.flutter_branch_sdk.FlutterBranchSdkPlugin", e);
@@ -108,7 +98,12 @@ public final class GeneratedPluginRegistrant {
     try {
       flutterEngine.getPlugins().add(new com.hiennv.flutter_callkit_incoming.FlutterCallkitIncomingPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_callkit_incoming_yoer, com.hiennv.flutter_callkit_incoming.FlutterCallkitIncomingPlugin", e);
+      Log.e(TAG, "Error registering plugin flutter_callkit_incoming, com.hiennv.flutter_callkit_incoming.FlutterCallkitIncomingPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new app.meedu.flutter_facebook_auth.FlutterFacebookAuthPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin flutter_facebook_auth, app.meedu.flutter_facebook_auth.FlutterFacebookAuthPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.fluttercandies.flutter_image_compress.ImageCompressPlugin());
@@ -121,9 +116,14 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin flutter_keyboard_visibility, com.jrai.flutter_keyboard_visibility.FlutterKeyboardVisibilityPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new com.flutter.logs.plogs.flutter_logs.FlutterLogsPlugin());
+      flutterEngine.getPlugins().add(new com.flutter.logs.plogs.flutter_logs_yoer.FlutterLogsYoerPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_logs, com.flutter.logs.plogs.flutter_logs.FlutterLogsPlugin", e);
+      Log.e(TAG, "Error registering plugin flutter_logs_yoer, com.flutter.logs.plogs.flutter_logs_yoer.FlutterLogsYoerPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new net.jonhanson.flutter_native_splash.FlutterNativeSplashPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin flutter_native_splash, net.jonhanson.flutter_native_splash.FlutterNativeSplashPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin());
@@ -134,6 +134,11 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new io.inway.ringtone.player.FlutterRingtonePlayerPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_ringtone_player, io.inway.ringtone.player.FlutterRingtonePlayerPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.it_nomads.fluttersecurestorage.FlutterSecureStoragePlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin flutter_secure_storage, com.it_nomads.fluttersecurestorage.FlutterSecureStoragePlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new xyz.canardoux.fluttersound.FlutterSound());
@@ -226,9 +231,19 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin photo_manager, com.fluttercandies.photo_manager.PhotoManagerPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new dev.jeremyko.proximity_sensor.ProximitySensorPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin proximity_sensor, dev.jeremyko.proximity_sensor.ProximitySensorPlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new com.revenuecat.purchases_flutter.PurchasesFlutterPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin purchases_flutter, com.revenuecat.purchases_flutter.PurchasesFlutterPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.aaassseee.screen_brightness_android.ScreenBrightnessAndroidPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin screen_brightness_android, com.aaassseee.screen_brightness_android.ScreenBrightnessAndroidPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new dev.fluttercommunity.plus.sensors.SensorsPlugin());
@@ -304,6 +319,16 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new com.zegocloud.uikit.call_plugin.ZegoUIKitCallPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin zego_uikit_prebuilt_call, com.zegocloud.uikit.call_plugin.ZegoUIKitCallPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.zegocloud.uikit.prebuilt_live_audio_room.ZegoUIKitPrebuiltLiveAudioRoomPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin zego_uikit_prebuilt_live_audio_room, com.zegocloud.uikit.prebuilt_live_audio_room.ZegoUIKitPrebuiltLiveAudioRoomPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.zegocloud.uikit.prebuilt_live_streaming.ZegoUIKitPrebuiltLiveStreamingPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin zego_uikit_prebuilt_live_streaming, com.zegocloud.uikit.prebuilt_live_streaming.ZegoUIKitPrebuiltLiveStreamingPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.zegocloud.uikit.flutter.signal_plugin.zego_uikit_signaling_plugin.ZegoUikitSignalingPlugin());

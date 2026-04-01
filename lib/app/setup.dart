@@ -23,7 +23,7 @@ class Setup {
 
   // App config
   static final bool isCallsEnabled = true;
-  static final String streamingProviderType = 'agora'; // webrtc
+  static final String streamingProviderType = 'zego'; // webrtc
   static final String streamingProviderKey = '4378c88fc9874782b76be012f3ba339a';
 
 

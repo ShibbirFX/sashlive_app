@@ -6451,7 +6451,7 @@ class QuickHelp {
     }
 
     if (DateTime.now().millisecondsSinceEpoch -
-            dateTime!.millisecondsSinceEpoch >
+            dateTime.millisecondsSinceEpoch >
         timeToOffline) {
       // offline
       return "offline_".tr();
@@ -6476,7 +6476,7 @@ class QuickHelp {
     }
 
     if (DateTime.now().millisecondsSinceEpoch -
-            dateTime!.millisecondsSinceEpoch >
+            dateTime.millisecondsSinceEpoch >
         timeToOffline) {
       // offline
       return "offline_".tr();
@@ -6496,7 +6496,7 @@ class QuickHelp {
     }
 
     if (DateTime.now().millisecondsSinceEpoch -
-            dateTime!.millisecondsSinceEpoch >
+            dateTime.millisecondsSinceEpoch >
         timeToOffline) {
       // offline
       return false;

@@ -29,7 +29,7 @@ class LiveViewersModel extends ParseObject implements ParseCloneable {
 
   bool? get getWatching {
     bool? isWatching = get<bool>(keyWatching);
-    if(isWatching!) {
+    if(isWatching) {
       return isWatching;
     }else{
       return false;

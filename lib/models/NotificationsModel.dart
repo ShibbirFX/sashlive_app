@@ -61,12 +61,8 @@ class NotificationsModel extends ParseObject implements ParseCloneable {
 
   bool? get isRead {
     bool? read = get<bool>(keyRead);
-    if(read != null){
-      return read;
-    } else {
-      return false;
+    return read;
     }
-  }
   set setRead(bool read) => set<bool>(keyRead, read);
 
   LiveStreamingModel? get getLive => get<LiveStreamingModel>(keyLive);

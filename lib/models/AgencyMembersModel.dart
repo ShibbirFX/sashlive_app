@@ -43,132 +43,88 @@ class AgencyMembersModel extends ParseObject implements ParseCloneable {
   int? get getMatchingDuration {
 
     int? partyCrownDuration = get<int>(keyMatchingDuration);
-    if(partyCrownDuration != null){
-      return partyCrownDuration;
-    } else {
-      return 0;
+    return partyCrownDuration;
     }
-  }
   set setMatchingDuration(int matchingDuration) => setIncrement(keyMatchingDuration, matchingDuration);
   set removeMatchingDuration(int matchingDuration) => setDecrement(keyMatchingDuration, matchingDuration);
 
   int? get getPartyCrownDuration {
 
     int? partyCrownDuration = get<int>(keyPartyCrownDuration);
-    if(partyCrownDuration != null){
-      return partyCrownDuration;
-    } else {
-      return 0;
+    return partyCrownDuration;
     }
-  }
   set setPartyCrownDuration(int partyCrownDuration) => setIncrement(keyPartyCrownDuration, partyCrownDuration);
   set removePartyCrownDuration(int partyCrownDuration) => setDecrement(keyPartyCrownDuration, partyCrownDuration);
 
   int? get getPartyHostDuration {
 
     int? partyHostDuration = get<int>(keyPartyHostDuration);
-    if(partyHostDuration != null){
-      return partyHostDuration;
-    } else {
-      return 0;
+    return partyHostDuration;
     }
-  }
   set setPartyHostDuration(int partyHostDuration) => setIncrement(keyPartyHostDuration, partyHostDuration);
   set removePartyHostDuration(int partyHostDuration) => setDecrement(keyPartyHostDuration, partyHostDuration);
 
   int? get getLiveDuration {
 
     int? liveDuration = get<int>(keyLiveDuration);
-    if(liveDuration != null){
-      return liveDuration;
-    } else {
-      return 0;
+    return liveDuration;
     }
-  }
   set setLiveDuration(int liveDuration) => setIncrement(keyLiveDuration, liveDuration);
   set removeLiveDuration(int liveDuration) => setDecrement(keyLiveDuration, liveDuration);
 
   int? get getPCoinEarnings {
 
     int? totalEarningPoints = get<int>(keyPCoinEarnings);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setPCoinEarnings(int pCoinEarnings) => setIncrement(keyPCoinEarnings, pCoinEarnings);
   set removePCoinEarnings(int pCoinEarnings) => setDecrement(keyPCoinEarnings, pCoinEarnings);
 
   int? get getPlatformReward {
 
     int? totalEarningPoints = get<int>(keyPlatformReward);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setPlatformReward(int platformReward) => setIncrement(keyPlatformReward, platformReward);
   set removePlatformReward(int platformReward) => setDecrement(keyPlatformReward, platformReward);
 
   int? get getGameGratuities {
 
     int? totalEarningPoints = get<int>(keyGameGratuities);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setGameGratuities(int gameGratuities) => setIncrement(keyGameGratuities, gameGratuities);
   set removeGameGratuities(int gameGratuities) => setDecrement(keyGameGratuities, gameGratuities);
 
   int? get getPartyEarning {
 
     int? totalEarningPoints = get<int>(keyPartyEarning);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setPartyEarning(int partyEarning) => setIncrement(keyPartyEarning, partyEarning);
   set removePartyEarning(int partyEarning) => setDecrement(keyPartyEarning, partyEarning);
 
   int? get getMatchEarning {
 
     int? totalEarningPoints = get<int>(keyMatchEarning);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setMatchEarning(int matchEarning) => setIncrement(keyMatchEarning, matchEarning);
   set removeMatchEarning(int matchEarning) => setDecrement(keyMatchEarning, matchEarning);
 
   int? get getLiveEarning {
 
     int? totalEarningPoints = get<int>(keyLiveEarning);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setLiveEarning(int liveEarning) => setIncrement(keyLiveEarning, liveEarning);
   set removeLiveEarning(int liveEarning) => setDecrement(keyLiveEarning, liveEarning);
 
   int? get getTotalEarningPoints {
 
     int? totalEarningPoints = get<int>(keyTotalEarningPoints);
-    if(totalEarningPoints != null){
-      return totalEarningPoints;
-    } else {
-      return 0;
+    return totalEarningPoints;
     }
-  }
   set setTotalEarningPoints(int totalEarningPoints) => setIncrement(keyTotalEarningPoints, totalEarningPoints);
   set removeTotalEarningPoints(int totalEarningPoints) => setDecrement(keyTotalEarningPoints, totalEarningPoints);
 
@@ -189,12 +145,8 @@ class AgencyMembersModel extends ParseObject implements ParseCloneable {
 
   int? get getLevel {
     int? level = get<int>(keyLevel);
-    if(level != null) {
-      return level;
-    }else{
-      return 0;
+    return level;
     }
-  }
   set setLevel(int level) => set<int>(keyLevel, level);
 
 }

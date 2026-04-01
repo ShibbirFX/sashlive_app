@@ -119,6 +119,22 @@
 		<string>SashLive need to access your photos, to change profile picture, make new post or reels</string>
 		<key>NSUserTrackingUsageDescription</key>
 		<string>We need your identifier and it will be used to deliver personalized ads to you.</string>
+        <key>NSContactsUsageDescription</key>
+        <string>SashLive need to access your contacts to find friends</string>
+        <key>branch_key</key>
+        <dict>
+            <key>live</key>
+            <string>key_live_kDdNRd1EOM6GWRUbbTQEsmbpszjlzHsz</string>
+            <key>test</key>
+            <string>key_test_oAaUPcXvKSXO8SKldMPsCcelEydlwMtQ</string>
+        </dict>
+        <key>branch_universal_link_domains</key>
+        <array>
+            <string>uj392.app.link</string>
+            <string>uj392-alternate.app.link</string>
+            <string>uj392.test-app.link</string>
+            <string>uj392-alternate.test-app.link</string>
+        </array>
 		<key>SKAdNetworkItems</key>
 		<array>
 			<dict>
@@ -333,8 +349,6 @@
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
-		<key>UIStatusBarHidden</key>
-		<false/>
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>

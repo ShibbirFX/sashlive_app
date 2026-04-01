@@ -43,12 +43,8 @@ class InvitedUsersModel extends ParseObject implements ParseCloneable {
   int? get getDiamonds {
 
     int? token = get<int>(keyDiamonds);
-    if(token != null){
-      return token;
-    } else {
-      return 0;
+    return token;
     }
-  }
   set addDiamonds(int diamonds) => setIncrement(keyDiamonds, diamonds);
 
 }

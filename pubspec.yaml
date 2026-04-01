@@ -14,18 +14,17 @@ dependencies:
 
   #Default
   cupertino_icons: ^1.0.5
-  google_fonts: ^4.0.5
+  google_fonts: ^8.0.2
 
   #Images
-  flutter_svg: ^2.0.9
-  cached_network_image: ^3.3.0
-  image_cropper: ^8.0.2
-  blur: ^3.1.0
-  video_editor: ^2.4.0
-  #video_editor: ^3.0.0
-  wechat_camera_picker: ^4.3.0
-  wechat_assets_picker: ^10.0.0
-  flutter_image_compress: ^2.1.0
+  flutter_svg: ^2.0.10
+  cached_network_image: ^3.3.1
+  image_cropper: ^12.1.1
+  blur: ^4.0.2
+  video_editor: ^3.0.0
+  wechat_camera_picker: ^4.3.3
+  wechat_assets_picker: ^10.1.1
+  flutter_image_compress: ^2.2.0
   mime: ^1.0.4
   preload_page_view: ^0.2.0
   like_button: ^2.0.5
@@ -34,17 +33,14 @@ dependencies:
   path_provider: ^2.1.3
   video_player: ^2.9.1
   flutter_sound: ^9.9.5
-  flutter_slider_drawer: ^2.1.3
-  flutter_app_version_checker: ^0.3.2
+  flutter_slider_drawer: ^3.0.2
   image_picker: ^1.0.4
   custom_zoom_widget: ^0.0.3
   video_thumbnail: ^0.5.3
   video_compress: ^3.1.2
-  #photo_manager: ^2.8.1
   photo_manager_image_provider: ^2.1.0
-  image_picker_web: ^3.1.1
+  image_picker_web: ^4.0.0
   universal_io: ^2.2.2
-  #ffmpeg_kit_flutter: ^6.0.3-LTS
   encrypt: ^5.0.3
 
   #Backend
@@ -55,19 +51,19 @@ dependencies:
 
   #Utilities
   easy_localization: ^3.0.7
-  webview_flutter: ^4.2.1
-  url_launcher: ^6.1.11
+  webview_flutter: ^4.7.0
+  url_launcher: ^6.2.6
   universal_platform: ^1.1.0
-  devicelocale: ^0.7.1
-  permission_handler: ^12.0.0
+  devicelocale: ^0.8.2
+  permission_handler: ^12.0.1
   share_plus: ^12.0.0
-  stop_watch_timer: ^2.0.0
+  stop_watch_timer: ^3.2.2
   fade_shimmer: ^2.2.0
-  calendar_date_picker2: ^0.5.2
-  circular_menu: ^2.0.1
+  calendar_date_picker2: ^2.0.1
+  circular_menu: ^4.0.0
   flutter_keyboard_visibility: ^5.4.1
   text_scroll: ^0.2.0
-  emoji_picker_flutter: ^3.1.0
+  emoji_picker_flutter: ^4.0.0
   flip_card: ^0.7.0
   flutter_animation_progress_bar: ^2.3.1
   flutter_cache_manager: ^3.3.0
@@ -75,8 +71,8 @@ dependencies:
   auto_size_text_plus: ^3.0.1
   vibration: ^3.1.3
   quickalert: ^1.0.2
-  dropdown_button2: ^2.3.9
-  linear_progress_bar: ^1.1.0
+  dropdown_button2: ^3.0.0
+  linear_progress_bar: ^3.0.0
   device_info_plus: ^11.5.0
   flutter_branch_sdk: ^8.2.0
   js: ^0.7.1
@@ -101,51 +97,46 @@ dependencies:
   auto_size_text_field: ^2.2.1
 
   #Live Streaming
-  zego_uikit: ^2.27.16
+  zego_uikit: ^2.28.42
   zego_uikit_prebuilt_live_streaming: ^3.15.6
   zego_uikit_signaling_plugin: ^2.8.20
   zego_uikit_prebuilt_live_audio_room: ^3.15.2
   zego_uikit_prebuilt_call: ^4.16.12
 
   #Geo data and phone helper
-  pin_code_fields: ^8.0.1
-  geolocator: ^9.0.2
-  geocoding: ^3.0.0
-  location: ^7.0.0
-  location_web: ^5.0.3
+  pin_code_fields: ^9.3.0
+  geolocator: ^14.0.2
+  geocoding: ^4.0.0
+  location: ^8.0.1
+  location_web: ^6.0.1
 
   #Animations and icons
-  #flutter_icons: ^1.1.0
-  #lottie: ^2.3.2
-  lottie: ^1.4.2
+  lottie: ^3.1.0
+  logging: ^1.2.0
   svgaplayer_flutter_rhr: ^2.2.1
   transparent_image: ^2.0.1
 
   #Firebase
-  firebase_core: ^3.6.0
-  firebase_messaging: ^15.1.3
-  firebase_analytics: ^11.3.3
-  firebase_performance: ^0.10.0+8
-  firebase_crashlytics: ^4.1.3
-  firebase_auth_web: ^5.13.2
-  firebase_auth_platform_interface: ^7.4.7
-
-  #web
-  web: ^1.0.0
+  firebase_core: ^4.6.0
+  firebase_messaging: ^16.1.3
+  firebase_analytics: ^12.2.0
+  firebase_performance: ^0.11.2
+  firebase_crashlytics: ^5.1.0
+  firebase_auth_web: ^6.1.4
+  firebase_auth_platform_interface: ^8.1.8
 
   #push notifications
   another_flushbar: ^1.12.30
-  onesignal_flutter: ^5.2.2
-  #flutter_local_notifications: ^18.0.0
+  onesignal_flutter: ^5.2.0
 
   #Social login
-  firebase_auth: ^5.3.1
-  google_sign_in: ^6.2.1
-  facebook_login: ^0.2.0
-  sign_in_with_apple: ^6.1.3
+  firebase_auth: ^6.3.0
+  google_sign_in: ^7.2.0
+  flutter_facebook_auth: ^7.1.6
+  sign_in_with_apple: ^7.0.1
 
   #payments:
-  purchases_flutter: ^6.30.1
+  purchases_flutter: ^9.15.1
 
   # fake name
   faker: ^2.1.0
@@ -154,7 +145,7 @@ dependencies:
   flutter_animate: ^4.5.0
 
   #Ads
-  google_mobile_ads: ^5.1.0
+  google_mobile_ads: ^7.0.0
   app_tracking_transparency: ^2.0.4
 
   #video editing
@@ -169,7 +160,7 @@ dependencies:
   expandable_text: ^2.3.0
 
   #Ads in Videos
-  interactive_media_ads: ^0.2.1
+  interactive_media_ads: ^0.3.0+13
 
 dev_dependencies:
   flutter_native_splash: ^2.4.1
@@ -190,19 +181,15 @@ flutter:
     - assets/countries/
 
 dependency_overrides:
-  package_info_plus: ^4.1.0
   uuid: ^4.4.0
-  parse_server_sdk: ^7.0.0
-  # web: ^0.5.1
-  #parse_server_sdk: ^7.0.0
   js: ^0.7.1
-  dio: ^5.3.2
+  dio: ^5.4.3
   intl: ^0.19.0
-  http: ^1.0.0
-  win32: ^5.4.0
-  #photo_manager: ^3.0.0-dev.2
-  photo_manager: ^3.6.1
-  archive: ^4.0.7
+  http: ^1.2.1
+  win32: ^5.5.0
+  photo_manager: ^3.0.0
+  archive: ^3.5.1
+  package_info_plus: ^8.0.0
   
 flutter_native_splash:
   color: "#ffffff"

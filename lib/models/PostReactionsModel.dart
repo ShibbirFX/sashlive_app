@@ -45,7 +45,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> totalReaction = [];
 
     List<dynamic>? totalReactions = get<List<dynamic>>(keyTotalReactions);
-    if (totalReactions != null && totalReactions.isNotEmpty) {
+    if (totalReactions.isNotEmpty) {
       return totalReactions;
     } else {
       return totalReaction;
@@ -62,7 +62,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> supportive = [];
 
     List<dynamic>? supportives = get<List<dynamic>>(keySupportive);
-    if (supportives != null && supportives.isNotEmpty) {
+    if (supportives.isNotEmpty) {
       return supportives;
     } else {
       return supportive;
@@ -79,7 +79,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> admire = [];
 
     List<dynamic>? admires = get<List<dynamic>>(keyAdmire);
-    if (admires != null && admires.isNotEmpty) {
+    if (admires.isNotEmpty) {
       return admires;
     } else {
       return admire;
@@ -96,7 +96,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> laugh = [];
 
     List<dynamic>? laughs = get<List<dynamic>>(keyLaugh);
-    if (laughs != null && laughs.isNotEmpty) {
+    if (laughs.isNotEmpty) {
       return laughs;
     } else {
       return laugh;
@@ -111,7 +111,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> like = [];
 
     List<dynamic>? likes = get<List<dynamic>>(keyLikes);
-    if (likes != null && likes.isNotEmpty) {
+    if (likes.isNotEmpty) {
       return likes;
     } else {
       return like;
@@ -126,7 +126,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> loves = [];
 
     List<dynamic>? lovesList = get<List<dynamic>>(keyLoves);
-    if (lovesList != null && lovesList.isNotEmpty) {
+    if (lovesList.isNotEmpty) {
       return lovesList;
     } else {
       return loves;
@@ -141,7 +141,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> angry = [];
 
     List<dynamic>? angryList = get<List<dynamic>>(keyAngry);
-    if (angryList != null && angryList.isNotEmpty) {
+    if (angryList.isNotEmpty) {
       return angryList;
     } else {
       return angry;
@@ -156,7 +156,7 @@ class PostReactionsModel extends ParseObject implements ParseCloneable {
     List<dynamic> sad = [];
 
     List<dynamic>? sadList = get<List<dynamic>>(keySad);
-    if (sadList != null && sadList.isNotEmpty) {
+    if (sadList.isNotEmpty) {
       return sadList;
     } else {
       return sad;

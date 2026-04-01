@@ -54,12 +54,6 @@
 @import emoji_picker_flutter;
 #endif
 
-#if __has_include(<ffmpeg_kit_flutter_min_gpl/FFmpegKitFlutterPlugin.h>)
-#import <ffmpeg_kit_flutter_min_gpl/FFmpegKitFlutterPlugin.h>
-#else
-@import ffmpeg_kit_flutter_min_gpl;
-#endif
-
 #if __has_include(<file_picker/FilePickerPlugin.h>)
 #import <file_picker/FilePickerPlugin.h>
 #else
@@ -96,16 +90,10 @@
 @import firebase_messaging;
 #endif
 
-#if __has_include(<firebase_performance/FLTFirebasePerformancePlugin.h>)
-#import <firebase_performance/FLTFirebasePerformancePlugin.h>
+#if __has_include(<firebase_performance/FirebasePerformancePlugin.h>)
+#import <firebase_performance/FirebasePerformancePlugin.h>
 #else
 @import firebase_performance;
-#endif
-
-#if __has_include(<flutter_app_version_checker/FlutterAppVersionCheckerPlugin.h>)
-#import <flutter_app_version_checker/FlutterAppVersionCheckerPlugin.h>
-#else
-@import flutter_app_version_checker;
 #endif
 
 #if __has_include(<flutter_branch_sdk/FlutterBranchSdkPlugin.h>)
@@ -114,10 +102,16 @@
 @import flutter_branch_sdk;
 #endif
 
-#if __has_include(<flutter_callkit_incoming_yoer/FlutterCallkitIncomingPlugin.h>)
-#import <flutter_callkit_incoming_yoer/FlutterCallkitIncomingPlugin.h>
+#if __has_include(<flutter_callkit_incoming/FlutterCallkitIncomingPlugin.h>)
+#import <flutter_callkit_incoming/FlutterCallkitIncomingPlugin.h>
 #else
-@import flutter_callkit_incoming_yoer;
+@import flutter_callkit_incoming;
+#endif
+
+#if __has_include(<flutter_facebook_auth/FlutterFacebookAuthPlugin.h>)
+#import <flutter_facebook_auth/FlutterFacebookAuthPlugin.h>
+#else
+@import flutter_facebook_auth;
 #endif
 
 #if __has_include(<flutter_image_compress_common/ImageCompressPlugin.h>)
@@ -132,16 +126,28 @@
 @import flutter_keyboard_visibility;
 #endif
 
-#if __has_include(<flutter_logs/FlutterLogsPlugin.h>)
-#import <flutter_logs/FlutterLogsPlugin.h>
+#if __has_include(<flutter_logs_yoer/FlutterLogsYoerPlugin.h>)
+#import <flutter_logs_yoer/FlutterLogsYoerPlugin.h>
 #else
-@import flutter_logs;
+@import flutter_logs_yoer;
+#endif
+
+#if __has_include(<flutter_native_splash/FlutterNativeSplashPlugin.h>)
+#import <flutter_native_splash/FlutterNativeSplashPlugin.h>
+#else
+@import flutter_native_splash;
 #endif
 
 #if __has_include(<flutter_ringtone_player/FlutterRingtonePlayerPlugin.h>)
 #import <flutter_ringtone_player/FlutterRingtonePlayerPlugin.h>
 #else
 @import flutter_ringtone_player;
+#endif
+
+#if __has_include(<flutter_secure_storage_darwin/FlutterSecureStorageDarwinPlugin.h>)
+#import <flutter_secure_storage_darwin/FlutterSecureStorageDarwinPlugin.h>
+#else
+@import flutter_secure_storage_darwin;
 #endif
 
 #if __has_include(<flutter_sound/FlutterSound.h>)
@@ -252,10 +258,22 @@
 @import photo_manager;
 #endif
 
+#if __has_include(<proximity_sensor/ProximitySensorPlugin.h>)
+#import <proximity_sensor/ProximitySensorPlugin.h>
+#else
+@import proximity_sensor;
+#endif
+
 #if __has_include(<purchases_flutter/PurchasesFlutterPlugin.h>)
 #import <purchases_flutter/PurchasesFlutterPlugin.h>
 #else
 @import purchases_flutter;
+#endif
+
+#if __has_include(<screen_brightness_ios/ScreenBrightnessIosPlugin.h>)
+#import <screen_brightness_ios/ScreenBrightnessIosPlugin.h>
+#else
+@import screen_brightness_ios;
 #endif
 
 #if __has_include(<sensors_plus/FPPSensorsPlusPlugin.h>)
@@ -354,6 +372,18 @@
 @import zego_uikit_prebuilt_call;
 #endif
 
+#if __has_include(<zego_uikit_prebuilt_live_audio_room/ZegoUIKitPrebuiltLiveAudioRoomPlugin.h>)
+#import <zego_uikit_prebuilt_live_audio_room/ZegoUIKitPrebuiltLiveAudioRoomPlugin.h>
+#else
+@import zego_uikit_prebuilt_live_audio_room;
+#endif
+
+#if __has_include(<zego_uikit_prebuilt_live_streaming/ZegoUIKitPrebuiltLiveStreamingPlugin.h>)
+#import <zego_uikit_prebuilt_live_streaming/ZegoUIKitPrebuiltLiveStreamingPlugin.h>
+#else
+@import zego_uikit_prebuilt_live_streaming;
+#endif
+
 #if __has_include(<zego_uikit_signaling_plugin/ZegoUikitSignalingPlugin.h>)
 #import <zego_uikit_signaling_plugin/ZegoUikitSignalingPlugin.h>
 #else
@@ -383,21 +413,22 @@
   [FPPDeviceInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPDeviceInfoPlusPlugin"]];
   [DevicelocalePlugin registerWithRegistrar:[registry registrarForPlugin:@"DevicelocalePlugin"]];
   [EmojiPickerFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"EmojiPickerFlutterPlugin"]];
-  [FFmpegKitFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"FFmpegKitFlutterPlugin"]];
   [FilePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FilePickerPlugin"]];
   [FirebaseAnalyticsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FirebaseAnalyticsPlugin"]];
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];
   [FLTFirebaseCrashlyticsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCrashlyticsPlugin"]];
   [FLTFirebaseMessagingPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseMessagingPlugin"]];
-  [FLTFirebasePerformancePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebasePerformancePlugin"]];
-  [FlutterAppVersionCheckerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterAppVersionCheckerPlugin"]];
+  [FirebasePerformancePlugin registerWithRegistrar:[registry registrarForPlugin:@"FirebasePerformancePlugin"]];
   [FlutterBranchSdkPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterBranchSdkPlugin"]];
   [FlutterCallkitIncomingPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterCallkitIncomingPlugin"]];
+  [FlutterFacebookAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterFacebookAuthPlugin"]];
   [ImageCompressPlugin registerWithRegistrar:[registry registrarForPlugin:@"ImageCompressPlugin"]];
   [FlutterKeyboardVisibilityPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterKeyboardVisibilityPlugin"]];
-  [FlutterLogsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterLogsPlugin"]];
+  [FlutterLogsYoerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterLogsYoerPlugin"]];
+  [FlutterNativeSplashPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterNativeSplashPlugin"]];
   [FlutterRingtonePlayerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterRingtonePlayerPlugin"]];
+  [FlutterSecureStorageDarwinPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterSecureStorageDarwinPlugin"]];
   [FlutterSound registerWithRegistrar:[registry registrarForPlugin:@"FlutterSound"]];
   [FlutterVolumeControllerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterVolumeControllerPlugin"]];
   [GeocodingPlugin registerWithRegistrar:[registry registrarForPlugin:@"GeocodingPlugin"]];
@@ -416,7 +447,9 @@
   [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
   [PhotoManagerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PhotoManagerPlugin"]];
+  [ProximitySensorPlugin registerWithRegistrar:[registry registrarForPlugin:@"ProximitySensorPlugin"]];
   [PurchasesFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"PurchasesFlutterPlugin"]];
+  [ScreenBrightnessIosPlugin registerWithRegistrar:[registry registrarForPlugin:@"ScreenBrightnessIosPlugin"]];
   [FPPSensorsPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPSensorsPlusPlugin"]];
   [FPPSharePlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPSharePlusPlugin"]];
   [SharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"SharedPreferencesPlugin"]];
@@ -433,6 +466,8 @@
   [ZegoExpressEnginePlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoExpressEnginePlugin"]];
   [ZegoUikitPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoUikitPlugin"]];
   [ZegoUIKitCallPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoUIKitCallPlugin"]];
+  [ZegoUIKitPrebuiltLiveAudioRoomPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoUIKitPrebuiltLiveAudioRoomPlugin"]];
+  [ZegoUIKitPrebuiltLiveStreamingPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoUIKitPrebuiltLiveStreamingPlugin"]];
   [ZegoUikitSignalingPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoUikitSignalingPlugin"]];
   [ZegoZimPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoZimPlugin"]];
   [ZegoZpnsPlugin registerWithRegistrar:[registry registrarForPlugin:@"ZegoZpnsPlugin"]];

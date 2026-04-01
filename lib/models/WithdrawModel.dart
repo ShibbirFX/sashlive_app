@@ -76,12 +76,8 @@ class WithdrawModel extends ParseObject implements ParseCloneable {
   set setDiamonds(int diamonds) => setIncrement(keyTokens, diamonds);
   int? get getDiamonds {
     int? diamond = get<int>(keyTokens);
-    if(diamond != null){
-      return diamond;
-    } else {
-      return 0;
+    return diamond;
     }
-  }
 
   set setCredit(double amount) => setIncrement(keyAmount, amount);
   dynamic get getCredit {
@@ -96,12 +92,8 @@ class WithdrawModel extends ParseObject implements ParseCloneable {
   set setCompleted(bool completed) => set<bool>(keyCompleted, completed);
   bool? get getCompleted{
     bool? completed = get<bool>(keyCompleted);
-    if(completed != null){
-      return completed;
-    }else{
-      return true;
+    return completed;
     }
-  }
 
   String? get getStatus => get<String>(keyStatus);
   set setStatus(String status) => set<String>(keyStatus, status);

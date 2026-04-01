@@ -80,7 +80,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Future<void> googleLogin() async {
     try {
       GoogleSignInAccount? account = await _googleSignIn.signIn();
-      GoogleSignInAuthentication authentication = await account!.authentication;
+      GoogleSignInAuthentication authentication = await account.authentication;
 
       QuickHelp.showLoadingDialog(context);
 
@@ -136,7 +136,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       UserModel user, GoogleSignInAccount googleUser, String idToken) async {
     Map<String, dynamic>? idMap = QuickHelp.getInfoFromToken(idToken);
 
-    String firstName = idMap!["given_name"];
+    String firstName = idMap["given_name"];
     String lastName = idMap["family_name"];
 
     String username =

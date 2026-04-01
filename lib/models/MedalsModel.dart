@@ -66,7 +66,7 @@ class MedalsModel extends ParseObject implements ParseCloneable {
     List<dynamic> save = [];
 
     List<dynamic>? images = get<List<dynamic>>(keyImagesList);
-    if (images != null && images.length > 0) {
+    if (images.length > 0) {
       return images;
     } else {
       return save;
@@ -95,22 +95,14 @@ class MedalsModel extends ParseObject implements ParseCloneable {
 
   String? get getDescription {
     String? description = get<String>(keyDescription);
-    if(description != null){
-      return description;
-    }else{
-      return "";
+    return description;
     }
-  }
   set setDescription(String description) => set<String>(keyDescription, description);
 
   String? get getState {
     String? state = get<String>(keyState);
-    if(state != null){
-      return state;
-    }else{
-      return "";
+    return state;
     }
-  }
 
 
   set setState(String state) => set<String>(keyState, state);

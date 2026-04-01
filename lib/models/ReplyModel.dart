@@ -33,7 +33,7 @@ class ReplyModel extends ParseObject implements ParseCloneable {
     List<dynamic> like = [];
 
     List<dynamic>? likes = get<List<dynamic>>(keyLikes);
-    if (likes != null && likes.isNotEmpty) {
+    if (likes.isNotEmpty) {
       return likes;
     } else {
       return like;
@@ -47,7 +47,7 @@ class ReplyModel extends ParseObject implements ParseCloneable {
     List<dynamic> loves = [];
 
     List<dynamic>? lovesList = get<List<dynamic>>(keyLoves);
-    if (lovesList != null && lovesList.isNotEmpty) {
+    if (lovesList.isNotEmpty) {
       return lovesList;
     } else {
       return loves;
@@ -61,7 +61,7 @@ class ReplyModel extends ParseObject implements ParseCloneable {
     List<dynamic> angry = [];
 
     List<dynamic>? angryList = get<List<dynamic>>(keyAngry);
-    if (angryList != null && angryList.isNotEmpty) {
+    if (angryList.isNotEmpty) {
       return angryList;
     } else {
       return angry;
@@ -75,7 +75,7 @@ class ReplyModel extends ParseObject implements ParseCloneable {
     List<dynamic> sad = [];
 
     List<dynamic>? sadList = get<List<dynamic>>(keySad);
-    if (sadList != null && sadList.isNotEmpty) {
+    if (sadList.isNotEmpty) {
       return sadList;
     } else {
       return sad;

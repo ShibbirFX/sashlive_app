@@ -727,7 +727,7 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
       final preview = await result.first.thumbnailData;
 
       String? mimeStr = lookupMimeType(file!.path);
-      var fileType = mimeStr!.split('/');
+      var fileType = mimeStr.split('/');
 
       print('Selected file type $fileType');
 
@@ -743,39 +743,37 @@ class _CreateVideoPostScreenState extends State<CreateVideoPostScreen> {
         await QuickHelp.goToNavigatorScreenForResult(
             context, VideoEditorScreen(file: file));
 
-    if (videoEditorModel != null) {
-      print("Exported cover received ${videoEditorModel.coverPath}");
-      print("Exported Video received ${videoEditorModel.getVideoFile()!.path}");
+    print("Exported cover received ${videoEditorModel.coverPath}");
+    print("Exported Video received ${videoEditorModel.getVideoFile()!.path}");
 
-      videoFile = videoEditorModel.getVideoFile();
+    videoFile = videoEditorModel.getVideoFile();
 
-      final tempDir = await getTemporaryDirectory();
-      DateTime date = DateTime.now();
+    final tempDir = await getTemporaryDirectory();
+    DateTime date = DateTime.now();
 
-      String videoThumbnailName =
-          'thumbnail_${date.second}_${date.millisecond}.jpg';
+    String videoThumbnailName =
+        'thumbnail_${date.second}_${date.millisecond}.jpg';
 
-      File videoThumbnailFile = File('${tempDir.path}/$videoThumbnailName');
+    File videoThumbnailFile = File('${tempDir.path}/$videoThumbnailName');
 
-      await videoThumbnailFile
-          .writeAsBytes(await File(videoEditorModel.coverPath!).readAsBytes());
+    await videoThumbnailFile
+        .writeAsBytes(await File(videoEditorModel.coverPath!).readAsBytes());
 
-      parseVideoThumbnailFile =
-          ParseFile(File(videoEditorModel.coverPath!), name: "thumbnail.jpg");
+    parseVideoThumbnailFile =
+        ParseFile(File(videoEditorModel.coverPath!), name: "thumbnail.jpg");
 
-      setState(() {
-        selectedVideos.add(videoThumbnailFile);
-      });
+    setState(() {
+      selectedVideos.add(videoThumbnailFile);
+    });
 
-      if (selectedVideos[0].absolute.path.isNotEmpty) {
-        parseVideoFile = ParseFile(File(videoFile!.absolute.path),
-            name: "video_${date.second}_${date.millisecond}.mp4");
-      } else {
-        parseVideoFile = ParseWebFile(videoFile!.readAsBytesSync(),
-            name: "video_${date.second}_${date.millisecond}.pm4");
-      }
+    if (selectedVideos[0].absolute.path.isNotEmpty) {
+      parseVideoFile = ParseFile(File(videoFile!.absolute.path),
+          name: "video_${date.second}_${date.millisecond}.mp4");
+    } else {
+      parseVideoFile = ParseWebFile(videoFile!.readAsBytesSync(),
+          name: "video_${date.second}_${date.millisecond}.pm4");
     }
-  }
+    }
 
   /* _pickVideoFile() async {
     final List<AssetEntity>? result = await AssetPicker.pickAssets(

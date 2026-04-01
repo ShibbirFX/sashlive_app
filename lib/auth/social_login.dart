@@ -129,7 +129,7 @@ class SocialLogin {
   static Future<void> googleLogin(BuildContext context, SharedPreferences preferences) async {
     try {
       GoogleSignInAccount? account = await _googleSignIn.signIn();
-      GoogleSignInAuthentication authentication = await account!.authentication;
+      GoogleSignInAuthentication authentication = await account.authentication;
 
       QuickHelp.showLoadingDialog(context);
 
@@ -177,7 +177,7 @@ class SocialLogin {
       GoogleSignInAccount googleUser, String idToken, SharedPreferences preferences) async {
     Map<String, dynamic>? idMap = QuickHelp.getInfoFromToken(idToken);
 
-    String firstName = idMap!["given_name"];
+    String firstName = idMap["given_name"];
     String lastName = idMap["family_name"];
 
     String username =
@@ -258,7 +258,7 @@ class SocialLogin {
     String? fullName = '$firstName $lastName';
 
     String username =
-        lastName!.replaceAll(" ", "") + firstName!.replaceAll(" ", "");
+        lastName.replaceAll(" ", "") + firstName.replaceAll(" ", "");
 
     /*if(credentialAppleID.givenName == null){
       user.setNeedsChangeName = true;

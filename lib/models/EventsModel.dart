@@ -49,7 +49,7 @@ class EventsModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getFollowers {
 
     List<dynamic>? followers = get<List<dynamic>>(keyFollowers);
-    if (followers != null && followers.length > 0) {
+    if (followers.length > 0) {
       return followers;
     } else {
       return [];
@@ -69,59 +69,39 @@ class EventsModel extends ParseObject implements ParseCloneable {
 
   String? get getCategory {
     String? category = get(keyCategory);
-    if(category != null) {
-      return category;
-    }else{
-      return "";
+    return category;
     }
-  }
   set setCategory(String category) => set<String>(keyCategory, category);
 
   String? get getName {
     String? name = get(keyName);
-    if(name != null) {
-      return name;
-    }else{
-      return "";
+    return name;
     }
-  }
   set setName(String name) => set<String>(keyName, name);
 
   String? get getDescription {
     String? description = get(keyDescription);
-    if(description != null) {
-      return description;
-    }else{
-      return "";
+    return description;
     }
-  }
   set setDescription(String description) => set<String>(keyDescription, description);
 
   String? get getEventID {
     String? eventID = get(keyEventID);
-    if(eventID != null) {
-      return eventID;
-    }else{
-      return "";
+    return eventID;
     }
-  }
   set setEventID(String eventID) => set<String>(keyEventID, eventID);
 
   String? get getTags {
     String? text = get<String>(keyTags);
-    if(text != null){
-      return text;
-    } else {
-      return "";
+    return text;
     }
-  }
 
   set setTags(String text) => set<String>(keyTags, text);
 
   List<UserModel>? get getParticipants {
 
     List<UserModel>? participants = get<List<UserModel>>(keyParticipants);
-    if(participants != null && participants.length > 0){
+    if(participants.length > 0){
       return participants;
     } else {
       return [];
@@ -133,7 +113,7 @@ class EventsModel extends ParseObject implements ParseCloneable {
   List<dynamic>? get getParticipantIDs {
 
     List<dynamic>? participantsIDs = get<List<dynamic>>(keyParticipantID);
-    if (participantsIDs != null && participantsIDs.length > 0) {
+    if (participantsIDs.length > 0) {
       return participantsIDs;
     } else {
       return [];

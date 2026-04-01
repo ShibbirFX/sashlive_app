@@ -552,16 +552,14 @@ class _PhoneLoginScreenState extends State<PhoneLoginScreen> {
     QuickHelp.hideLoadingDialog(context);
 
     UserModel? currentUser = await ParseUser.currentUser();
-    if (currentUser != null) {
-      QuickHelp.goToNavigatorScreen(
-          context,
-          DispacheScreen(
-            currentUser: currentUser,
-          ),
-          finish: true,
-          back: false);
+    QuickHelp.goToNavigatorScreen(
+        context,
+        DispacheScreen(
+          currentUser: currentUser,
+        ),
+        finish: true,
+        back: false);
     }
-  }
 
   Widget phoneCodeInput() {
     Size size = MediaQuery.of(context).size;

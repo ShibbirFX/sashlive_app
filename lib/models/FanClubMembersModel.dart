@@ -40,12 +40,8 @@ class FanClubMembersModel extends ParseObject implements ParseCloneable {
 
   int? get getIntimacy {
     int? credit = get<int>(keyIntimacy);
-    if(credit != null) {
-      return credit;
-    }else{
-      return 0;
+    return credit;
     }
-  }
 
   set addIntimacy(int credits) => setIncrement(keyIntimacy, credits);
   set removeIntimacy(int credits){

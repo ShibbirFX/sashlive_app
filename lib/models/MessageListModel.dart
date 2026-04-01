@@ -54,7 +54,7 @@ class MessageListModel extends ParseObject implements ParseCloneable {
     List<dynamic> members = [];
 
     List<dynamic>? membersIDs = get<List<dynamic>>(keyMembersIDs);
-    if (membersIDs != null && membersIDs.isNotEmpty) {
+    if (membersIDs.isNotEmpty) {
       return membersIDs;
     } else {
       return members;

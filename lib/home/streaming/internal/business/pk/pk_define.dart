@@ -1,4 +1,3 @@
-import '../../../zego_sdk_manager.dart';
 
 class PKInviteSentResult {
   String requestID = '';

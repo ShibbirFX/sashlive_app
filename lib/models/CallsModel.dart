@@ -52,12 +52,8 @@ class CallsModel extends ParseObject implements ParseCloneable {
 
   String? get getDuration{
     String? duration = get<String>(keyDuration);
-    if(duration != null){
-      return duration;
-    }else{
-      return "00:00";
+    return duration;
     }
-  }
 
   set setDuration(String duration) => set<String>(keyDuration, duration);
 
@@ -65,23 +61,15 @@ class CallsModel extends ParseObject implements ParseCloneable {
 
   bool? get getAccepted{
     bool? accepted = get<bool>(keyAccepted);
-    if(accepted != null){
-      return accepted;
-    }else{
-      return true;
+    return accepted;
     }
-  }
 
   set setIsVoiceCall(bool accepted) => set<bool>(keyCallTypeVoice, accepted);
 
   bool? get getIsVoiceCall{
     bool? accepted = get<bool>(keyCallTypeVoice);
-    if(accepted != null){
-      return accepted;
-    }else{
-      return true;
+    return accepted;
     }
-  }
 
   String? get getCallEndReason => get<String>(keyCallEndReason);
   set setCallEndReason(String callEndReason) => set<String>(keyCallEndReason, callEndReason);
